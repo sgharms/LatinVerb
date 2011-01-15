@@ -1,6 +1,8 @@
 # encoding: UTF-8
 require "test/unit"
 require 'macronconversions/macronconversions'
+require 'latinverb/latinverb_classification_types'
+require 'latinverb/latinverb_classmethods.rb'
 require 'pp'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
@@ -33,13 +35,29 @@ class TestLatinVerb < Test::Unit::TestCase
       :@aThirdIOString => 'capiō capere cēpī capitum',
       :@aFourthString  => 'audiō audīre audīvī auditum',
     }
+
+    @verb_hash_classifications = {
+      :@aFirstString   => Linguistics::Latin::Verb::VerbTypes::First,
+      :@aSecondString  => Linguistics::Latin::Verb::VerbTypes::Second,
+      :@aThirdString   => Linguistics::Latin::Verb::VerbTypes::Third,
+      :@aThirdIOString => Linguistics::Latin::Verb::VerbTypes::ThirdIO,
+      :@aFourthString  => Linguistics::Latin::Verb::VerbTypes::Fourth
+    }
     
   end 
 
+  # Test the classifications
+  def test_classifications
+    @verb_hash_utf8_style.each_pair do |k,v|
+      assert_equal(@verb_hash_classifications[k],
+         Linguistics::Latin::Verb::LatinVerb.classify(v))
+    end
+  end
+
   # Tests to see if the string that was given was sufficient to successfully create a LatinVerb
-  def test_construction_validity
+  def TODO_test_construction_validity
     @verb_hash_utf8_style.each_pair do |k,s|
-      aVerb = Lingustics::Latin::Verb::LatinVerb.new s
+      aVerb = Linguistics::Latin::Verb::LatinVerb.new s
       assert_true aVerb.valid?
     end
   end
