@@ -1,5 +1,6 @@
 # encoding: UTF-8
 require "test/unit"
+require 'macronconversions/macronconversions'
 require 'pp'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
@@ -7,18 +8,55 @@ require 'latinverb'
 
 
 class TestLatinVerb < Test::Unit::TestCase
-  attr_writer :aFirst, :aSecond, :aThird, :aThirdIO, :aFourth
 
   def setup
     _create_paradigmatic_examples
   end
 
   def _create_paradigmatic_examples
+    @verb_hash_latex_style = { 
+      :@aFirstString   => %q{am\={o}   am\={a}re am\={a}v\={\i} amatum},
+      :@aSecondString  => %q{mone\={o} mon\={e}re monu\={\i} monitum},
+      :@aThirdString   => %q{ag\={o}   agere \={e}g\={\i} actum},
+      :@aThirdIOString => %q{capi\={o} capere c\={e}p\={\i} capitum},
+      :@aFourthString  => %q{audi\={o} aud\={\i}re aud\={\i}v\={\i} auditum}
+    }
+
+    @verb_hash_latex_style.each_pair do |k,v|
+      instance_variable_set k, v.gsub(/(\s)+/, "\\1")
+    end
+
+    @verb_hash_utf8_style = {
+      :@aFirstString   => 'amō amāre amāvī amatum', 
+      :@aSecondString  => 'moneō monēre monuī monitum',
+      :@aThirdString   => 'agō agere ēgī actum',
+      :@aThirdIOString => 'capiō capere cēpī capitum',
+      :@aFourthString  => 'audiō audīre audīvī auditum',
+    }
+    
   end 
+
+  # Tests to see if the string that was given was sufficient to successfully create a LatinVerb
+  def test_construction_validity
+    @verb_hash_utf8_style.each_pair do |k,s|
+      aVerb = Lingustics::Latin::Verb::LatinVerb.new s
+      assert_true aVerb.valid?
+    end
+  end
 
   # Make sure that the dependencies are working so that we know the
   # paradigmatic examples get created safely.
   def test_macron_conversions
+    assert_equal('amō amāre amāvī amatum', 
+                  Text::Latex::Util::Macronconversions.convert(@aFirstString))
+    assert_equal( 'moneō monēre monuī monitum',
+                   Text::Latex::Util::Macronconversions.convert(@aSecondString))
+    assert_equal( 'agō agere ēgī actum',
+                   Text::Latex::Util::Macronconversions.convert(@aThirdString))
+    assert_equal( 'capiō capere cēpī capitum',
+                   Text::Latex::Util::Macronconversions.convert(@aThirdIOString))
+    assert_equal( 'audiō audīre audīvī auditum',
+                   Text::Latex::Util::Macronconversions.convert(@aFourthString))
   end
 end
 

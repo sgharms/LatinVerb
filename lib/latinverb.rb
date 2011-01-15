@@ -1,3 +1,5 @@
+require 'latinverb/latinverb_validation'
+
 # Generalized module for handling lingustics processing
 module Lingustics
   # Generalized module for handling lingustics related to Latin
@@ -6,8 +8,12 @@ module Lingustics
     module Verb
       # Class that is used to model a Verb in Latin
       class LatinVerb
-        def initialize
-          puts "this is a #{self.class}"
+        include Linguistics::Latin::Verb::Validation
+        def initialize(s)
+          if s.class == Array
+          elsif s.class == String
+            puts "this is a #{self.class} with #{s}"
+          end
         end
       end
     end
