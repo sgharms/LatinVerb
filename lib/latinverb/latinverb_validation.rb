@@ -3,7 +3,13 @@ module Linguistics
     module Verb
       module Validation
         def valid?
-          return false
+          os = @original_string
+          self.class.class_eval do
+             classify os
+          end
+            
+          # If classify fails, it raises a RuntimeError.  It returns true otherwise.
+          return true
         end
       end
     end

@@ -24,6 +24,8 @@ module Linguistics
                  end
               elsif infinitive =~ /īre$/
                 return Linguistics::Latin::Verb::VerbTypes::Fourth
+              else
+                raise RuntimeError "Could not identify this verb's classification"
               end
             end
           end

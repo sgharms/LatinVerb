@@ -55,7 +55,7 @@ class TestLatinVerb < Test::Unit::TestCase
   end
 
   # Tests to see if the string that was given was sufficient to successfully create a LatinVerb
-  def TODO_test_construction_validity
+  def test_construction_validity
     @verb_hash_utf8_style.each_pair do |k,s|
       aVerb = Linguistics::Latin::Verb::LatinVerb.new s
       assert_true aVerb.valid?
