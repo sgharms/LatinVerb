@@ -17,6 +17,9 @@ module Linguistics
    
         # Attributes for storing submitted data.  This will help remember the origin state
         attr_reader :original_string
+        
+        # Attributes for storing calculated status.
+        attr_reader :classification
 
         def initialize(s)
           if s.class == Array
@@ -24,6 +27,16 @@ module Linguistics
             @original_string = s
           end
         end
+
+        ######################################################################
+        # Instance methods
+        ######################################################################
+
+        # Reaturns the "short" version, sans the module specifier
+        def short_class
+          return @classification.to_s.gsub(/.*::(\w+)$/,"\\1")
+        end
+
 
       end
     end

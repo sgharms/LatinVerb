@@ -59,6 +59,8 @@ class TestLatinVerb < Test::Unit::TestCase
     @verb_hash_utf8_style.each_pair do |k,s|
       aVerb = Linguistics::Latin::Verb::LatinVerb.new s
       assert_true aVerb.valid?
+      assert_not_nil aVerb.classification
+      assert_not_nil aVerb.short_class
     end
   end
 
