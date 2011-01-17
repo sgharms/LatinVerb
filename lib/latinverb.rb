@@ -19,7 +19,7 @@ module Linguistics
         attr_reader :original_string
         
         # Attributes for storing calculated status.
-        attr_reader :classification, :principal_parts, :four_pp
+        attr_reader :classification, :principal_parts, :four_pp, :irregular
 
         def initialize(s)
           if s.class == Array
@@ -31,6 +31,7 @@ module Linguistics
             @first_pers_perf, @pass_perf_part = @principal_parts
             @four_pp = @principal_parts
 
+            @irregular = self.irregular? @four_pp
           end
         end
         ######################################################################

@@ -11,6 +11,14 @@ module Linguistics
           end
           return true
         end
+
+        def irregular?(a)
+          if a[0] == 'sum'
+            true
+          else
+            false
+          end
+        end
       end
     end
   end
