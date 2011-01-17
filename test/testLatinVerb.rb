@@ -43,8 +43,24 @@ class TestLatinVerb < Test::Unit::TestCase
       :@aThirdIOString => Linguistics::Latin::Verb::VerbTypes::ThirdIO,
       :@aFourthString  => Linguistics::Latin::Verb::VerbTypes::Fourth
     }
+
+    @verb_hash_stems = {
+      :@aFirstString   => "amā",
+      :@aSecondString  => "monē",
+      :@aThirdString   => "ag",
+      :@aThirdIOString => "cap",
+      :@aFourthString  => "aud"
+    }
     
   end 
+
+  # Test the creation of stems
+  def test_stem_production
+    @verb_hash_utf8_style.each_pair do |k,v|
+      assert_equal Linguistics::Latin::Verb::LatinVerb.calculate_stem(v.split(/\s+/)[1]),
+        @verb_hash_stems[k]
+    end 
+  end
 
   # Test the classifications
   def test_classifications

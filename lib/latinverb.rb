@@ -24,16 +24,20 @@ module Linguistics
         def initialize(s)
           if s.class == Array
           elsif s.class == String
+            # Store the original input
             @original_string = s
 
+            # Derive from the original, valid string useful specifiers in handy data structures
             @principal_parts = s.split /\s+/
             @first_pers_singular, @pres_act_inf, 
             @first_pers_perf, @pass_perf_part = @principal_parts
             @four_pp = @principal_parts
 
+            # Quick means for irregularity check
             @irregular = self.irregular? @four_pp
           end
         end
+
         ######################################################################
         # Instance methods
         ######################################################################
