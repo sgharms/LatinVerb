@@ -19,15 +19,20 @@ module Linguistics
         attr_reader :original_string
         
         # Attributes for storing calculated status.
-        attr_reader :classification
+        attr_reader :classification, :principal_parts, :four_pp
 
         def initialize(s)
           if s.class == Array
           elsif s.class == String
             @original_string = s
+
+            @principal_parts = s.split /\s+/
+            @first_pers_singular, @pres_act_inf, 
+            @first_pers_perf, @pass_perf_part = @principal_parts
+            @four_pp = @principal_parts
+
           end
         end
-
         ######################################################################
         # Instance methods
         ######################################################################

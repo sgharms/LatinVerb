@@ -61,6 +61,7 @@ class TestLatinVerb < Test::Unit::TestCase
       assert_true aVerb.valid?
       assert_not_nil aVerb.classification
       assert_not_nil aVerb.short_class
+      assert_equal 4,  aVerb.principal_parts.length
     end
   end
 
