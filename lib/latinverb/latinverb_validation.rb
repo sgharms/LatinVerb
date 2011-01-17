@@ -4,8 +4,8 @@ module Linguistics
       module Validation
         def valid?
           os = @original_string
-          self.class.class_eval do
-             classify os
+          self.instance_eval do
+             self.class.classify os
           end
             
           # If classify fails, it raises a RuntimeError.  It returns true otherwise.
