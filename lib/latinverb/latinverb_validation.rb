@@ -1,3 +1,6 @@
+# encoding: UTF-8
+require 'latinverb/latinverb_errors'
+
 module Linguistics
   module Latin
     module Verb
@@ -8,7 +11,12 @@ module Linguistics
           # If classify fails, it raises a RuntimeError.  It returns true otherwise.
           self.instance_eval do
             @classification = self.class.classify os
+            @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
           end
+          
+          raise IrregularVerbSpecificationError  if (  self.classification.nil? or
+            self.stem.empty? )
+
           return true
         end
 

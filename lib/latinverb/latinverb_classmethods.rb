@@ -1,8 +1,11 @@
 # encoding:  utf-8
+
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
+
+        # include Linguistics::Latin::Verb::Errors
         class << self
           # Given the principal parts as a string, decide which conjuation is in play
           def classify(s)
@@ -22,10 +25,11 @@ module Linguistics
                  else
                    return Linguistics::Latin::Verb::VerbTypes::Third
                  end
-              elsif infinitive =~ /īre$/
+              elsif infinitive =~ /.+īre$/
                 return Linguistics::Latin::Verb::VerbTypes::Fourth
               else
-                raise RuntimeError "Could not identify this verb's classification"
+                raise Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError,
+                "\nCould not identify this verb's classification [GIVEN: #{s}]"
               end
             end
           end
@@ -47,8 +51,6 @@ The method also returns the stem value.
 
           def calculate_stem(pres_act_inf)
             # For efficiency, if the iVar @stem is defined, don't go through this structure
-
-            # pres_act_inf = @pres_act_inf.to_s
 
             if pres_act_inf =~ /āre$/
               return pres_act_inf.gsub(/(.*)āre$/,'\\1ā')

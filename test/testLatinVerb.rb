@@ -51,8 +51,23 @@ class TestLatinVerb < Test::Unit::TestCase
       :@aThirdIOString => "cap",
       :@aFourthString  => "aud"
     }
+
+    @irregular_verb_strings = [
+      "sum esse fuī futūrus",
+      "fero ferre tuli latum",
+      "eo īre ii tium"
+    ]
     
   end 
+
+  # Test that irregular verbs raise an exception (until I find a better way to catch them...)
+  def test_irregular_verbs
+    @irregular_verb_strings.each do |iv|
+      assert_raise Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError do
+        Linguistics::Latin::Verb::LatinVerb.new iv
+      end
+    end
+  end
 
   # Test the creation of stems
   def test_stem_production

@@ -1,5 +1,7 @@
+# encoding: UTF-8
 require 'latinverb/latinverb_validation'
 require 'latinverb/latinverb_classification_types'
+require 'latinverb/latinverb_errors'
 
 
 # Generalized module for handling lingustics processing
@@ -13,19 +15,23 @@ module Linguistics
       class LatinVerb
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
+        include Linguistics::Latin::Verb::Errors
         
    
         # Attributes for storing submitted data.  This will help remember the origin state
         attr_reader :original_string
         
         # Attributes for storing calculated status.
-        attr_reader :classification, :principal_parts, :four_pp, :irregular
+        attr_reader :classification, :principal_parts, :four_pp, :irregular, :stem
 
         def initialize(s)
           if s.class == Array
           elsif s.class == String
             # Store the original input
             @original_string = s
+
+            # pre-validate the string
+            self.valid?
 
             # Derive from the original, valid string useful specifiers in handy data structures
             @principal_parts = s.split /\s+/
@@ -35,6 +41,7 @@ module Linguistics
 
             # Quick means for irregularity check
             @irregular = self.irregular? @four_pp
+
           end
         end
 
