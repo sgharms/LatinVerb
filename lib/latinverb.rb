@@ -22,13 +22,17 @@ module Linguistics
         attr_reader :original_string
         
         # Attributes for storing calculated status.
-        attr_reader :classification, :principal_parts, :four_pp, :irregular, :stem
+        attr_reader :classification, :classification_error, :principal_parts, :four_pp, :irregular, :stem
+
+        alias_method :conjugation, :classification
+        alias_method :irregular?, :irregular
 
         def initialize(s)
           if s.class == Array
           elsif s.class == String
             # Store the original input
             @original_string = s
+            @classification_error = nil
 
             # pre-validate the string
             self.valid?
@@ -38,9 +42,6 @@ module Linguistics
             @first_pers_singular, @pres_act_inf, 
             @first_pers_perf, @pass_perf_part = @principal_parts
             @four_pp = @principal_parts
-
-            # Quick means for irregularity check
-            @irregular = self.irregular? @four_pp
 
           end
         end
@@ -54,6 +55,9 @@ module Linguistics
           return @classification.to_s.gsub(/.*::(\w+)$/,"\\1")
         end
 
+        def to_s
+           @four_pp.join(', ') + " [#{@irregular.to_s}]"
+        end
 
       end
     end

@@ -8,24 +8,19 @@ module Linguistics
         def valid?
           os = @original_string
 
-          # If classify fails, it raises a RuntimeError.  It returns true otherwise.
           self.instance_eval do
-            @classification = self.class.classify os
-            @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
+            begin
+              @classification = self.class.classify os
+              @irregular = false 
+              @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
+            rescue Exception => detail
+              @irregular = true 
+              @classification_error = lambda do
+                raise detail
+              end
+            end
           end
-          
-          raise IrregularVerbSpecificationError  if (  self.classification.nil? or
-            self.stem.empty? )
-
           return true
-        end
-
-        def irregular?(a)
-          if a[0] == 'sum'
-            true
-          else
-            false
-          end
         end
       end
     end

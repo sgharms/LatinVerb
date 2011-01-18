@@ -7,6 +7,7 @@ module Linguistics
 
         # include Linguistics::Latin::Verb::Errors
         class << self
+
           # Given the principal parts as a string, decide which conjuation is in play
           def classify(s)
             if s.class == String
@@ -14,7 +15,7 @@ module Linguistics
 
               first_pres = divided_string[0]
               infinitive = divided_string[1]
-
+                
               if    infinitive =~ /āre$/
                 return Linguistics::Latin::Verb::VerbTypes::First
               elsif infinitive =~ /ēre$/
@@ -69,6 +70,38 @@ The method also returns the stem value.
               return pres_act_inf.gsub(/(.*)īre$/,'\\1')
             end
           end
+
+=begin rdoc
+
+Calculate the participial stem, used in forming participles.
+
+=end
+    def calculate_participial_stem(first_pers_singular, pres_act_inf)
+       raise("pres_act_inf was nil![#{first_pers_singular} and #{pres_act_inf}]") if
+         pres_act_inf.empty? or first_pers_singular.empty?
+
+       if pres_act_inf.to_s =~ /(.*ā)re$/
+        return $1
+      end
+
+      if pres_act_inf.to_s =~ /(.*ē)re$/
+        return $1
+      end
+
+      if pres_act_inf.to_s =~ /(.*)ere$/
+        match=$1
+        if first_pers_singular =~ /iō/
+          return match + "iē"
+        else
+          return match + "e"
+        end
+      end
+
+      if pres_act_inf.to_s =~ /(.*)īre$/
+        return $1 + "iē"
+      end
+    end
+
         end
       end
     end

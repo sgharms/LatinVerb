@@ -57,6 +57,15 @@ class TestLatinVerb < Test::Unit::TestCase
       "fero ferre tuli latum",
       "eo īre ii tium"
     ]
+
+
+    @verb_hash_participial_stems = {
+      :@aFirstString   => "amā",
+      :@aSecondString  => "monē",
+      :@aThirdString   => "age",
+      :@aThirdIOString => "capiē",
+      :@aFourthString  => "audiē"
+    }
     
   end 
 
@@ -64,8 +73,10 @@ class TestLatinVerb < Test::Unit::TestCase
   def test_irregular_verbs
     @irregular_verb_strings.each do |iv|
       assert_raise Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError do
-        Linguistics::Latin::Verb::LatinVerb.new iv
+        j = Linguistics::Latin::Verb::LatinVerb.new iv
+        j.classification_error.call if  j.irregular?
       end
+        assert_true Linguistics::Latin::Verb::LatinVerb.new(iv).irregular?
     end
   end
 
@@ -85,6 +96,14 @@ class TestLatinVerb < Test::Unit::TestCase
     end
   end
 
+  def test_participial_stem_creation
+    @verb_hash_utf8_style.each_pair do |k,v|
+      a = v.split /\s+/
+      assert_equal(@verb_hash_participial_stems[k],
+         Linguistics::Latin::Verb::LatinVerb.calculate_participial_stem(a[0], a[1]))
+    end
+  end
+
   # Tests to see if the string that was given was sufficient to successfully create a LatinVerb
   def test_construction_validity
     @verb_hash_utf8_style.each_pair do |k,s|
@@ -92,8 +111,11 @@ class TestLatinVerb < Test::Unit::TestCase
       assert_true aVerb.valid?
       assert_not_nil aVerb.classification
       assert_not_nil aVerb.short_class
+      assert_not_nil aVerb.stem
+      assert_not_nil aVerb.conjugation
       assert_equal 4,  aVerb.principal_parts.length
-      assert_false aVerb.irregular
+      assert_true(aVerb.respond_to? :irregular?)
+      assert_false aVerb.irregular?
     end
   end
 
