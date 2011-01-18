@@ -1,9 +1,13 @@
 # encoding: UTF-8
+require 'macronconversions'
+
+#  ...by others
 require "test/unit"
-require 'macronconversions/macronconversions'
+require 'pp'
+
+# Internal dependencies
 require 'latinverb/latinverb_classification_types'
 require 'latinverb/latinverb_classmethods.rb'
-require 'pp'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
@@ -68,6 +72,12 @@ class TestLatinVerb < Test::Unit::TestCase
     }
     
   end 
+
+def test_verbvector
+  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+  assert_equal 21, tc.tense_list.length
+  assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
+end
 
   # Test that irregular verbs raise an exception (until I find a better way to catch them...)
   def test_irregular_verbs
@@ -134,6 +144,7 @@ class TestLatinVerb < Test::Unit::TestCase
                    Text::Latex::Util::Macronconversions.convert(@aFourthString))
   end
 end
+
 
 #   def test_first_conj_exhaustively
 #     assert_equal("amō",         @aFirst.active_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
