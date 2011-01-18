@@ -31,6 +31,9 @@ module Linguistics
         # Attributes for storing calculated status.
         attr_reader :classification, :classification_error, :principal_parts, :four_pp, :irregular, :stem
 
+        # Access the Module that provides all the methods
+        attr_reader :method_extension_module, :extending_module
+
         alias_method :conjugation, :classification
         alias_method :irregular?, :irregular
 
@@ -90,7 +93,9 @@ module Linguistics
                end
              end
           end
-          self.extend @method_extension_module.create_module
+          @extending_module = @method_extension_module.create_module
+          self.extend @extending_module
+
         end
 
         ######################################################################
