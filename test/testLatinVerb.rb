@@ -73,17 +73,47 @@ class TestLatinVerb < Test::Unit::TestCase
     
   end 
 
+def test_metaprogramming
+  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+
+  # Test the real method that comes by part of the extension
+  assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
+
+  # Test the facade method
+  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person
+  assert_respond_to tc, :respondable_methods
+
+  # Make sure that stuff that /shouldn't/ be respected is not respected
+  assert not( tc.respond_to? :zabumiwhorter)
+  assert_raise do
+    tc.zabumiwhorter
+  end
+
+end
+
+def test_method_lookup
+  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person
+
+  # this should raise because we have not defined the 'cluster' method.  We've
+  # defined that we want to respond, but need to do so via an intermediary
+  # which, at the point of this assertion, has not been defined
+  assert_raise do
+    tc.active_voice_indicative_mood_imperfect_tense_singular_number_third_person
+  end
+end
+
 def test_verbvector
   tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+  assert_not_nil tc
+  assert_not_nil tc.tense_list
+  assert_not_nil tc.tense_list.length
   assert_equal 21, tc.tense_list.length
   assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
   tc.tense_list.each do |cluster_method|
     assert_true tc.respond_to? cluster_method.to_sym
   end
-  assert_equal 147,  tc.method_extension_module.vector_list.length
-  # Establish poxying up for these two collections
-  # puts tc.vector_list
-  # puts tc.tense_list.length
+  assert_equal 126,  tc.vector_list.length
 end
 
   # Test that irregular verbs raise an exception (until I find a better way to catch them...)

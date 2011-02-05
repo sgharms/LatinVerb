@@ -9,6 +9,9 @@ require 'verbvector'
 require 'latinverb/latinverb_validation'
 require 'latinverb/latinverb_classification_types'
 require 'latinverb/latinverb_errors'
+require 'latinverb/latinverb_metaprogramming'
+require 'latinverb/latinverb_tense_methods'
+require 'latinverb/latinverb_constants'
 
 
 # Generalized module for handling lingustics processing
@@ -17,12 +20,12 @@ module Linguistics
   module Latin
     # Generalized module for handling lingustics related to Latin's verbal aspects
     module Verb
-      
       # Class that is used to model a Verb in Latin
       class LatinVerb
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
         include Linguistics::Latin::Verb::Errors
+        include Linguistics::Latin::Verb::TenseMethods
         
    
         # Attributes for storing submitted data.  This will help remember the origin state
@@ -32,7 +35,7 @@ module Linguistics
         attr_reader :classification, :classification_error, :principal_parts, :four_pp, :irregular, :stem
 
         # Access the Module that provides all the methods
-        attr_reader :method_extension_module, :extending_module
+        attr_reader :latin_verbvector_generator, :latin_verb_methods
 
         alias_method :conjugation, :classification
         alias_method :irregular?, :irregular
@@ -56,7 +59,7 @@ module Linguistics
             # Import the vectors of all the availabe methods
 
             # Get all the methods that a LatinVerb must be able to respond to
-            @method_extension_module = 
+            @latin_verbvector_generator = 
             Lingustics::Verbs::Verbvector::VerbvectorGenerator.new do
                language :Latin do
                  all_vectors :start_with do
@@ -93,9 +96,30 @@ module Linguistics
                end
              end
           end
-          @extending_module = @method_extension_module.create_module
-          self.extend @extending_module
 
+          # This provides methods of the form #{language_name}_#{fake_name}.
+          # They are actually called sans #{language_name} so that
+          # method_missing is called.
+          @verb_methods = @latin_verbvector_generator.method_extension_module
+
+          # Make sure all the cluster methods are defined.  Ensure we don't
+          # get infinite stack method_missing lookups
+          @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
+
+          # POWER-UP with the vector methods
+          self.extend @verb_methods
+
+          # Given the use of method_missing to handle resolution, it's wise to
+          # make sure that every cluster method /is/ actually defined.
+          @tense_list.each do |m|
+            raise "FAILURE:  Critical method #{m} was not defined." unless (self.respond_to? m.to_sym)
+          end
+
+          # TODO:  
+          # create module to implement the cluster methods, test not nil in the return
+          # maybe create a new object, derived from the verbverctor that models the non-clustered aspects
+          # mave clustered methods respond with data fitting that object type based on the rules provided
+          # create a new project for handling the macron testing and abbreviation
         end
 
         ######################################################################
@@ -108,7 +132,7 @@ module Linguistics
         end
 
         def to_s
-           @four_pp.join(', ') + " [#{@irregular.to_s}]"
+           @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
         end
 
       end

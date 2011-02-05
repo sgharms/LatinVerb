@@ -1,4 +1,6 @@
 pkg/*
 *.gem
 *.swp
+*.vim
+**/*.vim
 .bundle
