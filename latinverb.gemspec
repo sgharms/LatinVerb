@@ -4,7 +4,7 @@ require "latinverb/version"
 
 Gem::Specification.new do |s|
   s.name        = "latinverb"
-  s.version     = Lingustics::Latin::Verb::VERSION
+  s.version     = Linguistics::Latin::Verb::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Steven G. Harms"]
   s.email       = ["steven.harms@gmail.com"]

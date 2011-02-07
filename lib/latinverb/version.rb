@@ -1,5 +1,5 @@
 # encoding: UTF-8
-module Lingustics
+module Linguistics
   module Latin
     module Verb
       VERSION = "0.0.1"

@@ -60,7 +60,7 @@ module Linguistics
 
             # Get all the methods that a LatinVerb must be able to respond to
             @latin_verbvector_generator = 
-            Lingustics::Verbs::Verbvector::VerbvectorGenerator.new do
+            Linguistics::Verbs::Verbvector::VerbvectorGenerator.new do
                language :Latin do
                  all_vectors :start_with do
                     {
