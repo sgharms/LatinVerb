@@ -6,7 +6,7 @@ module Linguistics
         # active_present_endings: ("ap_"-prefixed)
           AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS = %w(s  t  mus  tis  nt)
           AP_THIRD_CONJUG_PERS_ENDINGS            = %w(o  is it   imus itis unt)
-          AP_THIRDio_CONJG_PERS_ENDINGS           = %w(is it imus itis iunt)
+          AP_THIRDIO_CONJG_PERS_ENDINGS           = %w(is it imus itis iunt)
 
         # active_imperfect_endings: ("ai_"-prefixed)
           AI_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS = %w(bam bās bat bāmus bātis bant)
