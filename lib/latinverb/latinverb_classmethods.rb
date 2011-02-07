@@ -10,12 +10,13 @@ module Linguistics
 
           # Given the principal parts as a string, decide which conjuation is in play
           def classify(s)
+
             if s.class == String
               divided_string = s.split /\s+/
-
+ 
               first_pres = divided_string[0]
               infinitive = divided_string[1]
-                
+
               if    infinitive =~ /āre$/
                 return Linguistics::Latin::Verb::VerbTypes::First
               elsif infinitive =~ /ēre$/
@@ -29,8 +30,7 @@ module Linguistics
               elsif infinitive =~ /.+īre$/
                 return Linguistics::Latin::Verb::VerbTypes::Fourth
               else
-                raise Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError,
-                "\nCould not identify this verb's classification [GIVEN: #{s}]"
+                return Linguistics::Latin::Verb::VerbTypes::Irregular
               end
             end
           end

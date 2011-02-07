@@ -11,10 +11,14 @@ module Linguistics
           self.instance_eval do
             begin
               @classification = self.class.classify os
-              @irregular = false 
+              @irregular = 
+                @classification == Linguistics::Latin::Verb::VerbTypes::Irregular ?
+                true : false
               @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
-            rescue Exception => detail
+            rescue Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError => detail
+              STDERR.puts "WARNING:  Improper use of rescue for decision structure in latinverb_validation"
               @irregular = true 
+            rescue Exception => detail
               @classification_error = lambda do
                 raise detail
               end

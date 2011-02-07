@@ -116,14 +116,9 @@ def test_verbvector
   assert_equal 126,  tc.vector_list.length
 end
 
-  # Test that irregular verbs raise an exception (until I find a better way to catch them...)
   def test_irregular_verbs
     @irregular_verb_strings.each do |iv|
-      assert_raise Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError do
-        j = Linguistics::Latin::Verb::LatinVerb.new iv
-        j.classification_error.call if  j.irregular?
-      end
-        assert_true Linguistics::Latin::Verb::LatinVerb.new(iv).irregular?
+      assert_true Linguistics::Latin::Verb::LatinVerb.new(iv).irregular?
     end
   end
 

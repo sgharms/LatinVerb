@@ -5,11 +5,12 @@ module Linguistics
       module VerbTypes
         class VerbType; 
         end
-        class First   < VerbType; end
-        class Second  < VerbType; end
-        class Third   < VerbType; end
-        class ThirdIO < VerbType; end
-        class Fourth  < VerbType; end
+        class First     < VerbType; end
+        class Second    < VerbType; end
+        class Third     < VerbType; end
+        class ThirdIO   < VerbType; end
+        class Fourth    < VerbType; end
+        class Irregular < VerbType; end
       end
     end
   end

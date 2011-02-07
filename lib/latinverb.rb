@@ -49,6 +49,9 @@ module Linguistics
 
             # pre-validate the string
             self.valid?
+            
+            # If the error callback has been created, then call it
+            @classification_error.call unless @classification_error.nil?
 
             # Derive from the original, valid string useful specifiers in handy data structures
             @principal_parts      
