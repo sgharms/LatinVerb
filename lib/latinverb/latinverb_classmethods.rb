@@ -8,6 +8,7 @@ module Linguistics
         # include Linguistics::Latin::Verb::Errors
         class << self
 
+
           # Given the principal parts as a string, decide which conjuation is in play
           def classify(s)
 

@@ -7,12 +7,14 @@ require 'verbvector'
 
 # Internal dependencies
 require 'latinverb/latinverb_validation'
+require 'latinverb/latinverb_classmethods'
 require 'latinverb/latinverb_classification_types'
 require 'latinverb/latinverb_errors'
 require 'latinverb/latinverb_metaprogramming'
-require 'latinverb/latinverb_tense_methods'
 require 'latinverb/latinverb_constants'
-
+require 'latinverb/latinverb_tense_methods'
+require 'latinverb/latinverb_phonographia'
+require 'latinverb/latinverb_particip_and_inf.rb'
 
 # Generalized module for handling lingustics processing
 module Linguistics
@@ -25,9 +27,8 @@ module Linguistics
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
         include Linguistics::Latin::Verb::Errors
-        include Linguistics::Latin::Verb::TenseMethods
-        
-   
+        include Linguistics::Latin::Verb::ParticiplesAndInfinitives
+ 
         # Attributes for storing submitted data.  This will help remember the origin state
         attr_reader :original_string
         
@@ -41,7 +42,10 @@ module Linguistics
         alias_method :irregular?, :irregular
 
         def initialize(s)
+          raise SyntaxError if s.nil?
+
           if s.class == Array
+            # TODO:  Fill this out.  
           elsif s.class == String
             # Store the original input
             @original_string = s
@@ -59,7 +63,10 @@ module Linguistics
             @pres_act_inf, 
             @first_pers_perf, 
             @pass_perf_part       = @four_pp = @principal_parts = s.split(/\s+/)
-            # Import the vectors of all the availabe methods
+         
+            # Derive iVar from derived variables
+            @participial_stem ||= calculate_participial_stem
+
 
             # Get all the methods that a LatinVerb must be able to respond to
             @latin_verbvector_generator = 
@@ -117,12 +124,6 @@ module Linguistics
           @tense_list.each do |m|
             raise "FAILURE:  Critical method #{m} was not defined." unless (self.respond_to? m.to_sym)
           end
-
-          # TODO:  
-          # create module to implement the cluster methods, test not nil in the return
-          # maybe create a new object, derived from the verbverctor that models the non-clustered aspects
-          # mave clustered methods respond with data fitting that object type based on the rules provided
-          # create a new project for handling the macron testing and abbreviation
         end
 
         ######################################################################
@@ -137,6 +138,33 @@ module Linguistics
         def to_s
            @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
         end
+
+        private
+        def calculate_participial_stem
+           raise("@pres_act_inf was nil!") if  
+             @pres_act_inf.nil? or @first_pers_singular.nil?
+
+           if @pres_act_inf.to_s =~ /(.*ā)re$/
+            return $1
+          end 
+
+          if @pres_act_inf.to_s =~ /(.*ē)re$/
+            return $1
+          end        
+
+          if @pres_act_inf.to_s =~ /(.*)ere$/
+            match=$1
+            if @first_pers_singular =~ /iō/
+              return match + "iē"  
+            else
+              return match + "e" 
+            end       end 
+        
+          if @pres_act_inf.to_s =~ /(.*)īre$/
+            return $1 + "iē" 
+          end 
+        end 
+
 
       end
     end

@@ -8,6 +8,7 @@ module Linguistics
     module Verb 
       class LatinVerb
         def method_missing(symbol, *args )
+          super if @tense_list.nil?
           @tense_list.find do |e|
             if symbol.to_s.match /^(#{e})_(.*)/
               tense_method, vector_specifier = $1, $2
@@ -27,7 +28,7 @@ module Linguistics
         end
 
         def respond_to?(symbol, include_private=false)
-          respondable_methods.grep(Regexp.new %Q/^#{symbol}$/).empty? ?
+          self.respondable_methods.grep(Regexp.new %Q/^#{symbol}$/).empty? ?
             super : true
         end
       end

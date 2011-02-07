@@ -5,7 +5,7 @@ module Linguistics
       class LatinVerb
         # active_present_endings: ("ap_"-prefixed)
           AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS = %w(s  t  mus  tis  nt)
-          AP_THIRD_CONJUG_PERS_ENDINGS            = %w(o  is it   imus itis unt)
+          AP_THIRD_CONJUG_PERS_ENDINGS            = %w(ō  is it   imus itis unt)
           AP_THIRDIO_CONJG_PERS_ENDINGS           = %w(is it imus itis iunt)
 
         # active_imperfect_endings: ("ai_"-prefixed)
@@ -39,11 +39,11 @@ module Linguistics
           # hash for getting a verb's subjunctive stem
           # based off the W[e] F[ea]r [A] L[ia]r mnemonic
           ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS = { 
-            "1"   => lambda  { |x| return x + "ē"  },  
-            "2"   => lambda  { |x| return x + "eā" },
-            "3"   => lambda  { |x| return x + "ā"  },  
-            "4"   => lambda  { |x| return x + "iā" },
-            "3IO" => lambda  { |x| return x + "iā" }
+            :First   => lambda  { |x| return x + "ē"  },  
+            :Second  => lambda  { |x| return x + "eā" },
+            :Third   => lambda  { |x| return x + "ā"  },  
+            :Fourth  => lambda  { |x| return x + "iā" },
+            :ThirdIO => lambda  { |x| return x + "iā" }
           }   
       end
     end
