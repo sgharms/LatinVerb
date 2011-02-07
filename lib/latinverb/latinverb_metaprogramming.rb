@@ -8,20 +8,18 @@ module Linguistics
     module Verb 
       class LatinVerb
         def method_missing(symbol, *args )
-          @cluster_methods.find do |e|
-            if symbol.to_s.match /^(#{e})(.*)/
+          @tense_list.find do |e|
+            if symbol.to_s.match /^(#{e})_(.*)/
+              tense_method, vector_specifier = $1, $2
               # This is added to prevent stack-level too deep errors
               begin
-                if self.respond_to?($1.to_sym)
-                  puts "We respond to #{$1}"
-                  self.send($1.to_sym, $2)
-                  return
+                if self.respond_to?(tense_method.to_sym)
+                  return send(tense_method.to_sym).send(vector_specifier.to_sym)
                 end
               rescue SystemStackError => e
-                STDERR.puts "We encountered a SystemStackError when calling #{$1}"
+                STDERR.puts "We encountered a SystemStackError when calling #{tense_method}"
+                STDERR.puts "WARNING:  Failed to resolve [#{tense_method}] with [#{vector_specifier}].  \n\nMake sure #{tense_method} is defined."
                 super
-              ensure
-                STDERR.puts "WARNING:  Failed to resolve [#{$1}] with [#{$2}].  \n\nMake sure #{$1} is defined."
               end
             end
           end
