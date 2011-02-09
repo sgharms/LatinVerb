@@ -11,6 +11,7 @@ module Linguistics
         class ThirdIO   < VerbType; end
         class Fourth    < VerbType; end
         class Irregular < VerbType; end
+        class Deponent  < VerbType; end
       end
     end
   end

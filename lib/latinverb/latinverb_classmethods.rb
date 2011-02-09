@@ -30,6 +30,8 @@ module Linguistics
                  end
               elsif infinitive =~ /.+īre$/
                 return Linguistics::Latin::Verb::VerbTypes::Fourth
+              elsif (infinitive =~ /ī$/  and first_pres =~ /r$/)
+                return Linguistics::Latin::Verb::VerbTypes::Deponent
               else
                 return Linguistics::Latin::Verb::VerbTypes::Irregular
               end
