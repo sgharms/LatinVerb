@@ -6,10 +6,12 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerbFirstConj < Test::Unit::TestCase
+class TestLatinVerbSecondConj < Test::Unit::TestCase
+  def setup
+    @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
+  end
 
   def test_second_conj_exhaustively
-    @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
     assert_equal("moneō",   @aSecond.active_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("monēs",   @aSecond.active_voice_indicative_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("monet",   @aSecond.active_voice_indicative_mood_present_tense_third_person_singular_number.to_s)
@@ -127,50 +129,50 @@ class TestLatinVerbFirstConj < Test::Unit::TestCase
     assert_equal("monuissētis", @aSecond.active_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("monuissent",  @aSecond.active_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
  
-  #passive
-  assert_equal("monear",                              @aSecond.passive_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
-  assert_equal("moneāris",                            @aSecond.passive_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
-  assert_equal("moneātur",                            @aSecond.passive_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
-  assert_equal("moneāmur",                            @aSecond.passive_voice_subjunctive_mood_present_tense_first_person_plural_number.to_s)
-  assert_equal("moneāminī",                           @aSecond.passive_voice_subjunctive_mood_present_tense_second_person_plural_number.to_s)
-  assert_equal("moneantur",                           @aSecond.passive_voice_subjunctive_mood_present_tense_third_person_plural_number.to_s)
-               
-  assert_equal("monērer",                             @aSecond.passive_voice_subjunctive_mood_imperfect_tense_first_person_singular_number.to_s)
-  assert_equal("monērēris",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_second_person_singular_number.to_s)
-  assert_equal("monērētur",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_third_person_singular_number.to_s)
-  assert_equal("monērēmur",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_first_person_plural_number.to_s)
-  assert_equal("monērēminī",                          @aSecond.passive_voice_subjunctive_mood_imperfect_tense_second_person_plural_number.to_s)
-  assert_equal("monērentur",                          @aSecond.passive_voice_subjunctive_mood_imperfect_tense_third_person_plural_number.to_s)
-               
-  assert_equal("[ monitus, monita, monitum ] sim",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_first_person_singular_number.to_s)
-  assert_equal("[ monitus, monita, monitum ] sis",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_second_person_singular_number.to_s)
-  assert_equal("[ monitus, monita, monitum ] sit",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_third_person_singular_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] simus",   @aSecond.passive_voice_subjunctive_mood_perfect_tense_first_person_plural_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] sitis",   @aSecond.passive_voice_subjunctive_mood_perfect_tense_second_person_plural_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] sint",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_third_person_plural_number.to_s)
-               
-  assert_equal("[ monitus, monita, monitum ] essem",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number.to_s)
-  assert_equal("[ monitus, monita, monitum ] essēs",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_second_person_singular_number.to_s)
-  assert_equal("[ monitus, monita, monitum ] esset",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_third_person_singular_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] essēmus", @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] essētis", @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
-  assert_equal("[ monitī, monitae, monita ] essent",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
+    #passive
+    assert_equal("monear",                              @aSecond.passive_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
+    assert_equal("moneāris",                            @aSecond.passive_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
+    assert_equal("moneātur",                            @aSecond.passive_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
+    assert_equal("moneāmur",                            @aSecond.passive_voice_subjunctive_mood_present_tense_first_person_plural_number.to_s)
+    assert_equal("moneāminī",                           @aSecond.passive_voice_subjunctive_mood_present_tense_second_person_plural_number.to_s)
+    assert_equal("moneantur",                           @aSecond.passive_voice_subjunctive_mood_present_tense_third_person_plural_number.to_s)
+                 
+    assert_equal("monērer",                             @aSecond.passive_voice_subjunctive_mood_imperfect_tense_first_person_singular_number.to_s)
+    assert_equal("monērēris",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_second_person_singular_number.to_s)
+    assert_equal("monērētur",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_third_person_singular_number.to_s)
+    assert_equal("monērēmur",                           @aSecond.passive_voice_subjunctive_mood_imperfect_tense_first_person_plural_number.to_s)
+    assert_equal("monērēminī",                          @aSecond.passive_voice_subjunctive_mood_imperfect_tense_second_person_plural_number.to_s)
+    assert_equal("monērentur",                          @aSecond.passive_voice_subjunctive_mood_imperfect_tense_third_person_plural_number.to_s)
+                 
+    assert_equal("[ monitus, monita, monitum ] sim",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_first_person_singular_number.to_s)
+    assert_equal("[ monitus, monita, monitum ] sis",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_second_person_singular_number.to_s)
+    assert_equal("[ monitus, monita, monitum ] sit",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_third_person_singular_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] simus",   @aSecond.passive_voice_subjunctive_mood_perfect_tense_first_person_plural_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] sitis",   @aSecond.passive_voice_subjunctive_mood_perfect_tense_second_person_plural_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] sint",    @aSecond.passive_voice_subjunctive_mood_perfect_tense_third_person_plural_number.to_s)
+                 
+    assert_equal("[ monitus, monita, monitum ] essem",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number.to_s)
+    assert_equal("[ monitus, monita, monitum ] essēs",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_second_person_singular_number.to_s)
+    assert_equal("[ monitus, monita, monitum ] esset",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_third_person_singular_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] essēmus", @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] essētis", @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
+    assert_equal("[ monitī, monitae, monita ] essent",  @aSecond.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
                   
-      # Imperatives
-      assert_equal"monē",   @aSecond.imperatives[0]
-      assert_equal"monēte", @aSecond.imperatives[1]
-                   
-      # Participles
-      assert_equal"monēns, monentis",                 @aSecond.present_active_participle 
-      assert_equal"monitūrus, monitūra, monitūrum",   @aSecond.future_active_participle
-      assert_equal"monitus, monita, monitum",         @aSecond.perfect_passive_participle
-      assert_equal"monendus, monenda, monendum",      @aSecond.future_passive_participle
-  
-      # Infinitves
-      assert_equal"monēre",                        @aSecond.present_active_infinitive.to_s
-      assert_equal"monuīsse",                      @aSecond.perfect_active_infinitive
-      assert_equal"monitūrus esse",                @aSecond.future_active_infinitive
-      assert_equal"monērī",                          @aSecond.present_passive_infinitive
-      assert_equal"monitus, monita, monitum esse", @aSecond.perfect_passive_infinitive    
+    # Imperatives
+    assert_equal"monē",   @aSecond.imperatives[0]
+    assert_equal"monēte", @aSecond.imperatives[1]
+                 
+    # Participles
+    assert_equal"monēns, monentis",                 @aSecond.present_active_participle 
+    assert_equal"monitūrus, monitūra, monitūrum",   @aSecond.future_active_participle
+    assert_equal"monitus, monita, monitum",         @aSecond.perfect_passive_participle
+    assert_equal"monendus, monenda, monendum",      @aSecond.future_passive_participle
+
+    # Infinitves
+    assert_equal"monēre",                        @aSecond.present_active_infinitive.to_s
+    assert_equal"monuīsse",                      @aSecond.perfect_active_infinitive
+    assert_equal"monitūrus esse",                @aSecond.future_active_infinitive
+    assert_equal"monērī",                          @aSecond.present_passive_infinitive
+    assert_equal"monitus, monita, monitum esse", @aSecond.perfect_passive_infinitive    
    end 
 end

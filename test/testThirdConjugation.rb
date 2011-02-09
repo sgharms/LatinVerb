@@ -6,10 +6,12 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerbFirstConj < Test::Unit::TestCase
+class TestLatinVerbThirdConj < Test::Unit::TestCase
+  def setup
+    @aThird = Linguistics::Latin::Verb::LatinVerb.new 'agō agere ēgī actum'
+  end
 
   def test_third_conj_exhaustively
-    @aThird = Linguistics::Latin::Verb::LatinVerb.new 'agō agere ēgī actum'
     assert_equal("agō",      @aThird.active_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("agis",     @aThird.active_voice_indicative_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("agit",     @aThird.active_voice_indicative_mood_present_tense_third_person_singular_number.to_s)
