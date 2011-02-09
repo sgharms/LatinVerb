@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 require 'latinverb/latinverb_phonographia'
+require 'yaml'
 
 module Linguistics 
   module Latin 
@@ -9,6 +10,12 @@ module Linguistics
         include  Linguistics::Latin::Phonographia
         def initialize(r)
           @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+        end
+        def [](arg)
+          @results[arg]
+        end
+        def to_a
+          return @results
         end
         def first_person_singular_number;  return @results[0]; end
         def second_person_singular_number; return @results[1]; end

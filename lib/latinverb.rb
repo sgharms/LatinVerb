@@ -4,6 +4,8 @@
 #------------------------------------------------------------------------------ 
 # External dependencies
 require 'verbvector'
+require 'yaml'
+require 'json'
 
 # Internal dependencies
 require 'latinverb/latinverb_validation'
@@ -14,7 +16,9 @@ require 'latinverb/latinverb_metaprogramming'
 require 'latinverb/latinverb_constants'
 require 'latinverb/latinverb_tense_methods'
 require 'latinverb/latinverb_phonographia'
-require 'latinverb/latinverb_particip_and_inf.rb'
+require 'latinverb/latinverb_particip_and_inf'
+require 'latinverb/latinverb_display'
+require 'latinverb/latinverb_data'
 
 # Generalized module for handling lingustics processing
 module Linguistics
@@ -124,6 +128,14 @@ module Linguistics
           @tense_list.each do |m|
             raise "FAILURE:  Critical method #{m} was not defined." unless (self.respond_to? m.to_sym)
           end
+
+          # Placeholder the data structure that holds all the answers (a hash
+          # of TenseBlocks).  This may be the typical case, but the
+          # calculation is an expensive operation compared to the simple
+          # vector query, so this won't actually get defined unless #to_hash
+          # is called (cf. latinverb/display).
+          @data_structure = {}
+          
         end
 
         ######################################################################
