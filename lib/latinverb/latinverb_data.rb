@@ -16,7 +16,12 @@ module Linguistics
         end
         alias_method :to_y, :to_yaml
         def to_json
-          return @data_structure.to_json
+          @data_structure.empty? ?
+            to_hash.to_json:
+            @data_structure.to_json
+        end
+        def pretty_generate
+          JSON.pretty_generate(@data_structure.keys.length < 1 ? to_hash : @data_structure)
         end
       end
     end

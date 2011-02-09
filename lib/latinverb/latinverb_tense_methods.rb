@@ -11,6 +11,12 @@ module Linguistics
         def initialize(r)
           @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
         end
+        def to_json(*a)
+          {
+            'json_class'   => self.class.name, 
+            'data'         => @results
+          }.to_json(*a)
+        end
         def [](arg)
           @results[arg]
         end
