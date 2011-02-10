@@ -31,8 +31,13 @@ module Linguistics
         def third_person_plural_number;    return @results[5]; end
       end
       class LatinVerb
+
+# Commands for immediate action.  Always second person.
+
         def active_voice_imperative_mood_present_tense
         end
+
+# Action to be completed in the future
 
         def active_voice_indicative_mood_future_tense
           return TenseBlock.new(
@@ -47,11 +52,21 @@ module Linguistics
             end)
         end
 
+# Completed action in the future after now
+# p. 77
         def active_voice_indicative_mood_futureperfect_tense
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten
         end
 
+=begin rdoc
+
+Imperfect: Habitual action in the past.  The base + %w(bam bas bat bamus batis
+bant).
+
+Wheelock Reference, p. 37.
+
+=end
         def active_voice_indicative_mood_imperfect_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -65,20 +80,31 @@ module Linguistics
                 stem + "i" + x end ].flatten!
             end)
         end
+
+# Action completed in the past prior to an event in the past
+# p. 77
         def active_voice_indicative_mood_pastperfect_tense
           substem = @first_pers_perf[0..-2]
            return TenseBlock.new [APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten   
         end
+
+# Action completed in the past
+# p. 77
+
+
         def active_voice_indicative_mood_perfect_tense
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [@first_pers_perf.to_s, APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten
         end
 
+=begin rdoc
 
-# The canonical building block of learning to conjugate verbs in Latin.  Take the present
-# active infinitive, chop off the ending, and add the classic o,s,t,mus,tis,nt
-# 
-# Wheelock Reference, p. 4.  
+ The canonical building block of learning to conjugate verbs in Latin.  Take the present
+ active infinitive, chop off the ending, and add the classic o,s,t,mus,tis,nt
+ 
+ Wheelock Reference, p. 4.  
+
+=end
         def active_voice_indicative_mood_present_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
@@ -171,10 +197,16 @@ module Linguistics
             end)
         end
 
+# Passive voice, present tense
+# Wheelock, 122
+
         def passive_voice_indicative_mood_futureperfect_tense
           return TenseBlock.new(
             PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
+
+# Passive voice, present tense
+# Wheelock, 117
 
         def passive_voice_indicative_mood_imperfect_tense
           return TenseBlock.new (
@@ -192,15 +224,24 @@ module Linguistics
             end)
         end
 
+# Passive voice, present tense
+# Wheelock, 117
+
         def passive_voice_indicative_mood_pastperfect_tense
           TenseBlock.new(
             PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
 
+# Passive voice, present tense
+# Wheelock, 122
+
         def passive_voice_indicative_mood_perfect_tense
           TenseBlock.new(
              PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
+
+# Passive voice, present tense
+# Wheelock, 117
 
         def passive_voice_indicative_mood_present_tense
           return TenseBlock.new (
