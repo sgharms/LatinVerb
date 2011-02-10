@@ -1,0 +1,104 @@
+IRREGULAR_NAME=
+        {
+          "active_voice_imperative_mood_present_tense": null,
+          "active_voice_indicative_mood_future_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_indicative_mood_futureperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_indicative_mood_imperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_indicative_mood_pastperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_indicative_mood_perfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_indicative_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_subjunctive_mood_imperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_subjunctive_mood_pastperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_subjunctive_mood_perfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "active_voice_subjunctive_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_future_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_futureperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_imperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_pastperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_perfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_indicative_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_subjunctive_mood_imperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_subjunctive_mood_pastperfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_subjunctive_mood_perfect_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            },
+          "passive_voice_subjunctive_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+              ]
+            }
+        }
