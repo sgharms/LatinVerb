@@ -345,7 +345,7 @@ Wheelock Reference, p. 37.
                 
           return j unless j.nil?
                    
-          return_hash = 
+          return_array = 
           if @pres_act_inf =~ /āre$/
             [@stem, @stem+"te"]
           elsif @pres_act_inf =~ /ēre$/           
@@ -356,15 +356,17 @@ Wheelock Reference, p. 37.
             [@stem+"ī", @stem+"īte"]
           end 
               
-          return return_hash
+          return return_array
         end
 
         private
+
         def pluralize_participial_listing(x)
           x.sub!(/us,/,   'ī,' )
           x.sub!(/a,/,    'ae,')
           x.sub!(/um.*$/, 'a'  )
         end       
+
         def triplicate_and_genderize(s)
           stem = s.sub(/^(.*)um$/,"\\1")
           [ stem + 'us',
