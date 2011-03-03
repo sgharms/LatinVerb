@@ -28,6 +28,7 @@ module Linguistics
         end
 
         def respond_to?(symbol, include_private=false)
+          super if respondable_methods.empty?
           self.respondable_methods.grep(Regexp.new %Q/^#{symbol}$/).empty? ?
             super : true
         end
