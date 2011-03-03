@@ -35,6 +35,8 @@ module Linguistics
 # Commands for immediate action.  Always second person.
 
         def active_voice_imperative_mood_present_tense
+           imp = imperatives
+           ["", imp[0], "", "", imp[1], ""]
         end
 
 # Action to be completed in the future
