@@ -9,7 +9,15 @@ module Linguistics
       class TenseBlock
         include  Linguistics::Latin::Phonographia
         def initialize(r)
-          @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+          begin
+            if r.class != Array
+              puts "I have an unexpected #{r.class}"
+              r = r.to_a
+            end
+            @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+          rescue => e
+            raise "TenseBlock failed to initialize correctly.",  e
+          end
         end
         def to_json(*a)
           {
