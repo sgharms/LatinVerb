@@ -7,7 +7,7 @@ module Linguistics
       module Validation
         def valid?
           os = @original_string
-          self.instance_eval do
+          instance_eval do
             begin
               @classification = Linguistics::Latin::Verb::LatinVerb.classify(os)
               @irregular = 

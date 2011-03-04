@@ -112,14 +112,17 @@ module Linguistics
             o = @original_string.gsub(/\s+/,'_')
             json_string = Linguistics::Latin::Verb.const_get( 
                ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym)
+           raise "Found a JSON string with null length!" if json_string.length <= 10
              revivified_data_structure = JSON.parse json_string
              revivified_data_structure['tense_blocks'].each_pair do |k,v|
-               self.class.class_eval do
-                 define_method k.to_sym do
-                   return v
-                 end
+              # TODO:  Surely there's a better way to do this in 1.9 (and don't call me Shirley)
+              singleton_class = class << self; self; end
+              singleton_class.class_eval do
+               define_method k.to_sym do
+                 v
                end
              end
+           end
           rescue JSON::ParserError => e
             puts "We were unable to parse JSON for #{@original_string}.  Please verify your syntax."
             raise e
