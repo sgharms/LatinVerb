@@ -14,6 +14,7 @@ module Linguistics
           end
           return @data_structure
         end
+        alias_method :to_h, :to_hash
         def to_yaml
           @data_structure.empty? ?
             to_hash.to_yaml:
