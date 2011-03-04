@@ -57,9 +57,11 @@ class TestLatinVerb < Test::Unit::TestCase
     }
 
     @irregular_verb_strings = [
-      "sum esse fuī futūrus",
-      "fero ferre tuli latum",
-      "eo īre ii tium"
+      'sum esse fuī futūrus',
+      'ferō ferre tulī latum',
+      'eō īre ivī itum',
+      'volō velle voluī',
+      'nolō nolle noluī'
     ]
 
 
@@ -115,6 +117,7 @@ def test_verbvector
   end
   assert_equal 126,  tc.vector_list.length
 end
+
 
   def test_irregular_verbs
     @irregular_verb_strings.each do |iv|
