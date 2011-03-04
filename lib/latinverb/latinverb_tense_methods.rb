@@ -11,19 +11,22 @@ module Linguistics
         def initialize(r)
           begin
             if r.class != Array
-              puts "I have an unexpected #{r.class}"
+              raise if r.nil?
               r = r.to_a
             end
             @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
           rescue => e
-            raise "TenseBlock failed to initialize correctly.",  e
+            raise e, "TenseBlock failed to initialize correctly."
           end
         end
         def to_json(*a)
           {
             'json_class'   => self.class.name, 
-            'data'         => @results
+            'data'         => @results.map{|i| i.to_json}
           }.to_json(*a)
+        end
+        def TenseBlock.json_create(o)
+         new(o['data']) 
         end
         def [](arg)
           @results[arg]
