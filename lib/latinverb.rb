@@ -6,6 +6,7 @@
 require 'verbvector'
 require 'yaml'
 require 'json'
+require 'active_support'
 
 # Internal dependencies
 require 'latinverb/latinverb_validation'
@@ -19,6 +20,7 @@ require 'latinverb/latinverb_phonographia'
 require 'latinverb/latinverb_particip_and_inf'
 require 'latinverb/latinverb_display'
 require 'latinverb/latinverb_data'
+require 'latinverb/latinverb_irregulars'
 
 # Generalized module for handling lingustics processing
 module Linguistics
@@ -202,7 +204,8 @@ module Linguistics
 
           # Make sure all the cluster methods are defined.  Ensure we don't
           # get infinite stack method_missing lookups
-          @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
+          @tense_list = 
+            @latin_verbvector_generator.cluster_methods[:tense_list].call
 
           # POWER-UP with the vector methods
           self.extend @verb_methods
