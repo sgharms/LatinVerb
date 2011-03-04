@@ -50,12 +50,6 @@ module Linguistics
         alias_method :conjugation, :classification
         alias_method :irregular?, :irregular
 
-
-        # TODO:  We should probably take this out.  It makes rdebug work
-        # better for MP-heavy calls, but may be a hard to track hinderance at
-        # some point
-        def respondable_methods; []; end
-
         def initialize(s)
           raise SyntaxError if s.nil?
 
@@ -64,17 +58,18 @@ module Linguistics
             _irregular_handler if @irregular
           end
 
-          if s.class == Array
-            # TODO:  Fill this out.  
-          end
-          
           if (s.class == Hash )
-            if (s['irregular'] == false and s.has_key?('original_string'))
+            if (s['irregular'] == false and 
+                s.has_key?('original_string'))
               # We're restoring a standard verb
               _init_by_string(s['original_string'])
             end
           end
-         
+
+          if s.class == Array
+            # TODO:  Fill this out.  
+          end
+          
           # Load up the specialized vector complement of methods
           _add_vector_methods
 
@@ -94,6 +89,7 @@ module Linguistics
           # to_json methods
 
           @data_structure = {}
+
         end
 
         ######################################################################
@@ -129,7 +125,7 @@ module Linguistics
             raise e
             exit
           rescue NameError => e
-            puts "We were unable to find a definition for #{@original_string}.  Please provide one."
+            puts "We were unable to find a definition for #{@original_string}/#{o}.  Please provide one."
             raise e
             exit
           rescue => error

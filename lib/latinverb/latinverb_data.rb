@@ -47,19 +47,6 @@ module Linguistics
             return json_hash.to_json(*a)
           end
 
-          {
-            'json_class' => self.class.name,
-            'revivify'    => 
-              { 
-                # tense_blocks => JSON string
-                :tense_blocks =>
-                                (@data_structure.empty? ?
-                                  to_hash:
-                                  @data_structure).to_json,
-                :orig_string  => @original_string.to_json,
-
-              }
-           }.to_json(*a)
         end
 
         def pretty_generate

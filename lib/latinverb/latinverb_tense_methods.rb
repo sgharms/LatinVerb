@@ -16,7 +16,7 @@ module Linguistics
             end
             @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
           rescue => e
-            raise e, "TenseBlock failed to initialize correctly."
+            raise e, "TenseBlock failed to initialize correctly. passed #{r.nil?}"
           end
         end
         def to_json(*a)
@@ -27,6 +27,12 @@ module Linguistics
         end
         def TenseBlock.json_create(o)
          new(o['data']) 
+        end
+        def to_json(*a)
+          {
+            'json_class'   => self.class.name, 
+            'data'         => @results
+          }.to_json(*a)
         end
         def [](arg)
           @results[arg]
