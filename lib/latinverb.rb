@@ -115,8 +115,6 @@ module Linguistics
            raise "Found a JSON string with null length!" if json_string.length <= 10
              revivified_data_structure = JSON.parse json_string
              revivified_data_structure['tense_blocks'].each_pair do |k,v|
-              # TODO:  Surely there's a better way to do this in 1.9 (and don't call me Shirley)
-              singleton_class = class << self; self; end
               singleton_class.class_eval do
                define_method k.to_sym do
                  v
@@ -242,8 +240,6 @@ module Linguistics
             return $1 + "iē" 
           end 
         end 
-
-
       end
     end
   end
