@@ -1,7 +1,11 @@
 # encoding: UTF-8
 
+=begin rdoc
+#--
 # The purpose of this module is to contain the metaprogramming modules
 # method_missing and respond_to? in a place that's nice and neat.
+# ++
+=end
 
 module Linguistics
   module Latin
