@@ -2,9 +2,29 @@
 
 module Linguistics 
   module Latin 
+    ##
+    #
+    # The Phonographia module handles the conversion and denotation of Latin
+    # vowels.  In particular, this module provides functions so that
+    # long-quantity vowels are automatically shortened.
+    #
+    ##
     module Phonographia
       class << self
-       def fix_macrons(s)
+       # == ARGUMENTS
+       #
+       # +string+ :: a string which needs to be processed for Latin phonographic
+       #             compliance
+       #
+       # == RETURNS
+       #
+       # String with consonants properly converted
+       #
+       # == EXAMPLE
+       #
+       # fix_macrons(fabām) #=> fabam (vowels are shortened before terminal
+       # [mrt])
+       def fix_macrons(string)
          raise if s.nil?
          macron_table = {"\xc4\x81" => 'a', 
                          "\xc4\x93" => 'e',
@@ -54,7 +74,6 @@ module Linguistics
 
          return mutatum.join ''
        end
-
 
        return s
       end
