@@ -4,3 +4,5 @@ pkg/*
 *.vim
 **/*.vim
 .bundle
+.rvmrc
+*doc
