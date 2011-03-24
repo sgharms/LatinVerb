@@ -4,26 +4,51 @@ module Linguistics
   module Latin 
     ##
     #
-    # The Phonographia module handles the conversion and denotation of Latin
-    # vowels.  In particular, this module provides functions so that
-    # long-quantity vowels are automatically shortened.
+    # The Phonographia module handles the phonography of written Latin:  how
+    # the sound of Latin is written.  In particular, the sounds that need
+    # special notation are the vowels which may bear a long ("ā") or short
+    # ("a") quantity.
     #
+    # When forming Latin words from heuristic ( as LatinVerb does ), certain
+    # phonographical structures arise that one does not see in the language as
+    # practiced by humans.  For example, given "amāre," the stem is "amā."
+    # When the heuristic  postpends "t" to get the present, indicative, third
+    # person singular, the result is "amāt," which, by rules of Latin
+    # phonology, must be made to bear a short sound in the ultimate vowel.
+    # This state is _phonographically_ notes as "amat."  This module
+    # implements the appropriate rules for proper phonetic compliance.
+    # 
     ##
     module Phonographia
       class << self
-       # == ARGUMENTS
+       # === DESCRIPTION
+       #
+       # Latin has several rules pertaining to how long sounds must behave
+       # based on their neighboring characters.  The rules that +fix_macrons+
+       # tests are the following
+       #
+       # === RULES
+       #
+       # <b>Rule 1: </b>:: m/r/t at end of line shortens preceding vowel
+       # <b>Rule 2: </b>:: macron-bearing vowel  before vowel, regardless of
+       #                   its quantity
+       # <b>Rule 3: </b>:: macron-bearing vowel before  /n[td]/ anywhere in the string
+       #
+       # === ARGUMENTS
        #
        # +string+ :: a string which needs to be processed for Latin phonographic
        #             compliance
        #
-       # == RETURNS
+       # === RETURNS
        #
        # String with consonants properly converted
        #
-       # == EXAMPLE
+       # === EXAMPLE
        #
-       # fix_macrons(fabām) #=> fabam (vowels are shortened before terminal
-       # [mrt])
+       # fix_macrons(fabām) #=> fabam ( Rule 1 )
+       # fix_macrons(cāīō)  #=> caiō  ( Rule 1, Rule 2 )
+       #
+       ##
        def fix_macrons(string)
          raise if s.nil?
          macron_table = {"\xc4\x81" => 'a', 

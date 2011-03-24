@@ -22,7 +22,14 @@ require 'latinverb/latinverb_display'
 require 'latinverb/latinverb_data'
 require 'latinverb/latinverb_irregulars'
 
-# Generalized module for handling lingustics processing
+=begin rdoc
+
+==DESCRIPTION
+
+Linguistics is a module that forms a primordial node for storing Modules and classes dealing with lingustics.  The namespace is immediately sub-divided by language (e.g. Latin, Spanish) then part of speech (e.g. Noun, Verb) or function (e.g. Phonographia).  
+
+=end
+
 module Linguistics
   # Generalized module for handling lingustics related to Latin
   module Latin
