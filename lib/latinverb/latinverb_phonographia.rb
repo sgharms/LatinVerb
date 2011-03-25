@@ -36,7 +36,7 @@ module Linguistics
        #
        # === ARGUMENTS
        #
-       # +string+ :: a string which needs to be processed for Latin phonographic
+       # +s+ :: a string which needs to be processed for Latin phonographic
        #             compliance
        #
        # === RETURNS
@@ -49,8 +49,9 @@ module Linguistics
        # fix_macrons(cāīō)  #=> caiō  ( Rule 1, Rule 2 )
        #
        ##
-       def fix_macrons(string)
+       def fix_macrons(s)
          raise if s.nil?
+         return "" if s.empty?
          macron_table = {"\xc4\x81" => 'a', 
                          "\xc4\x93" => 'e',
                          "\xc4\xab" => 'i',
