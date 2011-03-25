@@ -8,18 +8,29 @@ require 'yaml'
 require 'json'
 require 'active_support'
 
+##
+#--
 # Internal dependencies
-require 'latinverb/latinverb_validation'
-require 'latinverb/latinverb_classmethods'
-require 'latinverb/latinverb_classification_types'
-require 'latinverb/latinverb_metaprogramming'
-require 'latinverb/latinverb_constants'
-require 'latinverb/latinverb_tense_methods'
-require 'latinverb/latinverb_phonographia'
-require 'latinverb/latinverb_particip_and_inf'
-require 'latinverb/latinverb_display'
-require 'latinverb/latinverb_data'
-require 'latinverb/latinverb_irregulars'
+# If the library is in the latin/verb, then it is a feature of the actual
+# Latin language as abstracted into Ruby.  If it is in the latin/verb/latinverb directory, it is part
+# of the mechanics of the representation of that language as Ruby, i.e. this
+# program.  It's the difference between "This is part of Latin" and "This is
+# Part of the machinery I use to represent Latin in Ruby."
+#++
+## 
+
+require 'linguistics/latin/verb/classification_types'
+require 'linguistics/latin/verb/tense_methods'
+require 'linguistics/latin/verb/phonographia'
+require 'linguistics/latin/verb/constants'
+require 'linguistics/latin/verb/particip_and_inf'
+require 'linguistics/latin/verb/irregulars'
+
+require 'linguistics/latin/verb/latinverb/classmethods'
+require 'linguistics/latin/verb/latinverb/metaprogramming'
+require 'linguistics/latin/verb/latinverb/validation'
+require 'linguistics/latin/verb/latinverb/data'
+require 'linguistics/latin/verb/latinverb/display'
 
 =begin rdoc
 

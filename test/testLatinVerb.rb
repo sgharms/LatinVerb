@@ -6,8 +6,8 @@ require "minitest/autorun"
 require 'pp'
 
 # Internal dependencies
-require 'latinverb/latinverb_classification_types'
-require 'latinverb/latinverb_classmethods.rb'
+require 'linguistics/latin/verb/latinverb/classmethods'
+require 'linguistics/latin/verb/classification_types'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'

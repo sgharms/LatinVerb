@@ -1,7 +1,7 @@
 # encoding:  UTF-8
 
 require 'latinverb'
-require 'latinverb/latinverb_phonographia'
+require 'linguistics/latin/verb/phonographia'
 
 module Linguistics 
   module Latin 

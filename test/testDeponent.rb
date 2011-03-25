@@ -4,7 +4,7 @@ require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
-require 'latinverb/latinverb_classification_types'
+require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-require 'latinverb/latinverb_phonographia'
+require 'linguistics/latin/verb/phonographia'
 require 'yaml'
 
 module Linguistics 
