@@ -1,13 +1,13 @@
 # encoding: UTF-8
 
-require "test/unit"
+require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 # Internal dependencies
 
-class TestMacronRules < Test::Unit::TestCase
+class TestMacronRules < MiniTest::Unit::TestCase
   def test_basic
     aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
 

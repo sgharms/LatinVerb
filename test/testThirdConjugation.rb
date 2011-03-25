@@ -1,12 +1,12 @@
 # encoding: UTF-8
 
-require "test/unit"
+require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerbThirdConj < Test::Unit::TestCase
+class TestLatinVerbThirdConj < MiniTest::Unit::TestCase
   def setup
     @aThird = Linguistics::Latin::Verb::LatinVerb.new 'agō agere ēgī actum'
   end

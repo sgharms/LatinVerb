@@ -1,13 +1,13 @@
 # encoding: UTF-8
 
-require "test/unit"
+require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 # Internal dependencies
 
-class TestLatinVerbFirstConj < Test::Unit::TestCase
+class TestLatinVerbFirstConj < MiniTest::Unit::TestCase
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
@@ -161,7 +161,7 @@ class TestLatinVerbFirstConj < Test::Unit::TestCase
   
   
     # Imperatives
-    assert_not_nil(@aFirst.imperatives)
+    assert(@aFirst.imperatives)
     assert_equal "amā",    @aFirst.imperatives[0]
     assert_equal "amāte",  @aFirst.imperatives[1]
   
@@ -181,10 +181,7 @@ class TestLatinVerbFirstConj < Test::Unit::TestCase
 
   def test_json_serialize_deserialize
     serializedFirstconj = @aFirst.to_json 
-    assert_not_nil(serializedFirstconj)
-
-    # f=File.open("a_first.json", "w")
-    # f.puts JSON.pretty_generate(@aFirst)
+    assert(serializedFirstconj)
 
     revivified = JSON.parse serializedFirstconj
     assert_equal(6, revivified.active_voice_imperative_mood_present_tense.to_a.length)
@@ -193,9 +190,7 @@ class TestLatinVerbFirstConj < Test::Unit::TestCase
   end
  
   def _test_first_conj_exhaustively_post_reviv(a)
-    assert_nothing_raised do
-      a.active_voice_imperative_mood_present_tense[2]
-    end
+    assert a.active_voice_imperative_mood_present_tense[2]
     assert !(a.active_voice_imperative_mood_present_tense.empty?), "Should not return nil."
     assert_equal "amō",        a.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "amās",       a.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -345,7 +340,7 @@ class TestLatinVerbFirstConj < Test::Unit::TestCase
   
   
     # Imperatives
-    assert_not_nil(a.imperatives)
+    assert(a.imperatives)
     assert_equal "amā",    a.imperatives[0]
     assert_equal "amāte",  a.imperatives[1]
   

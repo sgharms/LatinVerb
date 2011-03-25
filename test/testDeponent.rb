@@ -1,6 +1,6 @@
 #encoding:  UTF-8
 
-require "test/unit"
+require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
@@ -8,7 +8,7 @@ require 'latinverb/latinverb_classification_types'
 
 # Internal dependencies
 
-class TestDeponent < Test::Unit::TestCase
+class TestDeponent < MiniTest::Unit::TestCase
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'conor conarī conatus'
   end

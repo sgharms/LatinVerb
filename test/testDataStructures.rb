@@ -1,13 +1,13 @@
 # encoding: UTF-8
 
-require "test/unit"
+require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 # Internal dependencies
 
-class TestDataStructures < Test::Unit::TestCase
+class TestDataStructures < MiniTest::Unit::TestCase
   def setup
     @aFirstDS = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
@@ -19,15 +19,11 @@ class TestDataStructures < Test::Unit::TestCase
     h[:active_voice_indicative_mood_present_tense].third_person_plural_number)
   end
   def test_yaml
-    assert_nothing_raised do
-      @aFirstDS.to_y
-    end
-    assert_nothing_raised { 
-    @aFirstDS.active_voice_indicative_mood_perfect_tense.to_a.to_yaml }
+    assert @aFirstDS.to_y
+    assert @aFirstDS.active_voice_indicative_mood_perfect_tense.to_a.to_yaml 
     @aFirstDS.active_voice_indicative_mood_perfect_tense
   end
   def test_json
-    assert_nothing_raised {
-      @aFirstDS.pretty_generate }
+    assert @aFirstDS.pretty_generate 
   end
 end
