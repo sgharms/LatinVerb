@@ -12,7 +12,6 @@ require 'active_support'
 require 'latinverb/latinverb_validation'
 require 'latinverb/latinverb_classmethods'
 require 'latinverb/latinverb_classification_types'
-require 'latinverb/latinverb_errors'
 require 'latinverb/latinverb_metaprogramming'
 require 'latinverb/latinverb_constants'
 require 'latinverb/latinverb_tense_methods'
@@ -39,7 +38,6 @@ module Linguistics
       class LatinVerb
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
-        include Linguistics::Latin::Verb::Errors
         include Linguistics::Latin::Verb::ParticiplesAndInfinitives
  
         # Attributes for storing submitted data.  This will help remember the origin state

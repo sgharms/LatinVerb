@@ -1,5 +1,4 @@
 # encoding: UTF-8
-require 'latinverb/latinverb_errors'
 
 module Linguistics
   module Latin
