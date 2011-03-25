@@ -2,7 +2,7 @@
 require 'macronconversions'
 
 #  ...by others
-require "test/unit"
+require "minitest/autorun"
 require 'pp'
 
 # Internal dependencies
@@ -13,7 +13,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerb < Test::Unit::TestCase
+class TestLatinVerb < MiniTest::Unit::TestCase
 
   def setup
     _create_paradigmatic_examples
@@ -87,7 +87,7 @@ def test_metaprogramming
 
   # Make sure that stuff that /shouldn't/ be respected is not respected
   assert not( tc.respond_to? :zabumiwhorter)
-  assert_raise do
+  assert_raises(NoMethodError) do 
     tc.zabumiwhorter
   end
 
@@ -100,20 +100,20 @@ def test_method_lookup
   # this should raise because we have not defined the 'cluster' method.  We've
   # defined that we want to respond, but need to do so via an intermediary
   # which, at the point of this assertion, has not been defined
-  assert_raise do
+  assert_raises(NoMethodError) do
     tc.active_voice_indicative_mood_imperfect_tense_singular_number_third_person
   end
 end
 
 def test_verbvector
   tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
-  assert_not_nil tc
-  assert_not_nil tc.tense_list
-  assert_not_nil tc.tense_list.length
+  assert tc
+  assert tc.tense_list
+  assert tc.tense_list.length
   assert_equal 21, tc.tense_list.length
   assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
   tc.tense_list.each do |cluster_method|
-    assert_true tc.respond_to? cluster_method.to_sym
+    assert tc.respond_to? cluster_method.to_sym
   end
   assert_equal 126,  tc.vector_list.length
 end
@@ -121,7 +121,7 @@ end
 
   def test_irregular_verbs
     @irregular_verb_strings.each do |iv|
-      assert_true Linguistics::Latin::Verb::LatinVerb.new(iv).irregular?
+      assert Linguistics::Latin::Verb::LatinVerb.new(iv).irregular?
     end
   end
 
@@ -153,14 +153,14 @@ end
   def test_construction_validity
     @verb_hash_utf8_style.each_pair do |k,s|
       aVerb = Linguistics::Latin::Verb::LatinVerb.new s
-      assert_true aVerb.valid?
-      assert_not_nil aVerb.classification
-      assert_not_nil aVerb.short_class
-      assert_not_nil aVerb.stem
-      assert_not_nil aVerb.conjugation
+      assert aVerb.valid?
+      assert aVerb.classification
+      assert aVerb.short_class
+      assert aVerb.stem
+      assert aVerb.conjugation
       assert_equal 4,  aVerb.principal_parts.length
-      assert_true(aVerb.respond_to? :irregular?)
-      assert_false aVerb.irregular?
+      assert(aVerb.respond_to? :irregular?)
+      assert !aVerb.irregular?
     end
   end
 
