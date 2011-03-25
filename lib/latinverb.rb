@@ -45,7 +45,65 @@ module Linguistics
   module Latin
     # Generalized module for handling lingustics related to Latin's verbal aspects
     module Verb
-      # Class that is used to model a Verb in Latin
+      ##
+      # == SYNOPSIS
+      #
+      # Abstraction of a Verb in the Latin language.
+      #
+      # == DESCRIPTION
+      #
+      # LatinVerb is:
+      # * a tool to help the student of Latin understand the rules of
+      #   conjugation's heuristics by presenting those ideas in Ruby 
+      # * a way to get out of having to lug the 501 Latin Verbs book around
+      #   (when wrapped in an application ;) )
+      # * a way to discover some of the interesting metacongnitive structures
+      #   between natural language and programming language
+      # * <em>...and so much more...</em>
+      #
+      # === OPERATION
+      #
+      # LatinVerb operates by instantiating a LatinVerb based on a string
+      # containing the "four principal parts" that are used to describe a
+      # Latin verb.  From this simple entry, one calls "vectors' upon the
+      # object.  Vectors represent the unique, "fully-qualified" locus of a
+      # conjugated form.  A feature that was of paramount importance in its
+      # implementation was that the conjugation <b>should occur by
+      # heruristic</b> in the exact same way that <b>humans have been
+      # taught</b> in Latin classes for _milennia_!
+      #
+      # An example should illustrate:
+      #
+      # === EXAMPLE
+      #
+      # <pre>
+      # to_love = LatinVerb.new("amō amāre amāvī amatum")
+      # to_love.active_voice_indicative_mood_present_tense_second_person_singular_number #=> amās
+      # to_love.active_voice_indicative_mood_present_tense_third_person_singular_number #=> amat
+      # </pre>
+      #
+      # === EXPLICATION
+      #
+      # Considering the above example, when the object was insantiated, it
+      # realized what its conjugation was, realized what its stem ("amā") was,
+      # and then added to itself support for
+      # <tt>active_voice_indicative_mood_present_tense</tt> which is defined
+      # as "take the stem and postpend "ō, s, t, mus, tis, nt" to the stem and
+      # return it as an array.  It is through (mis-?)use of method_missing
+      # that this simple "vector" method for interfacing with a verb is
+      # possible.  <em>Puto hoc bonum esse</em>.
+      #
+      # === MACRONS / QUANTITY
+      #
+      # In reference texts, quanitiy of vowel duration ("long" or "short") is
+      # marked with a macron.  *LatinVerb assumes it will be provided strings
+      # with macrons*.  This makes sense as per the previous section, the
+      # conjugation is done by heuristic.  What isn't there cannot be altered.
+      # <em>Si hoc non aderit, non mutabitur</em>.  To make this easier I
+      # wrote the the MacronConversion library which supports conversion of
+      # LaTeX-styled ASCII macron transgraphia (e.g. \={a} => ā).
+      #
+      ## 
       class LatinVerb
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
@@ -66,6 +124,31 @@ module Linguistics
         alias_method :conjugation, :classification
         alias_method :irregular?, :irregular
 
+        ##
+        #
+        # The constructor for a Latinverb
+        #
+        # ===ARGUMENTS
+        #
+        # *s:* :: +s+ is class-tested and supports String or Hash classes,
+        # with the standard path having been designed to accept a string
+        # containing 4 words ("four principal parts").  Latin's principal
+        # irregular verbs are also accepted (see CONSTANTS) as possible
+        # entries.  +s+ also accepts a Hash as input.  This is used for
+        # deserialization from JSON which initialized based on a Hash.
+        #
+        # == SEE ALSO
+        #
+        # #initialize does very little work.  Therefore special attention
+        # should be paid to the #_init_by_string and _add_vector_methods.
+        # These are the workhorses of this class and do most of the decoration
+        # activity.  In the case of extending to support irregular verbs, #_irregular_handler is a critical path to explore.
+        #
+        # == TODO
+        #
+        # * Array support for the argument
+        #
+        ##
         def initialize(s)
           raise SyntaxError if s.nil?
 
@@ -112,11 +195,22 @@ module Linguistics
         # Instance methods
         ######################################################################
 
-        # Reaturns the "short" version, sans the module specifier
+        # Returns the "short" version, sans the module specifier.  in previous
+        # versions, the classification was expressed as a String.  While this
+        # had a certain amount of simplicity, building function is based on
+        # these classifications seems a linkely future direction.
+        #
+        # Furthermore, it is not the case that these are actuallly Strings,
+        # they are entities of an ontological sttus of their own and it seems
+        # "off" to consider them as mere strings.
         def short_class
           return @classification.to_s.gsub(/.*::(\w+)$/,"\\1")
         end
 
+        ##
+        #
+        # Returns the four principal parts and regularity designation
+        ##
         def to_s
            @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
         end

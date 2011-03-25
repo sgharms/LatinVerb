@@ -6,8 +6,49 @@ require 'yaml'
 module Linguistics 
   module Latin 
     module Verb 
+    ##
+    # == NAME
+    #
+    # TenseBlock
+    #
+    # == DESCRIPTION
+    #
+    # As per the LatinVerb documentation, LatinVerbs decorate themselves with
+    # the method which loads up a voice/tense/mood black box.  That black box
+    # is a TenseBlock.  The TenseBlock, in turn, responds to getting the final
+    # two components of the fully-qualified vector back (person and number).
+    # It also has Array-like behaviors (e.g. +[]+) based on the 2 * 3 matrix.
+    #
+    # == INTERNALS
+    #
+    # Internally, a Tenseblock is effectively an Array of the arguments passed
+    # in during TenseBlock.initialize.  These are assumed to be
+    # first/singular, second/singular, third/singular and then
+    # first/plural, second/plural, third/plural.
+    #
+    # Syntactic sugar methods are added to access this array.  Thus, in a
+    # LatinVerb a fully-qualified vectors first 3/5 data resolve to a
+    # TenseBlock.  The last 2/5 of resolution occurs within the TenseBlock
+    # (effectively pulling the contents of the Array).  Therefore, when a
+    # LatinVerb is accessed with the quinpartite fully-qualified vector it can
+    # return the unique value.  The mechanics of this hook through (surprise!)
+    # method_missing.
+    #
+    #
+    ##
+
       class TenseBlock
         include  Linguistics::Latin::Phonographia
+
+        # === ARGUMENTS
+        #
+        # *r:* :: An Array (or something that can respond to to_a) containing 0-6
+        #         elements that will be mapped into the 2*3 matrix of Latin verb person /
+        #         number specifications.
+        # === RETURNS
+        #
+        #  Nothing
+        ##
         def initialize(r)
           begin
             if r.class != Array
@@ -19,45 +60,83 @@ module Linguistics
             raise e, "TenseBlock failed to initialize correctly. passed #{r.nil?}"
           end
         end
+
+        ##
+        #
+        # Required for serialization
+        #
+        ##
         def to_json(*a)
           {
             'json_class'   => self.class.name, 
             'data'         => @results.map{|i| i.to_json}
           }.to_json(*a)
         end
+
+        ##
+        #
+        # Required for deserialization
+        #
+        ##
         def TenseBlock.json_create(o)
          new(o['data']) 
         end
-        def to_json(*a)
-          {
-            'json_class'   => self.class.name, 
-            'data'         => @results
-          }.to_json(*a)
-        end
+
+        ##
+        #
+        # Provides Array-like interface to the collection of results.
+        #
+        ##
         def [](arg)
           @results[arg]
         end
+
+        ##
+        #
+        # To Array, useful in serialization
+        #
+        ##
         def to_a
           return @results
         end
+
+##
+#--
+# TODO:  I dream of this being generated dynamically through the
+# VerbvectorGenerator for more dynamicity.  This would require a richer DSL in
+# VerbvectorGenerator, but would be totally awesome if we could describe this
+# language in a DSL. 
+#++
+##
+ 
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def first_person_singular_number;  return @results[0]; end
+
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def second_person_singular_number; return @results[1]; end
+
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def third_person_singular_number;  return @results[2]; end
+
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def first_person_plural_number;    return @results[3]; end
+
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def second_person_plural_number;   return @results[4]; end
+
+        # Syntactic sugar for accessing the final coordinates in the TenseBlock
         def third_person_plural_number;    return @results[5]; end
       end
+
       class LatinVerb
 
-# Commands for immediate action.  Always second person.
-
+        # Commands for immediate action.  Always second person.
         def active_voice_imperative_mood_present_tense
            imp = imperatives
            ["", imp[0], "", "", imp[1], ""]
         end
 
-# Action to be completed in the future
-
+        # Action to be completed in the future
         def active_voice_indicative_mood_future_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -71,8 +150,8 @@ module Linguistics
             end)
         end
 
-# Completed action in the future after now
-# p. 77
+        # Completed action in the future after now
+        # p. 77
         def active_voice_indicative_mood_futureperfect_tense
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten
@@ -100,15 +179,15 @@ Wheelock Reference, p. 37.
             end)
         end
 
-# Action completed in the past prior to an event in the past
-# p. 77
+        # Action completed in the past prior to an event in the past
+        # p. 77
         def active_voice_indicative_mood_pastperfect_tense
           substem = @first_pers_perf[0..-2]
            return TenseBlock.new [APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten   
         end
 
-# Action completed in the past
-# p. 77
+        # Action completed in the past
+        # p. 77
 
 
         def active_voice_indicative_mood_perfect_tense
@@ -141,6 +220,21 @@ Wheelock Reference, p. 37.
             end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_subjunctive_mood_imperfect_tense
          TenseBlock.new(
            ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending| 
@@ -148,6 +242,21 @@ Wheelock Reference, p. 37.
           end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_subjunctive_mood_pastperfect_tense
           asp_base = @first_pers_perf[0..@first_pers_perf.length-2] + "issē"
             TenseBlock.new( ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
@@ -155,6 +264,21 @@ Wheelock Reference, p. 37.
             end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_subjunctive_mood_perfect_tense
           asp_base = 
             @first_pers_perf[0..@first_pers_perf.length-2] +
@@ -165,6 +289,21 @@ Wheelock Reference, p. 37.
           end )
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_subjunctive_mood_present_tense
           key = lambda do
             conjugation.to_s.split(/::/).last.to_sym
@@ -194,6 +333,21 @@ Wheelock Reference, p. 37.
             end    )
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_future_tense
           TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -219,6 +373,21 @@ Wheelock Reference, p. 37.
 # Passive voice, present tense
 # Wheelock, 122
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_futureperfect_tense
           return TenseBlock.new(
             PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
@@ -227,6 +396,21 @@ Wheelock Reference, p. 37.
 # Passive voice, present tense
 # Wheelock, 117
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_imperfect_tense
           return TenseBlock.new (
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -246,6 +430,21 @@ Wheelock Reference, p. 37.
 # Passive voice, present tense
 # Wheelock, 117
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_pastperfect_tense
           TenseBlock.new(
             PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
@@ -254,6 +453,21 @@ Wheelock Reference, p. 37.
 # Passive voice, present tense
 # Wheelock, 122
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_perfect_tense
           TenseBlock.new(
              PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
@@ -262,6 +476,21 @@ Wheelock Reference, p. 37.
 # Passive voice, present tense
 # Wheelock, 117
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_indicative_mood_present_tense
           return TenseBlock.new (
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -285,6 +514,21 @@ Wheelock Reference, p. 37.
             end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_subjunctive_mood_imperfect_tense
           base = @pres_act_inf.gsub(/(.*)(.)$/,"\\1" + 'ē')
           TenseBlock.new( 
@@ -293,6 +537,21 @@ Wheelock Reference, p. 37.
           end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_subjunctive_mood_pastperfect_tense
           count = -1
           TenseBlock.new(PASS_PLUPERF_PAST_ENDINGS.map do |ending|
@@ -303,6 +562,21 @@ Wheelock Reference, p. 37.
           end)      
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_subjunctive_mood_perfect_tense
           counter = -1
           TenseBlock.new(PASS_PERF_SUBJ_ENDINGS.map do |ending|
@@ -313,6 +587,21 @@ Wheelock Reference, p. 37.
             end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def passive_voice_subjunctive_mood_present_tense
           key = lambda do
             conjugation.to_s.split(/::/).last.to_sym
@@ -339,6 +628,21 @@ Wheelock Reference, p. 37.
             end)
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # TODO:  Find A&G Reference
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def imperatives
           imperative_exceptions = { 
             "ducere"   => %w(duc ducite),
@@ -370,12 +674,45 @@ Wheelock Reference, p. 37.
 
         private
 
+        ##
+        #
+        # === DESCRIPTION
+        #
+        # Used for handling verb states that are compounds like _amatus,
+        # amata, amatum sum_ and converting them to amati, amatae, amata,
+        # (sumus|estis|sunt).
+        # 
+        # === ARGUMENTS
+        #
+        # *x:* :: A string that looks like ---us, ----a, ----um
+        #         This method mutates those singular endings to plural forms
+        #
+        # === RETURNS
+        #
+        # Altered string
+        #
+        ## 
         def pluralize_participial_listing(x)
           x.sub!(/us,/,   'ī,' )
           x.sub!(/a,/,    'ae,')
           x.sub!(/um.*$/, 'a'  )
         end       
 
+        ##
+        #
+        # === DESCRIPTION
+        #
+        # Used for turning a participial form ---um into ---us, ---a, ---um
+        #  
+        # === ARGUMENTS
+        #
+        # *s:* :: ----um
+        #
+        # === RETURNS
+        #
+        # Altered string
+        #
+        ## 
         def triplicate_and_genderize(s)
           stem = s.sub(/^(.*)um$/,"\\1")
           [ stem + 'us',

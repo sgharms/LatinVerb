@@ -8,7 +8,7 @@ require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 
-class TestDeponent < MiniTest::Unit::TestCase
+class TestDeponent < MiniTest::Unit::TestCase # :nodoc: 
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'conor conarī conatus'
   end

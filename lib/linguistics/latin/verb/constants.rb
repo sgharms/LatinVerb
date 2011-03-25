@@ -3,6 +3,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
+        # :stopdoc: 
         # active_present_endings: ("ap_"-prefixed)
           AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS = %w(s  t  mus  tis  nt)
           AP_THIRD_CONJUG_PERS_ENDINGS            = %w(ō  is it   imus itis unt)
@@ -34,6 +35,7 @@ module Linguistics
 
           PASS_PERF_SUBJ_ENDINGS    = %w(sim sis sit simus sitis sint)        
           PASS_PLUPERF_PAST_ENDINGS = %w(essem essēs esset essēmus essētis essent)
+        # :startdoc:
               
         # subjunctive tools
           # hash for getting a verb's subjunctive stem

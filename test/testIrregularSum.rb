@@ -9,7 +9,7 @@ require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 
-class TestIrregularSum < MiniTest::Unit::TestCase
+class TestIrregularSum < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @toBe = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
   end

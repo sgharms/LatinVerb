@@ -2,16 +2,50 @@
 module Linguistics
   module Latin
     module Verb
-      module VerbTypes
-        class VerbType; 
+=begin rdoc
+
+  == NAME
+
+  VerbTypes
+
+  == DESCRIPTION 
+
+  A VerbType is a parent, _conceptually abstract_  class for tracking
+  classifications of verbs.  At the present time it is an empty class.  It is
+  foreseeable, however, that in the future, it may be advantagous to associate
+  specific behaviors to it.  It is subclassed into the various types of Verbs
+  identified in Latin pedagogy:  First, Second, Third, ThirdIO, Fourth,
+  Irregular, and Deponent.  These classes, effectively, behave as strings as
+  attributes to the classification attribute within a LatinVerb.
+
+  VerbTypes, therefore, is the module containing these VerbTypes.
+
+=end
+      module VerbTypes 
+        ##
+        #--
+        # == DESCRIPTION
+        #
+        # Abstract ancestor class that defines the various subclass Verb Types
+        # ++
+        #
+        ##
+        class VerbType  # :nodoc:
         end
-        class First     < VerbType; end
-        class Second    < VerbType; end
-        class Third     < VerbType; end
-        class ThirdIO   < VerbType; end
-        class Fourth    < VerbType; end
-        class Irregular < VerbType; end
-        class Deponent  < VerbType; end
+        class First     < VerbType # :nodoc: 
+        end
+        class Second    < VerbType # :nodoc: 
+        end
+        class Third     < VerbType # :nodoc: 
+        end
+        class ThirdIO   < VerbType # :nodoc: 
+        end
+        class Fourth    < VerbType # :nodoc: 
+        end
+        class Irregular < VerbType # :nodoc: 
+        end
+        class Deponent  < VerbType # :nodoc:
+        end
       end
     end
   end
