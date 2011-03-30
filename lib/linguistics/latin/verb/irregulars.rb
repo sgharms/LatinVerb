@@ -3,7 +3,9 @@
 module Linguistics
   module Latin
     module Verb
-        SUM_ESSE_FUĪ_FUTŪRUS=<<EOJSON
+
+        # Recognized irregular verb
+        SUM_ESSE_FUĪ_FUTŪRUS=<<EOJSON 
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -172,7 +174,8 @@ module Linguistics
             }
         }
 EOJSON
-        FERŌ_FERRE_TULĪ_LATUM=<<EOJSON
+        # Recognized irregular verb
+        FERŌ_FERRE_TULĪ_LATUM=<<EOJSON 
         {
           "original string":"ferō ferre tulī latum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -381,7 +384,8 @@ EOJSON
             }
         }
 EOJSON
-        EŌ_ĪRE_IVĪ_ITUM=<<EOJSON
+        # Recognized irregular verb
+        EŌ_ĪRE_IVĪ_ITUM=<<EOJSON 
         {
           "original string":"eō īre ivī itum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -584,7 +588,8 @@ EOJSON
           }
         }
 EOJSON
-        NOLŌ_NOLLE_NOLUĪ=<<EOJSON
+        # Recognized irregular verb
+        NOLŌ_NOLLE_NOLUĪ=<<EOJSON 
         {
           "original string":"nolō nolle noluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -753,7 +758,8 @@ EOJSON
             }
           }
 EOJSON
-        VOLŌ_VELLE_VOLUĪ=<<EOJSON
+        # Recognized irregular verb
+        VOLŌ_VELLE_VOLUĪ=<<EOJSON 
         {
           "original string":"volō velle voluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",

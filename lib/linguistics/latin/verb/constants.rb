@@ -35,7 +35,6 @@ module Linguistics
 
           PASS_PERF_SUBJ_ENDINGS    = %w(sim sis sit simus sitis sint)        
           PASS_PLUPERF_PAST_ENDINGS = %w(essem essēs esset essēmus essētis essent)
-        # :startdoc:
               
         # subjunctive tools
           # hash for getting a verb's subjunctive stem
@@ -47,6 +46,7 @@ module Linguistics
             :Fourth  => lambda  { |x| return x + "iā" },
             :ThirdIO => lambda  { |x| return x + "iā" }
           }   
+        # :startdoc:
       end
     end
   end

@@ -130,13 +130,71 @@ module Linguistics
 
       class LatinVerb
 
+        ##
+        #
+        # === REFERENCE
+        #
+        # ==== Voices
+        # A&G Sec. 156:  
+        #
+        # The Active and Passive Voices in Latin generally correspond to the
+        # activer and passive in English; but --
+        #
+        # a.  The passive voice often has a reflexive meaning: --
+        # b.  Many verbs are passive in form, but active or reflexive in
+        # meaning.  Thse are caled Deponents (sec 190.)...
+        # c.  Some verbs with active meaning have the passive form in the
+        # perfet tenses; these are called Semi-Deponents
+        #
+        # ==== Moods
+        #
+        # a.  The Indicative Mood is used for most WemEdirect assertions</em>
+        # and <em>interrogations</em>
+        # b.  The Subjunctive Mood has many idiomatic uses, as in
+        # <em>commands</em>, <em>condtitions</em>, and various <em>dependent
+        # clauses</em>.
+        # c.  The Imperative is used for <em>exhortation</em>,
+        # <em>entreaty</em>, or <em>command</em>; but the Subjunctive is often
+        # used instead
+        #
+        #
+        #
+
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
         # Commands for immediate action.  Always second person.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_imperative_mood_present_tense
            imp = imperatives
            ["", imp[0], "", "", imp[1], ""]
         end
 
-        # Action to be completed in the future
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Action to be completed in the future.  A&G,160,a,3.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_future_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -150,21 +208,42 @@ module Linguistics
             end)
         end
 
-        # Completed action in the future after now
-        # p. 77
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Action completed in the future.  
+        # A&G,160,b,3.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_futureperfect_tense
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten
         end
 
-=begin rdoc
-
-Imperfect: Habitual action in the past.  The base + %w(bam bas bat bamus batis
-bant).
-
-Wheelock Reference, p. 37.
-
-=end
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Habitual action in the past.  A&G,160,a,2.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_imperfect_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
@@ -179,30 +258,69 @@ Wheelock Reference, p. 37.
             end)
         end
 
-        # Action completed in the past prior to an event in the past
-        # p. 77
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Action completed in the past prior to an event in the past.
+        # A&G,160,b,3.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_pastperfect_tense
           substem = @first_pers_perf[0..-2]
            return TenseBlock.new [APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten   
         end
 
-        # Action completed in the past
-        # p. 77
 
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Action completed in the past.  A&G,160,b,1.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_perfect_tense
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [@first_pers_perf.to_s, APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten
         end
 
-=begin rdoc
-
- The canonical building block of learning to conjugate verbs in Latin.  Take the present
- active infinitive, chop off the ending, and add the classic o,s,t,mus,tis,nt
- 
- Wheelock Reference, p. 4.  
-
-=end
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # The canonical building block of learning to conjugate verbs in
+        # Latin.  Take the present active infinitive, chop off the ending, and
+        # add the classic o,s,t,mus,tis,nt
+        # 
+        # Wheelock Reference, p. 4.  
+        # A&G, 160,a,1.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
         def active_voice_indicative_mood_present_tense
           return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
@@ -224,7 +342,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -246,7 +365,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -268,7 +388,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -293,7 +414,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -337,7 +459,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Voice" section in reference, for function consult
+        # active-voice counterpart.</em>
         #
         # === ARGUMENTS
         #
@@ -370,14 +493,13 @@ Wheelock Reference, p. 37.
             end)
         end
 
-# Passive voice, present tense
-# Wheelock, 122
-
         ##
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Voice" section in reference, for function consult
+        # active-voice counterpart.</em>
+        # Wheelock, 122
         #
         # === ARGUMENTS
         #
@@ -393,14 +515,14 @@ Wheelock Reference, p. 37.
             PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
 
-# Passive voice, present tense
-# Wheelock, 117
 
         ##
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Voice" section in reference, for function consult
+        # active-voice counterpart.</em>
+        # Wheelock, 117
         #
         # === ARGUMENTS
         #
@@ -427,14 +549,14 @@ Wheelock Reference, p. 37.
             end)
         end
 
-# Passive voice, present tense
-# Wheelock, 117
 
         ##
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Voice" section in reference, for function consult
+        # active-voice counterpart.</em>
+        # Wheelock, 117
         #
         # === ARGUMENTS
         #
@@ -450,14 +572,12 @@ Wheelock Reference, p. 37.
             PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
 
-# Passive voice, present tense
-# Wheelock, 122
 
         ##
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # Wheelock, 122
         #
         # === ARGUMENTS
         #
@@ -473,14 +593,14 @@ Wheelock Reference, p. 37.
              PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
         end
 
-# Passive voice, present tense
-# Wheelock, 117
 
         ##
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Voice" section in reference, for function consult
+        # active-voice counterpart.</em>
+        # Wheelock, 117
         #
         # === ARGUMENTS
         #
@@ -518,7 +638,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -541,7 +662,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -566,7 +688,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -591,7 +714,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # <em>Refer to "Moods," above.  Tense is constrained by function of
+        # the verb in context.</em>
         #
         # === ARGUMENTS
         #
@@ -632,7 +756,8 @@ Wheelock Reference, p. 37.
         #
         # === GRAMMATICAL FUNCTION
         #
-        # TODO:  Find A&G Reference
+        # Used to express command.  As A&G notes, oftentimes the Subjunctive
+        # is the correct mood for exhortation.
         #
         # === ARGUMENTS
         #

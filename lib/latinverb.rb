@@ -54,7 +54,7 @@ module Linguistics
       #
       # LatinVerb is:
       # * a tool to help the student of Latin understand the rules of
-      #   conjugation's heuristics by presenting those ideas in Ruby 
+      #   conjugation's heuristics by presenting said heuristics in Ruby 
       # * a way to get out of having to lug the 501 Latin Verbs book around
       #   (when wrapped in an application ;) )
       # * a way to discover some of the interesting metacongnitive structures
@@ -102,6 +102,11 @@ module Linguistics
       # <em>Si hoc non aderit, non mutabitur</em>.  To make this easier I
       # wrote the the MacronConversion library which supports conversion of
       # LaTeX-styled ASCII macron transgraphia (e.g. \={a} => ā).
+      #
+      # === WORKS CITED
+      #
+      # Allen, J.H.  Allen and Greenough's New Latin Grammar.  Dover,
+      # Mineola.  2006.
       #
       ## 
       class LatinVerb
@@ -266,7 +271,34 @@ module Linguistics
         end
 
         def _add_vector_methods
-          # Get all the methods that a LatinVerb must be able to respond to
+          ## 
+          # Generates all the methods to which a verb must be able to respond
+          # by implementing Linguistics::Verbs::Verbvector::VerbvectorGenerator.
+          #
+          # This conforms to the definition provided in Allen & Greenough Sec.
+          # 154:
+          #
+          #    Through its conjugation the Verb expresses Voice, Mood, Tense
+          #    Person, and Number.
+          #
+          #    a.  The Voices are two:  Active and Passive
+          #    b. The Moods are four: Indicative,Subjuncitve, Imperative, and
+          #    Infinitive
+          #
+          #    ...
+          #
+          #    c.  The Tenses are six, viz: --
+          #    1.  For continued action:  Present, Imperfect, Future
+          #    2.  For completed action, Perfect, Pluperfect, Future Perfect
+          #
+          #    The Indicative Mood has all six tenses, but the Subjunctive has
+          #    no future or future perfect and the Imperative has only the
+          #    present and the future.  The Infinitive has the present, perfect,
+          #    and future.
+          #
+          #    d. The Persons are three:  First, Secon, Third.
+          #    e.  The Numbers are two:  Singular and Plural
+          ##
           @latin_verbvector_generator = 
           Linguistics::Verbs::Verbvector::VerbvectorGenerator.new do
             language :Latin do

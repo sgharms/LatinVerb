@@ -17,6 +17,33 @@ module Linguistics
       # will provide it the ability to resolve its participles (verbal
       # adjectives) and infinitives.
       #
+      # == REFERENCE
+      #
+      #    Allen and Greenough Se. 155:
+      #
+      #    The following Noun and Adjective forms are also included in the
+      #    inflection of the Latin Verb:
+      #
+      #    a.  Four Participles, viz: --
+      #    <em>Active</em>:  the Present and Future Participles
+      #    <em>Passive</em>: the Perfect Participle and the Gerundive
+      #    b.  The Gerund:  this is in form a neuter noun of the second
+      #    declension used only in the oblique cases of hte singular.
+      #    c.  The Supine:  this is in form a verbal noun of the fourth
+      #    declension in the accusative (-um) and dative or ablative (-ū)
+      #    singular      
+      #    ...
+      #
+      #    <em>From the footnotes</em>
+      #
+      #    1.  The Infinitive is strictly th elocative case of an abstract
+      #    noun, expressing the action of the verb (cf. sec. 451)
+      #    2.  The Participles are adjectives in inflection and meaning, but
+      #    have the power of verbs in construction and in distinguishing time.
+      # 
+      # <b>NOTE</b>:  Elsewhere, particularly in Wheelock, the gerundive is called
+      # the "perfect passive participle."
+      #
       ##
       module ParticiplesAndInfinitives
 
@@ -28,7 +55,9 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     # A&G,158,a.  The Present Participle (ending in -ns) has commly the
+     # meaning and use as the English participle in 'ing; as vocāns, calling.
+     # For inflection see egēns, sec. 118
      #
      # === ARGUMENTS
      #
@@ -49,7 +78,9 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     # A&G,158,b.  The Future Participle (ending in -ūrus) is oftenest used to
+     # express what is likely or about to happen:  as, rēctūrus, about to
+     # rule...
      #
      # === ARGUMENTS
      #
@@ -70,7 +101,16 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     # 158,c.  The Perfect Participle (ending in -tus, -sus) has two uses:
+     #
+     # 1.  It is sometimes equivalent to the English perfect passive
+     # participle:
+     #
+     # as tеctus, sheltered; acceptus, accepted...; and often simply has an
+     # adjective meaning:  as, acceptus, acceptable.
+     #
+     # 2.  It is used with the verb to be (esse) to form certain tenses of the
+     # passive:  as, vocātus est, he was (has been) called.
      #
      # === ARGUMENTS
      #
@@ -91,7 +131,7 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     # <em>See</em>:  Gerundive
      #
      # === ARGUMENTS
      #
@@ -112,7 +152,14 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     # A&G, 158,d. 
+     #
+     # The Gerundive (ending in -ndus) has two uses:  
+     #
+     # 1.  ...an adjective implying obligation...  
+     #
+     # 2.  In the oblique cases the Gerundive commonly has the same meaning as
+     # the Gerund ... for examples see sec. 503
      #
      # === ARGUMENTS
      #
@@ -134,7 +181,12 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To X"
      #
      # === ARGUMENTS
      #
@@ -153,7 +205,12 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To have X-d"
      #
      # === ARGUMENTS
      #
@@ -172,7 +229,12 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To be about to X"
      #
      # === ARGUMENTS
      #
@@ -191,7 +253,12 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To be X-d"
      #
      # === ARGUMENTS
      #
@@ -224,7 +291,12 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # TODO:  Find A&G Reference
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To have been X-d"
      #
      # === ARGUMENTS
      #

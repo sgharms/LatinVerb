@@ -9,7 +9,25 @@ module Linguistics
         class << self
 
 
-          # Given the principal parts as a string, decide which conjuation is in play
+          ##
+          # 
+          # == ARGUMENTS
+          # 
+          #  * <b>s:</b> :: a "four principal parts" string whence can be derived
+          #  the first person singular present indicative as well as the
+          #  infinitive
+          # 
+          # == RETURNS      
+          # 
+          # The classification, a subclass of VerbType
+          # 
+          # == PURPOSE      
+          # 
+          # Given the principal parts as a string, decide which conjuation is
+          # in play
+          # 
+          # 
+          ##
           def classify(s)
 
             if s.class == String
@@ -38,24 +56,24 @@ module Linguistics
             end
           end
 
-=begin rdoc
-
-*Arguments*:    None
-
-*Attribs Used*: @pres_act_inf
-
-*Attribs Set*:  None
-
-*Returns*:      The “stem” of a Latin Verb
-
-*Purpose*:      Based on the present active infinitive, identify the “stem” and set the @stem iVar.
-The method also returns the stem value.
-
-=end
-
+          ##
+          # 
+          # == ARGUMENTS
+          # 
+          #  * pres_act_inf
+          # 
+          # == RETURNS      
+          # 
+          # The “stem” of a Latin Verb
+          # 
+          # == PURPOSE      
+          # 
+          # Based on the present active infinitive, identify the “stem” and set the +@stem+
+          # iVar.  The method also returns the stem value.
+          # 
+          ##
           def calculate_stem(pres_act_inf)
-            # For efficiency, if the iVar @stem is defined, don't go through this structure
-
+            # TODO: For efficiency, if the iVar @stem is defined, don't go through this structure?
             if pres_act_inf =~ /āre$/
               return pres_act_inf.gsub(/(.*)āre$/,'\\1ā')
             end
@@ -74,36 +92,48 @@ The method also returns the stem value.
             end
           end
 
-=begin rdoc
+          ##
+          # 
+          # == ARGUMENTS
+          # 
+          #  * first_person_singular
+          #  * pres_act_inf
+          # 
+          # == RETURNS      
+          # 
+          # The participial “stem” of a Latin Verb, used for participle
+          # formation
+          # 
+          # == PURPOSE      
+          # 
+          # Calculate the participial stem, used in forming participles.
+          # 
+          ##
+          def calculate_participial_stem(first_pers_singular, pres_act_inf)
+             raise("pres_act_inf was nil![#{first_pers_singular} and #{pres_act_inf}]") if
+               pres_act_inf.empty? or first_pers_singular.empty?
 
-Calculate the participial stem, used in forming participles.
+             if pres_act_inf.to_s =~ /(.*ā)re$/
+              return $1
+            end
 
-=end
-    def calculate_participial_stem(first_pers_singular, pres_act_inf)
-       raise("pres_act_inf was nil![#{first_pers_singular} and #{pres_act_inf}]") if
-         pres_act_inf.empty? or first_pers_singular.empty?
+            if pres_act_inf.to_s =~ /(.*ē)re$/
+              return $1
+            end
 
-       if pres_act_inf.to_s =~ /(.*ā)re$/
-        return $1
-      end
+            if pres_act_inf.to_s =~ /(.*)ere$/
+              match=$1
+              if first_pers_singular =~ /iō/
+                return match + "iē"
+              else
+                return match + "e"
+              end
+            end
 
-      if pres_act_inf.to_s =~ /(.*ē)re$/
-        return $1
-      end
-
-      if pres_act_inf.to_s =~ /(.*)ere$/
-        match=$1
-        if first_pers_singular =~ /iō/
-          return match + "iē"
-        else
-          return match + "e"
-        end
-      end
-
-      if pres_act_inf.to_s =~ /(.*)īre$/
-        return $1 + "iē"
-      end
-    end
+            if pres_act_inf.to_s =~ /(.*)īre$/
+              return $1 + "iē"
+            end
+          end
 
         end
       end
