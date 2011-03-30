@@ -42,7 +42,7 @@ TODO:  It should be possible to ONLY pass the 3/5ths and get the collective resu
 ++
 
 =end
-        def method_missing(symbol, *args ) 
+        def method_missing(symbol, *args )  # :nodoc:
           super if @tense_list.nil?
           @tense_list.find do |e|
             if symbol.to_s.match /^(#{e})_(.*)/

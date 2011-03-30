@@ -13,7 +13,7 @@ module Linguistics
           # 
           # == ARGUMENTS
           # 
-          #  * <b>s:</b> :: a "four principal parts" string whence can be derived
+          #    * s :: a "four principal parts" string whence can be derived
           #  the first person singular present indicative as well as the
           #  infinitive
           # 
@@ -60,7 +60,7 @@ module Linguistics
           # 
           # == ARGUMENTS
           # 
-          #  * pres_act_inf
+          #    * pres_act_inf
           # 
           # == RETURNS      
           # 
@@ -96,8 +96,8 @@ module Linguistics
           # 
           # == ARGUMENTS
           # 
-          #  * first_person_singular
-          #  * pres_act_inf
+          #     * first_person_singular
+          #     * pres_act_inf
           # 
           # == RETURNS      
           # 

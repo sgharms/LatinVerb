@@ -6,7 +6,7 @@ module Linguistics
 
         ##
         #
-        # *You should not be using this, probably*
+        # <b>You should not be using this, probably</b>
         #
         # This is a a convenience method so that you can print out the
         # contents in a human-readable fashion.  LatinVerb is a library that

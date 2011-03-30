@@ -130,35 +130,6 @@ module Linguistics
 
       class LatinVerb
 
-        ##
-        #
-        # === REFERENCE
-        #
-        # ==== Voices
-        # A&G Sec. 156:  
-        #
-        # The Active and Passive Voices in Latin generally correspond to the
-        # activer and passive in English; but --
-        #
-        # a.  The passive voice often has a reflexive meaning: --
-        # b.  Many verbs are passive in form, but active or reflexive in
-        # meaning.  Thse are caled Deponents (sec 190.)...
-        # c.  Some verbs with active meaning have the passive form in the
-        # perfet tenses; these are called Semi-Deponents
-        #
-        # ==== Moods
-        #
-        # a.  The Indicative Mood is used for most WemEdirect assertions</em>
-        # and <em>interrogations</em>
-        # b.  The Subjunctive Mood has many idiomatic uses, as in
-        # <em>commands</em>, <em>condtitions</em>, and various <em>dependent
-        # clauses</em>.
-        # c.  The Imperative is used for <em>exhortation</em>,
-        # <em>entreaty</em>, or <em>command</em>; but the Subjunctive is often
-        # used instead
-        #
-        #
-        #
 
         ##
         #
@@ -809,12 +780,17 @@ module Linguistics
         # 
         # === ARGUMENTS
         #
-        # *x:* :: A string that looks like ---us, ----a, ----um
+        # +x:+ :: A string that looks like --us, --a, --um
         #         This method mutates those singular endings to plural forms
         #
         # === RETURNS
         #
         # Altered string
+        #
+        # === EXAMPLE
+        #
+        # pluralize_participial_listing(qq/amatus, amata, amatum/) #=>
+        #   amatī, amatae, amata
         #
         ## 
         def pluralize_participial_listing(x)
@@ -827,15 +803,19 @@ module Linguistics
         #
         # === DESCRIPTION
         #
-        # Used for turning a participial form ---um into ---us, ---a, ---um
+        # Used for turning a participial form --um into --us, --a, --um
         #  
         # === ARGUMENTS
         #
-        # *s:* :: ----um
+        # +s:+ :: --um
         #
         # === RETURNS
         #
         # Altered string
+        #
+        # === EXAMPLE
+        #
+        # triplicate_and_genderize("amatum") #=> amatus, amata, amatum
         #
         ## 
         def triplicate_and_genderize(s)

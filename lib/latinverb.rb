@@ -100,13 +100,42 @@ module Linguistics
       # with macrons*.  This makes sense as per the previous section, the
       # conjugation is done by heuristic.  What isn't there cannot be altered.
       # <em>Si hoc non aderit, non mutabitur</em>.  To make this easier I
-      # wrote the the MacronConversion library which supports conversion of
+      # wrote the MacronConversion library which supports conversion of
       # LaTeX-styled ASCII macron transgraphia (e.g. \={a} => ā).
+      #
+      #
+      # === REFERENCE
+      #
+      # ==== Voices
+      # A&G Sec. 156:  
+      #
+      # The Active and Passive Voices in Latin generally correspond to the
+      # active and passive in English; but --
+      #
+      # a.  The passive voice often has a reflexive meaning: --
+      # b.  Many verbs are passive in form, but active or reflexive in
+      # meaning.  These are called Deponents (sec 190.)...
+      # c.  Some verbs with active meaning have the passive form in the
+      # perfect tenses; these are called Semi-Deponents
+      #
+      # ==== Moods
+      #
+      # a.  The Indicative Mood is used for most <em>direct assertions</em>
+      # and <em>interrogations</em>
+      # b.  The Subjunctive Mood has many idiomatic uses, as in
+      # <em>commands</em>, <em>conditions</em>, and various <em>dependent
+      # clauses</em>.
+      # c.  The Imperative is used for <em>exhortation</em>,
+      # <em>entreaty</em>, or <em>command</em>; but the Subjunctive is often
+      # used instead
       #
       # === WORKS CITED
       #
       # Allen, J.H.  Allen and Greenough's New Latin Grammar.  Dover,
-      # Mineola.  2006.
+      # Mineola: 2006.  Cited herein as "A&G."
+      #
+      # Wheelock, Frederic M.  Wheelock's Latin.  Collins, New York: 2005.  
+      # Cited herein as "Wheelock."
       #
       ## 
       class LatinVerb
