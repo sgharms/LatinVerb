@@ -10,6 +10,11 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     @aThirdIO = Linguistics::Latin::Verb::LatinVerb.new 'capiō capere cēpī captum'
   end
 
+  def test_gerund
+    assert @aThirdIO.gerund
+    assert @aThirdIO.gerundive
+  end
+
   def test_supine
     assert_equal "captum", @aThirdIO.supine[:accusative]
     assert_equal "captū",  @aThirdIO.supine[:ablative]
@@ -173,11 +178,12 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal"capiendus, capienda, capiendum", @aThirdIO.future_passive_participle
 
     # Infinitves 
-    assert_equal"capere",                     @aThirdIO.present_active_infinitive
-    assert_equal"cēpīsse",                    @aThirdIO.perfect_active_infinitive
-    assert_equal"captūrus esse",              @aThirdIO.future_active_infinitive
-    assert_equal"capī",                       @aThirdIO.present_passive_infinitive
-    assert_equal"captus, capta, captum esse", @aThirdIO.perfect_passive_infinitive    
+    assert_equal "capere",                     @aThirdIO.present_active_infinitive
+    assert_equal "cēpīsse",                    @aThirdIO.perfect_active_infinitive
+    assert_equal "captūrus esse",              @aThirdIO.future_active_infinitive
+    assert_equal "capī",                       @aThirdIO.present_passive_infinitive
+    assert_equal "captus, capta, captum esse", @aThirdIO.perfect_passive_infinitive    
+    assert_equal "captum īrī",                 @aThirdIO.future_passive_infinitive
      
   end 
 

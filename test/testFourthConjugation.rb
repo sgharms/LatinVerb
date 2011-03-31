@@ -16,6 +16,11 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "auditū",  @aFourth.supine[:ablative]
   end
 
+  def test_gerund
+    assert @aFourth.gerund
+    assert @aFourth.gerundive
+  end
+
   def test_fourth_conj_exhaustively
     assert_equal "audiō",       @aFourth.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "audis",       @aFourth.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -174,11 +179,12 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal"audiendus, audienda, audiendum",  @aFourth.future_passive_participle
 
     # Infinitves 
-    assert_equal"audīre",                         @aFourth.present_active_infinitive
-    assert_equal"audīvīsse",                      @aFourth.perfect_active_infinitive
-    assert_equal"auditūrus esse",                 @aFourth.future_active_infinitive
-    assert_equal"audīrī",                         @aFourth.present_passive_infinitive
-    assert_equal"auditus, audita, auditum esse",  @aFourth.perfect_passive_infinitive    
+    assert_equal "audīre",                         @aFourth.present_active_infinitive
+    assert_equal "audīvīsse",                      @aFourth.perfect_active_infinitive
+    assert_equal "auditūrus esse",                 @aFourth.future_active_infinitive
+    assert_equal "audīrī",                         @aFourth.present_passive_infinitive
+    assert_equal "auditus, audita, auditum esse",  @aFourth.perfect_passive_infinitive    
+    assert_equal "auditum īrī",                    @aFourth.future_passive_infinitive
   end
 
 end

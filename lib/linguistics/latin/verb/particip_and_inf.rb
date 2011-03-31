@@ -174,6 +174,29 @@ module Linguistics
        self.future_passive_participle
      end
 
+     ##
+     #--
+     # The gerund is a verbal noun (loving dancing, running) formed like the
+     # gerundive, except that it only has four forms: the n. singular of the
+     # gen, dative, acc, and abl (the oblique cases).  They are identical to
+     # the corresponding cases of the gerundive but ae ative in meaning and
+     # correspond to the english "-ing"
+     #
+     # Gerundive:  verbal achective
+     # gerund:  verbal noun
+     # 
+     # gerund only has oblique
+     # gerundive is passive in meaning, gerund is active:
+     # 
+     # A FUNNY THING I ALWAYS FORGET:
+     #  studium legeni libros ==>  studium librorum legendorum
+     #  discimus legendo libros ==>  discimus libris legendis
+     #
+     #  -- Source, Wheelock
+     #++
+     ##
+     alias_method :gerund, :gerundive 
+
      ##########################################
      # Infinitives
      ##########################################
@@ -311,6 +334,32 @@ module Linguistics
        return perfect_passive_participle + " esse"
      end 
 
+     ##
+     #
+     # === GRAMMATICAL FUNCTION
+     #
+     #  A&G, 157,d:
+     #
+     #  The Infinitive is used chiefly as an indeclinable noun, as the subject
+     #  or complement of another ver ( 452, 456.n)
+     #
+     #  "To be about to be X-d"
+     #
+     #  <b>Note:</b>  This form is exceedingly rare.  Wheelock notes that
+     #  Romans preferred to use the 4th principal part + <b>fore</b>.
+     #
+     # === ARGUMENTS
+     #
+     # None
+     #
+     # === RETURNS
+     #
+     # Array of participles
+     #
+     ###
+     def future_passive_infinitive
+       return supine[:accusative] + " īrī"
+     end 
    end
  end
 end

@@ -11,6 +11,11 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
     @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
   end
 
+  def test_gerund
+    assert @aSecond.gerund
+    assert @aSecond.gerundive
+  end
+
   def test_supine
     assert_equal "monitum", @aSecond.supine[:accusative]
     assert_equal "monitū",  @aSecond.supine[:ablative]
@@ -174,10 +179,11 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal"monendus, monenda, monendum",      @aSecond.future_passive_participle
 
     # Infinitves
-    assert_equal"monēre",                        @aSecond.present_active_infinitive.to_s
-    assert_equal"monuīsse",                      @aSecond.perfect_active_infinitive
-    assert_equal"monitūrus esse",                @aSecond.future_active_infinitive
-    assert_equal"monērī",                          @aSecond.present_passive_infinitive
-    assert_equal"monitus, monita, monitum esse", @aSecond.perfect_passive_infinitive    
+    assert_equal "monēre",                        @aSecond.present_active_infinitive.to_s
+    assert_equal "monuīsse",                      @aSecond.perfect_active_infinitive
+    assert_equal "monitūrus esse",                @aSecond.future_active_infinitive
+    assert_equal "monērī",                        @aSecond.present_passive_infinitive
+    assert_equal "monitus, monita, monitum esse", @aSecond.perfect_passive_infinitive    
+    assert_equal "monitum īrī",                   @aSecond.future_passive_infinitive
    end 
 end

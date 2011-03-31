@@ -12,6 +12,11 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
 
+  def test_gerund
+    assert @aFirst.gerund
+    assert @aFirst.gerundive
+  end
+
   def test_supine
     assert_equal "amatum", @aFirst.supine[:accusative]
     assert_equal "amatū",  @aFirst.supine[:ablative]
@@ -182,6 +187,7 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "amatūrus esse", @aFirst.future_active_infinitive
     assert_equal "amārī", @aFirst.present_passive_infinitive
     assert_equal "amatus, amata, amatum esse", @aFirst.perfect_passive_infinitive    
+    assert_equal "amatum īrī", @aFirst.future_passive_infinitive
   end
 
   def test_json_serialize_deserialize

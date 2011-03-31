@@ -11,6 +11,11 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     @aThird = Linguistics::Latin::Verb::LatinVerb.new 'agō agere ēgī actum'
   end
 
+  def test_gerund
+    assert @aThird.gerund
+    assert @aThird.gerundive
+  end
+
   def test_supine
     assert_equal "actum", @aThird.supine[:accusative]
     assert_equal "actū",  @aThird.supine[:ablative]
@@ -174,11 +179,12 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
           assert_equal"agendus, agenda, agendum", @aThird.future_passive_participle
   
           # Infinitves 
-          assert_equal"agere",                   @aThird.present_active_infinitive.to_s
-          assert_equal"ēgīsse",                  @aThird.perfect_active_infinitive
-          assert_equal"actūrus esse",            @aThird.future_active_infinitive
-          assert_equal"agī",                     @aThird.present_passive_infinitive
-          assert_equal"actus, acta, actum esse", @aThird.perfect_passive_infinitive    
+          assert_equal "agere",                   @aThird.present_active_infinitive.to_s
+          assert_equal "ēgīsse",                  @aThird.perfect_active_infinitive
+          assert_equal "actūrus esse",            @aThird.future_active_infinitive
+          assert_equal "agī",                     @aThird.present_passive_infinitive
+          assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive    
+          assert_equal "actum īrī",               @aThird.future_passive_infinitive
    end 
 
 end
