@@ -100,6 +100,13 @@ module Linguistics
           return @results
         end
 
+        ##
+        #
+        # Add array compatibility support
+        #
+        ##
+        def length; return @results.length; end
+
 ##
 #--
 # TODO:  I dream of this being generated dynamically through the
