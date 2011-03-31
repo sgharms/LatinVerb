@@ -24,7 +24,8 @@ require 'linguistics/latin/verb/tense_methods'
 require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
-require 'linguistics/latin/verb/particip_and_inf'
+require 'linguistics/latin/verb/infinitives'
+require 'linguistics/latin/verb/participles'
 require 'linguistics/latin/verb/irregulars'
 
 require 'linguistics/latin/verb/latinverb/classmethods'
@@ -142,7 +143,8 @@ module Linguistics
       class LatinVerb
         # Modules used to validate the input in initialize
         include Linguistics::Latin::Verb::Validation
-        include Linguistics::Latin::Verb::ParticiplesAndInfinitives
+        include Linguistics::Latin::Verb::Participles
+        include Linguistics::Latin::Verb::Infinitives
  
         # Attributes for storing submitted data.  This will help remember the origin state
         attr_reader :original_string
