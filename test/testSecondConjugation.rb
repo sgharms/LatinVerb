@@ -11,6 +11,11 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
     @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
   end
 
+  def test_supine
+    assert_equal "monitum", @aSecond.supine[:accusative]
+    assert_equal "monitū",  @aSecond.supine[:ablative]
+  end
+
   def test_second_conj_exhaustively
     assert_equal("moneō",   @aSecond.active_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("monēs",   @aSecond.active_voice_indicative_mood_present_tense_second_person_singular_number.to_s)

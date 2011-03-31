@@ -10,6 +10,11 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     @aThirdIO = Linguistics::Latin::Verb::LatinVerb.new 'capiō capere cēpī captum'
   end
 
+  def test_supine
+    assert_equal "captum", @aThirdIO.supine[:accusative]
+    assert_equal "captū",  @aThirdIO.supine[:ablative]
+  end
+
   def test_third_io_conj_exhaustively
     assert_equal("capiō",      @aThirdIO.active_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("capis",      @aThirdIO.active_voice_indicative_mood_present_tense_second_person_singular_number.to_s)

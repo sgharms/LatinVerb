@@ -11,6 +11,11 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
      @aFourth = Linguistics::Latin::Verb::LatinVerb.new 'audiō audīre audīvī auditum'
   end
 
+  def test_supine
+    assert_equal "auditum", @aFourth.supine[:accusative]
+    assert_equal "auditū",  @aFourth.supine[:ablative]
+  end
+
   def test_fourth_conj_exhaustively
     assert_equal "audiō",       @aFourth.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "audis",       @aFourth.active_voice_indicative_mood_present_tense_second_person_singular_number

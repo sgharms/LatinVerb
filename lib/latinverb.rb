@@ -21,6 +21,7 @@ require 'active_support'
 
 require 'linguistics/latin/verb/classification_types'
 require 'linguistics/latin/verb/tense_methods'
+require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
 require 'linguistics/latin/verb/particip_and_inf'

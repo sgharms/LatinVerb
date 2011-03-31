@@ -12,6 +12,11 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
 
+  def test_supine
+    assert_equal "amatum", @aFirst.supine[:accusative]
+    assert_equal "amatū",  @aFirst.supine[:ablative]
+  end
+
   def test_first_conj_exhaustively
     assert_equal "amō",        @aFirst.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "amās",       @aFirst.active_voice_indicative_mood_present_tense_second_person_singular_number
