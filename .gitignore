@@ -1,8 +1,9 @@
 pkg/*
 *.gem
-*.swp
+*.sw?
 *.vim
 **/*.vim
 .bundle
 .rvmrc
 *doc
+tags
