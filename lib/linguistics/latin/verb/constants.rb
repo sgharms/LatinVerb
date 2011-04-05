@@ -46,6 +46,7 @@ module Linguistics
             :Fourth  => lambda  { |x| return x + "iā" },
             :ThirdIO => lambda  { |x| return x + "iā" }
           }   
+
         # Listing of all defective verbs
         DEFECTIVE_VERBS = %w{
           addormisco
@@ -81,6 +82,25 @@ module Linguistics
           tremesco
           tumesco
           veteresco
+        }
+
+        # Listing of all impersonal verbs
+        IMPERSONAL_VERBS = %w{
+          addecet
+          advesperascit
+          condecet
+          decet
+          dedecet
+          dilucesco
+          intersum
+          licet
+          lucesco
+          oportet
+          paeniteo
+          piget
+          pluit
+          pluo
+          pudet
         }
         # :startdoc:
       end
