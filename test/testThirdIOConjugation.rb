@@ -11,7 +11,7 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_gerund
-    assert @aThirdIO.gerund
+    assert @aThirdIO.gerund =~ %r'capiendī', "Was not #{@aThirdIO.gerund}"
     assert @aThirdIO.gerundive
   end
 

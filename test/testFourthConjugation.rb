@@ -17,7 +17,7 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_gerund
-    assert @aFourth.gerund
+    assert @aFourth.gerund =~ %r'audiendī', "Was not #{@aFourth.gerund}"
     assert @aFourth.gerundive
   end
 

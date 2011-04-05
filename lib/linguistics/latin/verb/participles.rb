@@ -185,7 +185,12 @@ module Linguistics
      #  -- Source, Wheelock
      #++
      ##
-     alias_method :gerund, :gerundive 
+     #alias_method :gerund, :gerundive 
+     def gerund
+       b = gerundive.sub /.*\s+(.*)um.*$/, "\\1"
+       b += "ī, ō, etc."
+       return b
+     end
    end
  end
 end

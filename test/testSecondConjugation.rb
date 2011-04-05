@@ -12,7 +12,7 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_gerund
-    assert @aSecond.gerund
+    assert @aSecond.gerund =~ %r'monendī', "Was not #{@aSecond.gerund}"
     assert @aSecond.gerundive
   end
 
