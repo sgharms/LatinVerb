@@ -46,6 +46,42 @@ module Linguistics
             :Fourth  => lambda  { |x| return x + "iā" },
             :ThirdIO => lambda  { |x| return x + "iā" }
           }   
+        # Listing of all defective verbs
+        DEFECTIVE_VERBS = %w{
+          addormisco
+          adolesco
+          aio
+          albesco
+          arboresco
+          aresco
+          assenesco
+          auresco
+          candesco
+          canesco
+          celebresco
+          cornesco
+          crudesco
+          dulcesco
+          effor
+          erubesco
+          extollo
+          grandesco
+          inquam
+          languesco
+          latesco
+          longisco
+          lucesco
+          marcesco
+          matresco
+          mollesco
+          remollesco
+          siccesco
+          sterto
+          tenebresco
+          tremesco
+          tumesco
+          veteresco
+        }
         # :startdoc:
       end
     end

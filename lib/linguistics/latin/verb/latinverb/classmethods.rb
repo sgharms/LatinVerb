@@ -93,6 +93,9 @@ module Linguistics
               first_pres = divided_string[0]
               infinitive = divided_string[1]
 
+              return Linguistics::Latin::Verb::VerbTypes::Defective if
+                Linguistics::Latin::Verb::LatinVerb::DEFECTIVE_VERBS.member? first_pres
+
               if    infinitive =~ /āre$/
                 return Linguistics::Latin::Verb::VerbTypes::First
               elsif infinitive =~ /ēre$/

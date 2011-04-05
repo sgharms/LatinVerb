@@ -46,6 +46,8 @@ module Linguistics
         end
         class Deponent  < VerbType # :nodoc:
         end
+        class Defective < VerbType # :nodoc:
+        end
       end
     end
   end
