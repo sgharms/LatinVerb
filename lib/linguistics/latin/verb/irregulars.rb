@@ -4,6 +4,19 @@ module Linguistics
   module Latin
     module Verb
 
+        ## 
+        # --
+        # Recognized irregular verbs:
+        # ###########################
+        #
+        # SUM_ESSE_FUĪ_FUTŪRUS
+        # FERŌ_FERRE_TULĪ_LATUM
+        # EŌ_ĪRE_IVĪ_ITUM
+        # NOLŌ_NOLLE_NOLUĪ
+        # VOLŌ_VELLE_VOLUĪ
+        # ++
+        ## 
+
         # Recognized irregular verb
         SUM_ESSE_FUĪ_FUTŪRUS=<<EOJSON 
         {
