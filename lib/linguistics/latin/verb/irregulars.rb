@@ -948,9 +948,11 @@ EOJSON
               }
           }
 EOJSON
+
+
         DŌ_DĀRE_DEDĪ_DATUM=<<EOJSON 
         {
-          "original string":"dō_dāre_dedī_datum",
+          "original string":"dō dāre dedī datum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "tense_blocks": {
             "active_voice_imperative_mood_future_tense": {
@@ -1199,6 +1201,258 @@ EOJSON
           }
 EOJSON
 
+# EDŌ :  To eat
+
+        EDŌ_ĒSSE_ĒDĪ_ĒSUM=<<EOJSON 
+        {
+          "original string":"EDŌ ĒSSE ĒDĪ ĒSUM",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "tense_blocks": {
+            "active_voice_imperative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "ēs",
+                  "",
+                  "",
+                  "ēste",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "edam",
+                  "edēs",
+                  "edet",
+                  "edēmus",
+                  "edētis",
+                  "edent"
+                ]
+              },
+            "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ēderō",
+                  "ēderis",
+                  "ēderit",
+                  "ēderīmus",
+                  "ēderīits",
+                  "ēderint"
+                ]
+              },
+            "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ēdēbam",
+                  "ēdēbās",
+                  "ēdēbat",
+                  "ēdēbāmus",
+                  "ēdēbātis",
+                  "ēdēbant"
+                ]
+              },
+            "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ederam",
+                  "ederās",
+                  "ederat",
+                  "ederāmus",
+                  "ederātis",
+                  "ederant"
+                ]
+              },
+            "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "edī",
+                  "edistī",
+                  "edit",
+                  "edimus",
+                  "edistis",
+                  "edērunt"
+                ]
+              },
+            "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "edō",
+                  "ēs (edis)",
+                  "ēst (edit)",
+                  "edimus",
+                  "ēstis (editis)",
+                  "edunt"
+                ]
+              },
+            "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ederem",
+                  "ēssēs (ederēs)",
+                  "ēsset (ederet)",
+                  "ēssēmus (ederēmus)",
+                  "ēssētis (ederētis)",
+                  "ēssent (ederent)"
+                ]
+              },
+            "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ēdissem",
+                  "ēdissēs",
+                  "ēdisset",
+                  "ēdissēmus",
+                  "ēdissētis",
+                  "ēdissent"
+                ]
+              },
+            "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "ēderim",
+                  "ēderis",
+                  "ēderit",
+                  "ēderimus",
+                  "ēderitis",
+                  "ēderint"
+                ]
+              },
+            "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "edam (edim)",
+                  "edās (edīs)",
+                  "edat (edit)",
+                  "edāmus (edīmus)",
+                  "edātis (edītis)",
+                  "edant (edint)"
+                ]
+              },
+            "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "ēstur",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "ēssētur",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+             }
+           }
+          }
+EOJSON
       end
     end
   end
