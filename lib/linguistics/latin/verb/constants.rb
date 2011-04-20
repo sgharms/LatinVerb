@@ -121,6 +121,10 @@ module Linguistics
           'nolō' => 'NOLŌ_NOLLE_NOLUĪ',
           'volō' => 'VOLŌ_VELLE_VOLUĪ',
           'dō' => 'DŌ_DĀRE_DEDĪ_DATUM',
+          'edō' => 'EDŌ_ĒSSE_ĒDĪ_ĒSUM',
+          'queō' => 'QUEŌ_QUĪRE_QUĪVĪ',
+          'fiō' => 'FIŌ_FIĒRĪ_FACTUS',
+          'prōsum' => 'PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS'
         }
 
         # :startdoc:
