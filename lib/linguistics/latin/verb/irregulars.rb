@@ -1917,10 +1917,21 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
-                "prōdes",
+                "prōdēs",
                 [],
                 [],
                 "prōdeste",
+                []
+               ]
+             },
+            "active_voice_imperative_mood_future_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+                [],
+                "prōdestō",
+                [],
+                [],
+                "prōdestōte",
                 []
                ]
              },
@@ -1938,12 +1949,12 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
             "active_voice_indicative_mood_futureperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "profuerō",
-                  "profueris",
-                  "profuerit",
-                  "profuerimus",
-                  "profueritis",
-                  "profuerint"
+                  "prōfuerō",
+                  "prōfueris",
+                  "prōfuerit",
+                  "prōfuerimus",
+                  "prōfueritis",
+                  "prōfuerint"
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
@@ -1983,7 +1994,7 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōsum",
-                  "prōdes",
+                  "prōdēs",
                   "prōdest",
                   "prōsumus",
                   "prōdestis",
