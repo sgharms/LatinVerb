@@ -42,6 +42,10 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     v = Linguistics::Latin::Verb::LatinVerb.new 'queō quīre quīvī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
   end
+  def test_to_be_able2
+    v = Linguistics::Latin::Verb::LatinVerb.new 'possum posse potuī'
+    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+  end
   def test_to_be_made
     v = Linguistics::Latin::Verb::LatinVerb.new 'fiō fiērī factus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification

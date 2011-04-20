@@ -116,6 +116,7 @@ module Linguistics
         # Irregular Verbs.  See A&G 197
         IRREGULAR_VERBS = {
           'sum' => 'SUM_ESSE_FUĪ_FUTŪRUS',
+          'possum' => 'POSSUM_POSSE_POTUĪ',
           'ferō' => 'FERŌ_FERRE_TULĪ_LATUM',
           'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
           'nolō' => 'NOLŌ_NOLLE_NOLUĪ',

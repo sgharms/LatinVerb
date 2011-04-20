@@ -2078,6 +2078,179 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
         }
 EOJSON
 
+# A famous one, to be able
+        POSSUM_POSSE_POTUĪ=<<EOJSON 
+        {
+          "original string":"possum posse potuī",
+            "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+            "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                "",
+                [],
+                [],
+                "",
+                []
+                  ]
+              },
+              "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "poterō",
+                  "poteris",
+                  "poterit",
+                  "poterimus",
+                  "poteritis",
+                  "poterunt"
+                  ]
+              },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "potuerō",
+                  "potueris",
+                  "potuerit",
+                  "potuerimus",
+                  "potueritis",
+                  "potuerint"
+                  ]
+              },
+              "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "poteram",
+                  "poterās",
+                  "poterat",
+                  "poterāmus",
+                  "poterātis",
+                  "poterant"
+                  ]
+              },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "poturam",
+                  "poturās",
+                  "poturat",
+                  "poturāmus",
+                  "poturātis",
+                  "poturant"
+                  ]
+              },
+              "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "potuī",
+                  "potuistī",
+                  "potuit",
+                  "potuimus",
+                  "potuistis",
+                  "potuērunt (-ēre)"
+                  ]
+              },
+              "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "possum",
+                  "potes",
+                  "potest",
+                  "possumus",
+                  "potestis",
+                  "possunt"
+                  ]
+              },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "possem",
+                  "possēs",
+                  "posset",
+                  "possēmus",
+                  "possētis",
+                  "possent"
+                  ]
+              },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "potuissem",
+                  "potuissēs",
+                  "potuisset",
+                  "potuissēmus",
+                  "potuissētis",
+                  "potuissent"
+                  ]
+              },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "potuerim",
+                  "potueris",
+                  "potuerit",
+                  "potuerimus",
+                  "potueritis",
+                  "potuerint"
+                  ]
+              },
+              "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "possim",
+                  "possīs",
+                  "possit",
+                  "possīmus",
+                  "possītis",
+                  "possint"
+                  ]
+              },
+              "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+              "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              }
+            }
+        }
+EOJSON
+
+
+
       end
     end
   end
