@@ -32,6 +32,20 @@ module Linguistics
      ##########################################
      # Infinitives
      ##########################################
+     # Some very handy getter and setters, for serialization
+     ##
+
+     def infinitives
+       return {               
+               :present_active_infinitive  => present_active_infinitive,
+               :perfect_active_infinitive  => perfect_active_infinitive,
+               :future_active_infinitive   => future_active_infinitive,
+               :present_passive_infinitive => present_passive_infinitive,
+               :perfect_passive_infinitive => perfect_passive_infinitive,
+               :future_passive_infinitive  => future_passive_infinitive
+             }
+     end
+
      ##
      #
      # === GRAMMATICAL FUNCTION
