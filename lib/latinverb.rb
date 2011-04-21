@@ -418,14 +418,19 @@ module Linguistics
             o = @original_string.gsub(/\s+/,'_')
             o_upcase_and_symbolic = ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym
             json_string = Linguistics::Latin::Verb.const_get o_upcase_and_symbolic 
-           raise "Found a JSON string with null length!" if json_string.length <= 10
-             revivified_data_structure = JSON.parse json_string
-             revivified_data_structure['tense_blocks'].each_pair do |k,v|
+
+            raise "Found a JSON string with null length!" if json_string.length <= 10
+            revivified_data_structure = JSON.parse json_string
+
+            revivified_data_structure['tense_blocks'].each_pair do |k,v|
               singleton_class.class_eval do
-               define_method k.to_sym do
-                 v
-               end
-             end
+                define_method k.to_sym do
+                  v
+                end
+            end
+
+            infs = revivified_data_structure['infinitives']
+
            end
           rescue JSON::ParserError => e
             puts "We were unable to parse JSON for #{@original_string}.  Please verify your syntax."
