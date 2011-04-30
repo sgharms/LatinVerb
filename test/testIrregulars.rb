@@ -61,16 +61,59 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_match %r'itūrus', v.future_active_participle
     #assert_match %r'eundum', v.future_passive_participle
   end
-  def ctest_to_not_wish
+  def test_to_not_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'nolō nolle noluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
-    #assert_match 'nōlēns', v.present_active_participle
-    #assert_equal '', v.perfect_passive_participle
-    #assert_equal '', v.future_active_participle
-    #assert_equal '', v.future_passive_participle
+    assert_equal "nōlō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "nōn vīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "nōn vult",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "nōlumus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "nōn vultis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "nōlunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "nōlēbam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "nōlēbāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "nōlam", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "nōlēmus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "nōluī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "nōluimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "nōlueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "nōluerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "nōluerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "nōluerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "nōlim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "nōlīs", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "nōlit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "nōlīmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "nōlītis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "nōlint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "nōllem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "nōllēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "nōluerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "nōluerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "nōluissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "nōluissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "nōlle", v.present_active_infinitive
+    assert_equal "nōluisse", v.perfect_active_infinitive
+
+    # Participles
+    assert_match %r'nōlēns', v.present_active_participle
+    assert_equal '', v.perfect_passive_participle
+    assert_equal '', v.future_active_participle
+    assert_equal '', v.future_passive_participle
   end
-  def test_to_prefer
+  def test_to_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'volō velle voluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
