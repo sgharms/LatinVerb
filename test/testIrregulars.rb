@@ -10,7 +10,7 @@ require 'linguistics/latin/verb/classification_types'
 # Internal dependencies
 
 class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
-  def ctest_to_give
+  def test_to_give
     v =  Linguistics::Latin::Verb::LatinVerb.new 'dō dāre dedī datum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
