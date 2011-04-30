@@ -221,6 +221,15 @@ EOJSON
         {
           "original string":"ferō ferre tulī lātum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"ferēns, ferentis",
+              "future_active_participle":"lātūrus",
+              "perfect_passive_participle":"lātus",
+              "future_passive_participle":"ferendus"
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
@@ -228,10 +237,10 @@ EOJSON
               "present_passive_infinitive": "ferrī",
                                         
               "perfect_active_infinitive": "tulisse",
-              "perfect_passive_infinitive": "lātum",
+              "perfect_passive_infinitive": "lātus",
                                         
-              "future_active_infinitive": "lātūrum esse",
-              "future_passive_infinitive": ""
+              "future_active_infinitive": "lātūrus esse",
+              "future_passive_infinitive": "lātūrus īrī"
             }
           },
           "tense_blocks": {
@@ -308,7 +317,7 @@ EOJSON
                   "fers",
                   "fert",
                   "ferimus",
-                  "fertis",
+                  "feritis",
                   "ferunt"
                 ]
               },

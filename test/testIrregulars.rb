@@ -40,16 +40,63 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     #assert_match 'futūrus', v.future_active_participle
     #assert_match '', v.future_passive_participle
   end
-  def ctest_to_bear
+  def test_to_bear
     v = Linguistics::Latin::Verb::LatinVerb.new 'ferō ferre tulī lātum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
-# Participles
-    #assert_match %r'ferens', v.present_active_participle
+    assert_equal "ferō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "fers",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "fert",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "ferimus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "feritis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "ferunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "ferēbam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "ferēbāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "feram", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "ferēmus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "tulī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "tulimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "tuleram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "tulerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "tulerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "tulerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "feram", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "ferās", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "ferat", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "ferāmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "ferātis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "ferant", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "ferrem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "ferrēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "tulerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "tulerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "tulissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "tulissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "ferre", v.present_active_infinitive
+    assert_equal "tulisse", v.perfect_active_infinitive
+    assert_match %r"lātūrus", v.future_active_infinitive
+    assert_equal "ferrī", v.present_passive_infinitive
+    assert_match %r"lātus", v.perfect_passive_infinitive
+    assert_match %r"lātūrus īrī", v.future_passive_infinitive
+
+    # Participles
+    assert_match %r'ferēns', v.present_active_participle
     assert_match %r'lātus', v.perfect_passive_participle
     assert_match %r'lātūrus', v.future_active_participle
-    #assert_match %r'ferendus', v.future_passive_participle
+    assert_match %r'ferendus', v.future_passive_participle
 
+    assert_match "lātū lātum", v.supine.values.join(' ')
   end
   def ctest_to_go
     v = Linguistics::Latin::Verb::LatinVerb.new 'eō īre ivī itum'
