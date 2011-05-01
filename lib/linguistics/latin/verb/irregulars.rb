@@ -2037,6 +2037,15 @@ EOJSON
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"faciēns, facientis",
+              "future_active_participle":"factūrus",
+              "perfect_passive_participle":"factus",
+              "future_passive_participle":"faciendus"
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
@@ -2044,7 +2053,7 @@ EOJSON
               "present_passive_infinitive": "fierī",
                                         
               "perfect_active_infinitive": "fēcisse",
-              "perfect_passive_infinitive": "factus",
+              "perfect_passive_infinitive": "factus esse",
                                         
               "future_active_infinitive": "factūrum esse",
               "future_passive_infinitive": ""
@@ -2230,11 +2239,11 @@ EOJSON
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fiō",
-                  "fis",
-                  "fīt",
+                  "fīs",
+                  "fit",
                   "fīmus",
                   "fītis",
-                  "fīunt"]
+                  "fiunt"]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -2262,10 +2271,10 @@ EOJSON
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum sim",
-                  "factum sis",
+                  "factum sīs",
                   "factum sit",
-                  "factum simus",
-                  "factum sitis",
+                  "factum sīmus",
+                  "factum sītis",
                   "factum sint"]
               },
             "passive_voice_subjunctive_mood_present_tense": {
@@ -2274,8 +2283,8 @@ EOJSON
                   "fīam",
                   "fīās",
                   "fīat",
-                  "fīamus",
-                  "fīatis",
+                  "fīāmus",
+                  "fīātis",
                   "fīant"]
               }
 

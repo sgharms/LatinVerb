@@ -479,13 +479,56 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal '', v.future_active_participle
     assert_equal '', v.future_passive_participle
   end
-  def ctest_to_be_made
+  def test_to_be_made
     v = Linguistics::Latin::Verb::LatinVerb.new 'fiō fiērī factus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
-    #assert_match %r'faciēns', v.present_active_participle
-    #assert_match %r'factus', v.perfect_passive_participle
-    #assert_match %r'factūrus', v.future_active_participle
-    #assert_match %r'faciendus', v.future_passive_participle
+
+    assert_equal "fiō",v.passive_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "fīs",v.passive_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "fit",v.passive_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "fīmus",v.passive_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "fītis",v.passive_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "fiunt",v.passive_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "fiēbam", v.passive_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "fiēbāmus", v.passive_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "fiam", v.passive_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "fiēmus", v.passive_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_match %r"factu[ms] sum", v.passive_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_match %r"factu[ms] sumus", v.passive_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_match %r"factu[ms] eram", v.passive_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_match %r"factu[ms] erāmus", v.passive_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_match %r"factu[ms] erō", v.passive_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_match %r"factu[ms] erimus", v.passive_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "fiam", v.passive_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "fiās", v.passive_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "fiat", v.passive_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "fiāmus", v.passive_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "fiātis", v.passive_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "fiant", v.passive_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "fierem", v.passive_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "fierēmus", v.passive_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_match %r"factu[ms] sim", v.passive_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_match %r"factu[ms] sīmus", v.passive_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_match %r"factu[ms] essem", v.passive_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_match %r"factu[ms] essēmus", v.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "fierī", v.present_passive_infinitive
+    assert_equal "factus esse", v.perfect_passive_infinitive
+
+    assert_match %r'faciēns', v.present_active_participle
+    assert_match %r'factus', v.perfect_passive_participle
+    assert_match %r'factūrus', v.future_active_participle
+    assert_match %r'faciendus', v.future_passive_participle
   end
   def ctest_to_help
     v = Linguistics::Latin::Verb::LatinVerb.new 'prōsum prōdesse prōfuī prōfutūrus'
