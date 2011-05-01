@@ -20,15 +20,65 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_match /dandus/, v.future_passive_participle
 
   end
-  def ctest_to_eat
+  def test_to_eat
     v =  Linguistics::Latin::Verb::LatinVerb.new 'edō ēsse ēdī ēsum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
+    assert_equal "edō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_match %r"ēs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_match %r"ēst",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "edimus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_match %r"ēstis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "edunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "edēbam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "edēbāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "edam", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "edēmus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "ēdī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "ēdimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "ēderam", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "ēderāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "ēderō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "ēderimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_match %r"edam", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_match %r"edās", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_match %r"edat", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_match %r"edāmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_match %r"edātis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_match %r"edant", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_match %r"ederem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_match %r"ēssēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "ēderim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "ēderimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "ēdissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "ēdissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "ēsse", v.present_active_infinitive
+    assert_equal "ēdisse", v.perfect_active_infinitive
+    assert_match %r"ēsūru[ms]", v.future_active_infinitive
+    assert_equal "", v.present_passive_infinitive
+    assert_equal "", v.perfect_passive_infinitive
+    assert_equal "", v.future_passive_infinitive
+     
     # Participles
-    #assert_match /edēns/, v.present_active_participle
-    #assert_equal '', v.perfect_passive_participle
-    #assert_match 'ēsūrus', v.future_active_participle
-    #assert_equal '', v.future_passive_participle
+    assert_match /edēns/, v.present_active_participle
+    assert_equal '', v.perfect_passive_participle
+    assert_match %r'ēsūru[ms]', v.future_active_participle
+    assert_equal '', v.future_passive_participle
+
+    assert_equal "ēs", v.active_voice_imperative_mood_present_tense_second_person_singular_number
+    assert_equal "ēste",v.active_voice_imperative_mood_present_tense_second_person_plural_number
+
   end
   def ctest_to_be
     v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'

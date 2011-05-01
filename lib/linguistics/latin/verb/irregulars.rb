@@ -1324,6 +1324,15 @@ EOJSON
         {
           "original string":"EDŌ ĒSSE ĒDĪ ĒSUM",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"edēns, edentis",
+              "future_active_participle":"ēsūrus (-a, -um)",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
@@ -1377,42 +1386,42 @@ EOJSON
                   "ēderō",
                   "ēderis",
                   "ēderit",
-                  "ēderīmus",
-                  "ēderīits",
+                  "ēderimus",
+                  "ēderiits",
                   "ēderint"
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "ēdēbam",
-                  "ēdēbās",
-                  "ēdēbat",
-                  "ēdēbāmus",
-                  "ēdēbātis",
-                  "ēdēbant"
+                  "edēbam",
+                  "edēbās",
+                  "edēbat",
+                  "edēbāmus",
+                  "edēbātis",
+                  "edēbant"
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "ederam",
-                  "ederās",
-                  "ederat",
-                  "ederāmus",
-                  "ederātis",
-                  "ederant"
+                  "ēderam",
+                  "ēderās",
+                  "ēderat",
+                  "ēderāmus",
+                  "ēderātis",
+                  "ēderant"
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "edī",
-                  "edistī",
-                  "edit",
-                  "edimus",
-                  "edistis",
-                  "edērunt"
+                  "ēdī",
+                  "ēdistī",
+                  "ēdit",
+                  "ēdimus",
+                  "ēdistis",
+                  "ēdērunt"
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
