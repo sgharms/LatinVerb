@@ -365,14 +365,62 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal '', v.future_active_participle
     assert_equal '', v.future_passive_participle
   end
-  def ctest_to_be_able
+  def test_to_be_able
     v = Linguistics::Latin::Verb::LatinVerb.new 'queō quīre quīvī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
-    #assert_match 'quiēns', v.present_active_participle
-    #assert_equal '', v.perfect_passive_participle
-    #assert_equal '', v.future_active_participle
-    #assert_equal '', v.future_passive_participle
+    assert_equal "queō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "quīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "quit",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "quīmus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "quītis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "queunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "quībam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "quībat", v.active_voice_indicative_mood_imperfect_tense_third_person_singular_number
+    assert_equal "", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "quībō", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "quībunt", v.active_voice_indicative_mood_future_tense_third_person_plural_number
+
+    assert_equal "quīvī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+
+    assert_equal "", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "queam", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "queās", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "queat", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "queāmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "queant", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "quīre", v.present_active_infinitive
+    assert_equal "quīsse", v.perfect_active_infinitive
+    assert_match "", v.future_active_infinitive
+    assert_equal "", v.present_passive_infinitive
+    assert_match "", v.perfect_passive_infinitive
+    assert_match %r"", v.future_passive_infinitive
+
+    # Participles
+    assert_match %r'quiēns', v.present_active_participle
+    assert_match '', v.perfect_passive_participle
+    assert_match '', v.future_active_participle
+    assert_match '', v.future_passive_participle
+
   end
   def test_to_be_able2
     v = Linguistics::Latin::Verb::LatinVerb.new 'possum posse potuī'

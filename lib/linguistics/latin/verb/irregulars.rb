@@ -1617,6 +1617,15 @@ EOJSON
         {
           "original string":"queō quīre quivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"edēns, edentis",
+              "future_active_participle":"ēsūrus (-a, -um)",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
