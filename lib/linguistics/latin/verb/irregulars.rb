@@ -37,6 +37,15 @@ module Linguistics
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"ens, entis",
+              "future_active_participle":"futūrus",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {

@@ -80,15 +80,66 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "ēste",v.active_voice_imperative_mood_present_tense_second_person_plural_number
 
   end
-  def ctest_to_be
+  def test_to_be
     v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
+    assert_equal "sum",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "es",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "est",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "sumus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "estis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "sunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "eram", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "erāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "erō", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "erimus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "fuī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "fuimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "fueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "fuerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "fuerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "fuerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "sim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "sīs", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "sit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "sīmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "sītis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "sint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_match %r"essem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_match %r"essēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "fuerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "fuerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "fuissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "fuissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "esse", v.present_active_infinitive
+    assert_equal "fuisse", v.perfect_active_infinitive
+    assert_match %r"futūru[ms]", v.future_active_infinitive
+    assert_equal "", v.present_passive_infinitive
+    assert_equal "", v.perfect_passive_infinitive
+    assert_equal "", v.future_passive_infinitive
+     
+
+    assert_equal "es", v.active_voice_imperative_mood_present_tense_second_person_singular_number
+    assert_equal "este",v.active_voice_imperative_mood_present_tense_second_person_plural_number
+
     # Participles
-    #assert_match 'ens', v.present_active_participle
-    #assert_match '', v.perfect_passive_participle
-    #assert_match 'futūrus', v.future_active_participle
-    #assert_match '', v.future_passive_participle
+    assert_match 'ens', v.present_active_participle
+    assert_match '', v.perfect_passive_participle
+    assert_match 'futūrus', v.future_active_participle
+    assert_match '', v.future_passive_participle
+
   end
   def test_to_bear
     v = Linguistics::Latin::Verb::LatinVerb.new 'ferō ferre tulī lātum'
