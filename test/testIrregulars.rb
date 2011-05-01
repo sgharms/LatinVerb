@@ -199,15 +199,61 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
     assert_match "lātū lātum", v.supine.values.join(' ')
   end
-  def ctest_to_go
+  def test_to_go
     v = Linguistics::Latin::Verb::LatinVerb.new 'eō īre ivī itum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    assert_equal "eō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "īs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "it",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "īmus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "ītis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "eunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "ībam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "ībāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "ībō", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "ībimus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "iī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "iimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "ieram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "ierāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "ierō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "ierimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "eam", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "eās", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "eat", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "eāmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "eātis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "eant", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "īrem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "īrēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "ierim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "ierimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "īssem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "īssēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "īre", v.present_active_infinitive
+    assert_equal "īsse", v.perfect_active_infinitive
+    assert_match %r"itūru[ms]", v.future_active_infinitive
+    assert_equal "īrī", v.present_passive_infinitive
+    assert_match %r"itum esse", v.perfect_passive_infinitive
+    assert_match %r"", v.future_passive_infinitive
 
     # Participles
     assert_match %r'iēns', v.present_active_participle
     assert_match '', v.perfect_passive_participle
     assert_match %r'itūrus', v.future_active_participle
-    #assert_match %r'eundum', v.future_passive_participle
+    assert_match %r'eundum', v.future_passive_participle
 
   end
 

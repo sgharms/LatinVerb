@@ -462,6 +462,15 @@ EOJSON
         {
           "original string":"eō īre ivī itum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"iēns (euntis)",
+              "future_active_participle":"itūrus",
+              "perfect_passive_participle":"",
+              "future_passive_participle":"eundum"
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
@@ -493,7 +502,7 @@ EOJSON
                   "ībō",
                   "ībis",
                   "ībit",
-                  "ībīmus",
+                  "ībimus",
                   "ībitis",
                   "ībunt"
                 ]
@@ -534,7 +543,7 @@ EOJSON
             "active_voice_indicative_mood_perfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "ii",
+                  "iī",
                   "iistī",
                   "iit",
                   "iimus",
@@ -556,12 +565,12 @@ EOJSON
             "active_voice_subjunctive_mood_imperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "irem",
-                  "irēs",
-                  "iret",
-                  "irēmus",
-                  "irētis",
-                  "irent"
+                  "īrem",
+                  "īrēs",
+                  "īret",
+                  "īrēmus",
+                  "īrētis",
+                  "īrent"
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
