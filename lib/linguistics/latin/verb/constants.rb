@@ -110,6 +110,9 @@ module Linguistics
         PRESENT_ONLY = %w{
           maēre
           ferīre
+          aiō
+          inquam
+          for
         }
 
         # See A&G # 192

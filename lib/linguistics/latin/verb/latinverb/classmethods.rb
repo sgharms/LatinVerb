@@ -117,6 +117,8 @@ module Linguistics
                 return Linguistics::Latin::Verb::VerbTypes::Fourth
               elsif (infinitive =~ /ī$/  and first_pres =~ /r$/)
                 return Linguistics::Latin::Verb::VerbTypes::Deponent
+              elsif s == 'aiō'
+                return Linguistics::Latin::Verb::VerbTypes::Irregular
               else
                 raise "Could not find a verb type for this verb #{infinitive} and #{first_pres}"
               end

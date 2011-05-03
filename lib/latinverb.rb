@@ -288,8 +288,11 @@ module Linguistics
 
         def present_only?
           @present_only = 
-          Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@pres_act_inf) ?
-            true : false
+            (
+              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@pres_act_inf) ||
+              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@first_pers_singular) ||
+              (@original_string == 'aiō')
+            ) ?  true : false
         end
         ##
         #

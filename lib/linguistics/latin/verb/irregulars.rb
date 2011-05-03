@@ -3434,7 +3434,6 @@ EOJSON
                   "data": []
                 }
             }
-          }
         }
 EOJSON
 
@@ -3627,7 +3626,6 @@ EOJSON
                 }
             }
           }
-        }
 EOJSON
 
 # Inquam
@@ -3744,7 +3742,8 @@ EOJSON
                     "inquiet",
                     "",
                     "",
-                    ""]
+                    ""
+                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -3831,8 +3830,8 @@ EOJSON
                   "data": []
                 }
             }
-          }
-        }
+          
+        
 EOJSON
 
 # For/fari: To speak, pronounce
