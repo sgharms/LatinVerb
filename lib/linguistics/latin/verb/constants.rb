@@ -140,6 +140,8 @@ module Linguistics
           aiō
           inquam
           for
+          quaesō
+          ovāre
         }
 
         # See A&G # 192
