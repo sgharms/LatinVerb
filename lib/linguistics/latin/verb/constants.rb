@@ -88,21 +88,48 @@ module Linguistics
         # Listing of all impersonal verbs
         # See A&G #207
         IMPERSONAL_VERBS = %w{
+          accidit
           addecet
           advesperascit
+          certum est
           condecet
+          constat
+          contingit
+          cōnstat
           decet
           dedecet
-          dilucesco
-          intersum
+          dēlecat
+          evenit
+          fit
+          fulgerat
+          grandinat
+          ifvat
+          interest
           licet
-          lucesco
+          lūcīscit hōc
+          miseret
+          necesse est
+          ningit
+          obtingit
+          obvenit
           oportet
-          paeniteo
+          paenitet
           piget
+          placet
           pluit
           pluo
+          praestat
           pudet
+          restat
+          rēfert
+          rōrat
+          superest
+          taedet
+          tonat
+          vacat
+          vesperāscit
+          vidētur
+          ēvenit
         }
 
         # Present system only.  See A&G206

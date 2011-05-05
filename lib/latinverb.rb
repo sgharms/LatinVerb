@@ -195,6 +195,7 @@ module Linguistics
 
           if s.class == String
             _init_by_string(s)
+            _impersonal_handler if @impersonal
             _irregular_handler if @irregular
             _deponent_handler  if ( @deponent || @semideponent )
           end
@@ -212,13 +213,16 @@ module Linguistics
           end
           
           # Load up the specialized vector complement of methods
-          _add_vector_methods
+          #
+          unless @impersonal
+            _add_vector_methods 
 
-          # Given the use of method_missing to handle resolution, it's wise to
-          # make sure that every cluster method /is/ actually defined.
-          @tense_list.each do |m|
-            raise "FAILURE:  Critical method #{m} was not defined." unless 
-              (self.respond_to? m.to_sym)
+            # Given the use of method_missing to handle resolution, it's wise to
+            # make sure that every cluster method /is/ actually defined.
+            @tense_list.each do |m|
+              raise "FAILURE:  Critical method #{m} was not defined." unless 
+                (self.respond_to? m.to_sym)
+            end
           end
 
           # Placeholder the data structure that holds all the answers (a hash
@@ -258,6 +262,28 @@ module Linguistics
         # Instance methods
         ######################################################################
          
+        ##
+        #
+        # Some verbs only take a active/indic/pres/3rd/sg ("it rains").  For
+        # these we will not add the full vectors of methods, but will only
+        # respond to THAT vector.  It's a bit of an identity relationship and
+        # seems a bit silly to return, but I think it keeps the proper
+        # completeness
+        #
+        ##
+        
+        def _impersonal_handler
+          singleton_class.class_eval do
+            def active_voice_indicative_mood_present_tense
+              TenseBlock.new ["", "", @original_string,
+                              "", "", ""]
+            end
+            def active_voice_indicative_mood_present_tense_third_person_singular_number
+              return active_voice_indicative_mood_present_tense[2]
+            end
+          end
+        end
+
         ## 
         #
         # Removes perfect-system tenses by blanking them out.
@@ -539,15 +565,17 @@ module Linguistics
 
           # Derive from the original, valid string useful specifiers in handy data structures
 
-          unless ( @deponent or @semideponent )
+          unless ( @deponent or @semideponent or @impersonal)
             _derive_parts_from_given_string s
 
             # Derive iVar from derived variables
             (@participial_stem ||= calculate_participial_stem) unless @irregular
           else
-            fake_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(s)
-            #_derive_parts_from_given_string fake_string
-            @deponent_proxy = fake_string
+            unless @impersonal
+              fake_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(s)
+              #_derive_parts_from_given_string fake_string
+              @deponent_proxy = fake_string
+            end
           end
 
         end

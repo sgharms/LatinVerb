@@ -45,6 +45,8 @@ module Linguistics
                 true : false
               @semideponent = (@classification == Linguistics::Latin::Verb::VerbTypes::Semideponent) ?
                 true : false
+              @impersonal= (@classification == Linguistics::Latin::Verb::VerbTypes::Impersonal) ?
+                true : false
               end
             rescue RuntimeError => detail
               STDERR.puts "WARNING:  Improper use of rescue for decision structure in latinverb_validation"

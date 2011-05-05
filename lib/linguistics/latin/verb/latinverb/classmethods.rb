@@ -103,6 +103,9 @@ module Linguistics
                 ( Linguistics::Latin::Verb::LatinVerb::SEMI_DEPONENTS.keys.any?{ |k| first_pres=~/#{k}$/} and
                   s !~ /JUNK/ )  
 
+              return Linguistics::Latin::Verb::VerbTypes::Impersonal if
+                Linguistics::Latin::Verb::LatinVerb::IMPERSONAL_VERBS.member? s
+
               if    infinitive =~ /āre$/
                 return Linguistics::Latin::Verb::VerbTypes::First
               elsif infinitive =~ /ēre$/
