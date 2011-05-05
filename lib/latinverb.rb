@@ -183,7 +183,8 @@ module Linguistics
         # #initialize does very little work.  Therefore special attention
         # should be paid to the #_init_by_string and _add_vector_methods.
         # These are the workhorses of this class and do most of the decoration
-        # activity.  In the case of extending to support irregular verbs, #_irregular_handler is a critical path to explore.
+        # activity.  In the case of extending to support irregular verbs,
+        # #_irregular_handler is a critical path to explore.
         #
         # == TODO
         #

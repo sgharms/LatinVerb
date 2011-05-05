@@ -5,7 +5,6 @@ module Linguistics
     module Verb
       class LatinVerb
 
-        # include Linguistics::Latin::Verb::Errors
         class << self
 
           ## 

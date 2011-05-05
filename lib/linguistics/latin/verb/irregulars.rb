@@ -2031,7 +2031,6 @@ EOJSON
           }
         }
 EOJSON
-
 #FIŌ:  To be made.  No active forms, efectively the passive form to faciō
         FIŌ_FIĒRĪ_FACTUS=<<EOJSON 
         {
