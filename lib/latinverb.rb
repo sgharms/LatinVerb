@@ -354,7 +354,7 @@ module Linguistics
               end
               vectors_that /.*_imperative_mood/ do
                 {
-                  :tense => %w(present)
+                  :tense => %w(present future)
                 }
               end
               all_vectors :end_with do
@@ -364,6 +364,7 @@ module Linguistics
                 }
               end
               exception :remove, :passive_voice_imperative_mood_present_tense
+              exception :remove, :passive_voice_imperative_mood_future_tense
               cluster_on :tense, "as method", :tense_list
             end
           end

@@ -110,12 +110,12 @@ def test_verbvector
   assert tc
   assert tc.tense_list
   assert tc.tense_list.length
-  assert_equal 21, tc.tense_list.length
+  assert_equal 22, tc.tense_list.length
   assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
   tc.tense_list.each do |cluster_method|
     assert tc.respond_to? cluster_method.to_sym
   end
-  assert_equal 126,  tc.vector_list.length
+  assert_equal 132,  tc.vector_list.length
 end
 
 
