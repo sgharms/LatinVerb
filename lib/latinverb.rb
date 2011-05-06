@@ -282,6 +282,9 @@ module Linguistics
           end
         end
 
+        def respondable_methods
+        end
+
         def _init_by_string(s)
           # Store the original input
           @original_string = s

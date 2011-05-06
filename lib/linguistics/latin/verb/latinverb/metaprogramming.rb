@@ -70,6 +70,7 @@ TODO:  It should be possible to ONLY pass the 3/5ths and get the collective resu
         #
         ##
         def respond_to?(symbol, include_private=false) 
+          super if respondable_methods.nil?
           super if respondable_methods.empty?
           self.respondable_methods.grep(Regexp.new %Q/^#{symbol}$/).empty? ?
             super : true
