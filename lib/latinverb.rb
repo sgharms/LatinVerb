@@ -226,11 +226,83 @@ module Linguistics
 
           @data_structure = {}
 
+          # In a bit of cleverness, if the verb is deponent, we have built out
+          # this verb as if it were regular, but we have also created a
+          # @proxyVerb which is the active 'pseudo verb' corresponding to this
+          # verb.  We should be able to take this verb's active formulations
+          # and set their results to the @proxyVerb's passive formulations
+          #
+          # Ergo:  miror/mirari/miratus =~ miro/mirare/JUNK/miratus
+          # Therefore make a LatinVerb.new(miro/mirare/JUNK/miratus).  Take
+          # its passives and set them to this verb's actives.  This is
+          # actually what students do heuristically in Latin classes.
+          deponent_swap if @deponent
+          deponent_mutations if @deponent
         end
 
         ######################################################################
         # Instance methods
         ######################################################################
+
+        ##
+        #
+        # The deponent's imperatives require a bit of consideration.  They don't
+        # follow the stem/stem+'ite' format.  
+        #
+        ##
+        
+        def deponent_mutations
+          pv = @proxyVerb
+          #puts @proxyVerb.pretty_generate
+          self.singleton_class.class_eval do
+            def active_voice_imperative_mood_present_tense_second_person_singular_number
+              return @proxyVerb.instance_variable_get '@pres_act_inf'
+            end
+            def active_voice_imperative_mood_present_tense_second_person_plural_number
+              return @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
+            end
+            def active_voice_imperative_mood_future_tense_second_person_singular_number
+              k=@proxyVerb.send(:active_voice_imperative_mood_future_tense_second_person_singular_number)
+              Linguistics::Latin::Phonographia.fix_macrons k+'r'
+            end
+
+          end
+        end
+
+        ##
+        # 
+        # Swaps this verb's active_ vectors and replaces them with
+        # @proxyVerb's passive_ vectors.  This is pretty darned sneaky.
+        #
+        ##
+        def deponent_swap
+          # First, get the methods that were defined in the proxy as passive
+
+          storage = {}
+
+          @proxyVerb.methods.grep(/^passive/).each do |pass|
+            # Find the active correlate
+            active_corr = pass.to_s.sub /^passive(.*)/, "active\\1"
+            
+            #  Keep @proxyVerb in the binding scope
+            pV = @proxyVerb
+
+            # In self, find the passive and save it's resultant object into a
+            # hash for future use.
+            self.singleton_class.class_eval do
+              #debugger if pass.to_s =~ /subjunctive_mood_perfect_tense/
+              storage[active_corr.to_sym] = pV.send(pass) 
+            end
+          end
+
+          # Take the stored hashes and define instance methods on self such
+          # that we intercept the mixed-in methods ( C-c-c-combo breaker! ).
+          storage.each_pair do |k,v|
+            self.singleton_class.class_eval do
+              define_method k, lambda { return v }
+            end
+          end
+        end
 
         # Returns the "short" version, sans the module specifier.  in previous
         # versions, the classification was expressed as a String.  While this
@@ -297,11 +369,16 @@ module Linguistics
           @classification_error.call unless @classification_error.nil?
 
           # Derive from the original, valid string useful specifiers in handy data structures
-          _derive_parts_from_given_string s
-       
-          # Derive iVar from derived variables
-          @participial_stem ||= calculate_participial_stem
+          unless @deponent
+            _derive_parts_from_given_string s
 
+            # Derive iVar from derived variables
+            @participial_stem ||= calculate_participial_stem
+          else
+            fake_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(s)
+            #_derive_parts_from_given_string fake_string
+            @deponent_proxy = fake_string
+          end
 
         end
 
