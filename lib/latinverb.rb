@@ -357,6 +357,8 @@ module Linguistics
         # Returns the four principal parts and regularity designation
         ##
         def to_s
+           return "#{self.class}: [EMPTY PP]" if @four_pp.nil?
+           return self.class if @four_pp.empty?
            @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
         end
 
