@@ -108,6 +108,12 @@ module Linguistics
         ##
         def length; return @results.length; end
 
+        ##
+        # Add array empty? compatibility
+        #
+        ##
+        def empty?; return @results.empty?; end
+
 ##
 #--
 # TODO:  I dream of this being generated dynamically through the
