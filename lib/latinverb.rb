@@ -290,6 +290,18 @@ module Linguistics
               return @proxyVerb.supine
             end
 
+            # Mask the infinitives (this is so cool, and sneaky)
+            def present_active_infinitive
+              return @proxyVerb.send :present_passive_infinitive
+            end
+            def perfect_active_infinitive
+              return @proxyVerb.send :perfect_passive_infinitive    
+            end
+            def future_active_infinitive
+              return @proxyVerb.send :future_active_infinitive
+            end
+
+
           end
         end
 
