@@ -192,6 +192,7 @@ module Linguistics
           if s.class == String
             _init_by_string(s)
             _irregular_handler if @irregular
+            _deponent_handler  if @deponent
           end
 
           if (s.class == Hash )
@@ -325,6 +326,12 @@ module Linguistics
         end
 
         private
+
+        def _deponent_handler
+          @proxyVerb = Linguistics::Latin::Verb::LatinVerb.new @deponent_proxy
+          #pp proxyVerb.methods.grep /^passive/
+          #puts proxyVerb.passive_voice_indicative_mood_future_tense.to_a
+        end
 
         def _irregular_handler
           begin
