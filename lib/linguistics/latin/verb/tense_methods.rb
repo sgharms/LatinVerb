@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 require 'linguistics/latin/verb/phonographia'
+require 'linguistics/latin/verb/latinverb/auxiliary_classes'
 require 'yaml'
 
 module Linguistics 
@@ -154,10 +155,36 @@ module Linguistics
         #
         ###
         def active_voice_imperative_mood_present_tense
-           imp = imperatives
-           ["", imp[0], "", "", imp[1], ""]
+          imp = imperatives
+          TenseBlock.new( [ '', imp.present_tense_singular_number, '', 
+                                   '', imp.present_tense_plural_number, ''
+                          ] 
+                        )
         end
 
+        ##
+        #
+        # === GRAMMATICAL FUNCTION
+        #
+        # Commands for immediate action.  Only supports second or third
+        # person.
+        #
+        # === ARGUMENTS
+        #
+        # None
+        #
+        # === RETURNS
+        #
+        # TenseBlock
+        #
+        ###
+        def active_voice_imperative_mood_future_tense
+          f = imperatives.future
+          return TenseBlock.new( [ '', f[0], f[2], 
+                                   '', f[1], f[3]
+                                 ] 
+                               )
+        end
         ##
         #
         # === GRAMMATICAL FUNCTION
@@ -747,6 +774,13 @@ module Linguistics
         #
         ###
         def imperatives
+          @imperatives ||= form_imperatives
+        end
+
+        private
+
+        def form_imperatives
+
           imperative_exceptions = { 
             "ducere"   => %w(duc ducite),
             "dicere"   => %w(dic dicite),
@@ -754,28 +788,19 @@ module Linguistics
             "ferre"    => %w(fer ferte),
             "nolere"   => %w(nolo nolite)
           }   
-              
-          j = imperative_exceptions[@pres_act_inf].nil? ?
-              nil :
-              imperative_exceptions[@pres_act_inf]
-                
-          return j unless j.nil?
-                   
-          return_array = 
-          if @pres_act_inf =~ /āre$/
-            [@stem, @stem+"te"]
-          elsif @pres_act_inf =~ /ēre$/           
-            [@stem, @stem+"te"]
-          elsif @pres_act_inf =~ /ere$/
-            [@stem+"e", @stem+"ite"]
-          elsif @pres_act_inf =~ /īre$/
-            [@stem+"ī", @stem+"īte"]
-          end 
-              
-          return return_array
-        end
 
-        private
+          # Exceptional imperatives.  If we have one, return it straight away.
+          if imperative_exceptions.has_key?(@pres_act_inf)
+            return Linguistics::Latin::Verb::ImperativeBlock.new(
+              imperative_exceptions[@pres_act_inf])
+          end
+              
+          # Therefore, let us assume that we are dealing with a standard verb
+          # with standard imperatives.  Accordingly, we will create an
+          # ImperativeBlock.
+              
+          return Linguistics::Latin::Verb::ImperativeBlock.new @stem, @pres_act_inf
+        end
 
         ##
         #
