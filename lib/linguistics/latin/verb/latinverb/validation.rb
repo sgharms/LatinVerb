@@ -41,6 +41,8 @@ module Linguistics
                 true : false
               unless @irregular
                 @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
+              @deponent = @classification == Linguistics::Latin::Verb::VerbTypes::Deponent ?
+                true : false
               end
             rescue Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError => detail
               STDERR.puts "WARNING:  Improper use of rescue for decision structure in latinverb_validation"
