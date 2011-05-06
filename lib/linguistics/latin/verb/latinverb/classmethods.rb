@@ -8,7 +8,52 @@ module Linguistics
         # include Linguistics::Latin::Verb::Errors
         class << self
 
+          ## 
+          #
+          # Deponent verbs can be conceived as being the <em>the passive</em> results of
+          # a regular verb where the passive form's result is then applied to the active
+          # vector specification.  Ergo the dictum "passive in form but active in
+          # meaning."  As such, when we realize we have a deponent verb, we will create
+          # its standard four principal part string sibling.  This, in turn, could be
+          # used to create a LatinVerb.  Then through some method deletion or aliasing,
+          # the active vector can be used to point to the (in fact) passive result
+          #
+          # For example:
+          #
+          # <pre>
+          # j = LatinVerb.new conor conārī conatus
+          # # create_pseudo_active_mask_for_deponent creates (conō, conāre, conāvī
+          # conatus)
+          # # Do magic so that active_voice_indicative_mood_present_tense points to
+          # passive_voice_indicative_mood_present_tense
+          # </pre>
+          #
+          # ===ARGUMENTS
+          #
+          # s :: A deponent description string to be pesudo-mapped
+          #
+          # ===RETURNS
+          #
+          # A pseudo-mapped, four principal-part string
+          #
+          ##
+          def create_pseudo_active_mask_for_deponent(s)
+            parts = s.split /\s+/
 
+            # Turn the passive form into something that looks active
+            parts[0].sub! /or$/, 'ō'
+
+            # Turn the passive infinitive into something that looks active
+            parts[1].sub! /ī$/, 'e'
+
+            # Set the 4th part to the value in the 3rd slot
+            parts[3] = parts[2]
+
+            # This value shouldn't be used...(I don't think...)
+            parts[2] = "JUNK" # 
+
+            parts.join(' ')
+          end
           ##
           # 
           # == ARGUMENTS
