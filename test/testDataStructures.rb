@@ -13,7 +13,7 @@ class TestDataStructures < MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_hash
     h = @aFirstDS.to_hash
-    assert_equal(22, h.keys.length )
+    assert_equal(23, h.keys.length )
     assert_equal("amem", h[:active_voice_subjunctive_mood_present_tense][0])
     assert_equal("amant",
     h[:active_voice_indicative_mood_present_tense].third_person_plural_number)

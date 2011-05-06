@@ -201,7 +201,7 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
   end
  
   def _test_first_conj_exhaustively_post_reviv(a)
-    assert a.active_voice_imperative_mood_present_tense[2]
+    assert a.active_voice_imperative_mood_present_tense[1]
     assert !(a.active_voice_imperative_mood_present_tense.empty?), "Should not return nil."
     assert_equal "amō",        a.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "amās",       a.active_voice_indicative_mood_present_tense_second_person_singular_number
