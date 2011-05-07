@@ -8,12 +8,12 @@ require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 
-class TestDeponent < MiniTest::Unit::TestCase # :nodoc: 
+class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc: 
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'vereor verērī veritum'
   end
 
-  def test_firstconj_depo
+  def test_depo
     assert_equal(Linguistics::Latin::Verb::VerbTypes::Deponent, @aDep.classification)
 
     assert_equal 'vereor',    @aDep.active_voice_indicative_mood_present_tense_first_person_singular_number
@@ -37,7 +37,7 @@ class TestDeponent < MiniTest::Unit::TestCase # :nodoc:
 
     # Imperatives
     assert_equal 'verēre',   @aDep.active_voice_imperative_mood_present_tense_second_person_singular_number
-    assert_equal 'verērer',   @aDep.active_voice_imperative_mood_present_tense_second_person_plural_number
+    assert_equal 'verēminī',   @aDep.active_voice_imperative_mood_present_tense_second_person_plural_number
     assert_equal 'verētor',   @aDep.active_voice_imperative_mood_future_tense_second_person_singular_number
 
     # Infinitives
@@ -56,7 +56,7 @@ class TestDeponent < MiniTest::Unit::TestCase # :nodoc:
     assert @aDep.gerund =~ %r'verendī', "Was not #{@aDep.gerund}"
 
     # Supine
-    assert_equal 'verium',  @aDep.supine[:accusative]
+    assert_equal 'veritum',  @aDep.supine[:accusative]
     assert_equal 'veritū',  @aDep.supine[:ablative]
   end
 
