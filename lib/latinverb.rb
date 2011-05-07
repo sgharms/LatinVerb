@@ -237,13 +237,36 @@ module Linguistics
           # Therefore make a LatinVerb.new(miro/mirare/JUNK/miratus).  Take
           # its passives and set them to this verb's actives.  This is
           # actually what students do heuristically in Latin classes.
-          deponent_swap if @deponent
-          deponent_mutations if @deponent
+          apply_deponent_masking if @deponent
         end
 
         ######################################################################
         # Instance methods
         ######################################################################
+
+##
+#
+# Top-level method used to call the sub-methods which create a facade so that
+# active_ vectors can be called on a deponent which actually forwards that
+# call to a "fake" non-deponent (+@proxyVerb+) whose passives fit the correct
+# morphology
+#
+# It calls the following methods, each of which applies the masking to a
+# certain collection of vectors:
+#
+# * +deponent_swap+ :: active_voice* remaps "standard" calls like
+# +active_voice_indicative_mood_present_tense...+
+# * +deponent_imperative_mutations+ :: masks the imperatives
+# * +deponent_participle_mutations+ :: masks the participles
+# * +deponent_infinitive_mutations+ :: masks the infinitives
+#
+##
+        def apply_deponent_masking
+          deponent_swap
+          deponent_imperative_mutations
+          deponent_participle_mutations
+          deponent_infinitive_mutations
+        end
 
         ##
         #
@@ -252,9 +275,7 @@ module Linguistics
         #
         ##
         
-        def deponent_mutations
-          pv = @proxyVerb
-          #puts @proxyVerb.pretty_generate
+        def deponent_imperative_mutations # :nodoc: 
           self.singleton_class.class_eval do
             def active_voice_imperative_mood_present_tense_second_person_singular_number
               return @proxyVerb.instance_variable_get '@pres_act_inf'
@@ -263,11 +284,16 @@ module Linguistics
               return @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
             end
             def active_voice_imperative_mood_future_tense_second_person_singular_number
-              k=@proxyVerb.send(:active_voice_imperative_mood_future_tense_second_person_singular_number)
-              Linguistics::Latin::Phonographia.fix_macrons k+'r'
+              k=@proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
+              k.sub! /minī$/, ''
+              k += 'tor'
+              Linguistics::Latin::Phonographia.fix_macrons k
             end
+          end
+        end
 
-            # Mask the participles
+        def deponent_participle_mutations # :nodoc: 
+          self.singleton_class.class_eval do
             def present_active_participle
               return @proxyVerb.present_active_participle
             end
@@ -285,12 +311,14 @@ module Linguistics
             end
 
             # Mask the supine
-
             def supine
               return @proxyVerb.supine
             end
+          end
+        end
 
-            # Mask the infinitives (this is so cool, and sneaky)
+        def deponent_infinitive_mutations # :nodoc: 
+          self.singleton_class.class_eval do
             def present_active_infinitive
               return @proxyVerb.send :present_passive_infinitive
             end
@@ -300,15 +328,14 @@ module Linguistics
             def future_active_infinitive
               return @proxyVerb.send :future_active_infinitive
             end
-
-
           end
         end
 
         ##
         # 
         # Swaps this verb's active_ vectors and replaces them with
-        # @proxyVerb's passive_ vectors.  This is pretty darned sneaky.
+        # @proxyVerb's passive_ vectors.  This is pretty darned sneaky. See
+        # Also deponent_swap
         #
         ##
         def deponent_swap
@@ -326,7 +353,6 @@ module Linguistics
             # In self, find the passive and save it's resultant object into a
             # hash for future use.
             self.singleton_class.class_eval do
-              #debugger if pass.to_s =~ /subjunctive_mood_perfect_tense/
               storage[active_corr.to_sym] = pV.send(pass) 
             end
           end
@@ -366,8 +392,6 @@ module Linguistics
 
         def _deponent_handler
           @proxyVerb = Linguistics::Latin::Verb::LatinVerb.new @deponent_proxy
-          #pp proxyVerb.methods.grep /^passive/
-          #puts proxyVerb.passive_voice_indicative_mood_future_tense.to_a
         end
 
         def _irregular_handler
