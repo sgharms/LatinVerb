@@ -1906,6 +1906,178 @@ EOJSON
         }
 EOJSON
 
+# PROSUM: To be of help, to be useful, benefit, profit
+
+PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON 
+        {
+          "original string":"prōsum prōdesse prōfuī prōfutūrus",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "tense_blocks": {
+            "active_voice_imperative_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+                [],
+                "prōdes",
+                [],
+                [],
+                "prōdeste",
+                []
+               ]
+             },
+            "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōderō",
+                  "prōderis",
+                  "prōderit",
+                  "prōderimus",
+                  "prōderitis",
+                  "prōderunt"
+                ]
+              },
+            "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "profuerō",
+                  "profueris",
+                  "profuerit",
+                  "profuerimus",
+                  "profueritis",
+                  "profuerint"
+                ]
+              },
+            "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōderam",
+                  "prōderās",
+                  "prōderat",
+                  "prōderāmus",
+                  "prōderātis",
+                  "prōderant"
+                ]
+              },
+            "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōfueram",
+                  "prōfuerās",
+                  "prōfuerat",
+                  "prōfuerāmus",
+                  "prōfuerātis",
+                  "prōfuerant"
+                ]
+              },
+            "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōfuī",
+                  "prōfuistī",
+                  "prōfuit",
+                  "prōfuimus",
+                  "prōfuistis",
+                  "prōfuērunt (-ēre)"
+                ]
+              },
+            "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōsum",
+                  "prōdes",
+                  "prōdest",
+                  "prōsumus",
+                  "prōdestis",
+                  "prōsunt"
+                ]
+              },
+            "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōdessem",
+                  "prōdessēs",
+                  "prōdesset",
+                  "prōdessēmus",
+                  "prōdessētis",
+                  "prōdessent"
+                ]
+              },
+            "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōfuissem",
+                  "prōfuissēs",
+                  "prōfuisset",
+                  "prōfuissēmus",
+                  "prōfuissētis",
+                  "prōfuissent"
+                ]
+              },
+            "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōfuerim",
+                  "prōfueris",
+                  "prōfuerit",
+                  "prōfuerimus",
+                  "prōfueritis",
+                  "prōfuerint"
+                ]
+              },
+            "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "prōsim",
+                  "prōsīs",
+                  "prōsit",
+                  "prōsīmus",
+                  "prōsītis",
+                  "prōsint"
+                ]
+              },
+            "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              },
+            "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": []
+              }
+            }
+        }
+EOJSON
+
       end
     end
   end
