@@ -49,6 +49,7 @@ TODO:  It should be possible to ONLY pass the 3/5ths and get the collective resu
               tense_method, vector_specifier = $1, $2
               # This is added to prevent stack-level too deep errors
               begin
+                # Handle the base case
                 if self.respond_to?(tense_method.to_sym)
                   return send(tense_method.to_sym).send(vector_specifier.to_sym)
                 end
