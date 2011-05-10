@@ -118,7 +118,7 @@ module Linguistics
               elsif (infinitive =~ /ī$/  and first_pres =~ /r$/)
                 return Linguistics::Latin::Verb::VerbTypes::Deponent
               else
-                return Linguistics::Latin::Verb::VerbTypes::Irregular
+                raise "Could not find a verb type for this verb"
               end
             end
           end

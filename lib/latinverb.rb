@@ -416,8 +416,8 @@ module Linguistics
         def _irregular_handler
           begin
             o = @original_string.gsub(/\s+/,'_')
-            json_string = Linguistics::Latin::Verb.const_get( 
-               ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym)
+            o_upcase_and_symbolic = ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym
+            json_string = Linguistics::Latin::Verb.const_get o_upcase_and_symbolic 
            raise "Found a JSON string with null length!" if json_string.length <= 10
              revivified_data_structure = JSON.parse json_string
              revivified_data_structure['tense_blocks'].each_pair do |k,v|
@@ -432,7 +432,7 @@ module Linguistics
             raise e
             exit
           rescue NameError => e
-            puts "We were unable to find a definition for #{@original_string}/#{o}.  Please provide one."
+            puts "We were unable to find a definition for #{@original_string}/#{o_upcase_and_symbolic}.  Please provide one."
             raise e
             exit
           rescue => error
