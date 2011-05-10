@@ -16,7 +16,7 @@ module Linguistics
         attr_reader :infinitive_methods
         def initialize(s)
           if s.class == Hash
-            @infinitive_methods = s.keys.grep /infinitive$/
+            @infinitive_methods = s.keys
           end
 
           @infinitive_methods.each do |k|

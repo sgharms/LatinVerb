@@ -105,5 +105,14 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal 'prōdesse',  v.pres_act_inf
     assert_equal 'prōfuisse',  v.perfect_active_infinitive
     assert_equal 'prōfutūrum esse', v.future_active_infinitive
+
+    # Infinitives
+    assert_equal 'prōdesse', v.present_active_infinitive  
+    assert_equal 'prōfuisse', v.perfect_active_infinitive  
+    assert_equal 'prōfutūrum esse', v.future_active_infinitive   
+    assert_equal '', v.present_passive_infinitive 
+    assert_equal '', v.perfect_passive_infinitive 
+    assert_equal '', v.future_passive_infinitive  
+
   end
 end

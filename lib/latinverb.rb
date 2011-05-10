@@ -429,8 +429,17 @@ module Linguistics
                 end
             end
 
-            infs = revivified_data_structure['infinitives']
+            @irregular_infinitives = revivified_data_structure['infinitives']
+            return if @irregular_infinitives.nil?
 
+            singleton_class.class_eval do
+              def present_active_infinitive; return @irregular_infinitives.present_active_infinitive; end
+              def present_passive_infinitive; return @irregular_infinitives.present_passive_infinitive; end
+              def perfect_active_infinitive; return @irregular_infinitives.perfect_active_infinitive; end
+              def perfect_passive_infinitive; return @irregular_infinitives.perfect_passive_infinitive; end
+              def future_passive_infinitive; return @irregular_infinitives.future_passive_infinitive; end
+              def future_active_infinitive; return @irregular_infinitives.future_active_infinitive; end
+            end
            end
           rescue JSON::ParserError => e
             puts "We were unable to parse JSON for #{@original_string}.  Please verify your syntax."
