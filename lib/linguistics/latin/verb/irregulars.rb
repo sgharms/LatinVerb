@@ -37,6 +37,19 @@ module Linguistics
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "esse",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "fuisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "futūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -208,6 +221,19 @@ EOJSON
         {
           "original string":"ferō ferre tulī latum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "ferre",
+              "present_passive_infinitive": "ferrī",
+                                        
+              "perfect_active_infinitive": "tulisse",
+              "perfect_passive_infinitive": "lātum",
+                                        
+              "future_active_infinitive": "lātūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -418,6 +444,19 @@ EOJSON
         {
           "original string":"eō īre ivī itum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "īre",
+              "present_passive_infinitive": "īrī",
+                                        
+              "perfect_active_infinitive": "īsse",
+              "perfect_passive_infinitive": "itum esse",
+                                        
+              "future_active_infinitive": "itūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active voice_imperative_mood_present_tense": {
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -622,6 +661,19 @@ EOJSON
         {
           "original string":"nolō nolle noluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "nolle",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "noluisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -792,6 +844,19 @@ EOJSON
         {
           "original string":"volō velle voluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "velle",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "voluisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -956,6 +1021,19 @@ EOJSON
         {
           "original string":"dō dāre dedī datum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "dāre",
+              "present_passive_infinitive": "dārī",
+                                        
+              "perfect_active_infinitive": "dedisse",
+              "perfect_passive_infinitive": "datum",
+                                        
+              "future_active_infinitive": "datūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active_voice_imperative_mood_future_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -1209,6 +1287,19 @@ EOJSON
         {
           "original string":"EDŌ ĒSSE ĒDĪ ĒSUM",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "ēsse",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "ēdisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "ēsūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active_voice_imperative_mood_future_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -1462,6 +1553,19 @@ EOJSON
         {
           "original string":"queō quīre quivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "quīre",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "quīsset",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active voice_imperative_mood_present_tense": {
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -1667,6 +1771,19 @@ EOJSON
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "facere",
+              "present_passive_infinitive": "fierī",
+                                        
+              "perfect_active_infinitive": "fēcisse",
+              "perfect_passive_infinitive": "factus",
+                                        
+              "future_active_infinitive": "factūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
 
             "active_voice_imperative_mood_present_tense": {
@@ -1912,6 +2029,19 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
         {
           "original string":"prōsum prōdesse prōfuī prōfutūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "prōdesse",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "prōfuisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "prōfutūrum esse",
+              "future_passive_infinitive": ""
+            }
+          },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
               "json_class": "Linguistics::Latin::Verb::TenseBlock",
@@ -2094,6 +2224,19 @@ EOJSON
         {
           "original string":"possum posse potuī",
             "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+            "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "posse",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "potuisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
             "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
