@@ -217,9 +217,9 @@ module Linguistics
 EOJSON
 
         # Recognized irregular verb
-        FERŌ_FERRE_TULĪ_LATUM=<<EOJSON 
+        FERŌ_FERRE_TULĪ_LĀTUM=<<EOJSON 
         {
-          "original string":"ferō ferre tulī latum",
+          "original string":"ferō ferre tulī lātum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",

@@ -117,7 +117,7 @@ module Linguistics
         IRREGULAR_VERBS = {
           'sum' => 'SUM_ESSE_FUĪ_FUTŪRUS',
           'possum' => 'POSSUM_POSSE_POTUĪ',
-          'ferō' => 'FERŌ_FERRE_TULĪ_LATUM',
+          'ferō' => 'FERŌ_FERRE_TULĪ_LĀTUM',
           'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
           'nolō' => 'NOLŌ_NOLLE_NOLUĪ',
           'volō' => 'VOLŌ_VELLE_VOLUĪ',
