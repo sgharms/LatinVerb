@@ -1662,6 +1662,250 @@ EOJSON
         }
 EOJSON
 
+#FIŌ:  To be made.  No active forms, efectively the passive form to faciō
+        FIŌ_FIĒRĪ_FACTUS=<<EOJSON 
+        {
+          "original string":"sum esse fuī futūrus",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "tense_blocks": {
+
+            "active_voice_imperative_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+                [],
+                "",
+                [],
+                [],
+                "",
+                []
+               ]
+             },
+            "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "(-ēre)"
+                ]
+              },
+            "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+             }, 
+            "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "" ]
+              },
+            "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "fiam",
+                  "fiēs",
+                  "fiet",
+                  "fiēmus",
+                  "fiētis",
+                  "fient"]
+              },
+            "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "factum erō",
+                  "factum eris",
+                  "factum erit",
+                  "factum erimus",
+                  "factum eritis",
+                  "factum erint"]
+              },
+
+            "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "fiēbam",
+                  "fiēbās",
+                  "fiēbat",
+                  "fiēbāmus",
+                  "fiēbātis",
+                  "fiēbant"
+                  ]
+              },
+            "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "factum eram",
+                  "factum erās",
+                  "factum erat",
+                  "factum erāmus",
+                  "factum erātis",
+                  "factum erant"]
+              },
+
+
+            "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "factum sum",
+                  "factum es",
+                  "factum est",
+                  "factum sumus",
+                  "factum estis",
+                  "factum sunt"]
+              },
+            "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "fiō",
+                  "fis",
+                  "fīt",
+                  "fīmus",
+                  "fītis",
+                  "fīunt"]
+              },
+            "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "fierem",
+                  "fierēs",
+                  "fieret",
+                  "fierēmus",
+                  "fierētis",
+                  "fierent"
+                ]
+              },
+            "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "factum essem",
+                  "factum essēs",
+                  "factum esset",
+                  "factum essēmus",
+                  "factum essētis",
+                  "factum essent"
+                  ]
+              },
+            "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "factum sim",
+                  "factum sis",
+                  "factum sit",
+                  "factum simus",
+                  "factum sitis",
+                  "factum sint"]
+              },
+            "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "fīam",
+                  "fīās",
+                  "fīat",
+                  "fīamus",
+                  "fīatis",
+                  "fīant"]
+              }
+
+
+
+
+
+
+
+          }
+        }
+EOJSON
+
       end
     end
   end
