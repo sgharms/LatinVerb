@@ -85,11 +85,10 @@ class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
    assert_equal "gaudeant",   f.active_voice_subjunctive_mood_present_tense_third_person_plural_number
 
    assert_equal "gaudērem", f.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
-#here
    assert_equal "gaudērēs", f.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
    assert_equal "gaudēret", f.active_voice_subjunctive_mood_imperfect_tense_third_person_singular_number
-   #assert_equal "gaudērēmus", f.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
-   #assert_equal "gaudērētis", f.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
+   assert_equal "gaudērēmus", f.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+   assert_equal "gaudērētis", f.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
    assert_equal "gaudērent",   f.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number
    
    assert_equal "[ gāvīsus, gāvīsa, gāvīsum ] sim", f.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
