@@ -89,12 +89,16 @@ module Linguistics
 
             if s.class == String
               divided_string = s.split /\s+/
- 
+
               first_pres = divided_string[0]
               infinitive = divided_string[1]
 
               return Linguistics::Latin::Verb::VerbTypes::Defective if
                 Linguistics::Latin::Verb::LatinVerb::DEFECTIVE_VERBS.member? first_pres
+
+              return Linguistics::Latin::Verb::VerbTypes::Semideponent if
+                ( Linguistics::Latin::Verb::LatinVerb::SEMI_DEPONENTS.keys.any?{ |k| first_pres=~/#{k}$/} and
+                  s !~ /JUNK/ )  
 
               if    infinitive =~ /āre$/
                 return Linguistics::Latin::Verb::VerbTypes::First
