@@ -378,7 +378,7 @@ module Linguistics
         def active_voice_subjunctive_mood_imperfect_tense
          TenseBlock.new(
            ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending| 
-           @pres_act_inf + ending 
+           @pres_act_inf.sub(/e$/,'ē') + ending 
           end)
         end
 

@@ -174,6 +174,7 @@ module Linguistics
             }
         }
 EOJSON
+
         # Recognized irregular verb
         FERŌ_FERRE_TULĪ_LATUM=<<EOJSON 
         {
