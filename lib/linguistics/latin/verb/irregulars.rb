@@ -8,12 +8,25 @@ module Linguistics
         # --
         # Recognized irregular verbs:
         # ###########################
+        # 
+        # Derived from A&G 197
         #
+        #  -- Core Irregulars --
         # SUM_ESSE_FUĪ_FUTŪRUS
         # FERŌ_FERRE_TULĪ_LATUM
         # EŌ_ĪRE_IVĪ_ITUM
+        #
+        #  -- Verbs of Preference --
         # NOLŌ_NOLLE_NOLUĪ
         # VOLŌ_VELLE_VOLUĪ
+        # MALŌ_MĀLLE_MALUĪ
+        #
+        # DŌ is irregular because its lengths are unusual and because there
+        # are no first person, passive forms
+        #
+        # -- TODO --
+        # EDŌ,QUEŌ, FIŌ, 
+        # PROSUM
         # ++
         ## 
 
@@ -935,6 +948,257 @@ EOJSON
               }
           }
 EOJSON
+        DŌ_DĀRE_DEDĪ_DATUM=<<EOJSON 
+        {
+          "original string":"dō_dāre_dedī_datum",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "tense_blocks": {
+            "active_voice_imperative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "dā",
+                  "",
+                  "",
+                  "dāte",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dābō",
+                  "dābis",
+                  "dābit",
+                  "dābimus",
+                  "dābitis",
+                  "dābunt"
+                ]
+              },
+            "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dederō",
+                  "dederis",
+                  "dederit",
+                  "dederimus",
+                  "dederitis",
+                  "dederint"
+                ]
+              },
+            "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dābam",
+                  "dābās",
+                  "dābat",
+                  "dābāmus",
+                  "dābātis",
+                  "dābant"
+                ]
+              },
+            "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dederam",
+                  "dederās",
+                  "dederat",
+                  "dederāmus",
+                  "dederātis",
+                  "dederant"
+                ]
+              },
+            "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dedī",
+                  "dedistī",
+                  "dedit",
+                  "dedimus",
+                  "dedistis",
+                  "dedērunt"
+                ]
+              },
+            "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dō",
+                  "dās",
+                  "dat",
+                  "dāmus",
+                  "dātis",
+                  "dant"
+                ]
+              },
+            "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dārem",
+                  "dārēs",
+                  "dāret",
+                  "dārēmus",
+                  "dārētis",
+                  "dārent"
+                ]
+              },
+            "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dedissem",
+                  "dedissēs",
+                  "dedisset",
+                  "dedissēmus",
+                  "dedissētis",
+                  "dedissent"
+                ]
+              },
+            "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dederim",
+                  "dederis",
+                  "dederit",
+                  "dederimus",
+                  "dederitis",
+                  "dederint"
+                ]
+              },
+            "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dem",
+                  "dēs",
+                  "det",
+                  "dēmus",
+                  "dētis",
+                  "dent"
+                ]
+              },
+            "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dābor",
+                  "dāberis",
+                  "dābitur",
+                  "dābimur",
+                  "dābiminī",
+                  "dābuntur"
+                ]
+              },
+            "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "datum erō",
+                  "datum eris",
+                  "datum erit",
+                  "datum erimus",
+                  "datum eritis",
+                  "datum erint"
+                ]
+              },
+            "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dābar",
+                  "dābāris",
+                  "dābātur",
+                  "dābāmur",
+                  "dābāminī",
+                  "dābantur"
+                ]
+              },
+            "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "datum eram",
+                  "datum erās",
+                  "datum erat",
+                  "datum erāmus",
+                  "datum erātis",
+                  "datum erant"
+                ]
+              },
+            "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "datum sum",
+                  "datum es",
+                  "datum est",
+                  "datum sumus",
+                  "datum estis",
+                  "datum sunt"
+                ]
+              },
+            "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "dāris",
+                  "dātur",
+                  "dāmur",
+                  "dāminī",
+                  "dantur"
+                ]
+              },
+            "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "dārer",
+                  "dārēris",
+                  "dārētur",
+                  "dārēmur",
+                  "dārēminī",
+                  "dārentur"
+                ]
+              },
+            "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "[ datus, data, datum ] essem",
+                  "[ datus, data, datum ] essēs",
+                  "[ datus, data, datum ] esset",
+                  "[ datī, datae, data ] essēmus",
+                  "[ datī, datae, data ] essētis",
+                  "[ datī, datae, data ] essent"
+                ]
+              },
+            "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "[ datus, data, datum ] sim",
+                  "[ datus, data, datum ] sis",
+                  "[ datus, data, datum ] sit",
+                  "[ datī, datae, data ] simus",
+                  "[ datī, datae, data ] sitis",
+                  "[ datī, datae, data ] sint"
+                ]
+              },
+            "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "dēris",
+                  "dētur",
+                  "dēmur",
+                  "dēminī",
+                  "dentur"
+                ]
+             }
+           }
+          }
+EOJSON
+
       end
     end
   end
