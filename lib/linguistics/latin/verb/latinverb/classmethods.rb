@@ -96,6 +96,9 @@ module Linguistics
               return Linguistics::Latin::Verb::VerbTypes::Defective if
                 Linguistics::Latin::Verb::LatinVerb::DEFECTIVE_VERBS.member? first_pres
 
+              return Linguistics::Latin::Verb::VerbTypes::Irregular if
+                Linguistics::Latin::Verb::LatinVerb::IRREGULAR_VERBS.member? first_pres
+
               return Linguistics::Latin::Verb::VerbTypes::Semideponent if
                 ( Linguistics::Latin::Verb::LatinVerb::SEMI_DEPONENTS.keys.any?{ |k| first_pres=~/#{k}$/} and
                   s !~ /JUNK/ )  

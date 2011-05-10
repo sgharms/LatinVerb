@@ -113,6 +113,16 @@ module Linguistics
           'soleō'  => %w(solēre solitus),
         }
 
+        # Irregular Verbs.  See A&G 197
+        IRREGULAR_VERBS = {
+          'sum' => 'SUM_ESSE_FUĪ_FUTŪRUS',
+          'ferō' => 'FERŌ_FERRE_TULĪ_LATUM',
+          'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
+          'nolō' => 'NOLŌ_NOLLE_NOLUĪ',
+          'volō' => 'VOLŌ_VELLE_VOLUĪ',
+          'dō' => 'DŌ_DĀRE_DEDĪ_DATUM',
+        }
+
         # :startdoc:
       end
     end
