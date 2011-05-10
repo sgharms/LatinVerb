@@ -48,6 +48,7 @@ module Linguistics
           }   
 
         # Listing of all defective verbs
+        # See A&G Sec. 205
         DEFECTIVE_VERBS = %w{
           addormisco
           adolesco
@@ -85,6 +86,7 @@ module Linguistics
         }
 
         # Listing of all impersonal verbs
+        # See A&G #207
         IMPERSONAL_VERBS = %w{
           addecet
           advesperascit
@@ -102,6 +104,15 @@ module Linguistics
           pluo
           pudet
         }
+
+        # See A&G # 192
+        SEMI_DEPONENTS = {
+          'audeō'  => %w(audēre ausus),
+          'fidō'   => %w(fidere fīsus),
+          'gaudeō' => %w(gaudēre gāvīsus),
+          'soleō'  => %w(solēre solitus),
+        }
+
         # :startdoc:
       end
     end
