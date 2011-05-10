@@ -41,7 +41,9 @@ module Linguistics
                 true : false
               unless @irregular
                 @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
-              @deponent = @classification == Linguistics::Latin::Verb::VerbTypes::Deponent ?
+              @deponent = (@classification == Linguistics::Latin::Verb::VerbTypes::Deponent) ?
+                true : false
+              @semideponent = (@classification == Linguistics::Latin::Verb::VerbTypes::Semideponent) ?
                 true : false
               end
             rescue Linguistics::Latin::Verb::Errors::IrregularVerbSpecificationError => detail
