@@ -48,6 +48,8 @@ module Linguistics
         end
         class Defective < VerbType # :nodoc:
         end
+        class Impersonal < VerbType # :nodoc:
+        end
         class Semideponent < VerbType # :nodoc:
         end
       end
