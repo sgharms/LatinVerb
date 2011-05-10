@@ -114,6 +114,16 @@ module Linguistics
         ##
         def empty?; return @results.empty?; end
 
+        ##
+        # Return whether the result arrays is empty of words
+        ##
+        def wordless? 
+          @results.map do |r|
+           return false if r =~ /\w/ 
+          end
+          true
+        end
+
 ##
 #--
 # TODO:  I dream of this being generated dynamically through the
@@ -784,6 +794,11 @@ module Linguistics
         end
 
         private
+
+        # This method gives the ability to apply logic to every tense-block
+        # call.  It may be negative on performance, the use here 
+        def pre_tenseblock_call_hook
+        end
 
         def form_imperatives
 
