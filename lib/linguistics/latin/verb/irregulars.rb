@@ -23,10 +23,12 @@ module Linguistics
         #
         # DŌ is irregular because its lengths are unusual and because there
         # are no first person, passive forms
+        # 
+        # * EDŌ
+        # * QUEŌ
+        # * FIŌ
+        # * PROSUM
         #
-        # -- TODO --
-        # EDŌ,QUEŌ, FIŌ, 
-        # PROSUM
         # ++
         ## 
 
