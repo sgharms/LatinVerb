@@ -13,42 +13,94 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   def test_to_give
     v =  Linguistics::Latin::Verb::LatinVerb.new 'dō dāre dedī datum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    assert_match /dāns/, v.present_active_participle
+    assert_match /datus/, v.perfect_passive_participle
+    assert_match /datūrus/, v.future_active_participle
+    assert_match /dandus/, v.future_passive_participle
+
   end
   def test_to_eat
     v =  Linguistics::Latin::Verb::LatinVerb.new 'edō ēsse ēdī ēsum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    # Participles
+    #assert_match /edēns/, v.present_active_participle
+    #assert_equal '', v.perfect_passive_participle
+    #assert_match 'ēsūrus', v.future_active_participle
+    #assert_equal '', v.future_passive_participle
   end
   def test_to_be
     v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    # Participles
+    #assert_match 'ens', v.present_active_participle
+    #assert_match '', v.perfect_passive_participle
+    #assert_match 'futūrus', v.future_active_participle
+    #assert_match '', v.future_passive_participle
   end
   def test_to_bear
-    v = Linguistics::Latin::Verb::LatinVerb.new 'ferō ferre tulī latum'
+    v = Linguistics::Latin::Verb::LatinVerb.new 'ferō ferre tulī lātum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+# Participles
+    #assert_match %r'ferens', v.present_active_participle
+    assert_match %r'lātus', v.perfect_passive_participle
+    assert_match %r'lātūrus', v.future_active_participle
+    #assert_match %r'ferendus', v.future_passive_participle
+
   end
   def test_to_go
     v = Linguistics::Latin::Verb::LatinVerb.new 'eō īre ivī itum'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    # Participles
+    assert_match %r'iēns', v.present_active_participle
+    assert_match '', v.perfect_passive_participle
+    assert_match %r'itūrus', v.future_active_participle
+    #assert_match %r'eundum', v.future_passive_participle
   end
   def test_to_not_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'nolō nolle noluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    #assert_match 'nōlēns', v.present_active_participle
+    #assert_equal '', v.perfect_passive_participle
+    #assert_equal '', v.future_active_participle
+    #assert_equal '', v.future_passive_participle
   end
   def test_to_prefer
     v = Linguistics::Latin::Verb::LatinVerb.new 'volō velle voluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    #assert_match 'vōlēns', v.present_active_participle
+    #assert_equal '', v.perfect_passive_participle
+    #assert_equal '', v.future_active_participle
+    #assert_equal '', v.future_passive_participle
   end
   def test_to_be_able
     v = Linguistics::Latin::Verb::LatinVerb.new 'queō quīre quīvī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    #assert_match 'quiēns', v.present_active_participle
+    #assert_equal '', v.perfect_passive_participle
+    #assert_equal '', v.future_active_participle
+    #assert_equal '', v.future_passive_participle
   end
   def test_to_be_able2
     v = Linguistics::Latin::Verb::LatinVerb.new 'possum posse potuī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    #assert_match 'potēns', v.present_active_participle
+    #assert_equal '', v.perfect_passive_participle
+    #assert_equal '', v.future_active_participle
+    #assert_equal '', v.future_passive_participle
   end
   def test_to_be_made
     v = Linguistics::Latin::Verb::LatinVerb.new 'fiō fiērī factus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    #assert_match %r'faciēns', v.present_active_participle
+    #assert_match %r'factus', v.perfect_passive_participle
+    #assert_match %r'factūrus', v.future_active_participle
+    #assert_match %r'faciendus', v.future_passive_participle
   end
   def test_to_help
     v = Linguistics::Latin::Verb::LatinVerb.new 'prōsum prōdesse prōfuī prōfutūrus'
@@ -106,13 +158,8 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal 'prōfuisse',  v.perfect_active_infinitive
     assert_equal 'prōfutūrum esse', v.future_active_infinitive
 
-    # Infinitives
-    assert_equal 'prōdesse', v.present_active_infinitive  
-    assert_equal 'prōfuisse', v.perfect_active_infinitive  
-    assert_equal 'prōfutūrum esse', v.future_active_infinitive   
-    assert_equal '', v.present_passive_infinitive 
-    assert_equal '', v.perfect_passive_infinitive 
-    assert_equal '', v.future_passive_infinitive  
+    # Participles
+    assert_match   /prōfutūrus/, v.future_active_participle
 
   end
 end

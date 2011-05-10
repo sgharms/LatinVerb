@@ -82,7 +82,12 @@ module Linguistics
      #
      ###
      def future_active_participle
-       mybase=@pass_perf_part.gsub(/u[sm]$/, "ūr")
+       # In case we have an irregular, or somehow already have a /ūrus$/ we shouldn't do this
+       mybase = (@pass_perf_part =~ /ūru.$/) ?
+         @pass_perf_part.gsub(/u[sm]$/,'')
+       :
+         @pass_perf_part.gsub(/u[sm]$/, "ūr")
+
        singular_endings=%w(us a um)
        return singular_endings.collect{|x| mybase+"#{x}".chomp}.join(', ')
      end
