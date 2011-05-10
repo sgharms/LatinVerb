@@ -21,6 +21,7 @@ require 'active_support'
 
 require 'linguistics/latin/verb/classification_types'
 require 'linguistics/latin/verb/tense_methods'
+require 'linguistics/latin/verb/deponent_tense_methods'
 require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
@@ -192,7 +193,7 @@ module Linguistics
           if s.class == String
             _init_by_string(s)
             _irregular_handler if @irregular
-            _deponent_handler  if @deponent
+            _deponent_handler  if ( @deponent || @semideponent )
           end
 
           if (s.class == Hash )
@@ -238,29 +239,47 @@ module Linguistics
           # its passives and set them to this verb's actives.  This is
           # actually what students do heuristically in Latin classes.
           apply_deponent_masking if @deponent
+
+          # Previously @deponent and @semideponent followed the same paths,
+          # but in semideponents, the "present system" is handled as normal
+          # (completed by _add_vector_methods, supra).  We need only mask, as
+          # A&G #192 says: "the completed methods" i.e. the perfect system.
+          apply_semideponent_masking  if @semideponent
         end
 
         ######################################################################
         # Instance methods
         ######################################################################
+         
+        ##
+        #
+        # Imports replacements to the standard tense_methods and thus
+        # overwrites the old method definitions defined by verbvector
+        #
+        ##
+        def apply_semideponent_masking
+          self.singleton_class.class_eval do
+            include Linguistics::Latin::Verb::DeponentTenseMethods
+          end
+        end
 
-##
-#
-# Top-level method used to call the sub-methods which create a facade so that
-# active_ vectors can be called on a deponent which actually forwards that
-# call to a "fake" non-deponent (+@proxyVerb+) whose passives fit the correct
-# morphology
-#
-# It calls the following methods, each of which applies the masking to a
-# certain collection of vectors:
-#
-# * +deponent_swap+ :: active_voice* remaps "standard" calls like
-# +active_voice_indicative_mood_present_tense...+
-# * +deponent_imperative_mutations+ :: masks the imperatives
-# * +deponent_participle_mutations+ :: masks the participles
-# * +deponent_infinitive_mutations+ :: masks the infinitives
-#
-##
+        ##
+        #
+        # Top-level method used to call the sub-methods which create a facade so that
+        # active_ vectors can be called on a deponent which actually forwards that
+        # call to a "fake" non-deponent (+@proxyVerb+) whose passives fit the correct
+        # morphology
+        #
+        # It calls the following methods, each of which applies the masking to a
+        # certain collection of vectors:
+        #
+        # * +deponent_swap+ :: active_voice* remaps "standard" calls like
+        # +active_voice_indicative_mood_present_tense...+
+        # * +deponent_imperative_mutations+ :: masks the imperatives
+        # * +deponent_participle_mutations+ :: masks the participles
+        # * +deponent_infinitive_mutations+ :: masks the infinitives
+        #
+        ##
         def apply_deponent_masking
           deponent_swap
           deponent_imperative_mutations
@@ -437,7 +456,7 @@ module Linguistics
           @classification_error.call unless @classification_error.nil?
 
           # Derive from the original, valid string useful specifiers in handy data structures
-          unless @deponent
+          unless ( @deponent or @semideponent )
             _derive_parts_from_given_string s
 
             # Derive iVar from derived variables
