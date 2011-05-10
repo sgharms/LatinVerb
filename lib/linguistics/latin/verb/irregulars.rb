@@ -1455,6 +1455,213 @@ EOJSON
            }
           }
 EOJSON
+
+# QUEŌ: to be able
+
+        QUEŌ_QUĪRE_QUĪVĪ=<<EOJSON 
+        {
+          "original string":"queō quīre quivī ",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "tense_blocks": {
+            "active voice_imperative_mood_present_tense": {
+              "json_class": "Linguistics::Latin::Verb::TenseBlock",
+              "data": [
+                [],
+                "",
+                [],
+                [],
+                "",
+                []
+               ]
+             },
+            "active_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "quībō",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "quībunt"
+                ]
+              },
+            "active_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "quībam",
+                  "",
+                  "quībat",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "active_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "quīvi",
+                  "",
+                  "quīvit",
+                  "",
+                  "",
+                  "quīvērunt"
+                ]
+              },
+            "active_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "queō",
+                  "quīs",
+                  "quit",
+                  "quīmus",
+                  "quītis",
+                  "queunt"
+                ]
+              },
+            "active_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "quīret",
+                  "",
+                  "",
+                  "quīrent"
+                ]
+              },
+            "active_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "quīvissent"
+                ]
+              },
+            "active_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "quīverit",
+                  "",
+                  "",
+                  "quīverint"
+                ]
+              },
+            "active_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "queam",
+                  "queās",
+                  "queat",
+                  "queāmus",
+                  "queātis",
+                  "queant"
+                ]
+              },
+            "passive_voice_indicative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "", 
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_futureperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": ["","","","","",""]
+              },
+            "passive_voice_indicative_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_indicative_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": ["","","","","",""]
+              },
+            "passive_voice_indicative_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": ["","","","","",""]
+              },
+            "passive_voice_indicative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_imperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              },
+            "passive_voice_subjunctive_mood_pastperfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": ["","","","","",""]
+              },
+            "passive_voice_subjunctive_mood_perfect_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": ["","","","","",""]
+              },
+            "passive_voice_subjunctive_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              }
+          }
+        }
+EOJSON
+
       end
     end
   end
