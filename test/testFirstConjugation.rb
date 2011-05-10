@@ -120,10 +120,10 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "ament",        @aFirst.active_voice_subjunctive_mood_present_tense_third_person_plural_number
  
     assert_equal "amārem",       @aFirst.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
-    assert_equal "amāres",       @aFirst.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
+    assert_equal "amārēs",       @aFirst.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
     assert_equal "amāret",       @aFirst.active_voice_subjunctive_mood_imperfect_tense_third_person_singular_number
-    assert_equal "amāremus",     @aFirst.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
-    assert_equal "amāretis",     @aFirst.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
+    assert_equal "amārēmus",     @aFirst.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+    assert_equal "amārētis",     @aFirst.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
     assert_equal "amārent",      @aFirst.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number
  
     assert_equal "amāverim",     @aFirst.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
@@ -300,10 +300,10 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "ament",        a.active_voice_subjunctive_mood_present_tense_third_person_plural_number
  
     assert_equal "amārem",       a.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
-    assert_equal "amāres",       a.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
+    assert_equal "amārēs",       a.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
     assert_equal "amāret",       a.active_voice_subjunctive_mood_imperfect_tense_third_person_singular_number
-    assert_equal "amāremus",     a.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
-    assert_equal "amāretis",     a.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
+    assert_equal "amārēmus",     a.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+    assert_equal "amārētis",     a.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
     assert_equal "amārent",      a.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number
  
     assert_equal "amāverim",     a.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number

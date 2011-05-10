@@ -119,10 +119,10 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "audiant",      @aFourth.active_voice_subjunctive_mood_present_tense_third_person_plural_number
 
     assert_equal "audīrem",      @aFourth.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
-    assert_equal "audīres",      @aFourth.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
+    assert_equal "audīrēs",      @aFourth.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number
     assert_equal "audīret",      @aFourth.active_voice_subjunctive_mood_imperfect_tense_third_person_singular_number
-    assert_equal "audīremus",    @aFourth.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
-    assert_equal "audīretis",    @aFourth.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
+    assert_equal "audīrēmus",    @aFourth.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+    assert_equal "audīrētis",    @aFourth.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
     assert_equal "audīrent",     @aFourth.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number
 
     assert_equal "audīverim",    @aFourth.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number

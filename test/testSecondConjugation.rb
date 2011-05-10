@@ -119,10 +119,10 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("moneant",  @aSecond.active_voice_subjunctive_mood_present_tense_third_person_plural_number.to_s)
                  
     assert_equal("monērem",   @aSecond.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number.to_s)
-    assert_equal("monēres",   @aSecond.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number.to_s)
+    assert_equal("monērēs",   @aSecond.active_voice_subjunctive_mood_imperfect_tense_second_person_singular_number.to_s)
     assert_equal("monēret",   @aSecond.active_voice_subjunctive_mood_imperfect_tense_third_person_singular_number.to_s)
-    assert_equal("monēremus", @aSecond.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number.to_s)
-    assert_equal("monēretis", @aSecond.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number.to_s)
+    assert_equal("monērēmus", @aSecond.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number.to_s)
+    assert_equal("monērētis", @aSecond.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number.to_s)
     assert_equal("monērent",  @aSecond.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number.to_s)
                  
     assert_equal("monuerim",   @aSecond.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number.to_s)
