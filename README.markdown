@@ -22,9 +22,17 @@ Importantly, none of the values shown for the verbs are statically defined
 the fly as a result of applying a heuristic transformation to the verb (i.e.
 "take the stem and add such-and-such ending to it").
 
+## IRREGULAR / DEPONENT SUPPORT
+
+LatinVerb also supports *irregular* and *deponent* verbs.  It also handles
+some of the "odder" types of verb (perfect only, impersonal, present only).  
+
 ## WHY THE 2?
 
-this is a complete overhaul of my earlier "LatinVerb" library.  
+This is a complete overhaul of my earlier "LatinVerb" library.  The (1)
+iteration did not have support for deponents or irregulars, nor was its
+metaprogrammatic model as tight nor were various components properly
+modularized.
 
 ## AUTHOR
 
