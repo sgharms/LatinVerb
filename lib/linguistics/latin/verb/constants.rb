@@ -119,7 +119,7 @@ module Linguistics
           'possum' => 'POSSUM_POSSE_POTUĪ',
           'ferō' => 'FERŌ_FERRE_TULĪ_LĀTUM',
           'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
-          'nolō' => 'NOLŌ_NOLLE_NOLUĪ',
+          'nōlō' => 'NŌLŌ_NŌLLE_NŌLUĪ',
           'volō' => 'VOLŌ_VELLE_VOLUĪ',
           'dō' => 'DŌ_DĀRE_DEDĪ_DATUM',
           'edō' => 'EDŌ_ĒSSE_ĒDĪ_ĒSUM',

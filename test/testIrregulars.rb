@@ -60,9 +60,10 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_match '', v.perfect_passive_participle
     assert_match %r'itūrus', v.future_active_participle
     #assert_match %r'eundum', v.future_passive_participle
+
   end
   def test_to_not_wish
-    v = Linguistics::Latin::Verb::LatinVerb.new 'nolō nolle noluī'
+    v = Linguistics::Latin::Verb::LatinVerb.new 'nōlō nōlle nōluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
     assert_equal "nōlō",v.active_voice_indicative_mood_present_tense_first_person_singular_number

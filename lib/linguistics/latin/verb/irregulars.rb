@@ -17,7 +17,7 @@ module Linguistics
         # EŌ_ĪRE_IVĪ_ITUM
         #
         #  -- Verbs of Preference --
-        # NOLŌ_NOLLE_NOLUĪ
+        # NOLŌ_NŌLLE_NŌLUĪ
         # VOLŌ_VELLE_VOLUĪ
         # MALŌ_MĀLLE_MALUĪ
         #
@@ -2430,6 +2430,198 @@ EOJSON
         }
 EOJSON
 
+        # Recognized irregular verb
+        NŌLŌ_NŌLLE_NŌLUĪ=<<EOJSON 
+        {
+          "original string":"nōlō nōlle nōluī",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"nōlēns, nōlentis",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "nōlle",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "nōluisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "nōli",
+                  [],
+                  [],
+                  "nōlite",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōlam",
+                    "nōlēs",
+                    "nōlet",
+                    "nōlēmus",
+                    "nōlētis",
+                    "nōlent"
+                  ]
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōluerō",
+                    "nōlueris",
+                    "nōluerit",
+                    "nōluerimus",
+                    "nōlueritis",
+                    "nōluerint"
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōlēbam",
+                    "nōlēbās",
+                    "nōlēbat",
+                    "nōlēbāmus",
+                    "nōlēbātis",
+                    "nōlēbant"
+                  ]
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōlueram",
+                    "nōluerās",
+                    "nōluerat",
+                    "nōluerāmus",
+                    "nōluerātis",
+                    "nōluerant"
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōluī",
+                    "nōluistī",
+                    "nōluit",
+                    "nōluimus",
+                    "nōluistis",
+                    "nōluērunt"
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōlō",
+                    "nōn vīs",
+                    "nōn vult",
+                    "nōlumus",
+                    "nōn vultis",
+                    "nōlunt"
+                  ]
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōllem",
+                    "nōllēs",
+                    "nōllet",
+                    "nōllēmus",
+                    "nōllētis",
+                    "nōllent"
+                  ]
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōluissem",
+                    "nōluissēs",
+                    "nōluisset",
+                    "nōluissēmus",
+                    "nōluissētis",
+                    "nōluissent"
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōluerim",
+                    "nōlueris",
+                    "nōluerit",
+                    "nōluerimus",
+                    "nōlueritis",
+                    "nōluerint"
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "nōlim",
+                    "nōlis",
+                    "nōlit",
+                    "nōlimus",
+                    "nōlitis",
+                    "nōlint"
+                  ]
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+EOJSON
 
 
       end
