@@ -1620,8 +1620,8 @@ EOJSON
           "participles":{
             "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
-              "present_active_participle":"edēns, edentis",
-              "future_active_participle":"ēsūrus (-a, -um)",
+              "present_active_participle":"quiēns",
+              "future_active_participle":"",
               "perfect_passive_participle":"",
               "future_passive_participle":""
             }
@@ -1891,7 +1891,7 @@ EOJSON
             "active_voice_indicative_mood_perfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "quīvi",
+                  "quīvī",
                   "",
                   "quīvit",
                   "",
@@ -1950,7 +1950,7 @@ EOJSON
                   "queās",
                   "queat",
                   "queāmus",
-                  "queātis",
+                  "",
                   "queant"
                 ]
               },
