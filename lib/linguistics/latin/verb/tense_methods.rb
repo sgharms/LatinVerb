@@ -795,11 +795,6 @@ module Linguistics
 
         private
 
-        # This method gives the ability to apply logic to every tense-block
-        # call.  It may be negative on performance, the use here 
-        def pre_tenseblock_call_hook
-        end
-
         def form_imperatives
 
           imperative_exceptions = { 
