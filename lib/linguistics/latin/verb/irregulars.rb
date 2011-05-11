@@ -2889,6 +2889,557 @@ EOJSON
           }
 EOJSON
 
+        COEPĪ_COEPISSE_COEPTUM=<<EOJSON 
+        {
+          "original string":"coepī copeisse copetum",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"",
+              "future_active_participle":"coeptūrus",
+              "perfect_passive_participle":"coeptus",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "coepisse",
+              "perfect_passive_infinitive": "coeptus",
+                                        
+              "future_active_infinitive": "coeptūrus",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeperō",
+                    "coeperis",
+                    "coeperit",
+                    "coeperimus",
+                    "coeperitis",
+                    "coeperint"
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeperam",
+                    "coeperās",
+                    "coeperat",
+                    "coeperāmus",
+                    "coeperātis",
+                    "coeperant"
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coepī",
+                    "coepistī",
+                    "coepit",
+                    "coepimus",
+                    "coepistis",
+                    "coepērunt"
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coepissem",
+                    "coepissēs",
+                    "coepisset",
+                    "coepissēmus",
+                    "coepissētis",
+                    "coepissent"
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeperim",
+                    "coeperis",
+                    "coeperit",
+                    "coeperimus",
+                    "coeperitis",
+                    "coeperint"
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeptus erō",
+                    "coeptus eris",
+                    "coeptus erit",
+                    "coeptus erimus",
+                    "coeptus eritis",
+                    "coeptus erunt"
+                  ]
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeptus eram",
+                    "coeptus erās",
+                    "coeptus erat",
+                    "coeptus erāmus",
+                    "coeptus erātis",
+                    "coeptus erant"
+                  ]
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeptus sum",
+                    "coeptus es",
+                    "coeptus est",
+                    "coeptus sumus",
+                    "coeptus estis",
+                    "coeptus sunt"
+                  ]
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeptus essem",
+                    "coeptus essēs",
+                    "coeptus esset",
+                    "coeptus essēmus",
+                    "coeptus essētis",
+                    "coeptus essent"
+                  ]
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "coeptus sim",
+                    "coeptus sīs",
+                    "coeptus sit",
+                    "coeptus sīmus",
+                    "coeptus sītis",
+                    "coeptus sint"
+                  ]
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+EOJSON
+        ODĪ_ŌDISSE=<<EOJSON 
+        {
+          "original string":"ōdī_ōdisse",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "ōdisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "ōderō",
+                    "ōderis",
+                    "ōderit",
+                    "ōderimus",
+                    "ōderitis",
+                    "ōderint"
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "ōderam",
+                    "ōderās",
+                    "ōderat",
+                    "ōderāmus",
+                    "ōderātis",
+                    "ōderant"
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "ōdī",
+                    "ōdistī",
+                    "ōdit",
+                    "ōdimus",
+                    "ōdistis",
+                    "ōdērunt"
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "ōdissem",
+                    "ōdissēs",
+                    "ōdisset",
+                    "ōdissēmus",
+                    "ōdissētis",
+                    "ōdissent"
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "ōderim",
+                    "ōderis",
+                    "ōderit",
+                    "ōderimus",
+                    "ōderitis",
+                    "ōderint"
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+EOJSON
+
+
+# To remember
+
+        MEMINĪ_MEMINISSE=<<EOJSON 
+        {
+          "original string":"meminī meminisse",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "meminisse",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "mementō",
+                  [],
+                  [],
+                  "mementōte",
+                  []
+                 ]
+               },
+          "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "meminerō",
+                    "memineris",
+                    "meminerit",
+                    "meminerimus",
+                    "memineritis",
+                    "meminerint"
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "memineram",
+                    "meminerās",
+                    "meminerat",
+                    "meminerāmus",
+                    "meminerātis",
+                    "meminerant"
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "meminī",
+                    "meministī",
+                    "meminit",
+                    "meminimus",
+                    "meministis",
+                    "meminērunt"
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "meminissem",
+                    "meminissēs",
+                    "meminisset",
+                    "meminissēmus",
+                    "meminissētis",
+                    "meminissent"
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "meminerim",
+                    "memineris",
+                    "meminerit",
+                    "meminerimus",
+                    "memineritis",
+                    "meminerint"
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+        }
+EOJSON
+
+
 
       end
     end

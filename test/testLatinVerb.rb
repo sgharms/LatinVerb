@@ -118,6 +118,15 @@ def test_verbvector
   assert_equal 132,  tc.vector_list.length
 end
 
+  def test_defective_verbs
+    defectives = ['meminī meminisse', 'ōdī ōdisse', 'coepī coepisse coeptum']
+    defectives.reverse.each do |iv|
+      v = Linguistics::Latin::Verb::LatinVerb.new(iv)
+      assert v.irregular?
+      assert_match /.../ , v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+      
+    end
+  end
 
   def test_irregular_verbs
     @irregular_verb_strings.each do |iv|

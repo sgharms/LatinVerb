@@ -115,18 +115,21 @@ module Linguistics
 
         # Irregular Verbs.  See A&G 197
         IRREGULAR_VERBS = {
-          'sum' => 'SUM_ESSE_FUĪ_FUTŪRUS',
+          'sum'    => 'SUM_ESSE_FUĪ_FUTŪRUS',
           'possum' => 'POSSUM_POSSE_POTUĪ',
-          'ferō' => 'FERŌ_FERRE_TULĪ_LĀTUM',
-          'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
-          'nōlō' => 'NŌLŌ_NŌLLE_NŌLUĪ',
-          'volō' => 'VOLŌ_VELLE_VOLUĪ',
-          'mālō' => 'MĀLŌ_MĀLLE_MĀLUĪ',
-          'dō' => 'DŌ_DĀRE_DEDĪ_DATUM',
-          'edō' => 'EDŌ_ĒSSE_ĒDĪ_ĒSUM',
-          'queō' => 'QUEŌ_QUĪRE_QUĪVĪ',
-          'fiō' => 'FIŌ_FIĒRĪ_FACTUS',
-          'prōsum' => 'PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS'
+          'ferō'   => 'FERŌ_FERRE_TULĪ_LĀTUM',
+          'eō'     => 'EŌ_ĪRE_IVĪ_ITUM',
+          'nōlō'   => 'NŌLŌ_NŌLLE_NŌLUĪ',
+          'volō'   => 'VOLŌ_VELLE_VOLUĪ',
+          'mālō'   => 'MĀLŌ_MĀLLE_MĀLUĪ',
+          'dō'     => 'DŌ_DĀRE_DEDĪ_DATUM',
+          'edō'    => 'EDŌ_ĒSSE_ĒDĪ_ĒSUM',
+          'queō'   => 'QUEŌ_QUĪRE_QUĪVĪ',
+          'fiō'    => 'FIŌ_FIĒRĪ_FACTUS',
+          'prōsum' => 'PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS',
+          'meminī' => 'MEMINĪ_MEMINISSE',
+          'ōdī'    => 'ODĪ_ŌDISSE',
+          'coepī'  => 'COEPĪ_COEPISSE_COEPTUM'
         }
 
         # :startdoc:
