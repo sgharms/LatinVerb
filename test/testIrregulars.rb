@@ -90,7 +90,56 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   def test_to_be_able2
     v = Linguistics::Latin::Verb::LatinVerb.new 'possum posse potuī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
-    #assert_match 'potēns', v.present_active_participle
+
+    assert_equal "possum",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "potes",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "potest",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "possumus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "potestis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "possunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "poteram", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "poterāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "poterō", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "poterimus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "potuī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "potuimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    #assert_equal "potueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    #assert_equal "potuerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "potuerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "potuerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "possim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "possīs", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "possit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "possīmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "possītis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "possint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "possem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "possēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    #second_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+
+    assert_equal "potuerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    #second_equal "potuerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "potuissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "potuissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+
+    assert_equal "posse", v.present_active_infinitive
+    assert_equal "potuisse", v.perfect_active_infinitive
+
+    assert_match 'potēns', v.present_active_participle
     #assert_equal '', v.perfect_passive_participle
     #assert_equal '', v.future_active_participle
     #assert_equal '', v.future_passive_participle
