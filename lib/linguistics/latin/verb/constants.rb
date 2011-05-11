@@ -105,6 +105,13 @@ module Linguistics
           pudet
         }
 
+        # Present system only.  See A&G206
+        # There are probably more of these, but A&G only lists these two.
+        PRESENT_ONLY = %w{
+          maēre
+          ferīre
+        }
+
         # See A&G # 192
         SEMI_DEPONENTS = {
           'audeō'  => %w(audēre ausus),

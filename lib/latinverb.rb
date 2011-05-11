@@ -159,6 +159,9 @@ module Linguistics
         # Access the Module that provides all the methods
         attr_reader :latin_verbvector_generator, :latin_verb_methods
 
+        # Accessors for "odd forms"
+        attr_reader :present_only
+
         alias_method :conjugation, :classification
         alias_method :irregular?, :irregular
 
@@ -245,12 +248,49 @@ module Linguistics
           # (completed by _add_vector_methods, supra).  We need only mask, as
           # A&G #192 says: "the completed methods" i.e. the perfect system.
           apply_semideponent_masking  if @semideponent
+
+          # Per A&G206, some verbs are to have their perfect system
+          # conjugations removed.  
+          remove_perfect_tenses if present_only?
         end
 
         ######################################################################
         # Instance methods
         ######################################################################
          
+        ## 
+        #
+        # Removes perfect-system tenses by blanking them out.
+        #
+        ##
+        def remove_perfect_tenses
+          # Get perfect system methods
+          tense_blocks_to_eclipse = 
+            self.methods.grep /^(active|passive).*(_|past|future)perfect_/
+
+          # Re-assgin their methods to point to a blank TenseBlock, thus
+          # eclipsing any values thatm ight come in.
+          tense_blocks_to_eclipse.each do |s|
+            singleton_class.class_eval do
+              define_method s do
+                return TenseBlock.new [ '', '', '', '', '', ''] 
+              end
+            end
+          end
+        end
+
+        ##
+        #
+        # Determines whether a verb should have its perfect tenses removed.
+        # This is an exceptional behavior described in A&G206
+        #
+        ##
+
+        def present_only?
+          @present_only = 
+          Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@pres_act_inf) ?
+            true : false
+        end
         ##
         #
         # Imports replacements to the standard tense_methods and thus
