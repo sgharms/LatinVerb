@@ -530,7 +530,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_match %r'factūrus', v.future_active_participle
     assert_match %r'faciendus', v.future_passive_participle
   end
-  def ctest_to_help
+  def test_to_help
     v = Linguistics::Latin::Verb::LatinVerb.new 'prōsum prōdesse prōfuī prōfutūrus'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
 
@@ -584,7 +584,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
     assert_equal 'prōdesse',  v.pres_act_inf
     assert_equal 'prōfuisse',  v.perfect_active_infinitive
-    assert_equal 'prōfutūrum esse', v.future_active_infinitive
+    assert_match %r"prōfutūru[ms] esse", v.future_active_infinitive
 
     # Participles
     assert_match   /prōfutūrus/, v.future_active_participle
