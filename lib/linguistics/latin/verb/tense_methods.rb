@@ -318,9 +318,6 @@ module Linguistics
         #
         ###
         def active_voice_indicative_mood_perfect_tense
-          # memini is a very exceptional verb.  Its exception is coded here.
-          @first_pers_perf = @four_pp[0] if ((@four_pp.length == 2) and @original_string =~ /memin/)
-
           substem = @first_pers_perf[0..-2]
           return TenseBlock.new [@first_pers_perf.to_s, APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten
         end
