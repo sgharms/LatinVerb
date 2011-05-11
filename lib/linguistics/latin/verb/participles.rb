@@ -59,7 +59,7 @@ module Linguistics
      #
      ###
      def present_active_participle
-       raise ("Bad nil") if  @participial_stem.nil?
+       raise "Participial stem was nil" if  @participial_stem.nil?
        endings=%w(ns ntis)
        return endings.collect{ |x| Linguistics::Latin::Phonographia.fix_macrons(@participial_stem+x.chomp)}.join(', ')
      end
