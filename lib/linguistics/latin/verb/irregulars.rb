@@ -1021,6 +1021,15 @@ EOJSON
         {
           "original string":"dō dāre dedī datum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"dāns, dantis",
+              "future_active_participle":"datūrus (-a, -um)",
+              "perfect_passive_participle":"datus (-a, -um)",
+              "future_passive_participle":"dandus (-a, -um)"
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
@@ -2227,7 +2236,7 @@ EOJSON
             "participles":{
               "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
               "data": {
-                "present_active_participle":"potēns",
+                "present_active_participle":"potēns, potentis",
                 "future_active_participle":"",
                 "perfect_passive_participle":"",
                 "future_passive_participle":""
