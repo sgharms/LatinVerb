@@ -415,8 +415,22 @@ module Linguistics
 
         def _irregular_handler
           begin
-            o = @original_string.gsub(/\s+/,'_')
-            o_upcase_and_symbolic = ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym
+            # Translation added to account for Ruby not liking constants /^/
+            # with a multibyte.  Probably a bug.
+            #
+            # This buy can be discovered by running #constants on
+            # Linguistics::Latin::Verb and seeing that Ōxxx is not found.  To
+            # fix this i had to store it as ODI_.  To make /that/ hack work, I
+            # had to add this bit beginning two lines below :-/
+            o = ActiveSupport::Multibyte::Chars.new( @original_string.gsub(/\s+/,'_') ).upcase
+
+            if o.match /^([ĀĒĪŌŪ])(.*)/
+              x=o[0,1].tr 'ĀĒĪŌŪ', 'AEIOU'
+              y=o[1,o.length]
+              o= x+y
+            end
+
+            o_upcase_and_symbolic = o.to_sym
             json_string = Linguistics::Latin::Verb.const_get o_upcase_and_symbolic 
 
 
