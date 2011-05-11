@@ -90,10 +90,10 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
     # Subj.
     assert_equal "nōlim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
-    assert_equal "nōlīs", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "nōlis", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
     assert_equal "nōlit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
-    assert_equal "nōlīmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
-    assert_equal "nōlītis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "nōlimus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "nōlitis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
     assert_equal "nōlint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
 
     assert_equal "nōllem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
