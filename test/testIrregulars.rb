@@ -62,6 +62,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     #assert_match %r'eundum', v.future_passive_participle
 
   end
+
   def test_to_not_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'nōlō nōlle nōluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
@@ -114,6 +115,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal '', v.future_active_participle
     assert_equal '', v.future_passive_participle
   end
+
   def test_to_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'volō velle voluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
@@ -302,5 +304,58 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     # Participles
     assert_match   /prōfutūrus/, v.future_active_participle
 
+  end
+
+  def test_to_prefer
+    v = Linguistics::Latin::Verb::LatinVerb.new 'mālō mālle māluī'
+    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+
+    assert_equal "mālō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "māvīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "māvult",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "mālumus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "māvultis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "mālunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "mālēbam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "mālēbāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "mālam", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "mālēmus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "māluī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "māluimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "mālueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "māluerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "māluerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "māluerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "mālim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "mālis", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "mālit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "mālimus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "mālitis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "mālint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "māllem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "māllēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "māluerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "māluerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "māluissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "māluissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "mālle", v.present_active_infinitive
+    assert_equal "māluisse", v.perfect_active_infinitive
+
+    # Participles
+    assert_equal '', v.present_active_participle
+    assert_equal '', v.perfect_passive_participle
+    assert_equal '', v.future_active_participle
+    assert_equal '', v.future_passive_participle
   end
 end

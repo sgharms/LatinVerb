@@ -656,18 +656,28 @@ EOJSON
           }
         }
 EOJSON
-        # Recognized irregular verb
-        NOLŌ_NOLLE_NOLUĪ=<<EOJSON 
+        
+        # To choose, prefer
+        MĀLŌ_MĀLLE_MĀLUĪ=<<EOJSON 
         {
-          "original string":"nolō nolle noluī",
+          "original string":"mālō mālle māluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
-              "present_active_infinitive": "nolle",
+              "present_active_infinitive": "mālle",
               "present_passive_infinitive": "",
                                         
-              "perfect_active_infinitive": "noluisse",
+              "perfect_active_infinitive": "māluisse",
               "perfect_passive_infinitive": "",
                                         
               "future_active_infinitive": "",
@@ -679,121 +689,121 @@ EOJSON
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
-                  "nōli",
+                  "",
                   [],
                   [],
-                  "nōlite",
+                  "",
                   []
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōlam",
-                    "nōlēs",
-                    "nōlet",
-                    "nōlēmus",
-                    "nōlētis",
-                    "nōlent"
+                    "mālam",
+                    "mālēs",
+                    "mālet",
+                    "mālēmus",
+                    "mālētis",
+                    "mālent"
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōluerō",
-                    "nōlueris",
-                    "nōluerit",
-                    "nōluerimus",
-                    "nōlueritis",
-                    "nōluerint"
+                    "māluerō",
+                    "mālueris",
+                    "māluerit",
+                    "māluerimus",
+                    "mālueritis",
+                    "māluerint"
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōlēbam",
-                    "nōlēbās",
-                    "nōlēbat",
-                    "nōlēbāmus",
-                    "nōlēbātis",
-                    "nōlēbant"
+                    "mālēbam",
+                    "mālēbās",
+                    "mālēbat",
+                    "mālēbāmus",
+                    "mālēbātis",
+                    "mālēbant"
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōlueram",
-                    "nōluerās",
-                    "nōluerat",
-                    "nōluerāmus",
-                    "nōluerātis",
-                    "nōluerant"
+                    "mālueram",
+                    "māluerās",
+                    "māluerat",
+                    "māluerāmus",
+                    "māluerātis",
+                    "māluerant"
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōluī",
-                    "nōluistī",
-                    "nōluit",
-                    "nōluimus",
-                    "nōluistis",
-                    "nōluērunt"
+                    "māluī",
+                    "māluistī",
+                    "māluit",
+                    "māluimus",
+                    "māluistis",
+                    "māluērunt"
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nolō",
-                    "nōn vīs",
-                    "nōn vult",
-                    "nōlumus",
-                    "nōn vultis",
-                    "nōlunt"
+                    "mālō",
+                    "māvīs",
+                    "māvult",
+                    "mālumus",
+                    "māvultis",
+                    "mālunt"
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōllem",
-                    "nōllēs",
-                    "nōllet",
-                    "nōllēmus",
-                    "nōllētis",
-                    "nōllent"
+                    "māllem",
+                    "māllēs",
+                    "māllet",
+                    "māllēmus",
+                    "māllētis",
+                    "māllent"
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōluissem",
-                    "nōluissēs",
-                    "nōluisset",
-                    "nōluissēmus",
-                    "nōluissētis",
-                    "nōluissent"
+                    "māluissem",
+                    "māluissēs",
+                    "māluisset",
+                    "māluissēmus",
+                    "māluissētis",
+                    "māluissent"
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōluerim",
-                    "nōlueris",
-                    "nōluerit",
-                    "nōluerimus",
-                    "nōlueritis",
-                    "nōluerint"
+                    "māluerim",
+                    "mālueris",
+                    "māluerit",
+                    "māluerimus",
+                    "mālueritis",
+                    "māluerint"
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
                   "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
-                    "nōlim",
-                    "nōlis",
-                    "nōlit",
-                    "nōlimus",
-                    "nōlitis",
-                    "nōlint"
+                    "mālim",
+                    "mālis",
+                    "mālit",
+                    "mālimus",
+                    "mālitis",
+                    "mālint"
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {

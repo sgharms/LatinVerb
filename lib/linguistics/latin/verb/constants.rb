@@ -121,6 +121,7 @@ module Linguistics
           'eō' => 'EŌ_ĪRE_IVĪ_ITUM',
           'nōlō' => 'NŌLŌ_NŌLLE_NŌLUĪ',
           'volō' => 'VOLŌ_VELLE_VOLUĪ',
+          'mālō' => 'MĀLŌ_MĀLLE_MĀLUĪ',
           'dō' => 'DŌ_DĀRE_DEDĪ_DATUM',
           'edō' => 'EDŌ_ĒSSE_ĒDĪ_ĒSUM',
           'queō' => 'QUEŌ_QUĪRE_QUĪVĪ',
