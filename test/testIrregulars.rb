@@ -107,8 +107,8 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "potuī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
     assert_equal "potuimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
 
-    #assert_equal "potueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
-    #assert_equal "potuerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+    assert_equal "potueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "potuerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
 
     assert_equal "potuerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
     assert_equal "potuerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
@@ -124,25 +124,25 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "possem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
     assert_equal "possēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
 
-    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
-    #second_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal 'possim', v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal 'possīmus', v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+
+    assert_equal 'possem', v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal 'possēmus', v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
 
     assert_equal "potuerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
-    #second_equal "potuerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+    assert_equal "potuerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
 
     assert_equal "potuissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
     assert_equal "potuissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
-
-    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
-    #assert_equal '', v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
 
     assert_equal "posse", v.present_active_infinitive
     assert_equal "potuisse", v.perfect_active_infinitive
 
     assert_match 'potēns', v.present_active_participle
-    #assert_equal '', v.perfect_passive_participle
-    #assert_equal '', v.future_active_participle
-    #assert_equal '', v.future_passive_participle
+    assert_equal '', v.perfect_passive_participle
+    assert_equal '', v.future_active_participle
+    assert_equal '', v.future_passive_participle
   end
   def ctest_to_be_made
     v = Linguistics::Latin::Verb::LatinVerb.new 'fiō fiērī factus'
