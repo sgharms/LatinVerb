@@ -419,13 +419,14 @@ module Linguistics
             o_upcase_and_symbolic = ActiveSupport::Multibyte::Chars.new( o ).upcase.to_sym
             json_string = Linguistics::Latin::Verb.const_get o_upcase_and_symbolic 
 
+
             raise "Found a JSON string with null length!" if json_string.length <= 10
             revivified_data_structure = JSON.parse json_string
           rescue JSON::ParserError => e
-            puts "We were unable to parse JSON for #{@original_string}.  Please verify your syntax."
+            puts "We were unable to parse JSON for #{@original_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please verify your syntax."
             raise e
           rescue NameError => e
-            puts "We were unable to find a definition for #{@original_string}/#{o_upcase_and_symbolic}.  Please provide one."
+            puts "We were unable to find a definition for #{@original_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please provide one."
             raise e
           rescue => error
             warn "#{@original_string} was identified as irregular but did not have a definition provided."
