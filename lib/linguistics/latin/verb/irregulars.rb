@@ -2294,12 +2294,12 @@ EOJSON
               "active_voice_indicative_mood_pastperfect_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
-                  "poturam",
-                  "poturās",
-                  "poturat",
-                  "poturāmus",
-                  "poturātis",
-                  "poturant"
+                  "potueram",
+                  "potuerās",
+                  "potuerat",
+                  "potuerāmus",
+                  "potuerātis",
+                  "potuerant"
                   ]
               },
               "active_voice_indicative_mood_perfect_tense": {
