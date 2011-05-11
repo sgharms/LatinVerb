@@ -844,6 +844,15 @@ EOJSON
         {
           "original string":"volō velle voluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"volēns, volentis",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
           "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {

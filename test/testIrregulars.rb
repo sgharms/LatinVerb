@@ -70,13 +70,60 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     #assert_equal '', v.future_active_participle
     #assert_equal '', v.future_passive_participle
   end
-  def ctest_to_prefer
+  def test_to_prefer
     v = Linguistics::Latin::Verb::LatinVerb.new 'volō velle voluī'
     assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
-    #assert_match 'vōlēns', v.present_active_participle
-    #assert_equal '', v.perfect_passive_participle
-    #assert_equal '', v.future_active_participle
-    #assert_equal '', v.future_passive_participle
+
+    assert_equal "volō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
+    assert_equal "vīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
+    assert_equal "vult",v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal "volumus",v.active_voice_indicative_mood_present_tense_first_person_plural_number
+    assert_equal "vultis",v.active_voice_indicative_mood_present_tense_second_person_plural_number
+    assert_equal "volunt",v.active_voice_indicative_mood_present_tense_third_person_plural_number
+
+    assert_equal "volēbam", v.active_voice_indicative_mood_imperfect_tense_first_person_singular_number
+    assert_equal "volēbāmus", v.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "volam", v.active_voice_indicative_mood_future_tense_first_person_singular_number
+    assert_equal "volēmus", v.active_voice_indicative_mood_future_tense_first_person_plural_number
+
+    assert_equal "voluī", v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert_equal "voluimus", v.active_voice_indicative_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "volueram", v.active_voice_indicative_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "voluerāmus", v.active_voice_indicative_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "voluerō", v.active_voice_indicative_mood_futureperfect_tense_first_person_singular_number
+    assert_equal "voluerimus", v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
+
+    # Subj.
+    assert_equal "velim", v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
+    assert_equal "velīs", v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
+    assert_equal "velit", v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
+    assert_equal "velīmus", v.active_voice_subjunctive_mood_present_tense_first_person_plural_number
+    assert_equal "velītis", v.active_voice_subjunctive_mood_present_tense_second_person_plural_number
+    assert_equal "velint", v.active_voice_subjunctive_mood_present_tense_third_person_plural_number
+
+    assert_equal "vellem", v.active_voice_subjunctive_mood_imperfect_tense_first_person_singular_number
+    assert_equal "vellēmus", v.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
+
+    assert_equal "voluerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "voluerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "voluerim", v.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
+    assert_equal "voluerimus", v.active_voice_subjunctive_mood_perfect_tense_first_person_plural_number
+
+    assert_equal "voluissem", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number
+    assert_equal "voluissēmus", v.active_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
+
+    assert_equal "velle", v.present_active_infinitive
+    assert_equal "voluisse", v.perfect_active_infinitive
+
+    # Participles
+    assert_match %r'volēns', v.present_active_participle
+    assert_equal '', v.perfect_passive_participle
+    assert_equal '', v.future_active_participle
+    assert_equal '', v.future_passive_participle
   end
   def ctest_to_be_able
     v = Linguistics::Latin::Verb::LatinVerb.new 'queō quīre quīvī'
