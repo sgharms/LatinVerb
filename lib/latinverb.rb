@@ -421,38 +421,48 @@ module Linguistics
 
             raise "Found a JSON string with null length!" if json_string.length <= 10
             revivified_data_structure = JSON.parse json_string
-
-            revivified_data_structure['tense_blocks'].each_pair do |k,v|
-              singleton_class.class_eval do
-                define_method k.to_sym do
-                  v
-                end
-            end
-
-            @irregular_infinitives = revivified_data_structure['infinitives']
-            return if @irregular_infinitives.nil?
-
-            singleton_class.class_eval do
-              def present_active_infinitive; return @irregular_infinitives.present_active_infinitive; end
-              def present_passive_infinitive; return @irregular_infinitives.present_passive_infinitive; end
-              def perfect_active_infinitive; return @irregular_infinitives.perfect_active_infinitive; end
-              def perfect_passive_infinitive; return @irregular_infinitives.perfect_passive_infinitive; end
-              def future_passive_infinitive; return @irregular_infinitives.future_passive_infinitive; end
-              def future_active_infinitive; return @irregular_infinitives.future_active_infinitive; end
-            end
-           end
           rescue JSON::ParserError => e
             puts "We were unable to parse JSON for #{@original_string}.  Please verify your syntax."
             raise e
-            exit
           rescue NameError => e
             puts "We were unable to find a definition for #{@original_string}/#{o_upcase_and_symbolic}.  Please provide one."
             raise e
-            exit
           rescue => error
             warn "#{@original_string} was identified as irregular but did not have a definition provided."
             raise error
           end
+
+          revivified_data_structure['tense_blocks'].each_pair do |k,v|
+            singleton_class.class_eval do
+              define_method k.to_sym do
+                v
+              end
+            end
+          end
+
+          @irregular_infinitives = revivified_data_structure['infinitives']
+          @irregular_participles = revivified_data_structure['participles']
+
+          return if @irregular_infinitives.nil?
+          return if @irregular_participles.nil?
+
+          singleton_class.class_eval do
+            def present_active_infinitive; return @irregular_infinitives.present_active_infinitive; end
+            def present_passive_infinitive; return @irregular_infinitives.present_passive_infinitive; end
+            def perfect_active_infinitive; return @irregular_infinitives.perfect_active_infinitive; end
+            def perfect_passive_infinitive; return @irregular_infinitives.perfect_passive_infinitive; end
+            def future_passive_infinitive; return @irregular_infinitives.future_passive_infinitive; end
+            def future_active_infinitive; return @irregular_infinitives.future_active_infinitive; end
+          end
+          singleton_class.class_eval do
+            def present_active_participle; return @irregular_participles.present_active_participle; end
+            def future_active_participle; return @irregular_participles.future_active_participle; end
+            def perfect_passive_participle; return @irregular_participles.perfect_passive_participle; end
+            def future_passive_participle; return @irregular_participles.future_passive_participle; end
+            def gerundive; return @irregular_participles.gerundive; end
+            def gerund; return @irregular_participles.d; end
+          end
+
         end
 
         def respondable_methods
@@ -470,11 +480,12 @@ module Linguistics
           @classification_error.call unless @classification_error.nil?
 
           # Derive from the original, valid string useful specifiers in handy data structures
+
           unless ( @deponent or @semideponent )
             _derive_parts_from_given_string s
 
             # Derive iVar from derived variables
-            @participial_stem ||= calculate_participial_stem
+            (@participial_stem ||= calculate_participial_stem) unless @irregular
           else
             fake_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(s)
             #_derive_parts_from_given_string fake_string
