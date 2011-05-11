@@ -118,7 +118,7 @@ module Linguistics
               elsif (infinitive =~ /ī$/  and first_pres =~ /r$/)
                 return Linguistics::Latin::Verb::VerbTypes::Deponent
               else
-                raise RuntimeError "Could not find a verb type for this verb #{infinitive} and #{first_pres}"
+                raise "Could not find a verb type for this verb #{infinitive} and #{first_pres}"
               end
             end
           end
