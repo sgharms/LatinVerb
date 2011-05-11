@@ -2224,6 +2224,15 @@ EOJSON
         {
           "original string":"possum posse potuī",
             "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+            "participles":{
+              "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+              "data": {
+                "present_active_participle":"potēns",
+                "future_active_participle":"",
+                "perfect_passive_participle":"",
+                "future_passive_participle":""
+              }
+            },
             "infinitives":{
             "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
