@@ -3307,7 +3307,6 @@ EOJSON
                   []
                  ]
                },
-          "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
@@ -3439,6 +3438,595 @@ EOJSON
         }
 EOJSON
 
+# "I say"
+# A&G206,a
+
+        AIŌ=<<EOJSON 
+        {
+          "original string":"aiō",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"aiēns",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "aī",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "aiēbam",
+                    "aiēbās",
+                    "aiēbat",
+                    "aiēbāmus",
+                    "aiēbātis",
+                    "aiēbant"
+                   ]
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "aiō",
+                    "ais",
+                    "ait",
+                    "",
+                    "",
+                    "aiunt"]
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "aiās",
+                    "aiat",
+                    "",
+                    "",
+                    "aiant"
+                  ]
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+        }
+EOJSON
+
+# Inquam
+# I say
+        INQUAM=<<EOJSON 
+        {
+          "original string":"inquam",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"",
+              "future_active_participle":"",
+              "perfect_passive_participle":"",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_future_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "inquitō",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  [],
+                  "inque",
+                  [],
+                  [],
+                  "",
+                  []
+                 ]
+               },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "inquam",
+                    "inquis",
+                    "inquit",
+                    "inquimus",
+                    "inquitis",
+                    "inquiunt"
+                  ]
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "inquiēbat",
+                    "",
+                    "",
+                    ""
+                   ]
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "inquiī",
+                    "inquīstī",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "inquiēs",
+                    "inquiet",
+                    "",
+                    "",
+                    ""]
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "inquiēbat",
+                    "",
+                    "",
+                    ""
+                    ]
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+            }
+          }
+        }
+EOJSON
+
+# For/fari: To speak, pronounce
+#
+        FOR_FĀRĪ=<<EOJSON 
+        {
+          "original string":"for fārī",
+          "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
+          "participles":{
+            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
+            "data": {
+              "present_active_participle":"fāns, fantis",
+              "future_active_participle":"",
+              "perfect_passive_participle":"fātus",
+              "future_passive_participle":""
+            }
+          },
+          "infinitives":{
+            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
+            "data": {
+              "present_active_infinitive": "fārī",
+              "present_passive_infinitive": "",
+                                        
+              "perfect_active_infinitive": "",
+              "perfect_passive_infinitive": "",
+                                        
+              "future_active_infinitive": "",
+              "future_passive_infinitive": ""
+            }
+          },
+          "tense_blocks": {
+              "active_voice_imperative_mood_present_tense": {
+                "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                "data": [
+                  "",
+                  ""
+                  "fāre",
+                  ""
+                  ""
+                  ""]
+                },
+              "active_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "fābor",
+                    "",
+                    "fābitur",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "fātus eram",
+                    "",
+                    "fātus erat",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "fātus est",
+                    "",
+                    "",
+                    "fātus sunt"
+                  ]
+                },
+              "active_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "fātur",
+                    "",
+                    "",
+                    "fantur"
+                  ]
+                },
+              "active_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "active_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+              "passive_voice_indicative_mood_future_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_futureperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_indicative_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_imperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_pastperfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_perfect_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                },
+              "passive_voice_subjunctive_mood_present_tense": {
+                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
+                  "data": []
+                }
+              }
+          }
+EOJSON
 
 
       end
