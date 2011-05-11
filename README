@@ -1,0 +1,31 @@
+# LatinVerb(2)
+
+## DESCRIPTION
+
+LatinVerb is a library, written in Ruby, that is used to make dealing with verb
+objects, and in particular Latin verbs, easier.  By providing a definitional
+string like: `amō amāre amāvī amatum`, LatinVerb will generate the 100+ forms
+and allow you to access them via method calls like
+`passive_voice_subjunctive_mood_imperfect_tense_third_person_singular_number`
+and get back `amaretur`.
+
+This library deals with some particularities of Latin verbs:
+
+* Handling Unicode storage of characters with a long sound (macron)
+* Handling of macron removal as according to the pronunciation rules of Latin
+  (before repeated vowel, before certain consonants at end of word, etc.) 
+* Resolving certain vectors of specified forms: person, number, voice, mood, and
+tense.
+
+Importantly, none of the values shown for the verbs are statically defined
+(save irregulars).  Rather, each and every conjugated verb form is generated on
+the fly as a result of applying a heuristic transformation to the verb (i.e.
+"take the stem and add such-and-such ending to it").
+
+## Why the 2?
+
+This is a complete overhaul of my earlier "LatinVerb" library.  
+
+## AUTHOR
+
+Steven G. Harms (github@sgharms.oib.com)
