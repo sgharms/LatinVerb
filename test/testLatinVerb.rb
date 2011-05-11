@@ -58,10 +58,10 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
 
     @irregular_verb_strings = [
       'sum esse fuī futūrus',
-      'ferō ferre tulī latum',
+      'ferō ferre tulī lātum',
       'eō īre ivī itum',
       'volō velle voluī',
-      'nolō nolle noluī'
+      'nōlō nōlle nōluī'
     ]
 
 

@@ -13,11 +13,11 @@ module Linguistics
         #
         #  -- Core Irregulars --
         # SUM_ESSE_FUĪ_FUTŪRUS
-        # FERŌ_FERRE_TULĪ_LATUM
+        # FERŌ_FERRE_TULĪ_LĀTUM
         # EŌ_ĪRE_IVĪ_ITUM
         #
         #  -- Verbs of Preference --
-        # NOLŌ_NŌLLE_NŌLUĪ
+        # NŌLŌ_NŌLLE_NŌLUĪ
         # VOLŌ_VELLE_VOLUĪ
         # MALŌ_MĀLLE_MALUĪ
         #
