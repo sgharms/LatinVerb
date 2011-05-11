@@ -22,9 +22,9 @@ Importantly, none of the values shown for the verbs are statically defined
 the fly as a result of applying a heuristic transformation to the verb (i.e.
 "take the stem and add such-and-such ending to it").
 
-## Why the 2?
+## WHY THE 2?
 
-This is a complete overhaul of my earlier "LatinVerb" library.  
+this is a complete overhaul of my earlier "LatinVerb" library.  
 
 ## AUTHOR
 
