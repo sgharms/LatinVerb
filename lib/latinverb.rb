@@ -317,8 +317,7 @@ module Linguistics
           @present_only = 
             (
               Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@pres_act_inf) ||
-              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@first_pers_singular) ||
-              (@original_string == 'aiō')
+              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@first_pers_singular)
             ) ?  true : false
         end
         ##
