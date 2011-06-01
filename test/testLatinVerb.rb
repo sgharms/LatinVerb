@@ -79,10 +79,10 @@ def test_metaprogramming
   tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
 
   # Test the real method that comes by part of the extension
-  assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
+  assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
 
   # Test the facade method
-  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person
+  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
   assert_respond_to tc, :respondable_methods
 
   # Make sure that stuff that /shouldn't/ be respected is not respected
@@ -95,7 +95,7 @@ end
 
 def test_method_lookup
   tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
-  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person
+  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
 
   # this should raise because we have not defined the 'cluster' method.  We've
   # defined that we want to respond, but need to do so via an intermediary
@@ -111,7 +111,7 @@ def test_verbvector
   assert tc.tense_list
   assert tc.tense_list.length
   assert_equal 22, tc.tense_list.length
-  assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_singular_number_third_person)
+  assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
   tc.tense_list.each do |cluster_method|
     assert tc.respond_to? cluster_method.to_sym
   end

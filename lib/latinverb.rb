@@ -645,8 +645,8 @@ module Linguistics
               end
               all_vectors :end_with do
                 {
-                  :number => %w(singular plural),
-                  :person => %w(first second third)
+                  :person => %w(first second third),
+                  :number => %w(singular plural)
                 }
               end
               exception :remove, :passive_voice_imperative_mood_present_tense
