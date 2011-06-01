@@ -476,6 +476,14 @@ module Linguistics
            @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
         end
 
+        ##
+        #
+        # When working in irb or LatinIRB it's good to find out what the
+        # instance methods are on this
+        def instance_methods
+          self.latin_verbvector_generator.vector_list
+        end
+
         private
 
         def _deponent_handler
