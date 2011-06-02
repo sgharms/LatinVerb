@@ -41,6 +41,12 @@ module Linguistics
       class TenseBlock
         include  Linguistics::Latin::Phonographia
 
+        # Idea from Mike Perham (6/1/2011):  Add a way to leave a note that
+        # describes, in English, the signification of the given tense.  Good
+        # idea.
+        
+        attr_reader :meaning
+
         # === ARGUMENTS
         #
         # *r:* :: An Array (or something that can respond to to_a) containing 0-6
@@ -50,13 +56,14 @@ module Linguistics
         #
         #  Nothing
         ##
-        def initialize(r)
+        def initialize(r, opts={})
           begin
             if r.class != Array
               raise if r.nil?
               r = r.to_a
             end
             @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+            @meaning = opts[:meaning] if opts[:meaning]
           rescue => e
             raise e, "TenseBlock failed to initialize correctly. passed #{r.nil?}"
           end
@@ -198,7 +205,8 @@ module Linguistics
           imp = imperatives
           TenseBlock.new( [ '', imp.present_tense_singular_number, '', 
                                    '', imp.present_tense_plural_number, ''
-                          ] 
+                          ],
+                          { :meaning => "Present command" }
                         )
         end
 
@@ -380,7 +388,9 @@ module Linguistics
               [ @first_pers_singular,
                        AP_THIRDIO_CONJG_PERS_ENDINGS.collect{ |ending| stem + ending }
                      ].flatten!
-            end)
+            end,
+            { :meaning => 'Present, possibly ongoing action relative to the speaker.' }
+            )
         end
 
         ##
