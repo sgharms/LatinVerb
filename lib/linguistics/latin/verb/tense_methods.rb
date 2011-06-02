@@ -115,6 +115,13 @@ module Linguistics
         def empty?; return @results.empty?; end
 
         ##
+        #
+        # Add a sensible string display
+        #
+        ##
+        def to_s; return self.to_a.to_s; end
+
+        ##
         # Return whether the result arrays is empty of words
         ##
         def wordless? 
@@ -122,6 +129,23 @@ module Linguistics
            return false if r =~ /\w/ 
           end
           true
+        end
+
+        ##
+        #
+        # Provide a method_missing so that ambiguous cases can be resolves
+        #
+        ##
+        def method_missing(symbol, *args)
+          begin
+            returnArray = []
+            methods.grep(/#{symbol.to_s}/) do |s|
+             returnArray.push(send s) 
+            end
+            return returnArray unless returnArray.empty?
+          rescue Exception
+          end
+          super
         end
 
 ##

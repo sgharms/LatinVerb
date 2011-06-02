@@ -2,7 +2,7 @@
 module Linguistics
   module Latin
     module Verb
-      VERSION = "0.0.1" # :nodoc:
+      VERSION = "0.9.0" # :nodoc:
       class LatinVerb # :nodoc:
       end
     end

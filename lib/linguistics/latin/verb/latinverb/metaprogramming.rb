@@ -37,10 +37,6 @@ and _that_ resultant value, a TenseBlock, undergoes a +send+ call to the
 specifier, thus all 5/5 components of the fully-qualified vector can result in
 unique match.
 
---
-TODO:  It should be possible to ONLY pass the 3/5ths and get the collective result back
-++
-
 =end
         def method_missing(symbol, *args )  # :nodoc:
           super if @tense_list.nil?
