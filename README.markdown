@@ -51,6 +51,12 @@ iteration did not have support for deponents or irregulars, nor was its
 metaprogrammatic model as tight nor were various components properly
 modularized.
 
+### THANKS
+
+* Prof. James Burleson for teaching me Latin
+* Lauren Roth for everything but most of all her patience
+* Mike Perham for "meaning" idea to a TenseBlock
+
 
 ## AUTHOR
 
