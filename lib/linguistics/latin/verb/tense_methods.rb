@@ -230,7 +230,8 @@ module Linguistics
           f = imperatives.future
           return TenseBlock.new( [ '', f[0], f[2], 
                                    '', f[1], f[3]
-                                 ] 
+                                 ],
+                                { :meaning => "Command that something be done in the future" }
                                )
         end
         ##
@@ -258,7 +259,9 @@ module Linguistics
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::ThirdIO or
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               [AF_OTHER_ENDINGS.collect{|x| stem + "i" + x}].flatten
-            end)
+            end,
+            { :meaning => "Action to take place in the future: 'I will eat a hamburger.'" }
+            )
         end
 
         ##
@@ -279,7 +282,8 @@ module Linguistics
         ###
         def active_voice_indicative_mood_futureperfect_tense
           substem = @first_pers_perf[0..-2]
-          return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten
+          return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten,
+                 { :meaning => "Action to be completed in the future: 'I will have eaten a hamburger.'" }
         end
 
         ##
@@ -308,7 +312,9 @@ module Linguistics
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               [AI_THIRD_CONJUG_PERS_ENDINGS.collect do |x| 
                 stem + "i" + x end ].flatten!
-            end)
+            end,
+            { :meaning => "Sustained, habitual action in the past:  'I was eating hamburgers daily when I was a freshman.'" }
+            )
         end
 
         ##
@@ -329,7 +335,8 @@ module Linguistics
         ###
         def active_voice_indicative_mood_pastperfect_tense
           substem = @first_pers_perf[0..-2]
-           return TenseBlock.new [APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten   
+           return TenseBlock.new [APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten,
+                  { :meaning => "Action completed prior to a point in the past under discussion: 'I had eaten all the hamburgers (before my mother found out).'" }
         end
 
 
@@ -351,7 +358,8 @@ module Linguistics
         ###
         def active_voice_indicative_mood_perfect_tense
           substem = @first_pers_perf[0..-2]
-          return TenseBlock.new [@first_pers_perf.to_s, APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten
+          return TenseBlock.new [@first_pers_perf.to_s, APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten,
+                 { :meaning => "Action completed in the past: 'I ate a hamburger.'" }
         end
 
         ##
@@ -389,7 +397,7 @@ module Linguistics
                        AP_THIRDIO_CONJG_PERS_ENDINGS.collect{ |ending| stem + ending }
                      ].flatten!
             end,
-            { :meaning => 'Present, possibly ongoing action relative to the speaker.' }
+            { :meaning => "Present, possibly ongoing action relative to the speaker: 'I am eating a hamburger.  I eat a hamburger.'" }
             )
         end
 
@@ -413,7 +421,9 @@ module Linguistics
          TenseBlock.new(
            ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending| 
            @pres_act_inf.sub(/e$/,'ē') + ending 
-          end)
+          end,
+          { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+          )
         end
 
         ##
@@ -436,7 +446,9 @@ module Linguistics
           asp_base = @first_pers_perf[0..@first_pers_perf.length-2] + "issē"
             TenseBlock.new( ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
               asp_base + ending
-            end)
+            end,
+            { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+            )
         end
 
         ##
@@ -462,7 +474,9 @@ module Linguistics
           TenseBlock.new( 
             ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
             asp_base + ending
-          end )
+          end,
+          { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+          )
         end
 
         ##
@@ -507,7 +521,9 @@ module Linguistics
                   AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending| 
               ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(@stem) + ending
               end
-            end    )
+            end,
+            { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+            )
         end
 
         ##
@@ -545,7 +561,9 @@ module Linguistics
               ie_base=stem+"iē"
               [stem+"ia"+PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0], 
                 PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| ie_base + x}].flatten!
-            end)
+            end,
+            { :meaning => "Action to be performed on conjugant in future:  'The hamburger will be eaten.'" }
+            )
         end
 
         ##
@@ -567,7 +585,9 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_futureperfect_tense
           return TenseBlock.new(
-            PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
+            PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  },
+            { :meaning => "Action is to be performed to completion on conjugant in future: 'The hamburger will have been eaten.'" }
+            )
         end
 
 
@@ -589,7 +609,7 @@ module Linguistics
         #
         ###
         def passive_voice_indicative_mood_imperfect_tense
-          return TenseBlock.new (
+          return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               imperfect_stem = stem + "b\xc4\x81"
@@ -601,7 +621,9 @@ module Linguistics
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               base=stem+"iēbā"
               [PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| base + x}].flatten!
-            end)
+            end,
+            { :meaning => "Habitual action performed on the conjugant in the past: 'The hamburger was being eaten slowly by the BurgerHoarder.'" }
+            )
         end
 
 
@@ -624,7 +646,9 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_pastperfect_tense
           TenseBlock.new(
-            PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
+            PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  },
+            { :meaning => "Action was fully completed upon the conjugant at a time prior to a time in the past: 'The hamburger had been eaten before my mom came home.'" }
+            )
         end
 
 
@@ -645,7 +669,9 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_perfect_tense
           TenseBlock.new(
-             PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  })
+             PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{@pass_perf_part} #{helping_verb}"  },
+             { :meaning => "Action was completed upon the conjugant in the past: 'The hamburger was eaten.'" }
+             )
         end
 
 
@@ -667,7 +693,7 @@ module Linguistics
         #
         ###
         def passive_voice_indicative_mood_present_tense
-          return TenseBlock.new (
+          return TenseBlock.new(
             if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               local_pe=PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.clone
@@ -686,7 +712,9 @@ module Linguistics
               [@first_pers_singular+"r", 
                 PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
                 base+PASSIVE_ENDINGS_OTHER[-1]].flatten!
-            end)
+            end,
+            { :meaning => "Conjugant is presently undergoing action in the present time: 'The hamburger is being eaten.'" }
+            )
         end
 
         ##
@@ -710,7 +738,9 @@ module Linguistics
           TenseBlock.new( 
             PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending| 
             base + ending    
-          end)
+          end,
+          { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+          )
         end
 
         ##
@@ -736,7 +766,9 @@ module Linguistics
              (count <= 2 ?
                "[ #{triplicate_and_genderize @pass_perf_part} ]" :
                "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending 
-          end)      
+          end,
+          { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+          )      
         end
 
         ##
@@ -762,7 +794,9 @@ module Linguistics
               (counter <=2 ? 
                "[ #{triplicate_and_genderize @pass_perf_part} ]" :
                "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending 
-            end)
+            end,
+            { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+            )
         end
 
         ##
@@ -804,7 +838,9 @@ module Linguistics
               PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
                 subjunctive_stem + ending
               end
-            end)
+            end,
+            { :meaning => "Subjunctive uses apply: commands, contrary to fact wishes, etc." }
+            )
         end
 
         ##
