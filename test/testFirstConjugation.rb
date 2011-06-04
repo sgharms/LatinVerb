@@ -377,4 +377,9 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert @aFirst.active_voice_indicative_mood_present_tense.meaning
   end
 
+  def test_chart
+    assert @aFirst.respond_to? :chart
+    assert @aFirst.respond_to? :c
+  end
+
 end

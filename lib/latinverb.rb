@@ -35,6 +35,9 @@ require 'linguistics/latin/verb/latinverb/validation'
 require 'linguistics/latin/verb/latinverb/data'
 require 'linguistics/latin/verb/latinverb/display'
 
+require 'latinverb/version'
+require 'latinverb/chart.rb'
+
 =begin rdoc
 
 ==DESCRIPTION
