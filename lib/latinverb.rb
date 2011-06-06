@@ -530,7 +530,7 @@ module Linguistics
           revivified_data_structure['tense_blocks'].each_pair do |k,v|
             singleton_class.class_eval do
               define_method k.to_sym do
-                v
+                TenseBlock.new v, { :meaning => MEANINGS[k.to_sym] }
               end
             end
           end

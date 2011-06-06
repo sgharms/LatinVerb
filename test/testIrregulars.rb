@@ -643,4 +643,10 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal '', v.future_active_participle
     assert_equal '', v.future_passive_participle
   end
+  def test_to_be_meaning 
+    v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
+    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert v.active_voice_indicative_mood_present_tense.meaning, "Irregulars should respond to meaning request."
+    assert v.active_voice_indicative_mood_imperfect_tense.meaning
+  end
 end
