@@ -171,6 +171,29 @@ module Linguistics
           'coepī'  => 'COEPĪ_COEPISSE_COEPTUM'
         }
 
+        MEANINGS = {
+          :active_voice_imperative_mood_future_tense => "Command that something be done in the future",
+          :active_voice_indicative_mood_future_tense=> "Action to take place in the future: 'I will eat a hamburger.'" ,
+          :active_voice_indicative_mood_futureperfect_tense => "Action to be completed in the future: 'I will have eaten a hamburger.'" ,
+          :active_voice_indicative_mood_imperfect_tense => "Sustained, habitual action in the past:  'I was eating hamburgers daily when I was a freshman.'" ,
+          :active_voice_indicative_mood_pastperfect_tense => "Action completed prior to a point in the past under discussion: 'I had eaten all the hamburgers (before my mother found out).'" ,
+          :active_voice_indicative_mood_perfect_tense => "Action completed in the past: 'I ate a hamburger.'" ,
+          :active_voice_indicative_mood_present_tense => "Present, possibly ongoing action relative to the speaker: 'I am eating a hamburger.  I eat a hamburger.'" ,
+          :active_voice_subjunctive_mood_imperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :active_voice_subjunctive_mood_pastperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :active_voice_subjunctive_mood_perfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :active_voice_subjunctive_mood_present_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :passive_voice_indicative_mood_future_tense => "Action to be performed on conjugant in future:  'The hamburger will be eaten.'" ,
+          :passive_voice_indicative_mood_futureperfect_tense => "Action is to be performed to completion on conjugant in future: 'The hamburger will have been eaten.'" ,
+          :passive_voice_indicative_mood_imperfect_tense => "Habitual action performed on the conjugant in the past: 'The hamburger was being eaten slowly by the BurgerHoarder.'" ,
+          :passive_voice_indicative_mood_pastperfect_tense => "Action was fully completed upon the conjugant at a time prior to a time in the past: 'The hamburger had been eaten before my mom came home.'" ,
+          :passive_voice_indicative_mood_perfect_tense => "Action was completed upon the conjugant in the past: 'The hamburger was eaten.'" ,
+          :passive_voice_indicative_mood_present_tense => "Conjugant is presently undergoing action in the present time: 'The hamburger is being eaten.'" ,
+          :passive_voice_subjunctive_mood_imperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :passive_voice_subjunctive_mood_pastperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :passive_voice_subjunctive_mood_perfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
+          :passive_voice_subjunctive_mood_present_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." 
+}
         # :startdoc:
       end
     end
