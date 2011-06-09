@@ -62,8 +62,9 @@ module Linguistics
           puts "\n"
           puts "Infinitives"
           self.methods.grep(/infinitive$/).each do |p|
-            printf "%42s %42s\n", p.to_s.gsub('_', ' ').gsub(/\b\w/){$&.upcase}, self.send(p)
+            printf "%42s %42s\n", (p.to_s.gsub('_', ' ').gsub(/\b\w/){$&.upcase}), self.send(p)
           end
+          return nil
         end
 
         alias_method :c, :chart

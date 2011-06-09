@@ -382,4 +382,7 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert @aFirst.respond_to? :c
   end
 
+  def test_chart_infinitives
+    #assert_equal @aFirst.c, nil
+  end
 end
