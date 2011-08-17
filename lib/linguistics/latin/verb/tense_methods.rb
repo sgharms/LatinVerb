@@ -4,9 +4,9 @@ require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/latinverb/auxiliary_classes'
 require 'yaml'
 
-module Linguistics 
-  module Latin 
-    module Verb 
+module Linguistics
+  module Latin
+    module Verb
     ##
     # == NAME
     #
@@ -40,11 +40,79 @@ module Linguistics
 
       class TenseBlock
         include  Linguistics::Latin::Phonographia
+        @tb_canonical_accessors = []
+        @tb_alias_accessors     = []
+        @tb_accessors           = []
+
+        ##
+        #--
+        # TODO:  I dream of this being generated dynamically through the
+        # VerbvectorGenerator for more dynamicity.  This would require a richer DSL in
+        # VerbvectorGenerator, but would be totally awesome if we could describe this
+        # language in a DSL.
+        #++
+        ##
+
+        ##
+        # --
+        # This structure is used to define the methods that will be allowed to
+        # access the @results array.  The key is the "canonical" name:
+        # (person)(number).  This needs to be flexibly supported.  This key
+        # map to a hash that contains the keys :aliases (for aliases to that
+        # particular "canonical") method as well as a Proc that should return
+        # the proper value for the "canonical" method (and therefore, by means
+        # of alias, also to the "aliased" methods).  "Canonical" methods will
+        # be added to an array accessed by "tb_canonical_accessors."  Aliases
+        # will be accesed by "tb_noncanonical_accessors."  The aggregate is
+        # accesed by "tb_accessors."
+        #++
+        ##
+
+        # Describes the methods that are to be provided to instances as means
+        # for accessing the contents of the @results hash.
+        ACCESSOR_HASH = {
+          :first_person_singular_number => {
+            :aliases => [:singular_number_first_person],
+            :returns => lambda{ @results[0] }
+          },
+          :second_person_singular_number => {
+            :aliases => [:singular_number_second_person],
+            :returns => lambda{ @results[1] }
+          },
+          :third_person_singular_number => {
+            :aliases => [:singular_number_third_person],
+            :returns => lambda{ @results[2] }
+          },
+          :first_person_plural_number => {
+            :aliases => [:plural_number_first_person],
+            :returns => lambda{ @results[3] }
+          },
+          :second_person_plural_number => {
+            :aliases => [:plural_number_second_person],
+            :returns => lambda{ @results[4] }
+          },
+          :third_person_plural_number => {
+            :aliases => [:plural_number_third_person],
+            :returns => lambda{ @results[5] }
+          }
+        }
+
+        def self.add_acc_canonical(s); @tb_canonical_accessors << s; end # :nodoc:
+        def self.add_acc_alias(s); @tb_alias_accessors << s; end # :nodoc:
+
+        ACCESSOR_HASH.each_pair do |k,h|
+          define_method k, h[:returns]
+          self.add_acc_canonical k
+          h[:aliases].each{|a| alias_method a, k; self.add_acc_alias a}
+        end
+
+        @tb_accessors = @tb_canonical_accessors + @tb_alias_accessors
+
 
         # Idea from Mike Perham (6/1/2011):  Add a way to leave a note that
         # describes, in English, the signification of the given tense.  Good
         # idea.
-        
+
         attr_reader :meaning
 
         # === ARGUMENTS
@@ -76,7 +144,7 @@ module Linguistics
         ##
         def to_json(*a)
           {
-            'json_class'   => self.class.name, 
+            'json_class'   => self.class.name,
             'data'         => @results.map{|i| i.to_json}
           }.to_json(*a)
         end
@@ -87,7 +155,7 @@ module Linguistics
         #
         ##
         def TenseBlock.json_create(o)
-         new(o['data']) 
+         new(o['data'])
         end
 
         ##
@@ -131,23 +199,23 @@ module Linguistics
         ##
         # Return whether the result arrays is empty of words
         ##
-        def wordless? 
+        def wordless?
           @results.map do |r|
-           return false if r =~ /\w/ 
+           return false if r =~ /\w/
           end
           true
         end
 
         ##
         #
-        # Provide a method_missing so that ambiguous cases can be resolves
+        # Provide a method_missing so that ambiguous cases can be resolved
         #
         ##
         def method_missing(symbol, *args)
           begin
             returnArray = []
-            methods.grep(/#{symbol.to_s}/) do |s|
-             returnArray.push(send s) 
+            self.class.class_eval{@tb_canonical_accessors}.grep(/#{symbol.to_s}/) do |s|
+             returnArray.push(send s)
             end
             return returnArray unless returnArray.empty?
           rescue Exception
@@ -155,32 +223,9 @@ module Linguistics
           super
         end
 
-##
-#--
-# TODO:  I dream of this being generated dynamically through the
-# VerbvectorGenerator for more dynamicity.  This would require a richer DSL in
-# VerbvectorGenerator, but would be totally awesome if we could describe this
-# language in a DSL. 
-#++
-##
- 
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def first_person_singular_number;  return @results[0]; end
 
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def second_person_singular_number; return @results[1]; end
 
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def third_person_singular_number;  return @results[2]; end
 
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def first_person_plural_number;    return @results[3]; end
-
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def second_person_plural_number;   return @results[4]; end
-
-        # Syntactic sugar for accessing the final coordinates in the TenseBlock
-        def third_person_plural_number;    return @results[5]; end
       end
 
       class LatinVerb
@@ -203,7 +248,7 @@ module Linguistics
         ###
         def active_voice_imperative_mood_present_tense
           imp = imperatives
-          TenseBlock.new( [ '', imp.present_tense_singular_number, '', 
+          TenseBlock.new( [ '', imp.present_tense_singular_number, '',
                                    '', imp.present_tense_plural_number, ''
                           ],
                           { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_imperative_mood_present_tense] }
@@ -228,7 +273,7 @@ module Linguistics
         ###
         def active_voice_imperative_mood_future_tense
           f = imperatives.future
-          return TenseBlock.new( [ '', f[0], f[2], 
+          return TenseBlock.new( [ '', f[0], f[2],
                                    '', f[1], f[3]
                                  ],
                                 { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_imperative_mood_future_tense] }
@@ -251,7 +296,7 @@ module Linguistics
         ###
         def active_voice_indicative_mood_future_tense
           return TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               [AF_ONE_TWO_ENDINGS.collect{|x| stem + x}].flatten
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third
@@ -268,7 +313,7 @@ module Linguistics
         #
         # === GRAMMATICAL FUNCTION
         #
-        # Action completed in the future.  
+        # Action completed in the future.
         # A&G,160,b,3.
         #
         # === ARGUMENTS
@@ -303,14 +348,14 @@ module Linguistics
         ###
         def active_voice_indicative_mood_imperfect_tense
           return TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               [AI_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS.collect{|x| stem + x}].flatten
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third
               [AI_THIRD_CONJUG_PERS_ENDINGS.collect{|x| stem + x}].flatten
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::ThirdIO or
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
-              [AI_THIRD_CONJUG_PERS_ENDINGS.collect do |x| 
+              [AI_THIRD_CONJUG_PERS_ENDINGS.collect do |x|
                 stem + "i" + x end ].flatten!
             end,
             { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_indicative_mood_imperfect_tense] }
@@ -369,8 +414,8 @@ module Linguistics
         # The canonical building block of learning to conjugate verbs in
         # Latin.  Take the present active infinitive, chop off the ending, and
         # add the classic o,s,t,mus,tis,nt
-        # 
-        # Wheelock Reference, p. 4.  
+        #
+        # Wheelock Reference, p. 4.
         # A&G, 160,a,1.
         #
         # === ARGUMENTS
@@ -419,8 +464,8 @@ module Linguistics
         ###
         def active_voice_subjunctive_mood_imperfect_tense
          TenseBlock.new(
-           ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending| 
-           @pres_act_inf.sub(/e$/,'ē') + ending 
+           ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
+           @pres_act_inf.sub(/e$/,'ē') + ending
           end,
           { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_subjunctive_mood_imperfect_tense] }
           )
@@ -468,10 +513,10 @@ module Linguistics
         #
         ###
         def active_voice_subjunctive_mood_perfect_tense
-          asp_base = 
+          asp_base =
             @first_pers_perf[0..@first_pers_perf.length-2] +
             "erī"
-          TenseBlock.new( 
+          TenseBlock.new(
             ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
             asp_base + ending
           end,
@@ -501,24 +546,24 @@ module Linguistics
           end
 
           TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
              asp_base = ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(stem[0..-2])
              ['m',
-                AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending| 
-                  asp_base + ending 
+                AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
+                  asp_base + ending
                 end
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third or
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
                asp_base = ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(stem[0..-1])
                ['m',
-                  AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending| 
-                    asp_base + ending          
+                  AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
+                    asp_base + ending
                end
             else
-              base = 
+              base =
                ['m',
-                  AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending| 
+                  AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
               ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(@stem) + ending
               end
             end,
@@ -544,22 +589,22 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_future_tense
           TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
                  fp_stem=stem+"bi"
                  standards = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[2..-1].map{|x| fp_stem + x}
                  standards.pop
                  fp_stem.sub!(/.$/,'u')
-            [stem + "b\xc5\x8dr", 
+            [stem + "b\xc5\x8dr",
              stem + "beris", standards, fp_stem+PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.last].flatten!
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third
               fp_stem=stem+"ē"
               standards = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| fp_stem + x}
-              [stem + "ar", standards].flatten!      
+              [stem + "ar", standards].flatten!
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::ThirdIO or
                   conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               ie_base=stem+"iē"
-              [stem+"ia"+PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0], 
+              [stem+"ia"+PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0],
                 PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| ie_base + x}].flatten!
             end,
             { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_indicative_mood_future_tense] }
@@ -610,7 +655,7 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_imperfect_tense
           return TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               imperfect_stem = stem + "b\xc4\x81"
               PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| imperfect_stem+x}
@@ -694,22 +739,22 @@ module Linguistics
         ###
         def passive_voice_indicative_mood_present_tense
           return TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
               local_pe=PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.clone
-              [@first_pers_singular.to_s + "r", 
+              [@first_pers_singular.to_s + "r",
                 local_pe[1..-1].map{|x| @stem + x}].flatten!
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third
-              [@first_pers_singular+"r", 
+              [@first_pers_singular+"r",
                 PASSIVE_ENDINGS_OTHER[1..-1].map{|x| stem + x}].flatten!
-            elsif conjugation == Linguistics::Latin::Verb::VerbTypes::ThirdIO 
+            elsif conjugation == Linguistics::Latin::Verb::VerbTypes::ThirdIO
               base=stem+"i"
-              [@first_pers_singular+"r", 
-                PASSIVE_ENDINGS_OTHER[1..-2].map{|x| stem + x}, 
+              [@first_pers_singular+"r",
+                PASSIVE_ENDINGS_OTHER[1..-2].map{|x| stem + x},
                 base+PASSIVE_ENDINGS_OTHER[-1]].flatten!
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               base=@stem+"ī"
-              [@first_pers_singular+"r", 
+              [@first_pers_singular+"r",
                 PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
                 base+PASSIVE_ENDINGS_OTHER[-1]].flatten!
             end,
@@ -735,9 +780,9 @@ module Linguistics
         ###
         def passive_voice_subjunctive_mood_imperfect_tense
           base = @pres_act_inf.gsub(/(.*)(.)$/,"\\1" + 'ē')
-          TenseBlock.new( 
-            PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending| 
-            base + ending    
+          TenseBlock.new(
+            PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
+            base + ending
           end,
           { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_imperfect_tense] }
           )
@@ -765,10 +810,10 @@ module Linguistics
              count += 1
              (count <= 2 ?
                "[ #{triplicate_and_genderize @pass_perf_part} ]" :
-               "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending 
+               "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending
           end,
           { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_pastperfect_tense] }
-          )      
+          )
         end
 
         ##
@@ -791,9 +836,9 @@ module Linguistics
           counter = -1
           TenseBlock.new(PASS_PERF_SUBJ_ENDINGS.map do |ending|
              counter += 1
-              (counter <=2 ? 
+              (counter <=2 ?
                "[ #{triplicate_and_genderize @pass_perf_part} ]" :
-               "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending 
+               "[ #{pluralize_participial_listing(triplicate_and_genderize(@pass_perf_part))} ]" )+ " " + ending
             end,
             { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_perfect_tense] }
             )
@@ -820,11 +865,11 @@ module Linguistics
             conjugation.to_s.split(/::/).last.to_sym
           end
           TenseBlock.new(
-            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or 
+            if conjugation == Linguistics::Latin::Verb::VerbTypes::First or
                conjugation == Linguistics::Latin::Verb::VerbTypes::Second
-              short_base = 
-                ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(stem[0..-2]) 
-              PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending| 
+              short_base =
+                ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key.call].call(stem[0..-2])
+              PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
                  short_base + ending
               end
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Third or
@@ -832,7 +877,7 @@ module Linguistics
              subjunctive_stem = conjugation.to_s =~ /O$/i ? stem + "iā" : stem + "ā"
              PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
                subjunctive_stem + ending
-             end 
+             end
             elsif conjugation == Linguistics::Latin::Verb::VerbTypes::Fourth
               subjunctive_stem = stem + "iā"
               PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
@@ -867,24 +912,24 @@ module Linguistics
 
         def form_imperatives
 
-          imperative_exceptions = { 
+          imperative_exceptions = {
             "ducere"   => %w(duc ducite),
             "dicere"   => %w(dic dicite),
             "facere"   => %w(fac facite),
             "ferre"    => %w(fer ferte),
             "nolere"   => %w(nolo nolite)
-          }   
+          }
 
           # Exceptional imperatives.  If we have one, return it straight away.
           if imperative_exceptions.has_key?(@pres_act_inf)
             return Linguistics::Latin::Verb::ImperativeBlock.new(
               imperative_exceptions[@pres_act_inf])
           end
-              
+
           # Therefore, let us assume that we are dealing with a standard verb
           # with standard imperatives.  Accordingly, we will create an
           # ImperativeBlock.
-              
+
           return Linguistics::Latin::Verb::ImperativeBlock.new @stem, @pres_act_inf
         end
 
@@ -895,7 +940,7 @@ module Linguistics
         # Used for handling verb states that are compounds like _amatus,
         # amata, amatum sum_ and converting them to amati, amatae, amata,
         # (sumus|estis|sunt).
-        # 
+        #
         # === ARGUMENTS
         #
         # +x:+ :: A string that looks like --us, --a, --um
@@ -910,19 +955,19 @@ module Linguistics
         # pluralize_participial_listing(qq/amatus, amata, amatum/) #=>
         #   amatī, amatae, amata
         #
-        ## 
+        ##
         def pluralize_participial_listing(x)
           x.sub!(/us,/,   'ī,' )
           x.sub!(/a,/,    'ae,')
           x.sub!(/um.*$/, 'a'  )
-        end       
+        end
 
         ##
         #
         # === DESCRIPTION
         #
         # Used for turning a participial form --um into --us, --a, --um
-        #  
+        #
         # === ARGUMENTS
         #
         # +s:+ :: --um
@@ -935,7 +980,7 @@ module Linguistics
         #
         # triplicate_and_genderize("amatum") #=> amatus, amata, amatum
         #
-        ## 
+        ##
         def triplicate_and_genderize(s)
           stem = s.sub(/^(.*)um$/,"\\1")
           [ stem + 'us',

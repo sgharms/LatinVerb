@@ -93,18 +93,6 @@ def test_metaprogramming
 
 end
 
-def test_method_lookup
-  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
-  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
-
-  # this should raise because we have not defined the 'cluster' method.  We've
-  # defined that we want to respond, but need to do so via an intermediary
-  # which, at the point of this assertion, has not been defined
-  assert_raises(NoMethodError) do
-    tc.active_voice_indicative_mood_imperfect_tense_singular_number_third_person
-  end
-end
-
 def test_verbvector
   tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   assert tc
