@@ -212,15 +212,12 @@ module Linguistics
         #
         ##
         def method_missing(symbol, *args)
-          begin
-            returnArray = []
-            self.class.class_eval{@tb_canonical_accessors}.grep(/#{symbol.to_s}/) do |s|
-             returnArray.push(send s)
-            end
-            return returnArray unless returnArray.empty?
-          rescue Exception
+          returnArray = []
+          self.class.class_eval{@tb_canonical_accessors}.grep(/#{symbol.to_s}/) do |s|
+           returnArray.push(send s)
           end
-          super
+          return returnArray unless returnArray.empty?
+          raise
         end
 
 
