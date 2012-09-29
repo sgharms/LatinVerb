@@ -11,4 +11,7 @@ RDoc::Task.new do | rd |
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test)
+Rake::TestTask.new do  |t|
+  t.ruby_opts = [ '-rminitest/pride' ]
+  t.verbose = true
+end
