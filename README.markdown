@@ -17,7 +17,7 @@ LatinVerb also has tolerances for ambiguity.  Where
 passive\_voice\_subjunctive\_mood\_imperfect\_tense\_third\_person\_singular\_number
 is considered a "full" vector that uniquely identifies one value, it is
 possible to pass "incomplete" vectors such as
-`passive\_voice\_subjunctive\_mood\_imperfect\_tense\_third\_person` which
+`passive_voice_subjunctive_mood_imperfect_tense_third_person` which
 would return two values (`amārētur` and `amārentur`).  Similarly, the person
 could be dropped and the number included and three values would be returned:
 `amārētur`, `amārēris`, and `amārer`.
