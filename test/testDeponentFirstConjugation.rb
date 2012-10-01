@@ -8,13 +8,13 @@ require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 
-class TestDeponent < MiniTest::Unit::TestCase # :nodoc: 
+class TestDeponent < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'mīror mīrārī mīrātum'
   end
 
   def test_firstconj_depo
-    assert_equal(Linguistics::Latin::Verb::VerbTypes::Deponent, @aDep.classification)
+    assert_equal(Linguistics::Latin::Verb::Classification::Deponent, @aDep.classification)
 
     assert_equal 'mīror',     @aDep.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal 'mīrāris',   @aDep.active_voice_indicative_mood_present_tense_second_person_singular_number

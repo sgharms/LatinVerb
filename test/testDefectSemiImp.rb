@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 require "minitest/autorun"
-require 'pp'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
@@ -9,27 +8,27 @@ require 'latinverb'
 
 class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
   def test_semideponents
-      
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, 
+
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("audeō audēre ausus sum").classification
 
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, 
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gavisus sum ").classification
 
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, 
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("soleō solēre solitus sum").classification
 
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, 
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("fidō fidere fisus sum").classification
 
     # Test extensions of the four standard mappings
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, 
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("confidō confidere confīsus sum").classification
   end
 
   def test_semideponent_exhaustively #:nodoc:
     f = Linguistics::Latin::Verb::LatinVerb.new "gaudeō gaudēre gāvīsus"
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Semideponent, f.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Semideponent, f.classification
 
     assert_equal "gaudeō",       f.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "gaudēs",       f.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -44,7 +43,7 @@ class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "gaudēbāmus",   f.active_voice_indicative_mood_imperfect_tense_first_person_plural_number
     assert_equal "gaudēbātis",   f.active_voice_indicative_mood_imperfect_tense_second_person_plural_number
     assert_equal "gaudēbant",    f.active_voice_indicative_mood_imperfect_tense_third_person_plural_number
-    
+
     assert_equal "gaudēbō",       f.active_voice_indicative_mood_future_tense_first_person_singular_number
     assert_equal "gaudēbis",      f.active_voice_indicative_mood_future_tense_second_person_singular_number
     assert_equal "gaudēbit",      f.active_voice_indicative_mood_future_tense_third_person_singular_number
@@ -90,7 +89,7 @@ class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
    assert_equal "gaudērēmus", f.active_voice_subjunctive_mood_imperfect_tense_first_person_plural_number
    assert_equal "gaudērētis", f.active_voice_subjunctive_mood_imperfect_tense_second_person_plural_number
    assert_equal "gaudērent",   f.active_voice_subjunctive_mood_imperfect_tense_third_person_plural_number
-   
+
    assert_equal "[ gāvīsus, gāvīsa, gāvīsum ] sim", f.active_voice_subjunctive_mood_perfect_tense_first_person_singular_number
    assert_equal "[ gāvīsus, gāvīsa, gāvīsum ] sis", f.active_voice_subjunctive_mood_perfect_tense_second_person_singular_number
    assert_equal "[ gāvīsus, gāvīsa, gāvīsum ] sit", f.active_voice_subjunctive_mood_perfect_tense_third_person_singular_number

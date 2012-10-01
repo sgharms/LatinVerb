@@ -8,7 +8,7 @@ module Linguistics
 
   VerbTypes
 
-  == DESCRIPTION 
+  == DESCRIPTION
 
   A VerbType is a parent, _conceptually abstract_  class for tracking
   classifications of verbs.  At the present time it is an empty class.  It is
@@ -21,7 +21,19 @@ module Linguistics
   VerbTypes, therefore, is the module containing these VerbTypes.
 
 =end
-      module VerbTypes 
+
+      module Classification
+        class ClassificationType; end
+        class Semideponent < ClassificationType; end
+        class Deponent < ClassificationType; end
+        class Irregular < ClassificationType; end
+        class Impersonal < ClassificationType; end
+        class Defective < ClassificationType; end
+        class Regular < ClassificationType; end
+        class PresentOnly < ClassificationType; end
+
+      end
+      module VerbTypes
         ##
         #--
         # == DESCRIPTION
@@ -32,25 +44,15 @@ module Linguistics
         ##
         class VerbType  # :nodoc:
         end
-        class First     < VerbType # :nodoc: 
+        class First     < VerbType # :nodoc:
         end
-        class Second    < VerbType # :nodoc: 
+        class Second    < VerbType # :nodoc:
         end
-        class Third     < VerbType # :nodoc: 
+        class Third     < VerbType # :nodoc:
         end
-        class ThirdIO   < VerbType # :nodoc: 
+        class ThirdIO   < VerbType # :nodoc:
         end
-        class Fourth    < VerbType # :nodoc: 
-        end
-        class Irregular < VerbType # :nodoc: 
-        end
-        class Deponent  < VerbType # :nodoc:
-        end
-        class Defective < VerbType # :nodoc:
-        end
-        class Impersonal < VerbType # :nodoc:
-        end
-        class Semideponent < VerbType # :nodoc:
+        class Fourth    < VerbType # :nodoc:
         end
       end
     end

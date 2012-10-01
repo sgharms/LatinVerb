@@ -1,6 +1,4 @@
 # encoding: UTF-8
-require 'json'
-
 module Linguistics
   module Latin
     module Verb
@@ -13,21 +11,22 @@ module Linguistics
         def self.json_create(o)
           new( o )
         end
-        
-        ##  
+
+        ##
         #
         # Presents the LatinVerb expressed as a hash with the names of the TenseBlock
         # specifiers as keys, and corresponding TenseBlock objects, converted to
         # Arrays, as the values.  It also contains the +original_string+.
         #
         ##
-        def to_hash 
+        def to_hash
+          data_structure = {}
           @tense_list.each do |t|
             ts = t.to_sym
-            @data_structure[ts]=self.send ts
+            data_structure[ts]=self.send ts
           end
-          @data_structure['original_string'] = @original_string
-          return @data_structure
+          data_structure['original_string'] = @original_string
+          return data_structure
         end
 
         alias_method :to_h, :to_hash
@@ -37,11 +36,9 @@ module Linguistics
         # Takes the hash that results from to_hash and then converts it to
         # YAML.
         #
-        ## 
+        ##
         def to_yaml
-          @data_structure.empty? ?
-            to_hash.to_yaml:
-            @data_structure.to_yaml
+          to_hash.to_yaml
         end
 
         alias_method :to_y, :to_yaml
@@ -53,7 +50,7 @@ module Linguistics
         ##
         def to_json(*a)
           json_hash = {'json_class' => self.class.name}
-          
+
           # In the case that we're working with a regular verb, the only thing
           # we need to save is the original string, since everything can be
           # re-derived from it easily.
@@ -68,7 +65,7 @@ module Linguistics
             end
             json_hash['tense_list' ]  = {}
             @tense_list.each do |t|
-              json_hash['tense_list'][t.to_s] = self.send t.to_sym 
+              json_hash['tense_list'][t.to_s] = self.send t.to_sym
             end
             json_hash['irregular']    = irregular?
             return json_hash.to_json(*a)
@@ -81,7 +78,7 @@ module Linguistics
         #
         ##
         def pretty_generate
-          JSON.pretty_generate(@data_structure.keys.length < 1 ? to_hash : @data_structure)
+          JSON.pretty_generate( self.to_h )
         end
 
       end

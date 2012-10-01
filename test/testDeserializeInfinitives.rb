@@ -1,11 +1,9 @@
 # encoding: UTF-8
 
 require "minitest/autorun"
-require 'pp'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
-require 'linguistics/latin/verb/latinverb/auxiliary_classes'
 
 
 class TestDeserializeInfinitives < MiniTest::Unit::TestCase # :nodoc:
@@ -17,10 +15,10 @@ class TestDeserializeInfinitives < MiniTest::Unit::TestCase # :nodoc:
          "data": {
            "present_active_infinitive": "amāre",
            "present_passive_infinitive": "amārī",
-                                     
+
            "perfect_active_infinitive": "amāvīsse",
            "perfect_passive_infinitive": "amatum",
-                                     
+
            "future_active_infinitive ": "amatūrus esse",
            "future_passive_infinitive": "amatum īri"
          }

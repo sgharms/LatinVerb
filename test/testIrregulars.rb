@@ -12,17 +12,17 @@ require 'linguistics/latin/verb/classification_types'
 class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   def test_to_give
     v =  Linguistics::Latin::Verb::LatinVerb.new 'dō dāre dedī datum'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
-    assert_match /dāns/, v.present_active_participle
-    assert_match /datus/, v.perfect_passive_participle
-    assert_match /datūrus/, v.future_active_participle
-    assert_match /dandus/, v.future_passive_participle
+    assert_match(/dāns/, v.present_active_participle)
+    assert_match(/datus/, v.perfect_passive_participle)
+    assert_match(/datūrus/, v.future_active_participle)
+    assert_match(/dandus/, v.future_passive_participle)
 
   end
   def test_to_eat
     v =  Linguistics::Latin::Verb::LatinVerb.new 'edō ēsse ēdī ēsum'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "edō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_match %r"ēs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -69,7 +69,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "", v.present_passive_infinitive
     assert_equal "", v.perfect_passive_infinitive
     assert_equal "", v.future_passive_infinitive
-     
+
     # Participles
     assert_match /edēns/, v.present_active_participle
     assert_equal '', v.perfect_passive_participle
@@ -82,7 +82,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_be
     v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "sum",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "es",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -129,7 +129,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "", v.present_passive_infinitive
     assert_equal "", v.perfect_passive_infinitive
     assert_equal "", v.future_passive_infinitive
-     
+
 
     assert_equal "es", v.active_voice_imperative_mood_present_tense_second_person_singular_number
     assert_equal "este",v.active_voice_imperative_mood_present_tense_second_person_plural_number
@@ -143,7 +143,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_bear
     v = Linguistics::Latin::Verb::LatinVerb.new 'ferō ferre tulī lātum'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "ferō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "fers",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -201,7 +201,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_go
     v = Linguistics::Latin::Verb::LatinVerb.new 'eō īre ivī itum'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "eō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "īs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -259,7 +259,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
   def test_to_not_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'nōlō nōlle nōluī'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "nōlō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "nōn vīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -312,7 +312,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
   def test_to_wish
     v = Linguistics::Latin::Verb::LatinVerb.new 'volō velle voluī'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "volō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "vīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -367,7 +367,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_be_able
     v = Linguistics::Latin::Verb::LatinVerb.new 'queō quīre quīvī'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "queō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "quīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -424,7 +424,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_be_able2
     v = Linguistics::Latin::Verb::LatinVerb.new 'possum posse potuī'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "possum",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "potes",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -481,7 +481,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_be_made
     v = Linguistics::Latin::Verb::LatinVerb.new 'fiō fiērī factus'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "fiō",v.passive_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "fīs",v.passive_voice_indicative_mood_present_tense_second_person_singular_number
@@ -532,7 +532,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
   end
   def test_to_help
     v = Linguistics::Latin::Verb::LatinVerb.new 'prōsum prōdesse prōfuī prōfutūrus'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     #cf. A&G198
     assert_equal "prōsum",       v.active_voice_indicative_mood_present_tense_first_person_singular_number
@@ -558,7 +558,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal "prōfuerimus",      v.active_voice_indicative_mood_futureperfect_tense_first_person_plural_number
 
     # Subjunctive
-   
+
     assert_equal "prōsim",       v.active_voice_subjunctive_mood_present_tense_first_person_singular_number
     assert_equal "prōsīs",       v.active_voice_subjunctive_mood_present_tense_second_person_singular_number
     assert_equal "prōsit",       v.active_voice_subjunctive_mood_present_tense_third_person_singular_number
@@ -579,10 +579,11 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
     assert_equal "prōdēs", v.active_voice_imperative_mood_present_tense_second_person_singular_number
     assert_equal "prōdeste", v.active_voice_imperative_mood_present_tense_second_person_plural_number
-    assert_equal "prōdestō",v.active_voice_imperative_mood_future_tense_second_person_singular_number 
+    assert_equal "prōdestō",v.active_voice_imperative_mood_future_tense_second_person_singular_number
     assert_equal "prōdestōte", v.active_voice_imperative_mood_future_tense_second_person_plural_number
 
-    assert_equal 'prōdesse',  v.pres_act_inf
+    assert_equal 'prōdesse',  v.present_active_infinitive
+
     assert_equal 'prōfuisse',  v.perfect_active_infinitive
     assert_match %r"prōfutūru[ms] esse", v.future_active_infinitive
 
@@ -593,7 +594,7 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
 
   def test_to_prefer
     v = Linguistics::Latin::Verb::LatinVerb.new 'mālō mālle māluī'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
 
     assert_equal "mālō",v.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "māvīs",v.active_voice_indicative_mood_present_tense_second_person_singular_number
@@ -643,9 +644,9 @@ class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
     assert_equal '', v.future_active_participle
     assert_equal '', v.future_passive_participle
   end
-  def test_to_be_meaning 
+  def test_to_be_meaning
     v = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Irregular,  v.classification
+    assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification
     assert v.active_voice_indicative_mood_present_tense.meaning, "Irregulars should respond to meaning request."
     assert v.active_voice_indicative_mood_imperfect_tense.meaning
   end

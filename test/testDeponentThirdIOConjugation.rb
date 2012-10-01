@@ -8,13 +8,13 @@ require 'linguistics/latin/verb/classification_types'
 
 # Internal dependencies
 
-class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc: 
+class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'patior patī passum'
   end
 
   def test_depo
-    assert_equal(Linguistics::Latin::Verb::VerbTypes::Deponent, @aDep.classification)
+    assert_equal(Linguistics::Latin::Verb::Classification::Deponent, @aDep.classification)
 
     assert_equal 'patior',     @aDep.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal 'pateris',   @aDep.active_voice_indicative_mood_present_tense_second_person_singular_number
