@@ -4,7 +4,7 @@ module Linguistics
   module Latin
     module Verb
       ##
-      # == NAME 
+      # == NAME
       #
       # Validation
       #
@@ -15,7 +15,6 @@ module Linguistics
       #
       ##
       module Validation
-
         ##
         #
         # == DESCRIPTION
@@ -24,7 +23,7 @@ module Linguistics
         # LatinVerb.initialize) for basic sanity.
         #
         # Here are its basic truths
-        # 
+        #
         # 1.  Get +@original_string+ as an iVar
         # 1.  Derive a classification (+@classification+) from the string
         # 1.  Determine whether the string qualifies the verb as irregular
@@ -32,32 +31,9 @@ module Linguistics
         #
         ##
         def valid?
-          os = @original_string
-          instance_eval do
-            begin
-              @classification = Linguistics::Latin::Verb::LatinVerb.classify(os)
-              @irregular = 
-                @classification == Linguistics::Latin::Verb::VerbTypes::Irregular ?
-                true : false
-              unless @irregular
-                @stem ||= self.class.calculate_stem os.split(/\s+/)[1]
-              @deponent = (@classification == Linguistics::Latin::Verb::VerbTypes::Deponent) ?
-                true : false
-              @semideponent = (@classification == Linguistics::Latin::Verb::VerbTypes::Semideponent) ?
-                true : false
-              @impersonal= (@classification == Linguistics::Latin::Verb::VerbTypes::Impersonal) ?
-                true : false
-              end
-            rescue RuntimeError => detail
-              STDERR.puts "WARNING:  Improper use of rescue for decision structure in latinverb_validation"
-              @irregular = true 
-            rescue Exception => e
-              @classification_error = lambda do
-                raise e
-              end
-            end
-          end
-          return true
+          !@original_string.nil? &&
+          !classification.nil? &&
+          ( irregular? ? true : !stem.nil? )
         end
       end
     end

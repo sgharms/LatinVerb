@@ -3,11 +3,10 @@ require 'macronconversions'
 
 #  ...by others
 require "minitest/autorun"
-require 'pp'
 
 # Internal dependencies
-require 'linguistics/latin/verb/latinverb/classmethods'
-require 'linguistics/latin/verb/classification_types'
+#require 'linguistics/latin/verb/latinverb/classmethods'
+#require 'linguistics/latin/verb/classification_types'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
@@ -20,7 +19,7 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def _create_paradigmatic_examples
-    @verb_hash_latex_style = { 
+    @verb_hash_latex_style = {
       :@aFirstString   => %q{am\={o}   am\={a}re am\={a}v\={\i} amatum},
       :@aSecondString  => %q{mone\={o} mon\={e}re monu\={\i} monitum},
       :@aThirdString   => %q{ag\={o}   agere \={e}g\={\i} actum},
@@ -33,7 +32,7 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
     end
 
     @verb_hash_utf8_style = {
-      :@aFirstString   => 'amō amāre amāvī amatum', 
+      :@aFirstString   => 'amō amāre amāvī amatum',
       :@aSecondString  => 'moneō monēre monuī monitum',
       :@aThirdString   => 'agō agere ēgī actum',
       :@aThirdIOString => 'capiō capere cēpī capitum',
@@ -41,6 +40,14 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
     }
 
     @verb_hash_classifications = {
+      :@aFirstString   => Linguistics::Latin::Verb::Classification::Regular,
+      :@aSecondString  => Linguistics::Latin::Verb::Classification::Regular,
+      :@aThirdString   => Linguistics::Latin::Verb::Classification::Regular,
+      :@aThirdIOString => Linguistics::Latin::Verb::Classification::Regular,
+      :@aFourthString  => Linguistics::Latin::Verb::Classification::Regular
+    }
+
+    @verb_hash_verb_types = {
       :@aFirstString   => Linguistics::Latin::Verb::VerbTypes::First,
       :@aSecondString  => Linguistics::Latin::Verb::VerbTypes::Second,
       :@aThirdString   => Linguistics::Latin::Verb::VerbTypes::Third,
@@ -72,47 +79,45 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
       :@aThirdIOString => "capiē",
       :@aFourthString  => "audiē"
     }
-    
-  end 
-
-def test_metaprogramming
-  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
-
-  # Test the real method that comes by part of the extension
-  assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
-
-  # Test the facade method
-  assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
-  assert_respond_to tc, :respondable_methods
-
-  # Make sure that stuff that /shouldn't/ be respected is not respected
-  assert not( tc.respond_to? :zabumiwhorter)
-  assert_raises(NoMethodError) do 
-    tc.zabumiwhorter
   end
 
-end
+  def test_metaprogramming
+    tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
 
-def test_verbvector
-  tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
-  assert tc
-  assert tc.tense_list
-  assert tc.tense_list.length
-  assert_equal 22, tc.tense_list.length
-  assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
-  tc.tense_list.each do |cluster_method|
-    assert tc.respond_to? cluster_method.to_sym
+    # Test the real method that comes by part of the extension
+    assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
+
+    # Test the facade method
+    assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
+    assert_respond_to tc, :respondable_methods
+
+    # Make sure that stuff that /shouldn't/ be respected is not respected
+    assert not( tc.respond_to? :zabumiwhorter), "Should not respond to :zabumiwhorter"
+    assert_raises(NoMethodError) do
+      tc.zabumiwhorter
+    end
   end
-  assert_equal 132,  tc.vector_list.length
-end
+
+  def test_verbvector
+    tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+    assert tc
+    assert tc.tense_list
+    assert tc.tense_list.length
+    assert_equal 22, tc.tense_list.length
+    assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
+    tc.tense_list.each do |cluster_method|
+      assert tc.respond_to? cluster_method.to_sym
+    end
+    assert_equal 132,  tc.vector_list.length
+  end
 
   def test_defective_verbs
     defectives = ['meminī meminisse', 'ōdī ōdisse', 'coepī coepisse coeptum']
     defectives.reverse.each do |iv|
       v = Linguistics::Latin::Verb::LatinVerb.new(iv)
       assert v.irregular?
-      assert_match /.../ , v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
-      
+      assert_match( /.../ , v.active_voice_indicative_mood_perfect_tense_first_person_singular_number )
+
     end
   end
 
@@ -125,22 +130,23 @@ end
   # Test the creation of stems
   def test_stem_production
     @verb_hash_utf8_style.each_pair do |k,v|
-      assert_equal Linguistics::Latin::Verb::LatinVerb.calculate_stem(v.split(/\s+/)[1]),
-        @verb_hash_stems[k]
-    end 
+      result = Linguistics::Latin::Verb::LatinVerb.new(v).instance_eval { stem }
+      assert_equal @verb_hash_stems[k], result
+    end
   end
 
   # Test the classifications
   def test_classifications
     @verb_hash_utf8_style.each_pair do |k,v|
-      assert_equal(@verb_hash_classifications[k],
-         Linguistics::Latin::Verb::LatinVerb.classify(v))
+      c  = Linguistics::Latin::Verb::LatinVerb::LatinVerbClassifier.new(v)
+      cf = c.classification
+      assert_equal cf, @verb_hash_classifications[k]
     end
   end
 
   def test_participial_stem_creation
     @verb_hash_utf8_style.each_pair do |k,v|
-      a = v.split /\s+/
+      a = v.split( /\s+/ )
       assert_equal(@verb_hash_participial_stems[k],
          Linguistics::Latin::Verb::LatinVerb.calculate_participial_stem(a[0], a[1]))
     end
@@ -164,7 +170,7 @@ end
   # Make sure that the dependencies are working so that we know the
   # paradigmatic examples get created safely.
   def test_macron_conversions
-    assert_equal('amō amāre amāvī amatum', 
+    assert_equal('amō amāre amāvī amatum',
                   Text::Latex::Util::Macronconversions.convert(@aFirstString))
     assert_equal( 'moneō monēre monuī monitum',
                    Text::Latex::Util::Macronconversions.convert(@aSecondString))
@@ -177,7 +183,4 @@ end
   end
 end
 
-
-#   
-   
 # end

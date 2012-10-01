@@ -64,7 +64,7 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "audīveritis", @aFourth.active_voice_indicative_mood_futureperfect_tense_second_person_plural_number
     assert_equal "audīverint",  @aFourth.active_voice_indicative_mood_futureperfect_tense_third_person_plural_number
 
-# Passive Present 
+# Passive Present
 
     assert_equal "audior",      @aFourth.passive_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal "audīris",     @aFourth.passive_voice_indicative_mood_present_tense_second_person_singular_number
@@ -87,20 +87,20 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "audiēminī",   @aFourth.passive_voice_indicative_mood_future_tense_second_person_plural_number
     assert_equal "audientur",   @aFourth.passive_voice_indicative_mood_future_tense_third_person_plural_number
 
-# Passive perfect 
+# Passive perfect
     assert_equal "auditum sum",    @aFourth.passive_voice_indicative_mood_perfect_tense_first_person_singular_number
     assert_equal "auditum es",     @aFourth.passive_voice_indicative_mood_perfect_tense_second_person_singular_number
     assert_equal "auditum est",    @aFourth.passive_voice_indicative_mood_perfect_tense_third_person_singular_number
     assert_equal "auditum sumus",  @aFourth.passive_voice_indicative_mood_perfect_tense_first_person_plural_number
     assert_equal "auditum estis",  @aFourth.passive_voice_indicative_mood_perfect_tense_second_person_plural_number
-    assert_equal "auditum sunt",   @aFourth.passive_voice_indicative_mood_perfect_tense_third_person_plural_number    
+    assert_equal "auditum sunt",   @aFourth.passive_voice_indicative_mood_perfect_tense_third_person_plural_number
 
     assert_equal "auditum eram",   @aFourth.passive_voice_indicative_mood_pastperfect_tense_first_person_singular_number
     assert_equal "auditum erās",   @aFourth.passive_voice_indicative_mood_pastperfect_tense_second_person_singular_number
     assert_equal "auditum erat",   @aFourth.passive_voice_indicative_mood_pastperfect_tense_third_person_singular_number
     assert_equal "auditum erāmus", @aFourth.passive_voice_indicative_mood_pastperfect_tense_first_person_plural_number
     assert_equal "auditum erātis", @aFourth.passive_voice_indicative_mood_pastperfect_tense_second_person_plural_number
-    assert_equal "auditum erant",  @aFourth.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number                
+    assert_equal "auditum erant",  @aFourth.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number
 
     assert_equal "auditum erō",    @aFourth.passive_voice_indicative_mood_futureperfect_tense_first_person_singular_number
     assert_equal "auditum eris",   @aFourth.passive_voice_indicative_mood_futureperfect_tense_second_person_singular_number
@@ -109,8 +109,8 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "auditum eritis", @aFourth.passive_voice_indicative_mood_futureperfect_tense_second_person_plural_number
     assert_equal "auditum erint",  @aFourth.passive_voice_indicative_mood_futureperfect_tense_third_person_plural_number
 
-### Subjunctives  
-  # Active        
+### Subjunctives
+  # Active
     assert_equal "audiam",       @aFourth.active_voice_subjunctive_mood_present_tense_first_person_singular_number
     assert_equal "audiās",       @aFourth.active_voice_subjunctive_mood_present_tense_second_person_singular_number
     assert_equal "audiat",       @aFourth.active_voice_subjunctive_mood_present_tense_third_person_singular_number
@@ -139,7 +139,7 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "audīvissētis", @aFourth.active_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number
     assert_equal "audīvissent",  @aFourth.active_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number
 
-    #passive     
+    #passive
     assert_equal "audiar",                             @aFourth.passive_voice_subjunctive_mood_present_tense_first_person_singular_number
     assert_equal "audiāris",                           @aFourth.passive_voice_subjunctive_mood_present_tense_second_person_singular_number
     assert_equal "audiātur",                           @aFourth.passive_voice_subjunctive_mood_present_tense_third_person_singular_number
@@ -167,23 +167,23 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "[ auditī, auditae, audita ] essēmus", @aFourth.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number
     assert_equal "[ auditī, auditae, audita ] essētis", @aFourth.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number
     assert_equal "[ auditī, auditae, audita ] essent",  @aFourth.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number
- 
+
     # Imperatives
     assert_equal "audī",   @aFourth.imperatives[0]
     assert_equal "audīte", @aFourth.imperatives[1]
 
     # Participles
-    assert_equal"audiēns, audientis",              @aFourth.present_active_participle 
+    assert_equal"audiēns, audientis",              @aFourth.present_active_participle
     assert_equal"auditūrus, auditūra, auditūrum",  @aFourth.future_active_participle
     assert_equal"auditus, audita, auditum",        @aFourth.perfect_passive_participle
     assert_equal"audiendus, audienda, audiendum",  @aFourth.future_passive_participle
 
-    # Infinitves 
+    # Infinitves
     assert_equal "audīre",                         @aFourth.present_active_infinitive
     assert_equal "audīvīsse",                      @aFourth.perfect_active_infinitive
     assert_equal "auditūrus esse",                 @aFourth.future_active_infinitive
     assert_equal "audīrī",                         @aFourth.present_passive_infinitive
-    assert_equal "auditus, audita, auditum esse",  @aFourth.perfect_passive_infinitive    
+    assert_equal "auditus, audita, auditum esse",  @aFourth.perfect_passive_infinitive
     assert_equal "auditum īrī",                    @aFourth.future_passive_infinitive
   end
 

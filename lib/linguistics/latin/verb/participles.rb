@@ -3,9 +3,9 @@
 require 'latinverb'
 require 'linguistics/latin/verb/phonographia'
 
-module Linguistics 
-  module Latin 
-    module Verb 
+module Linguistics
+  module Latin
+    module Verb
       ##
       # == NAME
       #
@@ -31,7 +31,7 @@ module Linguistics
       #    declension used only in the oblique cases of hte singular.
       #    c.  The Supine:  this is in form a verbal noun of the fourth
       #    declension in the accusative (-um) and dative or ablative (-ū)
-      #    singular      
+      #    singular
       #    ...
       #
       ##
@@ -59,9 +59,9 @@ module Linguistics
      #
      ###
      def present_active_participle
-       raise "Participial stem was nil" if  @participial_stem.nil?
+       raise "Participial stem was nil" if  participial_stem.nil?
        endings=%w(ns ntis)
-       return endings.collect{ |x| Linguistics::Latin::Phonographia.fix_macrons(@participial_stem+x.chomp)}.join(', ')
+       return endings.collect{ |x| Linguistics::Latin::Phonographia.fix_macrons(participial_stem+x.chomp)}.join(', ')
      end
 
      ##
@@ -83,10 +83,10 @@ module Linguistics
      ###
      def future_active_participle
        # In case we have an irregular, or somehow already have a /ūrus$/ we shouldn't do this
-       mybase = (@pass_perf_part =~ /ūru.$/) ?
-         @pass_perf_part.gsub(/u[sm]$/,'')
+       mybase = (@passive_perfect_participle =~ /ūru.$/) ?
+         @passive_perfect_participle.gsub(/u[sm]$/,'')
        :
-         @pass_perf_part.gsub(/u[sm]$/, "ūr")
+         @passive_perfect_participle.gsub(/u[sm]$/, "ūr")
 
        singular_endings=%w(us a um)
        return singular_endings.collect{|x| mybase+"#{x}".chomp}.join(', ')
@@ -117,7 +117,7 @@ module Linguistics
      #
      ###
      def perfect_passive_participle
-       mybase=@pass_perf_part.sub(/u[sm]$/,'')
+       mybase=@passive_perfect_participle.sub(/u[sm]$/,'')
        singular_endings=%w(us a um)
        return singular_endings.collect{|x| mybase+"#{x}".chomp}.join(', ')
      end
@@ -138,7 +138,7 @@ module Linguistics
      #
      ###
      def future_passive_participle
-       mybase = @participial_stem+"nd"
+       mybase = participial_stem+"nd"
        singular_endings=%w(us a um)
        return singular_endings.collect{|x|Linguistics::Latin::Phonographia.fix_macrons( mybase+"#{x}".chomp)}.join(', ')
      end
@@ -147,11 +147,11 @@ module Linguistics
      #
      # === GRAMMATICAL FUNCTION
      #
-     # A&G, 158,d. 
+     # A&G, 158,d.
      #
-     # The Gerundive (ending in -ndus) has two uses:  
+     # The Gerundive (ending in -ndus) has two uses:
      #
-     # 1.  ...an adjective implying obligation...  
+     # 1.  ...an adjective implying obligation...
      #
      # 2.  In the oblique cases the Gerundive commonly has the same meaning as
      # the Gerund ... for examples see sec. 503
@@ -179,10 +179,10 @@ module Linguistics
      #
      # Gerundive:  verbal achective
      # gerund:  verbal noun
-     # 
+     #
      # gerund only has oblique
      # gerundive is passive in meaning, gerund is active:
-     # 
+     #
      # A FUNNY THING I ALWAYS FORGET:
      #  studium legeni libros ==>  studium librorum legendorum
      #  discimus legendo libros ==>  discimus libris legendis
@@ -190,13 +190,13 @@ module Linguistics
      #  -- Source, Wheelock
      #++
      ##
-     #alias_method :gerund, :gerundive 
-     def gerund
-       b = gerundive.sub /.*\s+(.*)um.*$/, "\\1"
-       b += "ī, ō, etc."
-       return b
-     end
-   end
- end
-end
+     #alias_method :gerund, :gerundive
+       def gerund
+         b = gerundive.sub( /.*\s+(.*)um.*$/, "\\1" )
+         b += "ī, ō, etc."
+         return b
+       end
+      end
+    end
+  end
 end

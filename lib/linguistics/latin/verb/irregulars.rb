@@ -4,11 +4,11 @@ module Linguistics
   module Latin
     module Verb
 
-        ## 
+        ##
         # --
         # Recognized irregular verbs:
         # ###########################
-        # 
+        #
         # Derived from A&G 197
         #
         #  -- Core Irregulars --
@@ -23,17 +23,17 @@ module Linguistics
         #
         # DŌ is irregular because its lengths are unusual and because there
         # are no first person, passive forms
-        # 
+        #
         # * EDŌ
         # * QUEŌ
         # * FIŌ
         # * PROSUM
         #
         # ++
-        ## 
+        ##
 
         # Recognized irregular verb
-        SUM_ESSE_FUĪ_FUTŪRUS=<<EOJSON 
+        SUM_ESSE_FUĪ_FUTŪRUS=<<EOJSON
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -51,10 +51,10 @@ module Linguistics
             "data": {
               "present_active_infinitive": "esse",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "fuisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "futūrum esse",
               "future_passive_infinitive": ""
             }
@@ -226,7 +226,7 @@ module Linguistics
 EOJSON
 
         # Recognized irregular verb
-        FERŌ_FERRE_TULĪ_LĀTUM=<<EOJSON 
+        FERŌ_FERRE_TULĪ_LĀTUM=<<EOJSON
         {
           "original string":"ferō ferre tulī lātum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -244,10 +244,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "ferre",
               "present_passive_infinitive": "ferrī",
-                                        
+
               "perfect_active_infinitive": "tulisse",
               "perfect_passive_infinitive": "lātus",
-                                        
+
               "future_active_infinitive": "lātūrus esse",
               "future_passive_infinitive": "lātūrus īrī"
             }
@@ -379,7 +379,7 @@ EOJSON
                 "data": [
                   "ferar",
                   "ferēris",
-                  "ferētur", 
+                  "ferētur",
                   "ferēmur",
                   "ferēminī",
                   "ferentur"
@@ -458,7 +458,7 @@ EOJSON
         }
 EOJSON
         # Recognized irregular verb
-        EŌ_ĪRE_IVĪ_ITUM=<<EOJSON 
+        EŌ_ĪRE_IVĪ_ITUM=<<EOJSON
         {
           "original string":"eō īre ivī itum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -476,10 +476,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "īre",
               "present_passive_infinitive": "īrī",
-                                        
+
               "perfect_active_infinitive": "īsse",
               "perfect_passive_infinitive": "itum esse",
-                                        
+
               "future_active_infinitive": "itūrum esse",
               "future_passive_infinitive": ""
             }
@@ -611,7 +611,7 @@ EOJSON
                 "data": [
                   "",
                   "",
-                  "ītur (Impersonal)", 
+                  "ītur (Impersonal)",
                   "",
                   "",
                   ""
@@ -683,9 +683,9 @@ EOJSON
           }
         }
 EOJSON
-        
+
         # To choose, prefer
-        MĀLŌ_MĀLLE_MĀLUĪ=<<EOJSON 
+        MĀLŌ_MĀLLE_MĀLUĪ=<<EOJSON
         {
           "original string":"mālō mālle māluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -703,10 +703,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "mālle",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "māluisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -877,7 +877,7 @@ EOJSON
           }
 EOJSON
         # Recognized irregular verb
-        VOLŌ_VELLE_VOLUĪ=<<EOJSON 
+        VOLŌ_VELLE_VOLUĪ=<<EOJSON
         {
           "original string":"volō velle voluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -895,10 +895,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "velle",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "voluisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -1063,7 +1063,7 @@ EOJSON
 EOJSON
 
 
-        DŌ_DĀRE_DEDĪ_DATUM=<<EOJSON 
+        DŌ_DĀRE_DEDĪ_DATUM=<<EOJSON
         {
           "original string":"dō dāre dedī datum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -1081,10 +1081,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "dāre",
               "present_passive_infinitive": "dārī",
-                                        
+
               "perfect_active_infinitive": "dedisse",
               "perfect_passive_infinitive": "datum",
-                                        
+
               "future_active_infinitive": "datūrum esse",
               "future_passive_infinitive": ""
             }
@@ -1338,7 +1338,7 @@ EOJSON
 
 # EDŌ :  To eat
 
-        EDŌ_ĒSSE_ĒDĪ_ĒSUM=<<EOJSON 
+        EDŌ_ĒSSE_ĒDĪ_ĒSUM=<<EOJSON
         {
           "original string":"EDŌ ĒSSE ĒDĪ ĒSUM",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -1356,10 +1356,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "ēsse",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "ēdisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "ēsūrum esse",
               "future_passive_infinitive": ""
             }
@@ -1613,7 +1613,7 @@ EOJSON
 
 # QUEŌ: to be able
 
-        QUEŌ_QUĪRE_QUĪVĪ=<<EOJSON 
+        QUEŌ_QUĪRE_QUĪVĪ=<<EOJSON
         {
           "original string":"queō quīre quivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -1631,10 +1631,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "quīre",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "quīsse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -1806,7 +1806,7 @@ EOJSON
 
 # NEQUEŌ: to be able
 
-        NEQUEŌ_NEQUĪRE_NEQUĪVĪ=<<EOJSON 
+        NEQUEŌ_NEQUĪRE_NEQUĪVĪ=<<EOJSON
         {
           "original string":"nequeō nequīre qneuivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -1824,10 +1824,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "nequīre",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "nequīvisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -1959,7 +1959,7 @@ EOJSON
                 "data": [
                   "",
                   "",
-                  "", 
+                  "",
                   "",
                   "",
                   ""
@@ -2032,7 +2032,7 @@ EOJSON
         }
 EOJSON
 #FIŌ:  To be made.  No active forms, efectively the passive form to faciō
-        FIŌ_FIĒRĪ_FACTUS=<<EOJSON 
+        FIŌ_FIĒRĪ_FACTUS=<<EOJSON
         {
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -2050,10 +2050,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "facere",
               "present_passive_infinitive": "fierī",
-                                        
+
               "perfect_active_infinitive": "fēcisse",
               "perfect_passive_infinitive": "factus esse",
-                                        
+
               "future_active_infinitive": "factūrum esse",
               "future_passive_infinitive": ""
             }
@@ -2169,7 +2169,7 @@ EOJSON
                   "",
                   ""
                 ]
-             }, 
+             },
             "active_voice_subjunctive_mood_present_tense": {
                 "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
@@ -2299,7 +2299,7 @@ EOJSON
 
 # PROSUM: To be of help, to be useful, benefit, profit
 
-PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON 
+PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
         {
           "original string":"prōsum prōdesse prōfuī prōfutūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -2317,10 +2317,10 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
             "data": {
               "present_active_infinitive": "prōdesse",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "prōfuisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "prōfutūrum esse",
               "future_passive_infinitive": ""
             }
@@ -2503,7 +2503,7 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
 EOJSON
 
 # A famous one, to be able
-        POSSUM_POSSE_POTUĪ=<<EOJSON 
+        POSSUM_POSSE_POTUĪ=<<EOJSON
         {
           "original string":"possum posse potuī",
             "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -2521,10 +2521,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "posse",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "potuisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -2696,7 +2696,7 @@ EOJSON
 EOJSON
 
         # Recognized irregular verb
-        NŌLŌ_NŌLLE_NŌLUĪ=<<EOJSON 
+        NŌLŌ_NŌLLE_NŌLUĪ=<<EOJSON
         {
           "original string":"nōlō nōlle nōluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -2714,10 +2714,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "nōlle",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "nōluisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -2888,7 +2888,7 @@ EOJSON
           }
 EOJSON
 
-        COEPĪ_COEPISSE_COEPTUM=<<EOJSON 
+        COEPĪ_COEPISSE_COEPTUM=<<EOJSON
         {
           "original string":"coepī copeisse copetum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -2907,10 +2907,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "coepisse",
               "perfect_passive_infinitive": "coeptus",
-                                        
+
               "future_active_infinitive": "coeptūrus",
               "future_passive_infinitive": ""
             }
@@ -3080,7 +3080,7 @@ EOJSON
             }
           }
 EOJSON
-        ODĪ_ŌDISSE=<<EOJSON 
+        ODĪ_ŌDISSE=<<EOJSON
         {
           "original string":"ōdī_ōdisse",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -3098,10 +3098,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "ōdisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -3268,7 +3268,7 @@ EOJSON
 
 # To remember
 
-        MEMINĪ_MEMINISSE=<<EOJSON 
+        MEMINĪ_MEMINISSE=<<EOJSON
         {
           "original string":"meminī meminisse",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -3286,10 +3286,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "meminisse",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -3439,7 +3439,7 @@ EOJSON
 # "I say"
 # A&G206,a
 
-        AIŌ=<<EOJSON 
+        AIŌ=<<EOJSON
         {
           "original string":"aiō",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -3457,10 +3457,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -3629,7 +3629,7 @@ EOJSON
 
 # Inquam
 # I say
-        INQUAM=<<EOJSON 
+        INQUAM=<<EOJSON
         {
           "original string":"inquam",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -3647,10 +3647,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -3829,13 +3829,13 @@ EOJSON
                   "data": []
                 }
             }
-          
-        
+
+
 EOJSON
 
 # For/fari: To speak, pronounce
 #
-        FOR_FĀRĪ=<<EOJSON 
+        FOR_FĀRĪ=<<EOJSON
         {
           "original string":"for fārī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -3853,10 +3853,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "fārī",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -4027,7 +4027,7 @@ EOJSON
 EOJSON
 
 #  Quaesō:  To beg, request
-        QUAESŌ=<<EOJSON 
+        QUAESŌ=<<EOJSON
         {
           "original string":"quaesō",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -4045,10 +4045,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }
@@ -4201,7 +4201,7 @@ EOJSON
         }
 EOJSON
 
-        OVĀRE=<<EOJSON 
+        OVĀRE=<<EOJSON
         {
           "original string":"ovāre",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
@@ -4219,10 +4219,10 @@ EOJSON
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
-                                        
+
               "perfect_active_infinitive": "",
               "perfect_passive_infinitive": "",
-                                        
+
               "future_active_infinitive": "",
               "future_passive_infinitive": ""
             }

@@ -63,7 +63,7 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("cēperitis", @aThirdIO.active_voice_indicative_mood_futureperfect_tense_second_person_plural_number.to_s)
     assert_equal("cēperint",  @aThirdIO.active_voice_indicative_mood_futureperfect_tense_third_person_plural_number.to_s)
 
-# Passive Present 
+# Passive Present
 
     assert_equal("capior",        @aThirdIO.passive_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("caperis",       @aThirdIO.passive_voice_indicative_mood_present_tense_second_person_singular_number.to_s)
@@ -86,20 +86,20 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("capiēminī",     @aThirdIO.passive_voice_indicative_mood_future_tense_second_person_plural_number.to_s)
     assert_equal("capientur",     @aThirdIO.passive_voice_indicative_mood_future_tense_third_person_plural_number.to_s)
 
-# Passive perfect 
+# Passive perfect
     assert_equal("captum sum",    @aThirdIO.passive_voice_indicative_mood_perfect_tense_first_person_singular_number.to_s)
     assert_equal("captum es",     @aThirdIO.passive_voice_indicative_mood_perfect_tense_second_person_singular_number.to_s)
     assert_equal("captum est",    @aThirdIO.passive_voice_indicative_mood_perfect_tense_third_person_singular_number.to_s)
     assert_equal("captum sumus",  @aThirdIO.passive_voice_indicative_mood_perfect_tense_first_person_plural_number.to_s)
     assert_equal("captum estis",  @aThirdIO.passive_voice_indicative_mood_perfect_tense_second_person_plural_number.to_s)
-    assert_equal("captum sunt",   @aThirdIO.passive_voice_indicative_mood_perfect_tense_third_person_plural_number.to_s)    
+    assert_equal("captum sunt",   @aThirdIO.passive_voice_indicative_mood_perfect_tense_third_person_plural_number.to_s)
 
     assert_equal("captum eram",   @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_first_person_singular_number.to_s)
     assert_equal("captum erās",   @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_second_person_singular_number.to_s)
     assert_equal("captum erat",   @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_third_person_singular_number.to_s)
     assert_equal("captum erāmus", @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_first_person_plural_number.to_s)
     assert_equal("captum erātis", @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_second_person_plural_number.to_s)
-    assert_equal("captum erant",  @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number.to_s)                
+    assert_equal("captum erant",  @aThirdIO.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number.to_s)
 
     assert_equal("captum erō",    @aThirdIO.passive_voice_indicative_mood_futureperfect_tense_first_person_singular_number.to_s)
     assert_equal("captum eris",   @aThirdIO.passive_voice_indicative_mood_futureperfect_tense_second_person_singular_number.to_s)
@@ -108,8 +108,8 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("captum eritis", @aThirdIO.passive_voice_indicative_mood_futureperfect_tense_second_person_plural_number.to_s)
     assert_equal("captum erint",  @aThirdIO.passive_voice_indicative_mood_futureperfect_tense_third_person_plural_number.to_s)
 
-### Subjunctives  
-  # Active        
+### Subjunctives
+  # Active
     assert_equal("capiam",     @aThirdIO.active_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("capiās",     @aThirdIO.active_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("capiat",     @aThirdIO.active_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
@@ -138,7 +138,7 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("cēpissētis", @aThirdIO.active_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("cēpissent",  @aThirdIO.active_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
 
-    #passive     
+    #passive
     assert_equal("capiar",                           @aThirdIO.passive_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("capiāris",                         @aThirdIO.passive_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("capiātur",                         @aThirdIO.passive_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
@@ -166,25 +166,25 @@ class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("[ captī, captae, capta ] essēmus", @aThirdIO.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number.to_s)
     assert_equal("[ captī, captae, capta ] essētis", @aThirdIO.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("[ captī, captae, capta ] essent",  @aThirdIO.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
- 
+
     # Imperatives
     assert_equal"cape",   @aThirdIO.imperatives[0]
     assert_equal"capite", @aThirdIO.imperatives[1]
 
     # Participles
-    assert_equal"capiēns, capientis",             @aThirdIO.present_active_participle 
+    assert_equal"capiēns, capientis",             @aThirdIO.present_active_participle
     assert_equal"captūrus, captūra, captūrum",    @aThirdIO.future_active_participle
     assert_equal"captus, capta, captum",          @aThirdIO.perfect_passive_participle
     assert_equal"capiendus, capienda, capiendum", @aThirdIO.future_passive_participle
 
-    # Infinitves 
+    # Infinitves
     assert_equal "capere",                     @aThirdIO.present_active_infinitive
     assert_equal "cēpīsse",                    @aThirdIO.perfect_active_infinitive
     assert_equal "captūrus esse",              @aThirdIO.future_active_infinitive
     assert_equal "capī",                       @aThirdIO.present_passive_infinitive
-    assert_equal "captus, capta, captum esse", @aThirdIO.perfect_passive_infinitive    
+    assert_equal "captus, capta, captum esse", @aThirdIO.perfect_passive_infinitive
     assert_equal "captum īrī",                 @aThirdIO.future_passive_infinitive
-     
-  end 
+
+  end
 
 end
