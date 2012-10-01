@@ -1,8 +1,8 @@
 # encoding: UTF-8
 #
-module Linguistics 
-  module Latin 
-    module Verb 
+module Linguistics
+  module Latin
+    module Verb
       class LatinVerb
         ##
         #
@@ -12,7 +12,7 @@ module Linguistics
         #
         #   * 4th declension verbal noun
         #   * Formed on the same stem as the perfect passive participle
-        #   * Only two forms in common use:  accusative and ablative singular 
+        #   * Only two forms in common use:  accusative and ablative singular
         #
         # Ablative is used with the neuter of certain adjectives to indicate
         # what respect a particular quality is applicable: <em>mirabile
@@ -31,8 +31,8 @@ module Linguistics
         #
         ###
         def supine
-          acc = @pass_perf_part
-          abl = acc.sub /^(.*)um$/, "\\1"
+          acc = passive_perfect_participle
+          abl = acc.sub( /^(.*)um$/, "\\1" )
           abl += "ū"
           {:ablative => abl, :accusative => acc}
         end

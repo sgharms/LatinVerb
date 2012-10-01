@@ -64,7 +64,7 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("ēgeritis", @aThird.active_voice_indicative_mood_futureperfect_tense_second_person_plural_number.to_s)
     assert_equal("ēgerint",  @aThird.active_voice_indicative_mood_futureperfect_tense_third_person_plural_number.to_s)
 
-# Passive Present 
+# Passive Present
 
     assert_equal("agor",      @aThird.passive_voice_indicative_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("ageris",    @aThird.passive_voice_indicative_mood_present_tense_second_person_singular_number.to_s)
@@ -87,20 +87,20 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("agēminī",   @aThird.passive_voice_indicative_mood_future_tense_second_person_plural_number.to_s)
     assert_equal("agentur",   @aThird.passive_voice_indicative_mood_future_tense_third_person_plural_number.to_s)
 
-# Passive perfect 
+# Passive perfect
     assert_equal("actum sum",    @aThird.passive_voice_indicative_mood_perfect_tense_first_person_singular_number.to_s)
     assert_equal("actum es",     @aThird.passive_voice_indicative_mood_perfect_tense_second_person_singular_number.to_s)
     assert_equal("actum est",    @aThird.passive_voice_indicative_mood_perfect_tense_third_person_singular_number.to_s)
     assert_equal("actum sumus",  @aThird.passive_voice_indicative_mood_perfect_tense_first_person_plural_number.to_s)
     assert_equal("actum estis",  @aThird.passive_voice_indicative_mood_perfect_tense_second_person_plural_number.to_s)
-    assert_equal("actum sunt",   @aThird.passive_voice_indicative_mood_perfect_tense_third_person_plural_number.to_s)    
+    assert_equal("actum sunt",   @aThird.passive_voice_indicative_mood_perfect_tense_third_person_plural_number.to_s)
 
     assert_equal("actum eram",   @aThird.passive_voice_indicative_mood_pastperfect_tense_first_person_singular_number.to_s)
     assert_equal("actum erās",   @aThird.passive_voice_indicative_mood_pastperfect_tense_second_person_singular_number.to_s)
     assert_equal("actum erat",   @aThird.passive_voice_indicative_mood_pastperfect_tense_third_person_singular_number.to_s)
     assert_equal("actum erāmus", @aThird.passive_voice_indicative_mood_pastperfect_tense_first_person_plural_number.to_s)
     assert_equal("actum erātis", @aThird.passive_voice_indicative_mood_pastperfect_tense_second_person_plural_number.to_s)
-    assert_equal("actum erant",  @aThird.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number.to_s)                
+    assert_equal("actum erant",  @aThird.passive_voice_indicative_mood_pastperfect_tense_third_person_plural_number.to_s)
 
     assert_equal("actum erō",    @aThird.passive_voice_indicative_mood_futureperfect_tense_first_person_singular_number.to_s)
     assert_equal("actum eris",   @aThird.passive_voice_indicative_mood_futureperfect_tense_second_person_singular_number.to_s)
@@ -109,8 +109,8 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("actum eritis", @aThird.passive_voice_indicative_mood_futureperfect_tense_second_person_plural_number.to_s)
     assert_equal("actum erint",  @aThird.passive_voice_indicative_mood_futureperfect_tense_third_person_plural_number.to_s)
 
-### Subjunctives  
-  # Active        
+### Subjunctives
+  # Active
     assert_equal("agam",      @aThird.active_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("agās",      @aThird.active_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("agat",      @aThird.active_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
@@ -139,7 +139,7 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("ēgissētis", @aThird.active_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("ēgissent",  @aThird.active_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
 
-    #passive     
+    #passive
     assert_equal("agar",                          @aThird.passive_voice_subjunctive_mood_present_tense_first_person_singular_number.to_s)
     assert_equal("agāris",                        @aThird.passive_voice_subjunctive_mood_present_tense_second_person_singular_number.to_s)
     assert_equal("agātur",                        @aThird.passive_voice_subjunctive_mood_present_tense_third_person_singular_number.to_s)
@@ -167,24 +167,24 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("[ actī, actae, acta ] essēmus", @aThird.passive_voice_subjunctive_mood_pastperfect_tense_first_person_plural_number.to_s)
     assert_equal("[ actī, actae, acta ] essētis", @aThird.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("[ actī, actae, acta ] essent",  @aThird.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
-  
+
           # Imperatives
           assert_equal"age",   @aThird.imperatives[0]
           assert_equal"agite", @aThird.imperatives[1]
-  
+
           # Participles
-          assert_equal"agens, agentis",           @aThird.present_active_participle 
+          assert_equal"agens, agentis",           @aThird.present_active_participle
           assert_equal"actūrus, actūra, actūrum", @aThird.future_active_participle
           assert_equal"actus, acta, actum",       @aThird.perfect_passive_participle
           assert_equal"agendus, agenda, agendum", @aThird.future_passive_participle
-  
-          # Infinitves 
+
+          # Infinitves
           assert_equal "agere",                   @aThird.present_active_infinitive.to_s
           assert_equal "ēgīsse",                  @aThird.perfect_active_infinitive
           assert_equal "actūrus esse",            @aThird.future_active_infinitive
           assert_equal "agī",                     @aThird.present_passive_infinitive
-          assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive    
+          assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive
           assert_equal "actum īrī",               @aThird.future_passive_infinitive
-   end 
+   end
 
 end

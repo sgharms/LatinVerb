@@ -10,7 +10,7 @@ require 'yaml'
 require 'json'
 require 'active_support'
 
-##
+### {{{
 #--
 # Internal dependencies
 # If the library is in the latin/verb, then it is a feature of the actual
@@ -19,57 +19,80 @@ require 'active_support'
 # program.  It's the difference between "This is part of Latin" and "This is
 # Part of the machinery I use to represent Latin in Ruby."
 #++
-## 
+### }}}
 
-require 'linguistics/latin/verb/classification_types'
-require 'linguistics/latin/verb/tense_methods'
+# Latin Language Rules
+require 'linguistics/latin/verb/classification_types'# {{{
+require 'linguistics/latin/verb/tense_block'
+require 'linguistics/latin/verb/participle_block'
+require 'linguistics/latin/verb/infinitive_block'
+require 'linguistics/latin/verb/imperative_block'
+require 'linguistics/latin/verb/tense_definitions/impersonal'
+require 'linguistics/latin/verb/tense_definitions/invariant'
+require 'linguistics/latin/verb/tense_definitions/first'
+require 'linguistics/latin/verb/tense_definitions/second'
+require 'linguistics/latin/verb/tense_definitions/third'
+require 'linguistics/latin/verb/tense_definitions/third_io'
+require 'linguistics/latin/verb/tense_definitions/fourth'
+require 'linguistics/latin/verb/tense_definitions/irregular'
 require 'linguistics/latin/verb/deponent_tense_methods'
 require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
 require 'linguistics/latin/verb/infinitives'
 require 'linguistics/latin/verb/participles'
-require 'linguistics/latin/verb/irregulars'
+require 'linguistics/latin/verb/irregulars'# }}}
 
+# LatinVerb design
+require 'linguistics/latin/verb/latinverb/impersonal'# {{{
+require 'linguistics/latin/verb/latinverb/irregular'
+require 'linguistics/latin/verb/latinverb/semideponent'
+require 'linguistics/latin/verb/latinverb/deponent'
+require 'linguistics/latin/verb/latinverb/latinverb_classifier'
+require 'linguistics/latin/verb/latinverb/latinverb_pp_extractor'
+require 'linguistics/latin/verb/latinverb/latinverb_input_sanitizer'
+require 'linguistics/latin/verb/latinverb/defective_checker'
+require 'linguistics/latin/verb/latinverb/latin_verb_type_evaluator'
 require 'linguistics/latin/verb/latinverb/classmethods'
+require 'linguistics/latin/verb/latinverb/verbvector_description'
 require 'linguistics/latin/verb/latinverb/metaprogramming'
 require 'linguistics/latin/verb/latinverb/validation'
 require 'linguistics/latin/verb/latinverb/data'
-require 'linguistics/latin/verb/latinverb/display'
+require 'linguistics/latin/verb/latinverb/display'# }}}
 
-require 'latinverb/version'
-require 'latinverb/chart.rb'
+require 'latinverb/version'# {{{
+require 'latinverb/chart.rb'# }}}
 
 =begin rdoc
-
+# {{{
 ==DESCRIPTION
 
-Linguistics is a module that forms a primordial node for storing Modules and classes dealing with lingustics.  The namespace is immediately sub-divided by language (e.g. Latin, Spanish) then part of speech (e.g. Noun, Verb) or function (e.g. Phonographia).  
-
+Linguistics is a module that forms a primordial node for storing Modules and classes dealing with linguistics.  The namespace is immediately sub-divided by language (e.g. Latin, Spanish) then part of speech (e.g. Noun, Verb) or function (e.g. Phonographia).
+# }}}
 =end
 
 module Linguistics
-  # Generalized module for handling lingustics related to Latin
+  # Generalized module for handling linguistics related to Latin
   module Latin
-    # Generalized module for handling lingustics related to Latin's verbal aspects
+    # Generalized module for handling linguistics related to Latin's verbal aspects
     module Verb
-      ##
-      # == SYNOPSIS
+      ### {{{
+      # == SYNOPSIS# {{{# {{{
       #
       # Abstraction of a Verb in the Latin language.
-      #
-      # == DESCRIPTION
+      ## }}}
+      # == DESCRIPTION# {{{
       #
       # LatinVerb is:
       # * a tool to help the student of Latin understand the rules of
-      #   conjugation's heuristics by presenting said heuristics in Ruby 
+      #   conjugation's heuristics by presenting said heuristics in Ruby
       # * a way to get out of having to lug the 501 Latin Verbs book around
       #   (when wrapped in an application ;) )
       # * a way to discover some of the interesting metacongnitive structures
       #   between natural language and programming language
       # * <em>...and so much more...</em>
-      #
-      # === OPERATION
+      ## }}}
+      # === OPERATION# {{{
       #
       # LatinVerb operates by instantiating a LatinVerb based on a string
       # containing the "four principal parts" that are used to describe a
@@ -81,16 +104,16 @@ module Linguistics
       # taught</b> in Latin classes for _milennia_!
       #
       # An example should illustrate:
-      #
-      # === EXAMPLE
+      ## }}}
+      # === EXAMPLE# {{{
       #
       # <pre>
       # to_love = LatinVerb.new("amō amāre amāvī amatum")
       # to_love.active_voice_indicative_mood_present_tense_second_person_singular_number #=> amās
       # to_love.active_voice_indicative_mood_present_tense_third_person_singular_number #=> amat
       # </pre>
-      #
-      # === EXPLICATION
+      ## }}}
+      # === EXPLICATION# {{{
       #
       # Considering the above example, when the object was insantiated, it
       # realized what its conjugation was, realized what its stem ("amā") was,
@@ -100,8 +123,8 @@ module Linguistics
       # return it as an array.  It is through (mis-?)use of method_missing
       # that this simple "vector" method for interfacing with a verb is
       # possible.  <em>Puto hoc bonum esse</em>.
-      #
-      # === MACRONS / QUANTITY
+      ## }}}
+      # === MACRONS / QUANTITY# {{{
       #
       # In reference texts, quanitiy of vowel duration ("long" or "short") is
       # marked with a macron.  *LatinVerb assumes it will be provided strings
@@ -110,12 +133,11 @@ module Linguistics
       # <em>Si hoc non aderit, non mutabitur</em>.  To make this easier I
       # wrote the MacronConversion library which supports conversion of
       # LaTeX-styled ASCII macron transgraphia (e.g. \={a} => ā).
-      #
-      #
-      # === REFERENCE
-      #
-      # ==== Voices
-      # A&G Sec. 156:  
+      ## }}}
+      # === REFERENCE# {{{
+      ## }}}
+      # ==== Voices# {{{
+      # A&G Sec. 156:
       #
       # The Active and Passive Voices in Latin generally correspond to the
       # active and passive in English; but --
@@ -125,8 +147,8 @@ module Linguistics
       # meaning.  These are called Deponents (sec 190.)...
       # c.  Some verbs with active meaning have the passive form in the
       # perfect tenses; these are called Semi-Deponents
-      #
-      # ==== Moods
+      ## }}}
+      # ==== Moods# {{{
       #
       # a.  The Indicative Mood is used for most <em>direct assertions</em>
       # and <em>interrogations</em>
@@ -136,41 +158,33 @@ module Linguistics
       # c.  The Imperative is used for <em>exhortation</em>,
       # <em>entreaty</em>, or <em>command</em>; but the Subjunctive is often
       # used instead
-      #
-      # === WORKS CITED
+      ## }}}
+      # === WORKS CITED# {{{
       #
       # Allen, J.H.  Allen and Greenough's New Latin Grammar.  Dover,
       # Mineola: 2006.  Cited herein as "A&G."
       #
-      # Wheelock, Frederic M.  Wheelock's Latin.  Collins, New York: 2005.  
-      # Cited herein as "Wheelock."
+      # Wheelock, Frederic M.  Wheelock's Latin.  Collins, New York: 2005.
+      # Cited herein as "Wheelock."# }}}# }}}
       #
-      ## 
+      ### }}}
       class LatinVerb
-        # Modules used to validate the input in initialize
+        # Modules used to validate the input in initialize# {{{
         include Linguistics::Latin::Verb::Validation
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
- 
-        # Attributes for storing submitted data.  This will help remember the origin state
+        # }}}
+
+        # Attributes for storing submitted data.  This will help remember the origin state# {{{
         attr_reader :original_string
-        
+
         # Attributes for storing calculated status.
-        attr_reader :classification, :classification_error, :principal_parts,
-        :four_pp, :irregular, :stem, :first_pers_singular, :pres_act_inf,
-        :first_pers_perf, :pass_perf_part, :participial_stem, :verb_methods,
-        :data_structure
+        attr_reader :verb_methods
 
         # Access the Module that provides all the methods
-        attr_reader :latin_verbvector_generator, :latin_verb_methods
+        attr_reader :latin_verbvector_generator, :latin_verb_methods# }}}
 
-        # Accessors for "odd forms"
-        attr_reader :present_only
-
-        alias_method :conjugation, :classification
-        alias_method :irregular?, :irregular
-
-        ##
+        ### {{{
         #
         # The constructor for a Latinverb
         #
@@ -195,406 +209,12 @@ module Linguistics
         #
         # * Array support for the argument
         #
-        ##
-        def initialize(s)
-          raise SyntaxError if s.nil?
-
-          if s.class == String
-            _init_by_string(s)
-            _impersonal_handler if @impersonal
-            _irregular_handler if @irregular
-            _deponent_handler  if ( @deponent || @semideponent )
-          end
-
-          if (s.class == Hash )
-            if (s['irregular'] == false and 
-                s.has_key?('original_string'))
-              # We're restoring a standard verb
-              _init_by_string(s['original_string'])
-            end
-          end
-
-          if s.class == Array
-            # TODO:  Fill this out.  
-          end
-          
-          # Load up the specialized vector complement of methods
-          #
-          unless @impersonal
-            _add_vector_methods 
-
-            # Given the use of method_missing to handle resolution, it's wise to
-            # make sure that every cluster method /is/ actually defined.
-            @tense_list.each do |m|
-              raise "FAILURE:  Critical method #{m} was not defined." unless 
-                (self.respond_to? m.to_sym)
-            end
-          end
-
-          # Placeholder the data structure that holds all the answers (a hash
-          # of TenseBlocks).  This may be the typical case, but the
-          # calculation is an expensive operation compared to the simple
-          # vector query, so this won't actually get defined unless #to_hash
-          # is called (cf. latinverb/display).
-          # TODO:  This probably needs some work, make it useful in the
-          # to_json methods
-
-          @data_structure = {}
-
-          # In a bit of cleverness, if the verb is deponent, we have built out
-          # this verb as if it were regular, but we have also created a
-          # @proxyVerb which is the active 'pseudo verb' corresponding to this
-          # verb.  We should be able to take this verb's active formulations
-          # and set their results to the @proxyVerb's passive formulations
-          #
-          # Ergo:  miror/mirari/miratus =~ miro/mirare/JUNK/miratus
-          # Therefore make a LatinVerb.new(miro/mirare/JUNK/miratus).  Take
-          # its passives and set them to this verb's actives.  This is
-          # actually what students do heuristically in Latin classes.
-          apply_deponent_masking if @deponent
-
-          # Previously @deponent and @semideponent followed the same paths,
-          # but in semideponents, the "present system" is handled as normal
-          # (completed by _add_vector_methods, supra).  We need only mask, as
-          # A&G #192 says: "the completed methods" i.e. the perfect system.
-          apply_semideponent_masking  if @semideponent
-
-          # Per A&G206, some verbs are to have their perfect system
-          # conjugations removed.  
-          remove_perfect_tenses if present_only?
-        end
-
-        ######################################################################
-        # Instance methods
-        ######################################################################
-         
-        ##
+        ### }}}
         #
-        # Some verbs only take a active/indic/pres/3rd/sg ("it rains").  For
-        # these we will not add the full vectors of methods, but will only
-        # respond to THAT vector.  It's a bit of an identity relationship and
-        # seems a bit silly to return, but I think it keeps the proper
-        # completeness
-        #
-        ##
-        
-        def _impersonal_handler
-          singleton_class.class_eval do
-            def active_voice_indicative_mood_present_tense
-              TenseBlock.new ["", "", @original_string,
-                              "", "", ""]
-            end
-            def active_voice_indicative_mood_present_tense_third_person_singular_number
-              return active_voice_indicative_mood_present_tense[2]
-            end
-          end
-        end
+        def initialize(data)# {{{
+          raise LatinVerbInitializationError if data.nil?
 
-        ## 
-        #
-        # Removes perfect-system tenses by blanking them out.
-        #
-        ##
-        def remove_perfect_tenses
-          # Get perfect system methods
-          tense_blocks_to_eclipse = 
-            self.methods.grep /^(active|passive).*(_|past|future)perfect_/
-
-          # Re-assgin their methods to point to a blank TenseBlock, thus
-          # eclipsing any values thatm ight come in.
-          tense_blocks_to_eclipse.each do |s|
-            singleton_class.class_eval do
-              define_method s do
-                return TenseBlock.new [ '', '', '', '', '', ''] 
-              end
-            end
-          end
-        end
-
-        ##
-        #
-        # Determines whether a verb should have its perfect tenses removed.
-        # This is an exceptional behavior described in A&G206
-        #
-        ##
-
-        def present_only?
-          @present_only = 
-            (
-              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@pres_act_inf) ||
-              Linguistics::Latin::Verb::LatinVerb::PRESENT_ONLY.member?(@first_pers_singular)
-            ) ?  true : false
-        end
-        ##
-        #
-        # Imports replacements to the standard tense_methods and thus
-        # overwrites the old method definitions defined by verbvector
-        #
-        ##
-        def apply_semideponent_masking
-          self.singleton_class.class_eval do
-            include Linguistics::Latin::Verb::DeponentTenseMethods
-          end
-        end
-
-        ##
-        #
-        # Top-level method used to call the sub-methods which create a facade so that
-        # active_ vectors can be called on a deponent which actually forwards that
-        # call to a "fake" non-deponent (+@proxyVerb+) whose passives fit the correct
-        # morphology
-        #
-        # It calls the following methods, each of which applies the masking to a
-        # certain collection of vectors:
-        #
-        # * +deponent_swap+ :: active_voice* remaps "standard" calls like
-        # +active_voice_indicative_mood_present_tense...+
-        # * +deponent_imperative_mutations+ :: masks the imperatives
-        # * +deponent_participle_mutations+ :: masks the participles
-        # * +deponent_infinitive_mutations+ :: masks the infinitives
-        #
-        ##
-        def apply_deponent_masking
-          deponent_swap
-          deponent_imperative_mutations
-          deponent_participle_mutations
-          deponent_infinitive_mutations
-        end
-
-        ##
-        #
-        # The deponent's imperatives require a bit of consideration.  They don't
-        # follow the stem/stem+'ite' format.  
-        #
-        ##
-        
-        def deponent_imperative_mutations # :nodoc: 
-          self.singleton_class.class_eval do
-            def active_voice_imperative_mood_present_tense_second_person_singular_number
-              return @proxyVerb.instance_variable_get '@pres_act_inf'
-            end
-            def active_voice_imperative_mood_present_tense_second_person_plural_number
-              return @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
-            end
-            def active_voice_imperative_mood_future_tense_second_person_singular_number
-              k=@proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
-              k.sub! /minī$/, ''
-              k += 'tor'
-              Linguistics::Latin::Phonographia.fix_macrons k
-            end
-          end
-        end
-
-        def deponent_participle_mutations # :nodoc: 
-          self.singleton_class.class_eval do
-            def present_active_participle
-              return @proxyVerb.present_active_participle
-            end
-
-            def future_active_participle
-              return @proxyVerb.future_active_participle
-            end
-
-            def perfect_active_participle
-              return @proxyVerb.perfect_passive_participle
-            end
-
-            def future_passive_participle
-              return @proxyVerb.future_passive_participle
-            end
-
-            # Mask the supine
-            def supine
-              return @proxyVerb.supine
-            end
-          end
-        end
-
-        def deponent_infinitive_mutations # :nodoc: 
-          self.singleton_class.class_eval do
-            def present_active_infinitive
-              return @proxyVerb.send :present_passive_infinitive
-            end
-            def perfect_active_infinitive
-              return @proxyVerb.send :perfect_passive_infinitive    
-            end
-            def future_active_infinitive
-              return @proxyVerb.send :future_active_infinitive
-            end
-          end
-        end
-
-        ##
-        # 
-        # Swaps this verb's active_ vectors and replaces them with
-        # @proxyVerb's passive_ vectors.  This is pretty darned sneaky. See
-        # Also deponent_swap
-        #
-        ##
-        def deponent_swap
-          # First, get the methods that were defined in the proxy as passive
-
-          storage = {}
-
-          @proxyVerb.methods.grep(/^passive/).each do |pass|
-            # Find the active correlate
-            active_corr = pass.to_s.sub /^passive(.*)/, "active\\1"
-            
-            #  Keep @proxyVerb in the binding scope
-            pV = @proxyVerb
-
-            # In self, find the passive and save it's resultant object into a
-            # hash for future use.
-            self.singleton_class.class_eval do
-              storage[active_corr.to_sym] = pV.send(pass) 
-            end
-          end
-
-          # Take the stored hashes and define instance methods on self such
-          # that we intercept the mixed-in methods ( C-c-c-combo breaker! ).
-          storage.each_pair do |k,v|
-            self.singleton_class.class_eval do
-              define_method k, lambda { return v }
-            end
-          end
-        end
-
-        # Returns the "short" version, sans the module specifier.  in previous
-        # versions, the classification was expressed as a String.  While this
-        # had a certain amount of simplicity, building function is based on
-        # these classifications seems a linkely future direction.
-        #
-        # Furthermore, it is not the case that these are actuallly Strings,
-        # they are entities of an ontological sttus of their own and it seems
-        # "off" to consider them as mere strings.
-        def short_class
-          return @classification.to_s.gsub(/.*::(\w+)$/,"\\1")
-        end
-
-        ##
-        #
-        # Returns the four principal parts and regularity designation
-        ##
-        def to_s
-           return "#{self.class}: [EMPTY PP]" if @four_pp.nil?
-           return self.class if @four_pp.empty?
-           @four_pp.join(', ') + " [Irregular?: #{@irregular.to_s}]"
-        end
-
-        ##
-        #
-        # When working in irb or LatinIRB it's good to find out what the
-        # instance methods are on this
-        def instance_methods
-          self.latin_verbvector_generator.vector_list
-        end
-
-        private
-
-        def _deponent_handler
-          @proxyVerb = Linguistics::Latin::Verb::LatinVerb.new @deponent_proxy
-        end
-
-        def _irregular_handler
-          begin
-            # Translation added to account for Ruby not liking constants /^/
-            # with a multibyte.  Probably a bug.
-            #
-            # This buy can be discovered by running #constants on
-            # Linguistics::Latin::Verb and seeing that Ōxxx is not found.  To
-            # fix this i had to store it as ODI_.  To make /that/ hack work, I
-            # had to add this bit beginning two lines below :-/
-            o = ActiveSupport::Multibyte::Chars.new( @original_string.gsub(/\s+/,'_') ).upcase
-
-            if o.match /^([ĀĒĪŌŪ])(.*)/
-              x=o[0,1].tr 'ĀĒĪŌŪ', 'AEIOU'
-              y=o[1,o.length]
-              o= x+y
-            end
-
-            o_upcase_and_symbolic = o.to_sym
-            json_string = Linguistics::Latin::Verb.const_get o_upcase_and_symbolic 
-
-
-            raise "Found a JSON string with null length!" if json_string.length <= 10
-            revivified_data_structure = JSON.parse json_string
-          rescue JSON::ParserError => e
-            puts "We were unable to parse JSON for #{@original_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please verify your syntax."
-            raise e
-          rescue NameError => e
-            puts "We were unable to find a definition for #{@original_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please provide one."
-            raise e
-          rescue => error
-            warn "#{@original_string} was identified as irregular but did not have a definition provided."
-            raise error
-          end
-
-          revivified_data_structure['tense_blocks'].each_pair do |k,v|
-            singleton_class.class_eval do
-              define_method k.to_sym do
-                TenseBlock.new v, { :meaning => MEANINGS[k.to_sym] }
-              end
-            end
-          end
-
-          @irregular_infinitives = revivified_data_structure['infinitives']
-          @irregular_participles = revivified_data_structure['participles']
-
-          return if @irregular_infinitives.nil?
-          return if @irregular_participles.nil?
-
-          singleton_class.class_eval do
-            def present_active_infinitive; return @irregular_infinitives.present_active_infinitive; end
-            def present_passive_infinitive; return @irregular_infinitives.present_passive_infinitive; end
-            def perfect_active_infinitive; return @irregular_infinitives.perfect_active_infinitive; end
-            def perfect_passive_infinitive; return @irregular_infinitives.perfect_passive_infinitive; end
-            def future_passive_infinitive; return @irregular_infinitives.future_passive_infinitive; end
-            def future_active_infinitive; return @irregular_infinitives.future_active_infinitive; end
-          end
-          singleton_class.class_eval do
-            def present_active_participle; return @irregular_participles.present_active_participle; end
-            def future_active_participle; return @irregular_participles.future_active_participle; end
-            def perfect_passive_participle; return @irregular_participles.perfect_passive_participle; end
-            def future_passive_participle; return @irregular_participles.future_passive_participle; end
-            def gerundive; return @irregular_participles.gerundive; end
-            def gerund; return @irregular_participles.d; end
-          end
-
-        end
-
-        def respondable_methods
-        end
-
-        def _init_by_string(s)
-          # Store the original input
-          @original_string = s
-          @classification_error = nil
-
-          # pre-validate the string
-          self.valid?
-          
-          # If the error callback has been created, then call it
-          @classification_error.call unless @classification_error.nil?
-
-          # Derive from the original, valid string useful specifiers in handy data structures
-
-          unless ( @deponent or @semideponent or @impersonal)
-            _derive_parts_from_given_string s
-
-            # Derive iVar from derived variables
-            (@participial_stem ||= calculate_participial_stem) unless @irregular
-          else
-            unless @impersonal
-              fake_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(s)
-              #_derive_parts_from_given_string fake_string
-              @deponent_proxy = fake_string
-            end
-          end
-
-        end
-
-        def _add_vector_methods
-          ## 
+          ### {{{
           # Generates all the methods to which a verb must be able to respond
           # by implementing Linguistics::Verbs::Verbvector::VerbvectorGenerator.
           #
@@ -621,91 +241,201 @@ module Linguistics
           #
           #    d. The Persons are three:  First, Secon, Third.
           #    e.  The Numbers are two:  Singular and Plural
-          ##
-          @latin_verbvector_generator = 
-          Linguistics::Verbs::Verbvector::VerbvectorGenerator.new do
-            language :Latin do
-              all_vectors :start_with do
-                 {
-                  :voice =>  %w(active passive),
-                  :mood  =>  %w(indicative subjunctive imperative)
-                 }
-              end
-              vectors_that /.*_indicative_mood/ do
-                {
-                  :tense  => %w(present imperfect future
-                                perfect pastperfect futureperfect)
-                }
-              end
-              vectors_that /.*_subjunctive_mood/ do
-                {
-                  :tense => %w(present imperfect 
-                                perfect pastperfect)
-                }
-              end
-              vectors_that /.*_imperative_mood/ do
-                {
-                  :tense => %w(present future)
-                }
-              end
-              all_vectors :end_with do
-                {
-                  :person => %w(first second third),
-                  :number => %w(singular plural)
-                }
-              end
-              exception :remove, :passive_voice_imperative_mood_present_tense
-              exception :remove, :passive_voice_imperative_mood_future_tense
-              cluster_on :tense, "as method", :tense_list
-            end
+          ### }}}
+          @latin_verbvector_generator =
+            Linguistics::Verbs::Verbvector::VerbvectorGenerator.new(
+              &Linguistics::Latin::Verb::LatinVerb::LATIN_VERBVECTOR_DESCRIPTION )
+
+          # We're restoring a standard verb from JSON
+          data = data['original_string'] if init_data_is_a_hash_of_a_regular_restorable_verb(data)
+
+          if data.is_a? String
+            @sanitizer            = LatinVerbInputSanitizer.new data
+            @original_string      = @sanitizer.to_s
+            @classifier           = LatinVerbClassifier.new @original_string
+            @prin_parts_extractor = LatinVerbPPExtractor.new @sanitizer.to_s, @classifier
+            @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
+
+            load_tense_methods
+            generate_methods_for_accessing_tense_blocks_from_tense_methods_components
+            include_classification_specific_mixins
+            check_and_mutate_defectives
+          end
+        end# }}}
+
+        ######################################################################
+        # Instance methods
+        ######################################################################
+        ##
+
+        def present_only?# {{{
+          @present_only ||= @classifier.present_only?
+        end# }}}
+        def short_class# {{{
+          return classification.to_s.gsub(/.*::(\w+)$/,"\\1")
+        end# }}}
+
+        ### {{{
+        #
+        # Returns the four principal parts and regularity designation
+        ### }}}
+        def to_s# {{{
+          return sprintf("%s [%s]", short_class, original_string)
+        end# }}}
+
+        ### {{{
+        #
+        # When working in irb or LatinIRB it's good to find out what the
+        # instance methods are on this# }}}
+        def instance_methods# {{{
+          @latin_verbvector_generator.vector_list
+        end# }}}
+
+      def regular?# {{{
+        @classifier.regular?
+      end# }}}
+
+      def irregular?# {{{
+        @classifier.irregular?
+      end# }}}
+
+      def classification# {{{
+        @classifier.classification
+      end# }}}
+
+      def verb_type# {{{
+        @verb_type.inspect
+      end# }}}
+
+      def stem# {{{
+        unless classified_as.irregular?
+          @stem ||= @prin_parts_extractor.stem
+        end
+      end# }}}
+
+      def conjugation# {{{
+        classification.to_s
+      end# }}}
+
+      def principal_parts# {{{
+        @principal_parts ||= @prin_parts_extractor.principal_parts
+      end# }}}
+
+      def classified_as# {{{
+        return @classifier
+      end# }}}
+
+      def first_person_singular# {{{
+        @first_person_singular ||= @prin_parts_extractor.first_person_singular
+      end# }}}
+
+      def present_active_infinitive# {{{
+        @present_active_infinitive ||= @prin_parts_extractor.present_active_infinitive
+      end# }}}
+
+      def first_person_perfect# {{{
+        @first_person_perfect ||= @prin_parts_extractor.first_person_perfect
+      end# }}}
+
+      def passive_perfect_participle# {{{
+        @passive_perfect_participle ||= @prin_parts_extractor.passive_perfect_participle
+      end# }}}
+
+      def participial_stem# {{{
+        @participial_stem ||= @prin_parts_extractor.participial_stem
+      end# }}}
+
+# ===============================================================================
+
+     private
+
+     def load_tense_methods# {{{
+       load_tense_methods_that_do_not_vary_by_verb_type
+       load_tense_methods_based_on_verb_type
+     end# }}}
+
+     def load_tense_methods_that_do_not_vary_by_verb_type# {{{
+       self.extend Linguistics::Latin::Verb::TenseDefinitions::Invariant
+     end# }}}
+
+     def load_tense_methods_based_on_verb_type #{{{
+       # Turn Linguistics::Latin::Verb::VerbTypes::First into
+       # Linguistics::Latin::Verb::TenseDefinitions::First and extend with it
+       mod_path = @verb_type.inspect.to_s
+       return if mod_path.empty?
+       mod_path.sub!('VerbTypes', 'TenseDefinitions' )
+       the_mod = mod_path.split('::').inject(Object) do |mod, class_name|
+         mod.const_get(class_name)
+       end
+       self.extend the_mod
+     end# }}}
+
+     def verify_generated_tense_list# {{{
+       # Given the use of method_missing to handle resolution, it's wise to
+       # make sure that every cluster method /is/ actually defined.
+       @tense_list.each do |m|
+         raise "FAILURE:  Critical method #{m} was not defined." unless
+           (self.respond_to? m.to_sym)
+       end
+     end# }}}
+
+      def init_data_is_a_hash_of_a_regular_restorable_verb(data)# {{{
+        (data.is_a?(Hash) && !data['irregular'] && data.has_key?('original_string'))
+      end# }}}
+
+      def generate_methods_for_accessing_tense_blocks_from_tense_methods_components# {{{
+        self.extend @latin_verbvector_generator.method_extension_module
+        @tense_list =
+                      @latin_verbvector_generator.cluster_methods[:tense_list].call
+        verify_generated_tense_list
+      end# }}}
+
+        def include_classification_specific_mixins# {{{
+          the_mod = if classified_as.impersonal?
+             Linguistics::Latin::Verb::LatinVerb::Impersonal
+          elsif classified_as.irregular?
+             Linguistics::Latin::Verb::LatinVerb::Irregular
+          elsif  classified_as.deponent?
+             Linguistics::Latin::Verb::LatinVerb::Deponent
+          elsif classified_as.semideponent?
+             Linguistics::Latin::Verb::LatinVerb::Semideponent
+          elsif classified_as.present_only?
+             Linguistics::Latin::Verb::LatinVerb::PresentOnly
           end
 
-          # This provides methods of the form #{language_name}_#{fake_name}.
-          # They are actually called sans #{language_name} so that
-          # method_missing is called.
-          @verb_methods = @latin_verbvector_generator.method_extension_module
+          return unless the_mod
 
-          # Make sure all the cluster methods are defined.  Ensure we don't
-          # get infinite stack method_missing lookups
-          @tense_list = 
-            @latin_verbvector_generator.cluster_methods[:tense_list].call
+          # Tell the instance to pull in the instance methods in the module by
+          # extending itself.
+          self.instance_eval do
+            self.extend the_mod
+          end
 
-          # POWER-UP with the vector methods
-          self.extend @verb_methods
+        end# }}}
+
+      def check_and_mutate_defectives# {{{
+        is_defective = Linguistics::Latin::Verb::LatinVerb::DefectiveChecker::is_it_defective?(self)
+        if is_defective
+          @classifier.set_as_defective
+          remove_perfect_tenses
         end
+      end# }}}
 
-        def _derive_parts_from_given_string(s)
-            @principal_parts      
-            @first_pers_singular, 
-            @pres_act_inf, 
-            @first_pers_perf, 
-            @pass_perf_part       = @four_pp = @principal_parts = s.split(/\s+/)
+      def remove_perfect_tenses# {{{
+        # Get perfect system methods
+        tense_blocks_to_eclipse =
+          self.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
+
+        # Re-assign their methods to point to a blank TenseBlock, thus
+        # eclipsing any values thatm ight come in.
+        tense_blocks_to_eclipse.each do |s|
+          singleton_class.class_eval do
+            define_method s do
+              return TenseBlock.null_tense_block
+            end
+          end
         end
-
-        def calculate_participial_stem
-           raise("@pres_act_inf was nil!") if  
-             @pres_act_inf.nil? or @first_pers_singular.nil?
-
-           if @pres_act_inf.to_s =~ /(.*ā)re$/
-            return $1
-          end 
-
-          if @pres_act_inf.to_s =~ /(.*ē)re$/
-            return $1
-          end        
-
-          if @pres_act_inf.to_s =~ /(.*)ere$/
-            match=$1
-            if @first_pers_singular =~ /iō/
-              return match + "iē"  
-            else
-              return match + "e" 
-            end       end 
-        
-          if @pres_act_inf.to_s =~ /(.*)īre$/
-            return $1 + "iē" 
-          end 
-        end 
+      end# }}}
       end
     end
   end

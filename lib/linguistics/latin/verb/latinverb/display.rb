@@ -1,4 +1,3 @@
-# encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
@@ -14,7 +13,7 @@ module Linguistics
         # by more view-oriented libraries or applications.
         ##
         def display
-          STDERR.puts "You should not be going much displaying here as this is a LIBRARY.  Implement this elsewhere."
+          STDERR.puts "You should not be doing much displaying here as this is a LIBRARY.  Implement this elsewhere."
           pretty_generate
         end
       end

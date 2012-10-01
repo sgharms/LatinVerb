@@ -1,13 +1,6 @@
-# encoding: UTF-8
-
-require 'linguistics/latin/verb/phonographia'
-require 'linguistics/latin/verb/latinverb/auxiliary_classes'
-require 'linguistics/latin/verb/deponent_tense_methods'
-require 'yaml'
-
-module Linguistics 
-  module Latin 
-    module Verb 
+module Linguistics
+  module Latin
+    module Verb
       ##
       #
       # Applies mutations to the method calls for semi-deponents.
@@ -53,22 +46,18 @@ module Linguistics
           return @proxyVerb.send :passive_voice_indicative_mood_futureperfect_tense
         end
 
-        # These should return nothing
         def passive_voice_indicative_mood_perfect_tense
-          return TenseBlock.new ['', '', '', '', '', '']
+          return TenseBlock.null_tense_block
         end
 
         def passive_voice_indicative_mood_pastperfect_tense
-          return TenseBlock.new ['', '', '', '', '', '']
-          #return @proxyVerb.send :passive_voice_indicative_mood_pastperfect_tense
+          return TenseBlock.null_tense_block
         end
         def passive_voice_indicative_mood_futureperfect_tense
-          return TenseBlock.new ['', '', '', '', '', '']
-          #return @proxyVerb.send :passive_voice_indicative_mood_futureperfect_tense
+          return TenseBlock.null_tense_block
         end
 
         # Subjunctives: 2 active, 2 passive
-
         def active_voice_subjunctive_mood_present_tense
           return @proxyVerb.send :active_voice_subjunctive_mood_present_tense
         end
@@ -84,12 +73,10 @@ module Linguistics
           return @proxyVerb.send :passive_voice_subjunctive_mood_pastperfect_tense
         end
         def passive_voice_subjunctive_mood_perfect_tense
-          return TenseBlock.new ['', '', '', '', '', '']
-          #return @proxyVerb.send :passive_voice_subjunctive_mood_perfect_tense
+          return TenseBlock.null_tense_block
         end
         def passive_voice_subjunctive_mood_pastperfect_tense
-          return TenseBlock.new ['', '', '', '', '', '']
-          #return @proxyVerb.send :passive_voice_subjunctive_mood_pastperfect_tense
+          return TenseBlock.null_tense_block
         end
       end
     end
