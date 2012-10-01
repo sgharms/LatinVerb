@@ -1,5 +1,7 @@
-# encoding: UTF-8
-
+module Linguistics
+  module Latin
+    module Verb
+      class LatinVerb
 =begin rdoc
 #--
 # The purpose of this module is to contain the metaprogramming modules
@@ -7,10 +9,6 @@
 # ++
 =end
 
-module Linguistics
-  module Latin
-    module Verb 
-      class LatinVerb
 
 =begin rdoc
 
@@ -38,25 +36,21 @@ specifier, thus all 5/5 components of the fully-qualified vector can result in
 unique match.
 
 =end
-        def method_missing(symbol, *args )  # :nodoc:
-          super if @tense_list.nil?
-          @tense_list.find do |e|
-            if symbol.to_s.match /^(#{e})_(.*)/
-              tense_method, vector_specifier = $1, $2
-              # This is added to prevent stack-level too deep errors
-              begin
-                # Handle the base case
-                if self.respond_to?(tense_method.to_sym)
-                  return send(tense_method.to_sym).send(vector_specifier.to_sym)
-                end
-              rescue SystemStackError => e
-                STDERR.puts "We encountered a SystemStackError when calling #{tense_method}"
-                STDERR.puts "WARNING:  Failed to resolve [#{tense_method}] with [#{vector_specifier}].  \n\nMake sure #{tense_method} is defined."
-                super
-              end
-            end
+        def method_missing(method_name, *args )  # :nodoc:
+          method_name_components = method_name.to_s.split('_')
+
+          tense_method = Array(method_name_components[0..5]).join('_')
+          vector_specifier = Array(method_name_components[6..-1]).join('_')
+
+          raise RuntimeError, "Lookup on #{method_name} failed" if tense_method.nil? || vector_specifier.nil?
+
+          if self.respond_to?(tense_method.to_sym)
+            tense_block = send(tense_method.to_sym)
+            raise RuntimeError, "Call for #{tense_method} failed" if tense_block.nil?
+            tense_block.send(vector_specifier.to_sym)
+          else
+            super
           end
-          super
         end
 
         ##
@@ -66,11 +60,18 @@ unique match.
         # If it's in +respondable_methods+, we return true.
         #
         ##
-        def respond_to?(symbol, include_private=false) 
-          super if respondable_methods.nil?
-          super if respondable_methods.empty?
-          self.respondable_methods.grep(Regexp.new %Q/^#{symbol}$/).empty? ?
-            super : true
+        def respond_to_missing?(method_name, include_private = false) #:nodoc:
+          components     = method_name.to_s.split('_')
+          tense_method   = components[0..5].join('_').to_sym
+
+          return false unless @tense_list.nil? || @tense_list.include?( tense_method.to_s )
+
+          if components.length > 6
+            tb           = self.send(tense_method)
+            vector_call  = components[6..-1].join('_').to_sym
+            tb.class.instance_method(vector_call)
+          end
+
         end
       end
     end

@@ -19,7 +19,7 @@ module Linguistics
         def chart
           f="%9s%15s%15s%15s\n"
           f_subjunctive="%9s%15s%15s%15s%15s\n"
-          c_prep "Present System", [ 
+          c_prep "Present System", [
                                     self.active_voice_indicative_mood_present_tense,
                                     self.active_voice_indicative_mood_imperfect_tense,
                                     self.active_voice_indicative_mood_future_tense
@@ -30,7 +30,7 @@ module Linguistics
                                      self.active_voice_indicative_mood_futureperfect_tense
                                    ], %w/Perfect Past-Perfect Future-Perfect/,f
           puts "\n"
-          c_prep "Passive Present System", [ 
+          c_prep "Passive Present System", [
                                             self.passive_voice_indicative_mood_present_tense,
                                             self.passive_voice_indicative_mood_imperfect_tense,
                                             self.passive_voice_indicative_mood_future_tense
@@ -73,15 +73,15 @@ module Linguistics
           # Get the length of the first array to be verticalized
           length = opts[:rays][0].length-1
 
-          # Storage 
+          # Storage
           returnTemp = []
 
           # Verticalize
           0.upto(length).each do |n|
             temp = []
             temp << opts[:label][n] unless opts[:label].empty?
-            opts[:rays].collect do |r| 
-              temp << r[n] 
+            opts[:rays].collect do |r|
+              temp << r[n]
             end
             returnTemp << temp
           end

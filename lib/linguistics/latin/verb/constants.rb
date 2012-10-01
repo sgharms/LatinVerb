@@ -3,7 +3,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        # :stopdoc: 
+        # :stopdoc:
         # active_present_endings: ("ap_"-prefixed)
           AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS = %w(s  t  mus  tis  nt)
           AP_THIRD_CONJUG_PERS_ENDINGS            = %w(ō  is it   imus itis unt)
@@ -19,33 +19,33 @@ module Linguistics
 
         # active_perfect_present: ("aperf"-prefixed)
           APERF_ENDINGS        = %w(istī it imus istis ērunt)
-          APERF_PAST_ENDINGS   = PLUPERF_ENDINGS  =   
+          APERF_PAST_ENDINGS   = PLUPERF_ENDINGS  =
                                  %w(eram erās erat erāmus erātis erant)
           APERF_FUTURE_ENDINGS = %w(erō eris erit erimus eritis erint)
 
         # passive endings
-          PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG = 
+          PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG =
             %w(r ris tur mur minī ntur)
-          PASSIVE_ENDINGS_OTHER                  =   
+          PASSIVE_ENDINGS_OTHER                  =
             %w(r eris itur imur iminī untur)
 
-          PASS_PERF_PRESENT_ENDINGS = %w(sum es est sumus estis sunt)        
+          PASS_PERF_PRESENT_ENDINGS = %w(sum es est sumus estis sunt)
           PASS_PERF_PAST_ENDINGS    = %w(eram erās erat erāmus erātis erant)
           PASS_PERF_FUTURE_ENDINGS  = %w(erō eris erit erimus eritis erint)
 
-          PASS_PERF_SUBJ_ENDINGS    = %w(sim sis sit simus sitis sint)        
-          PASS_PLUPERF_PAST_ENDINGS = %w(essem essēs esset essēmus essētis essent)
-              
+          PASS_PERF_SUBJUNCTIVE_ENDINGS = %w(sim sis sit simus sitis sint)
+          PASS_PLUPERF_PAST_ENDINGS     = %w(essem essēs esset essēmus essētis essent)
+
         # subjunctive tools
           # hash for getting a verb's subjunctive stem
           # based off the W[e] F[ea]r [A] L[ia]r mnemonic
-          ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS = { 
-            :First   => lambda  { |x| return x + "ē"  },  
+          ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS = {
+            :First   => lambda  { |x| return x + "ē"  },
             :Second  => lambda  { |x| return x + "eā" },
-            :Third   => lambda  { |x| return x + "ā"  },  
+            :Third   => lambda  { |x| return x + "ā"  },
             :Fourth  => lambda  { |x| return x + "iā" },
             :ThirdIO => lambda  { |x| return x + "iā" }
-          }   
+          }
 
         # Listing of all defective verbs
         # See A&G Sec. 205
@@ -192,8 +192,8 @@ module Linguistics
           :passive_voice_subjunctive_mood_imperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
           :passive_voice_subjunctive_mood_pastperfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
           :passive_voice_subjunctive_mood_perfect_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." ,
-          :passive_voice_subjunctive_mood_present_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc." 
-}
+          :passive_voice_subjunctive_mood_present_tense => "Subjunctive uses apply: commands, contrary to fact wishes, etc."
+        }
         # :startdoc:
       end
     end

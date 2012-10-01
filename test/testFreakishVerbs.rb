@@ -10,18 +10,20 @@ require 'linguistics/latin/verb/classification_types'
 # Internal dependencies
 
 class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
-  def test_present_only
+  def test_present_only?
     v =  Linguistics::Latin::Verb::LatinVerb.new 'maerō maēre maīvī maestum'
-    assert v.present_only
-    assert_equal 6, v.active_voice_indicative_mood_perfect_tense.length
-    assert_equal '',  v.active_voice_indicative_mood_perfect_tense_first_person_singular_number
+    assert v.present_only?
+    assert_equal 6, v.active_voice_indicative_mood_perfect_tense.length, "active.indicative.perfect should have length of 6"
+    assert_equal '',  v.active_voice_indicative_mood_perfect_tense_first_person_singular_number, "a perfect tense for a present only verb should be empty"
   end
+
   def test_present_only_from_sing
     v =  Linguistics::Latin::Verb::LatinVerb.new 'aiō'
-    assert v.present_only 
+    assert v.present_only?
 
     # Primary use of this verb
-    assert_equal 'ait', v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal 'ait', v.active_voice_indicative_mood_present_tense_third_person_singular_number,
+      "Must respond to active_voice_indicative_mood_present_tense_third_person_singular_number"
 
   end
 
@@ -30,17 +32,17 @@ class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
 
     choices.each do |v|
       vi =  Linguistics::Latin::Verb::LatinVerb.new v
-      assert vi.present_only
+      assert vi.present_only?, "#{v} must be present only"
     end
   end
 
   def test_impersonal
     v =  Linguistics::Latin::Verb::LatinVerb.new 'pluit'
-    assert_equal Linguistics::Latin::Verb::VerbTypes::Impersonal, v.classification
-    assert_equal 'pluit', v.active_voice_indicative_mood_present_tense_third_person_singular_number
+    assert_equal Linguistics::Latin::Verb::Classification::Impersonal, v.classification
+    assert_equal 'pluit', v.active_voice_indicative_mood_present_tense_third_person_singular_number, "Impersonal verb must return third_person_singular_number"
   end
 
-=begin rdoc    
+=begin rdoc
     * 191 - Irregular deponent verbs
 
     This section in A&G says that the following are irregular deponents,
@@ -88,6 +90,5 @@ class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
   def test_irregular_deponents
     v =  Linguistics::Latin::Verb::LatinVerb.new 'fruor fruī frūctus '
     assert 'fruitur', v.active_voice_indicative_mood_present_tense_third_person_singular_number
-    
   end
 end
