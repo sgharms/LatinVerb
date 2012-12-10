@@ -2,18 +2,14 @@
 module Linguistics
   module Latin
     module Verb
-      class LatinVerb # :nodoc:
+      module LatinVerbPresenter # :nodoc:
         def c_prep(heading, rays, subtitles, format_string)
           puts heading
           puts '=' * heading.length + "\n"
           printf format_string, '', *subtitles
-          underbars = subtitles.clone
-          underbars.map!{|j| j.gsub! /./, '='}
+          underbars = subtitles.map{|j| j.gsub!(  /./, '=' )}
           printf format_string, '', *underbars
-          vertical_transform({
-            :label => ['1st Sg.', '2nd Sg.', '3rd Sg.','1st Pl.', '2nd Pl.', '3rd Pl.'],
-            :rays  => rays
-          }).each{|a| printf format_string, *a}
+          vertical_transform( rays ).each{|a| printf format_string, *a}
         end
 
         def chart
@@ -69,24 +65,13 @@ module Linguistics
 
         alias_method :c, :chart
 
-        def vertical_transform( opts = nil )
+        def labels
+          ['1st Sg.', '2nd Sg.', '3rd Sg.','1st Pl.', '2nd Pl.', '3rd Pl.']
+        end
+
+        def vertical_transform( opts = [] )
           # Get the length of the first array to be verticalized
-          length = opts[:rays][0].length-1
-
-          # Storage
-          returnTemp = []
-
-          # Verticalize
-          0.upto(length).each do |n|
-            temp = []
-            temp << opts[:label][n] unless opts[:label].empty?
-            opts[:rays].collect do |r|
-              temp << r[n]
-            end
-            returnTemp << temp
-          end
-
-          returnTemp
+          labels.zip(*opts)
         end
       end
     end
