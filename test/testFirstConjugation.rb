@@ -378,8 +378,8 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_chart
-    assert @aFirst.respond_to? :chart
-    assert @aFirst.respond_to? :c
+    assert @aFirst.respond_to? :chart, "Should respond to chart method"
+    assert @aFirst.respond_to? :c, "Should respond to c alias to chart method"
   end
 
   def test_chart_infinitives
