@@ -61,7 +61,7 @@ require 'linguistics/latin/verb/latinverb/data'
 require 'linguistics/latin/verb/latinverb/display'# }}}
 
 require 'latinverb/version'# {{{
-require 'latinverb/chart.rb'# }}}
+require 'latinverb/presenter'# }}}
 
 =begin rdoc
 # {{{
@@ -174,6 +174,10 @@ module Linguistics
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
         # }}}
+
+        # The presenter
+        include Linguistics::Latin::Verb::LatinVerbPresenter
+
 
         # Attributes for storing submitted data.  This will help remember the origin state# {{{
         attr_reader :original_string
