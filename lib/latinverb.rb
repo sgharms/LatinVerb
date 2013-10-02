@@ -9,6 +9,7 @@ require 'verbvector'
 require 'yaml'
 require 'json'
 require 'active_support'
+require 'byebug'
 
 ### {{{
 #--
