@@ -12,7 +12,7 @@ module Linguistics
               json_string = Linguistics::Latin::Verb.const_get os_sym
 
               raise "Found a JSON string with null length!" if json_string.length <= 10
-              revivified_data_structure = JSON.parse json_string
+              revivified_data_structure = JSON.load(json_string)
             rescue JSON::ParserError => e
               puts "We were unable to parse JSON for #{@original_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please verify your syntax."
               raise e
