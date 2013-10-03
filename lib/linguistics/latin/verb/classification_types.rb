@@ -44,15 +44,25 @@ module Linguistics
         ##
         class VerbType  # :nodoc:
         end
-        class First     < VerbType # :nodoc:
+        class First     < VerbType # :nodoc: 
         end
-        class Second    < VerbType # :nodoc:
+        class Second    < VerbType # :nodoc: 
         end
-        class Third     < VerbType # :nodoc:
+        class Third     < VerbType # :nodoc: 
         end
-        class ThirdIO   < VerbType # :nodoc:
+        class ThirdIO   < VerbType # :nodoc: 
         end
-        class Fourth    < VerbType # :nodoc:
+        class Fourth    < VerbType # :nodoc: 
+        end
+        class Irregular < VerbType # :nodoc: 
+        end
+        class Deponent  < VerbType # :nodoc:
+        end
+        class Defective < VerbType # :nodoc:
+        end
+        class Impersonal < VerbType # :nodoc:
+        end
+        class Semideponent < VerbType # :nodoc:
         end
       end
     end
