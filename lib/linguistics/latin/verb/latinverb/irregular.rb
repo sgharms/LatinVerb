@@ -1,4 +1,7 @@
 # encoding: UTF-8
+
+require 'ostruct'
+
 module Linguistics
   module Latin
     module Verb
@@ -26,13 +29,13 @@ module Linguistics
               revivified_data_structure['tense_blocks'].each_pair do |k,v|
                 singleton_class.class_eval do
                   define_method k.to_sym do
-                    TenseBlock.new v, { :meaning => MEANINGS[k.to_sym] }
+                    TenseBlock.new v["data"], { :meaning => MEANINGS[k.to_sym] }
                   end
                 end
               end
 
-              @irregular_infinitives = revivified_data_structure['infinitives']
-              @irregular_participles = revivified_data_structure['participles']
+              @irregular_infinitives = JSON.load(revivified_data_structure['infinitives'].to_json)
+              @irregular_participles = JSON.load(revivified_data_structure['participles'].to_json)
 
               return if @irregular_infinitives.nil?
               return if @irregular_participles.nil?
