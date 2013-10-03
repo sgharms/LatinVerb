@@ -5,7 +5,7 @@ module Linguistics
       class LatinVerb
         class LatinVerbTypeEvaluator
           def initialize(first_pres, infinitive, classifier)
-            return unless classifier.classification.to_s.split('::').last.eql?("Regular")
+            return Linguistics::Latin::Verb::VerbTypes::Irregular unless classifier.classification.to_s.split('::').last == "Regular"
             @type = if  infinitive =~ /āre$/
               Linguistics::Latin::Verb::VerbTypes::First
             elsif infinitive =~ /ēre$/
