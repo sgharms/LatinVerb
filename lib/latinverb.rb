@@ -48,7 +48,10 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        include Linguistics::Latin::Verb::Validation
+        extend Forwardable
+
+        def_delegators :@validator, :valid?
+
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
         include Linguistics::Latin::Verb::LatinVerbPresenter
@@ -80,6 +83,7 @@ module Linguistics
             include_classification_specific_mixins
             check_and_mutate_defectives
           end
+          @validator = Linguistics::Latin::Verb::Validator.new(self)
         end
 
         def present_only?
