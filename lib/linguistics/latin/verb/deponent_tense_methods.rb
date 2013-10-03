@@ -47,14 +47,14 @@ module Linguistics
         end
 
         def passive_voice_indicative_mood_perfect_tense
-          return TenseBlock.null_tense_block
+          return NullTenseBlock.new
         end
 
         def passive_voice_indicative_mood_pastperfect_tense
-          return TenseBlock.null_tense_block
+          return NullTenseBlock.new
         end
         def passive_voice_indicative_mood_futureperfect_tense
-          return TenseBlock.null_tense_block
+          return NullTenseBlock.new
         end
 
         # Subjunctives: 2 active, 2 passive
@@ -73,10 +73,10 @@ module Linguistics
           return @proxyVerb.send :passive_voice_subjunctive_mood_pastperfect_tense
         end
         def passive_voice_subjunctive_mood_perfect_tense
-          return TenseBlock.null_tense_block
+          return NullTenseBlock.new
         end
         def passive_voice_subjunctive_mood_pastperfect_tense
-          return TenseBlock.null_tense_block
+          return NullTenseBlock.new
         end
       end
     end

@@ -1,14 +1,8 @@
-# encoding: UTF-8
-# vim:  set fdm=marker tw=80 sw=2:
-
 module Linguistics
-  # Generalized module for handling lingustics related to Latin
   module Latin
-    # Generalized module for handling lingustics related to Latin's verbal aspects
     module Verb
       class LatinVerb
-        class LatinVerbInitializationError < Exception; end
-        class LatinVerbInputSanitizer# {{{
+        class LatinVerbInputSanitizer
           def initialize(raw_data)
             @raw_data = raw_data.dup
 
@@ -25,7 +19,7 @@ module Linguistics
           def to_s
             return @sanitized_data
           end
-        end# }}}
+        end
       end
     end
   end
