@@ -15,12 +15,48 @@ module Linguistics
 
       module VerbTypes
         class VerbType; end
-        class First < VerbType; end
-        class Second < VerbType; end
-        class Third < VerbType; end
-        class ThirdIO < VerbType; end
-        class Fourth < VerbType; end
-        class Irregular < VerbType; end
+        class First < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem, stem+"te"]
+            end
+          end
+        end
+        class Second < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem, stem+"te"]
+            end
+          end
+        end
+        class Third < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem+"e", stem+"ite"]
+            end
+          end
+        end
+        class ThirdIO < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem+"e", stem+"ite"]
+            end
+          end
+        end
+        class Fourth < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem+"ī", stem+"īte"]
+            end
+          end
+        end
+        class Irregular < VerbType
+          def self.form_present_tense_imperative_rule
+            ->(stem, ppi) do
+              [stem, ppi]
+            end
+          end
+        end
       end
     end
   end
