@@ -14,7 +14,7 @@ module Linguistics
       # LatinVerb, will provide it the ability to ensure its own sanity.
       #
       ##
-      module Validation
+      class Validator
         ##
         #
         # == DESCRIPTION
@@ -30,10 +30,14 @@ module Linguistics
         # 1.  Identify a stem (+@stem+), provided the verb is regular
         #
         ##
+        def initialize(verb)
+          @verb = verb
+        end
+
         def valid?
-          !@original_string.nil? &&
-          !classification.nil? &&
-          ( irregular? ? true : !stem.nil? )
+          !@varb.original_string.nil? &&
+          !@verb.classification.nil? &&
+          ( @verb.irregular? ? true : @verb.stem.nil? )
         end
       end
     end
