@@ -5,4 +5,5 @@ gemspec
 
 group :development do
   gem 'autotest-standalone'
+  gem 'byebug'
 end

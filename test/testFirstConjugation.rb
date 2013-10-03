@@ -194,7 +194,7 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     serializedFirstconj = @aFirst.to_json
     assert(serializedFirstconj)
 
-    revivified = JSON.parse serializedFirstconj
+    revivified = JSON.load serializedFirstconj
     assert_equal(6, revivified.active_voice_imperative_mood_present_tense.to_a.length)
 
     _test_first_conj_exhaustively_post_reviv revivified

@@ -26,7 +26,7 @@ class TestDeserializeInfinitives < MiniTest::Unit::TestCase # :nodoc:
      }
 EOJSON
 
-    ds = JSON.parse json_string
+    ds = JSON.load json_string
     ib = ds['infinitives']
     assert_equal 6, ib.infinitive_methods.length
     assert_equal 'amatum',  ib.perfect_passive_infinitive

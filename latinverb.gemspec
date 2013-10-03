@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency("macronconversions")
   s.add_dependency("verbvector")
   s.add_dependency("rdoc")
+  s.add_dependency("rake")
 end
