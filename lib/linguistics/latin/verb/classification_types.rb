@@ -54,6 +54,8 @@ module Linguistics
         end
         class Fourth    < VerbType # :nodoc:
         end
+        class Irregular    < VerbType # :nodoc:
+        end
       end
     end
   end
