@@ -56,135 +56,116 @@ module Linguistics
         def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
-
+        def_delegator :@classifier, :dup, :classified_as
 
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
         include Linguistics::Latin::Verb::LatinVerbPresenter
 
-        # Attributes for storing submitted data.  This will help remember the origin state
-        attr_reader :original_string
+        attr_reader :original_string, :verb_methods, :latin_verbvector_generator
 
-        # Attributes for storing calculated status.
-        attr_reader :verb_methods
-
-        # Access the Module that provides all the methods
-        attr_reader :latin_verbvector_generator
-
-        def initialize(data)# {{{
+        def initialize(data)
           raise LatinVerbInitializationError if data.nil?
-          calculate_verb_vector_methods
 
-          data = data['original_string'] if init_data_is_a_hash_of_a_regular_restorable_verb(data)
-
-          if data.is_a? String
-            @sanitizer            = data
-            @original_string      = @sanitizer.to_s
-            @classifier           = LatinVerbClassifier.new @original_string
-            @prin_parts_extractor = LatinVerbPPExtractor.new @sanitizer.to_s, @classifier
-            @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
-
-            load_tense_methods
-            generate_methods_for_accessing_tense_blocks_from_tense_methods_components
-            include_classification_specific_mixins
-            check_and_mutate_defectives
-          end
+          @original_string      = (data['original_string'] || data).to_s
+          @classifier           = LatinVerbClassifier.new @original_string
+          @prin_parts_extractor = LatinVerbPPExtractor.new @original_string, @classifier
+          @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
           @validator = Linguistics::Latin::Verb::Validator.new(self)
-        end# }}}
+
+          calculate_verb_vector_methods
+          load_tense_methods
+          generate_methods_for_accessing_tense_blocks_from_tense_methods_components
+          include_classification_specific_mixins
+          check_and_mutate_defectives
+        end
 
         def to_s
-          return sprintf("%s [%s]", short_class, original_string)
+          sprintf("%s [%s]", short_class, original_string)
         end
 
-      def classified_as
-        return @classifier
-      end
 
-     private
+       private
 
-      def calculate_verb_vector_methods
-        @latin_verbvector_generator =
-          Linguistics::Verbs::Verbvector::VerbvectorGenerator.new(
-            &Linguistics::Latin::Verb::LatinVerb::LATIN_VERBVECTOR_DESCRIPTION )
-      end
-
-     def load_tense_methods
-       load_tense_methods_that_do_not_vary_by_verb_type
-       load_tense_methods_based_on_verb_type
-     end
-
-     def load_tense_methods_that_do_not_vary_by_verb_type
-       self.extend Linguistics::Latin::Verb::TenseDefinitions::Invariant
-     end
-
-     def load_tense_methods_based_on_verb_type
-       mod_path = @verb_type.inspect.to_s
-       return if mod_path.empty?
-       mod_path.sub!('VerbTypes', 'TenseDefinitions' )
-       the_mod = mod_path.split('::').inject(Object) do |mod, class_name|
-         mod.const_get(class_name)
+       def calculate_verb_vector_methods
+         @latin_verbvector_generator =
+           Linguistics::Verbs::Verbvector::VerbvectorGenerator.new(
+             &Linguistics::Latin::Verb::LatinVerb::LATIN_VERBVECTOR_DESCRIPTION )
        end
-       self.extend the_mod
-     end
 
-     def verify_generated_tense_list
-       @tense_list.each do |m|
-         raise "FAILURE:  Critical method #{m} was not defined." unless
-           (self.respond_to? m.to_sym)
+       def load_tense_methods
+         load_tense_methods_that_do_not_vary_by_verb_type
+         load_tense_methods_based_on_verb_type
        end
-     end
 
-      def init_data_is_a_hash_of_a_regular_restorable_verb(data)
-        (data.respond_to?(:each) && !data['irregular'] && data.has_key?('original_string'))
-      end
+       def load_tense_methods_that_do_not_vary_by_verb_type
+         self.extend Linguistics::Latin::Verb::TenseDefinitions::Invariant
+       end
 
-      def generate_methods_for_accessing_tense_blocks_from_tense_methods_components
-        self.extend @latin_verbvector_generator.method_extension_module
-        @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
-        verify_generated_tense_list
-      end
+       def load_tense_methods_based_on_verb_type
+         mod_path = @verb_type.inspect.to_s
+         return if mod_path.empty?
+         mod_path.sub!('VerbTypes', 'TenseDefinitions' )
+         the_mod = mod_path.split('::').inject(Object) do |mod, class_name|
+           mod.const_get(class_name)
+         end
+         self.extend the_mod
+       end
 
-        def include_classification_specific_mixins
-          the_mod = if classified_as.impersonal?
-             Linguistics::Latin::Verb::LatinVerb::Impersonal
-          elsif classified_as.irregular?
-             Linguistics::Latin::Verb::LatinVerb::Irregular
-          elsif  classified_as.deponent?
-             Linguistics::Latin::Verb::LatinVerb::Deponent
-          elsif classified_as.semideponent?
-             Linguistics::Latin::Verb::LatinVerb::Semideponent
-          elsif classified_as.present_only?
-             Linguistics::Latin::Verb::LatinVerb::PresentOnly
+       def verify_generated_tense_list
+         @tense_list.each do |m|
+           raise "FAILURE:  Critical method #{m} was not defined." unless
+             (self.respond_to? m.to_sym)
+         end
+       end
+
+        def generate_methods_for_accessing_tense_blocks_from_tense_methods_components
+          self.extend @latin_verbvector_generator.method_extension_module
+          @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
+          verify_generated_tense_list
+        end
+
+          def include_classification_specific_mixins
+            the_mod = if classified_as.impersonal?
+               Linguistics::Latin::Verb::LatinVerb::Impersonal
+            elsif classified_as.irregular?
+               Linguistics::Latin::Verb::LatinVerb::Irregular
+            elsif  classified_as.deponent?
+               Linguistics::Latin::Verb::LatinVerb::Deponent
+            elsif classified_as.semideponent?
+               Linguistics::Latin::Verb::LatinVerb::Semideponent
+            elsif classified_as.present_only?
+               Linguistics::Latin::Verb::LatinVerb::PresentOnly
+            end
+
+            return unless the_mod
+
+            self.instance_eval do
+              self.extend the_mod
+            end
+
           end
 
-          return unless the_mod
-
-          self.instance_eval do
-            self.extend the_mod
+        def check_and_mutate_defectives
+          is_defective = Linguistics::Latin::Verb::LatinVerb::DefectiveChecker::is_it_defective?(self)
+          if is_defective
+            @classifier.set_as_defective
+            remove_perfect_tenses
           end
-
         end
 
-      def check_and_mutate_defectives
-        is_defective = Linguistics::Latin::Verb::LatinVerb::DefectiveChecker::is_it_defective?(self)
-        if is_defective
-          @classifier.set_as_defective
-          remove_perfect_tenses
-        end
-      end
+        def remove_perfect_tenses
+          tense_blocks_to_eclipse =
+            self.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
 
-      def remove_perfect_tenses
-        tense_blocks_to_eclipse =
-          self.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
-
-        tense_blocks_to_eclipse.each do |s|
-          singleton_class.class_eval do
-            define_method s do
-              return NullTenseBlock.new
+          tense_blocks_to_eclipse.each do |s|
+            singleton_class.class_eval do
+              define_method s do
+                return NullTenseBlock.new
+              end
             end
           end
         end
-      end
       end
     end
   end
