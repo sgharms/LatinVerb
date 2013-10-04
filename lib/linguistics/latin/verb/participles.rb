@@ -83,10 +83,10 @@ module Linguistics
      ###
      def future_active_participle
        # In case we have an irregular, or somehow already have a /ūrus$/ we shouldn't do this
-       mybase = (@passive_perfect_participle =~ /ūru.$/) ?
-         @passive_perfect_participle.gsub(/u[sm]$/,'')
+       mybase = (passive_perfect_participle =~ /ūru.$/) ?
+         passive_perfect_participle.gsub(/u[sm]$/,'')
        :
-         @passive_perfect_participle.gsub(/u[sm]$/, "ūr")
+         passive_perfect_participle.gsub(/u[sm]$/, "ūr")
 
        singular_endings=%w(us a um)
        return singular_endings.collect{|x| mybase+"#{x}".chomp}.join(', ')
@@ -117,7 +117,7 @@ module Linguistics
      #
      ###
      def perfect_passive_participle
-       mybase=@passive_perfect_participle.sub(/u[sm]$/,'')
+       mybase=passive_perfect_participle.sub(/u[sm]$/,'')
        singular_endings=%w(us a um)
        return singular_endings.collect{|x| mybase+"#{x}".chomp}.join(', ')
      end

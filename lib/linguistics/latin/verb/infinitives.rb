@@ -91,7 +91,7 @@ module Linguistics
         #
         ###
         def perfect_active_infinitive
-          return @first_person_perfect+"sse"
+          return first_person_perfect+"sse"
         end
 
         ##
@@ -140,19 +140,19 @@ module Linguistics
         ###
         def present_passive_infinitive
           if verb_type == Linguistics::Latin::Verb::VerbTypes::First
-            return  @present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
+            return  present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
           end
           if verb_type == Linguistics::Latin::Verb::VerbTypes::Second
-            return @present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
+            return present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
           end
           if verb_type == Linguistics::Latin::Verb::VerbTypes::ThirdIO
-            return @present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
+            return present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
           end
           if verb_type == Linguistics::Latin::Verb::VerbTypes::Third
-            return @present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
+            return present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
           end
           if verb_type == Linguistics::Latin::Verb::VerbTypes::Fourth
-            return @present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
+            return present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
           end
         end
 

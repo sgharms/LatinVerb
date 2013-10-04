@@ -70,7 +70,7 @@ module Linguistics
           def passive_voice_indicative_mood_present_tense
             local_pe = Linguistics::Latin::Verb::LatinVerb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.clone
             elements = [first_person_singular.to_s + "r",
-              local_pe[1..-1].map{|x| @stem + x}].flatten!
+              local_pe[1..-1].map{|x| stem + x}].flatten!
             return TenseBlock.new(
               elements,
               { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_indicative_mood_present_tense] }
