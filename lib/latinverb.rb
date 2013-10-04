@@ -53,6 +53,11 @@ module Linguistics
         def_delegators :@classifier, :present_only?, :regular?, :irregular?, :classification, :short_class
         def_delegators :@prin_parts_extractor, :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :stem, :principal_parts, :first_person_singular, :participial_stem, :first_person_perfect, :present_active_infinitive #:passive_perfect_participle, 
 
+        def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
+        def_delegator :@verb_type, :inspect, :verb_type
+        def_delegator :@classifier, :to_s, :conjugation
+
+
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
         include Linguistics::Latin::Verb::LatinVerbPresenter
@@ -64,9 +69,9 @@ module Linguistics
         attr_reader :verb_methods
 
         # Access the Module that provides all the methods
-        attr_reader :latin_verbvector_generator, :latin_verb_methods
+        attr_reader :latin_verbvector_generator
 
-        def initialize(data)
+        def initialize(data)# {{{
           raise LatinVerbInitializationError if data.nil?
           calculate_verb_vector_methods
 
@@ -85,25 +90,11 @@ module Linguistics
             check_and_mutate_defectives
           end
           @validator = Linguistics::Latin::Verb::Validator.new(self)
-        end
+        end# }}}
 
         def to_s
           return sprintf("%s [%s]", short_class, original_string)
         end
-
-        def instance_methods
-          @latin_verbvector_generator.vector_list
-        end
-
-      def verb_type
-        @verb_type.inspect
-      end
-
-
-      def conjugation
-        classification.to_s
-      end
-
 
       def classified_as
         return @classifier
