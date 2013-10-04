@@ -35,10 +35,24 @@ module Linguistics
         end
 
         def valid?
-          !@varb.original_string.nil? &&
-          !@verb.classification.nil? &&
-          ( @verb.irregular? ? true : @verb.stem.nil? )
+          has_original_string? && has_classification? && has_stem?
         end
+
+        private
+
+        def has_original_string?
+          !@verb.original_string.nil?
+        end
+
+        def has_classification?
+          !@verb.classification.nil?
+        end
+
+        def has_stem?
+          return true if @verb.irregular?
+          !@verb.stem.nil?
+        end
+
       end
     end
   end

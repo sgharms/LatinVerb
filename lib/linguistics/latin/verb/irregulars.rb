@@ -4388,6 +4388,6 @@ EOJSON
             }
         }
 EOJSON
-      end
     end
   end
+end

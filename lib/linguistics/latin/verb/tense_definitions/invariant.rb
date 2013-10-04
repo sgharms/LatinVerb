@@ -383,7 +383,6 @@ module Linguistics
           end
 
           def form_imperatives# {{{
-            puts @verb_type.inspect
             args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
             Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
           end# }}}

@@ -31,7 +31,6 @@ require 'linguistics/latin/verb/latinverb/semideponent'
 require 'linguistics/latin/verb/latinverb/deponent'
 require 'linguistics/latin/verb/latinverb/latinverb_classifier'
 require 'linguistics/latin/verb/latinverb/latinverb_pp_extractor'
-require 'linguistics/latin/verb/latinverb/latinverb_input_sanitizer'
 require 'linguistics/latin/verb/latinverb/defective_checker'
 require 'linguistics/latin/verb/latinverb/latin_verb_type_evaluator'
 require 'linguistics/latin/verb/latinverb/classmethods'
@@ -51,6 +50,8 @@ module Linguistics
         extend Forwardable
 
         def_delegators :@validator, :valid?
+        def_delegators :@classifier, :present_only?, :regular?, :irregular?, :classification, :short_class
+        def_delegators :@prin_parts_extractor, :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :stem, :principal_parts, :first_person_singular, :participial_stem, :first_person_perfect, :present_active_infinitive #:passive_perfect_participle, 
 
         include Linguistics::Latin::Verb::Participles
         include Linguistics::Latin::Verb::Infinitives
@@ -72,7 +73,7 @@ module Linguistics
           data = data['original_string'] if init_data_is_a_hash_of_a_regular_restorable_verb(data)
 
           if data.is_a? String
-            @sanitizer            = LatinVerbInputSanitizer.new data
+            @sanitizer            = data
             @original_string      = @sanitizer.to_s
             @classifier           = LatinVerbClassifier.new @original_string
             @prin_parts_extractor = LatinVerbPPExtractor.new @sanitizer.to_s, @classifier
@@ -86,14 +87,6 @@ module Linguistics
           @validator = Linguistics::Latin::Verb::Validator.new(self)
         end
 
-        def present_only?
-          @present_only ||= @classifier.present_only?
-        end
-
-        def short_class
-          return classification.to_s.gsub(/.*::(\w+)$/,"\\1")
-        end
-
         def to_s
           return sprintf("%s [%s]", short_class, original_string)
         end
@@ -102,58 +95,18 @@ module Linguistics
           @latin_verbvector_generator.vector_list
         end
 
-      def regular?
-        @classifier.regular?
-      end
-
-      def irregular?
-        @classifier.irregular?
-      end
-
-      def classification
-        @classifier.classification
-      end
-
       def verb_type
         @verb_type.inspect
       end
 
-      def stem
-        unless classified_as.irregular?
-          @stem ||= @prin_parts_extractor.stem
-        end
-      end
 
       def conjugation
         classification.to_s
       end
 
-      def principal_parts
-        @principal_parts ||= @prin_parts_extractor.principal_parts
-      end
 
       def classified_as
         return @classifier
-      end
-
-      def first_person_singular
-        @first_person_singular ||= @prin_parts_extractor.first_person_singular
-      end
-
-      def present_active_infinitive
-        @present_active_infinitive ||= @prin_parts_extractor.present_active_infinitive
-      end
-
-      def first_person_perfect
-        @first_person_perfect ||= @prin_parts_extractor.first_person_perfect
-      end
-
-      def passive_perfect_participle
-        @passive_perfect_participle ||= @prin_parts_extractor.passive_perfect_participle
-      end
-
-      def participial_stem
-        @participial_stem ||= @prin_parts_extractor.participial_stem
       end
 
      private
@@ -196,8 +149,7 @@ module Linguistics
 
       def generate_methods_for_accessing_tense_blocks_from_tense_methods_components
         self.extend @latin_verbvector_generator.method_extension_module
-        @tense_list =
-                      @latin_verbvector_generator.cluster_methods[:tense_list].call
+        @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
         verify_generated_tense_list
       end
 

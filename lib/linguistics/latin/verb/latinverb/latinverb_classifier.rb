@@ -93,6 +93,11 @@ module Linguistics
           def regular?
             @regular = @classification == Linguistics::Latin::Verb::Classification::Regular
           end
+
+          def short_class
+            @classification.to_s.gsub(/.*::(\w+)$/,"\\1")
+          end
+
         end# }}}
       end
     end

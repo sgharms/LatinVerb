@@ -33,7 +33,7 @@ module Linguistics
             TenseBlock.new(
               ['m',
                    Linguistics::Latin::Verb::LatinVerb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
-                 Linguistics::Latin::Verb::LatinVerb::ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(@stem) + ending
+                 Linguistics::Latin::Verb::LatinVerb::ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem) + ending
                end,
               { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_subjunctive_mood_present_tense] }
               )
