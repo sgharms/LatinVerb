@@ -64,7 +64,7 @@ module Linguistics
           def deponent_imperative_mutations # :nodoc:
             self.singleton_class.class_eval do
               def active_voice_imperative_mood_present_tense_second_person_singular_number
-                return @proxyVerb.instance_variable_get '@present_active_infinitive'
+                return @proxyVerb.send(:present_active_infinitive)
               end
               def active_voice_imperative_mood_present_tense_second_person_plural_number
                 return @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number

@@ -28,7 +28,6 @@ EOJSON
 
     ds = JSON.load json_string
     ib = ds['infinitives']
-    assert_equal 6, ib.infinitive_methods.length
     assert_equal 'amatum',  ib.perfect_passive_infinitive
     assert_equal 'amāre', ib.present_active_infinitive
   end
