@@ -7,7 +7,7 @@ module Linguistics
         end
 
         def infinitives
-          return {
+          {
             :present_active_infinitive  => present_active_infinitive,
             :perfect_active_infinitive  => perfect_active_infinitive,
             :future_active_infinitive   => future_active_infinitive,
@@ -18,7 +18,7 @@ module Linguistics
         end
 
         def perfect_active_infinitive
-          @verb.first_person_perfect+"sse"
+          @verb.first_person_perfect + "sse"
         end
 
         def future_active_infinitive
