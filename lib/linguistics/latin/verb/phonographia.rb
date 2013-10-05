@@ -18,91 +18,98 @@ module Linguistics
     # This state is _phonographically_ notes as "amat."  This module
     # implements the appropriate rules for proper phonetic compliance.
     #
+    # === DESCRIPTION
+    #
+    # Latin has several rules pertaining to how long sounds must behave
+    # based on their neighboring characters.  The rules that +fix_macrons+
+    # tests are the following
+    #
+    # === RULES
+    #
+    # <b>Rule 1: </b>:: m/r/t at end of line shortens preceding vowel
+    # <b>Rule 2: </b>:: macron-bearing vowel  before vowel, regardless of
+    #                   its quantity
+    # <b>Rule 3: </b>:: macron-bearing vowel before  /n[td]/ anywhere in the string
+    #
+    # === ARGUMENTS
+    #
+    # +s+ :: a string which needs to be processed for Latin phonographic
+    #             compliance
+    #
+    # === RETURNS
+    #
+    # String with consonants properly converted
+    #
+    # === EXAMPLE
+    #
+    # fix_macrons(fabām) #=> fabam ( Rule 1 )
+    # fix_macrons(cāīō)  #=> caiō  ( Rule 1, Rule 2 )
+    #
     ##
     module Phonographia
+      MACRON_TABLE = {
+        "\xc4\x81" => 'a',
+        "\xc4\x93" => 'e',
+        "\xc4\xab" => 'i',
+        "\xc5\x8d" => 'o',
+        "\xc5\xab" => 'u',
+        "\xc4\x80" => 'A',
+        "\xc4\x92" => 'E',
+        "\xc4\xaa" => 'I',
+        "\xc5\x8c" => 'O',
+        "\xc5\xaa" => 'U',
+        "ā" => 'a',
+        "ē" => 'e',
+        "ī" => 'i',
+        "ō" => 'o',
+        "ū" => 'u',
+        "Ā" => 'A',
+        "Ē" => 'E',
+        "Ī" => 'I',
+        "Ō" => 'O',
+        "Ū" => 'U'
+      }
+
       class << self
-       # === DESCRIPTION
-       #
-       # Latin has several rules pertaining to how long sounds must behave
-       # based on their neighboring characters.  The rules that +fix_macrons+
-       # tests are the following
-       #
-       # === RULES
-       #
-       # <b>Rule 1: </b>:: m/r/t at end of line shortens preceding vowel
-       # <b>Rule 2: </b>:: macron-bearing vowel  before vowel, regardless of
-       #                   its quantity
-       # <b>Rule 3: </b>:: macron-bearing vowel before  /n[td]/ anywhere in the string
-       #
-       # === ARGUMENTS
-       #
-       # +s+ :: a string which needs to be processed for Latin phonographic
-       #             compliance
-       #
-       # === RETURNS
-       #
-       # String with consonants properly converted
-       #
-       # === EXAMPLE
-       #
-       # fix_macrons(fabām) #=> fabam ( Rule 1 )
-       # fix_macrons(cāīō)  #=> caiō  ( Rule 1, Rule 2 )
-       #
-       ##
         def fix_macrons(s)
-          raise if s.nil?
-          return "" if s.empty?
-          macron_table = {"\xc4\x81" => 'a',
-                          "\xc4\x93" => 'e',
-                          "\xc4\xab" => 'i',
-                          "\xc5\x8d" => 'o',
-                          "\xc5\xab" => 'u',
-                          "\xc4\x80" => 'A',
-                          "\xc4\x92" => 'E',
-                          "\xc4\xaa" => 'I',
-                          "\xc5\x8c" => 'O',
-                          "\xc5\xaa" => 'U',
-                          "ā" => 'a',
-                          "ē" => 'e',
-                          "ī" => 'i',
-                          "ō" => 'o',
-                          "ū" => 'u',
-                          "Ā" => 'A',
-                          "Ē" => 'E',
-                          "Ī" => 'I',
-                          "Ō" => 'O',
-                          "Ū" => 'U',
-          }
+          s = mrt_at_end_of_word(s)
+          s = macron_before_vowel(s)
+          s = macron_before_nd(s)
+          s
+        end
 
-
-          # m/r/t at end of line shortens preceding vowel
+        def mrt_at_end_of_word(s)
           if s =~ /^(.*)([āēīōūĀĒĪŌŪ])([mrt])$/i
-            s = $1 + macron_table[$2] + $3
+            return $1 + MACRON_TABLE[$2] + $3
           end
+          s
+        end
 
-          # macron before vowel
-          if s =~ /(.*)([āēīōūĀĒĪŌŪ])([āēīōūĀĒĪŌŪaeiouAEIOU])(.*)/i
-            s = self.fix_macrons $1 + macron_table[$2] + $3 + $4
-          end
+        def macron_before_vowel(s)
+           if s =~ /(.*)([āēīōūĀĒĪŌŪ])([āēīōūĀĒĪŌŪaeiouAEIOU])(.*)/i
+             return self.fix_macrons $1 + MACRON_TABLE[$2] + $3 + $4
+           end
+          s
+        end
 
-          if s=~ /n[td]/
-            # n[td]
+        def macron_before_nd(s)
+          if s =~ /n[td]/
             mutaturum = s.split(//)
             mutatum = []
             mutaturum.each_with_index do |e, i|
-              if ( e == "n" and
-                  mutaturum[i+1] =~ /[td]/ and
-                  not macron_table[mutaturum[i-1]].nil? )
-                mutatum[i-1]=macron_table[mutaturum[i-1]]
+              if ( e == "n" && mutaturum[i+1].match(/[td]/) && !MACRON_TABLE[mutaturum[i-1]].nil? )
+                mutatum[i-1] = MACRON_TABLE[mutaturum[i-1]]
               end
               mutatum << e
             end
-
             return mutatum.join ''
           end
-
-          return s
+          s
         end
+      end
+
+      def fix_macrons(s)
+        Linguistics::Latin::Phonographia.fix_macrons(s)
       end
     end
   end

@@ -2,6 +2,8 @@ module Linguistics
   module Latin
     module Verb
       class Participler
+        include Linguistics::Latin::Phonographia
+
         def initialize(verb)
           @verb = verb
           @passive_perfect_participle = @verb.passive_perfect_participle
