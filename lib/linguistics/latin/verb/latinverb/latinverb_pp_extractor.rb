@@ -86,7 +86,9 @@ module Linguistics
           end
 
           def stem
-            @stem ||= self.class.calculate_stem(present_active_infinitive, first_person_singular)
+            unless classified_as.irregular?
+              self.class.calculate_stem(present_active_infinitive, first_person_singular)
+            end
           end
 
           def classification

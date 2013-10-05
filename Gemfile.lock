@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     latinverb (0.9.3)
+      active_support
       macronconversions
       rake
       rdoc
@@ -10,6 +11,9 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    active_support (3.0.0)
+      activesupport (= 3.0.0)
+    activesupport (3.0.0)
     autotest-standalone (4.5.11)
     byebug (2.2.2)
       columnize (~> 0.3.6)

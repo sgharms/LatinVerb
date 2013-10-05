@@ -64,7 +64,7 @@ module Linguistics
           end
 
           def passive_voice_indicative_mood_present_tense
-            base  = @stem+"ī"
+            base  = stem+"ī"
             elems = [first_person_singular+"r",
               Linguistics::Latin::Verb::LatinVerb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
               base+Linguistics::Latin::Verb::LatinVerb::PASSIVE_ENDINGS_OTHER[-1]].flatten!

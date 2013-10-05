@@ -69,8 +69,9 @@ unique match.
           if components.length > 6
             tb           = self.send(tense_method)
             vector_call  = components[6..-1].join('_').to_sym
-            tb.class.instance_method(vector_call)
+            tb.send(vector_call)
           end
+          true
 
         end
       end

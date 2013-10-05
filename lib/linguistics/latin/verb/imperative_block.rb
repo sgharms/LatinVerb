@@ -1,47 +1,41 @@
-# encoding: UTF-8
-
 require 'linguistics/latin/verb/phonographia'
 require 'yaml'
+require 'forwardable'
 
 module Linguistics
   module Latin
     module Verb
       class ImperativeBlock
-        def initialize(stem,ppi)
-          # In case we get an Array, for JSON revivification
-          if stem.class == Array
-            @results = stem
-          end
+        extend Forwardable
+        def_delegators :@results, :[], :to_a, :length
 
-          r = case
-              when ppi =~ /āre$/
-                [stem, stem+"te"]
-              when ppi =~ /ēre$/
-                [stem, stem+"te"]
-              when ppi =~ /ere$/
-                [stem+"e", stem+"ite"]
-              when ppi =~ /īre$/
-                [stem+"ī", stem+"īte"]
-              end
+        def initialize(stem, plural_present_imperative, verb)
+          @stem = stem
+          @verb = verb
+          @plural_present_imperative = plural_present_imperative
+          @results = form_imperative_base
 
-          r << stem + "tō"
-          r << stem + "tōte"
+          add_additional_imperative_forms
+          fix_macrons!
+        end
 
-          r << stem + "tō"
-          r << stem + "ntō"
 
-          @results = r.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+        def present(qualifier=nil)
+          j = @results[0,2]
+          return j if qualifier.nil?
+          qualifier = qualifier.to_s
+          return j[0] if qualifier =~ /singular/
+          return j[1] if qualifier =~ /plural/
+        end
+
+        def future(qualifier=nil)
+          return @results[2,4] if qualifier.nil?
         end
 
         def to_s
           return @results
         end
 
-        ##
-        #
-        # Required for serialization
-        #
-        ##
         def to_json(*a)
           {
             'json_class'   => self.class.name,
@@ -49,60 +43,8 @@ module Linguistics
           }.to_json(*a)
         end
 
-        ##
-        #
-        # Required for deserialization
-        #
-        ##
         def self.json_create(o)
          new(o['data'])
-        end
-
-        ##
-        #
-        # Provides Array-like interface to the collection of results.
-        #
-        ##
-        def [](arg)
-          @results[arg]
-        end
-
-        ##
-        #
-        # To Array, useful in serialization
-        #
-        ##
-        def to_a
-          return @results
-        end
-
-        ##
-        #
-        # Add array compatibility support
-        #
-        ##
-        def length; return @results.length; end
-
-        ##
-        #
-        # Returns the two, second person imperatives
-        #
-        ##
-        def present(qualifier=nil)
-          j=@results[0,2]
-          return j if qualifier.nil?
-          qualifier = qualifier.to_s
-          return j[0] if qualifier =~ /singular/
-          return j[1] if qualifier =~ /plural/
-        end
-
-        ##
-        #
-        # Returns the four, second and third person future imperatives
-        #
-        ##
-        def future(qualifier=nil)
-          return @results[2,4] if qualifier.nil?
         end
 
         def method_missing(sym,*args)
@@ -111,6 +53,24 @@ module Linguistics
            else
              super
            end
+        end
+
+        private
+
+        def fix_macrons!
+          @results = @results.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+        end
+
+        def add_additional_imperative_forms
+          @results << @stem + "tō"
+          @results << @stem + "tōte"
+
+          @results << @stem + "tō"
+          @results << @stem + "ntō"
+        end
+
+        def form_imperative_base
+          @verb.verb_type.form_present_tense_imperative_rule.call(@stem, @plural_present_imperative)
         end
       end
     end

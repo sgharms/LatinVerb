@@ -11,6 +11,13 @@ module Linguistics
         #
         ##
         module Invariant
+          IMPERATIVE_EXCEPTIONS = {
+            "ducere"   => %w(duc ducite),
+            "dicere"   => %w(dic dicite),
+            "facere"   => %w(fac facite),
+            "ferre"    => %w(fer ferte),
+            "nolere"   => %w(nolo nolite)
+          }
           ##
           #
           # === GRAMMATICAL FUNCTION
@@ -376,26 +383,8 @@ module Linguistics
           end
 
           def form_imperatives# {{{
-
-            imperative_exceptions = {
-              "ducere"   => %w(duc ducite),
-              "dicere"   => %w(dic dicite),
-              "facere"   => %w(fac facite),
-              "ferre"    => %w(fer ferte),
-              "nolere"   => %w(nolo nolite)
-            }
-
-            # Exceptional imperatives.  If we have one, return it straight away.
-            if imperative_exceptions.has_key?(present_active_infinitive)
-              return Linguistics::Latin::Verb::ImperativeBlock.new(
-                imperative_exceptions[present_active_infinitive])
-            end
-
-            # Therefore, let us assume that we are dealing with a standard verb
-            # with standard imperatives.  Accordingly, we will create an
-            # ImperativeBlock.
-
-            return Linguistics::Latin::Verb::ImperativeBlock.new stem, present_active_infinitive
+            args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
+            Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
           end# }}}
 
           ##
@@ -606,6 +595,17 @@ module Linguistics
           ###
           def passive_voice_subjunctive_mood_present_tense
           end
+
+          private
+
+          def exceptional_imperative?
+            IMPERATIVE_EXCEPTIONS.has_key?(present_active_infinitive)
+          end
+
+          def calculate_exceptional_imperatives
+            IMPERATIVE_EXCEPTIONS[present_active_infinitive]
+          end
+
         end
       end
     end
