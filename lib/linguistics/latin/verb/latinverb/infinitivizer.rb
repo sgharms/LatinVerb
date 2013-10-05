@@ -26,24 +26,9 @@ module Linguistics
         end
 
         def present_passive_infinitive
-          present_active_infinitive = @verb.present_active_infinitive
           verb_type = @verb.verb_type
-
-          if verb_type == Linguistics::Latin::Verb::VerbTypes::First
-            return  present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
-          end
-          if verb_type == Linguistics::Latin::Verb::VerbTypes::Second
-            return present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
-          end
-          if verb_type == Linguistics::Latin::Verb::VerbTypes::ThirdIO
-            return present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
-          end
-          if verb_type == Linguistics::Latin::Verb::VerbTypes::Third
-            return present_active_infinitive.gsub(/(.*)ere$/,"\\1ī")
-          end
-          if verb_type == Linguistics::Latin::Verb::VerbTypes::Fourth
-            return present_active_infinitive.gsub(/(.*)e$/,"\\1ī")
-          end
+          present_active_infinitive = @verb.present_active_infinitive
+          verb_type.form_present_passive_infinitive(present_active_infinitive)
         end
 
         def perfect_passive_infinitive
