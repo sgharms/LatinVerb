@@ -22,6 +22,7 @@ require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
 require 'linguistics/latin/verb/latinverb/infinitivizer'
+require 'linguistics/latin/verb/latinverb/chart_presenter'
 require 'linguistics/latin/verb/irregulars'
 
 require 'linguistics/latin/verb/latinverb/impersonal'
@@ -54,14 +55,12 @@ module Linguistics
         def_delegators :@prin_parts_extractor, :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :stem, :principal_parts, :first_person_singular, :participial_stem, :first_person_perfect, :present_active_infinitive #:passive_perfect_participle, 
         def_delegators :@participler, :present_active_participle, :future_active_participle, :perfect_passive_participle, :future_passive_participle, :gerundive, :gerund
         def_delegators :@infinitivizer, :infinitives, :perfect_active_infinitive, :future_active_infinitive, :present_passive_infinitive, :perfect_passive_infinitive, :future_passive_infinitive
+        def_delegators :@chart_presenter, :chart, :c
 
         def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
-
-
-        include Linguistics::Latin::Verb::LatinVerbPresenter
 
         attr_reader :original_string, :verb_methods, :latin_verbvector_generator
 
@@ -75,6 +74,7 @@ module Linguistics
           @validator = Linguistics::Latin::Verb::Validator.new(self)
           @participler = Linguistics::Latin::Verb::Participler.new(self)
           @infinitivizer = Linguistics::Latin::Verb::Infinitivizer.new(self)
+          @chart_presenter = Linguistics::Latin::Verb::ChartPresenter.new(self)
 
           calculate_verb_vector_methods
           load_tense_methods
