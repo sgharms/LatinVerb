@@ -2,7 +2,7 @@ require 'verbvector'
 require 'yaml'
 require 'json'
 require 'active_support'
-require 'dependencies'
+require 'latinverb/dependencies'
 
 module Linguistics
   module Latin
