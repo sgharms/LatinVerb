@@ -25,6 +25,8 @@ require 'linguistics/latin/verb/latinverb/infinitivizer'
 require 'linguistics/latin/verb/latinverb/chart_presenter'
 require 'linguistics/latin/verb/irregulars'
 
+require 'linguistics/verbs/verbvector/vector_applicator'
+
 require 'linguistics/latin/verb/latinverb/impersonal'
 require 'linguistics/latin/verb/latinverb/irregular'
 require 'linguistics/latin/verb/latinverb/semideponent'
@@ -63,22 +65,16 @@ module Linguistics
         def_delegator :@classifier, :dup, :classified_as
 
         attr_reader :original_string, :verb_methods, :latin_verbvector_generator
+        attr_accessor :tense_list
 
         def initialize(data)
-          raise LatinVerbInitializationError if data.nil?
+          @original_string = derive_original_string(data)
+          build_delegates
 
-          @original_string      = (data['original_string'] || data).to_s
-          @classifier           = LatinVerbClassifier.new @original_string
-          @prin_parts_extractor = LatinVerbPPExtractor.new @original_string, @classifier
-          @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
-          @validator = Linguistics::Latin::Verb::Validator.new(self)
-          @participler = Linguistics::Latin::Verb::Participler.new(self)
-          @infinitivizer = Linguistics::Latin::Verb::Infinitivizer.new(self)
-          @chart_presenter = Linguistics::Latin::Verb::ChartPresenter.new(self)
+          acquire_vector_methods!
 
           calculate_verb_vector_methods
           load_tense_methods
-          generate_methods_for_accessing_tense_blocks_from_tense_methods_components
           include_classification_specific_mixins
           check_and_mutate_defectives
         end
@@ -89,10 +85,26 @@ module Linguistics
 
        private
 
+       def derive_original_string(data)
+         (data['original_string'] || data).to_s
+       end
+
+       def build_delegates
+          @classifier           = LatinVerbClassifier.new @original_string
+          @prin_parts_extractor = LatinVerbPPExtractor.new @original_string, @classifier
+          @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
+          @validator = Linguistics::Latin::Verb::Validator.new(self)
+          @participler = Linguistics::Latin::Verb::Participler.new(self)
+          @infinitivizer = Linguistics::Latin::Verb::Infinitivizer.new(self)
+          @chart_presenter = Linguistics::Latin::Verb::ChartPresenter.new(self)
+       end
+
+       def acquire_vector_methods!
+         @latin_verbvector_applicator = Linguistics::Verbs::Verbvector::VectorApplicator.new(self)
+       end
+
        def calculate_verb_vector_methods
-         @latin_verbvector_generator =
-           Linguistics::Verbs::Verbvector::VerbvectorGenerator.new(
-             &Linguistics::Latin::Verb::LatinVerb::LATIN_VERBVECTOR_DESCRIPTION )
+         @latin_verbvector_generator = @latin_verbvector_applicator.latin_verbvector_generator
        end
 
        def load_tense_methods
@@ -113,19 +125,6 @@ module Linguistics
          end
          self.extend the_mod
        end
-
-       def verify_generated_tense_list
-         @tense_list.each do |m|
-           raise "FAILURE:  Critical method #{m} was not defined." unless
-             (self.respond_to? m.to_sym)
-         end
-       end
-
-        def generate_methods_for_accessing_tense_blocks_from_tense_methods_components
-          self.extend @latin_verbvector_generator.method_extension_module
-          @tense_list = @latin_verbvector_generator.cluster_methods[:tense_list].call
-          verify_generated_tense_list
-        end
 
           def include_classification_specific_mixins
             the_mod = if classified_as.impersonal?

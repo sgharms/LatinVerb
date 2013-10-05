@@ -71,6 +71,7 @@ unique match.
             vector_call  = components[6..-1].join('_').to_sym
             tb.send(vector_call)
           end
+          true
 
         end
       end
