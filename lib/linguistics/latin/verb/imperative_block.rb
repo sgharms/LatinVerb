@@ -9,6 +9,7 @@ module Linguistics
         extend Forwardable
         def_delegators :@results, :[], :to_a, :length
 
+        include Linguistics::Latin::Phonographia
         def initialize(stem, plural_present_imperative, verb)
           @stem = stem
           @verb = verb
@@ -58,7 +59,7 @@ module Linguistics
         private
 
         def fix_macrons!
-          @results = @results.map{|v| Linguistics::Latin::Phonographia.fix_macrons v}
+          @results = @results.map{|v| fix_macrons v}
         end
 
         def add_additional_imperative_forms

@@ -47,7 +47,7 @@ module Linguistics
         attr_reader :meaning, :results
 
         def initialize(r, opts={})
-          @results = Array(r).map{|v| Linguistics::Latin::Phonographia.fix_macrons(v)}
+          @results = Array(r).map{|v| fix_macrons(v)}
           @meaning = opts[:meaning] || ""
           @resolver = InstanceMethodsGenerator.new(self)
         end
