@@ -22,7 +22,6 @@ require 'linguistics/latin/verb/supine'
 require 'linguistics/latin/verb/phonographia'
 require 'linguistics/latin/verb/constants'
 require 'linguistics/latin/verb/infinitives'
-require 'linguistics/latin/verb/participles'
 require 'linguistics/latin/verb/irregulars'
 
 require 'linguistics/latin/verb/latinverb/impersonal'
@@ -37,6 +36,7 @@ require 'linguistics/latin/verb/latinverb/classmethods'
 require 'linguistics/latin/verb/latinverb/verbvector_description'
 require 'linguistics/latin/verb/latinverb/metaprogramming'
 require 'linguistics/latin/verb/latinverb/validation'
+require 'linguistics/latin/verb/latinverb/participler'
 require 'linguistics/latin/verb/latinverb/data'
 require 'linguistics/latin/verb/latinverb/display'
 require 'latinverb/version'
@@ -52,13 +52,16 @@ module Linguistics
         def_delegators :@validator, :valid?
         def_delegators :@classifier, :present_only?, :regular?, :irregular?, :classification, :short_class
         def_delegators :@prin_parts_extractor, :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :stem, :principal_parts, :first_person_singular, :participial_stem, :first_person_perfect, :present_active_infinitive #:passive_perfect_participle, 
+        def_delegators :@participler, :present_active_participle, :future_active_participle, :perfect_passive_participle, :future_passive_participle, :gerundive, :gerund
 
         def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
 
-        include Linguistics::Latin::Verb::Participles
+
+
+
         include Linguistics::Latin::Verb::Infinitives
         include Linguistics::Latin::Verb::LatinVerbPresenter
 
@@ -72,6 +75,7 @@ module Linguistics
           @prin_parts_extractor = LatinVerbPPExtractor.new @original_string, @classifier
           @verb_type            = LatinVerbTypeEvaluator.new first_person_singular, present_active_infinitive, @classifier
           @validator = Linguistics::Latin::Verb::Validator.new(self)
+          @participler = Linguistics::Latin::Verb::Participler.new(self)
 
           calculate_verb_vector_methods
           load_tense_methods
