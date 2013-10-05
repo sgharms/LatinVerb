@@ -4,6 +4,7 @@ require 'json'
 require 'active_support'
 
 require 'linguistics/latin/verb/classification_types'
+require 'linguistics/latin/verb/verb_types'
 require 'linguistics/latin/verb/tense_block'
 require 'linguistics/latin/verb/null_tense_block'
 require 'linguistics/latin/verb/participle_block'
@@ -57,6 +58,7 @@ module Linguistics
         def_delegators :@participler, :future_active_participle, :future_passive_participle, :gerund, :gerundive, :perfect_passive_participle, :present_active_participle
         def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive
         def_delegators :@chart_presenter, :chart, :c
+
         def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
