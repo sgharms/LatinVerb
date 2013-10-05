@@ -17,10 +17,7 @@ module Linguistics
           # Take its passives and set them to this verb's actives.  This is
           # actually what students do heuristically in Latin classes.
 
-          def self.included(including_class)
-            debugger
-            puts 'hi'
-          end
+          include Linguistics::Latin::Phonographia
 
           def self.extended(extending_instance)
             extending_instance.instance_eval do
@@ -73,7 +70,7 @@ module Linguistics
                 k=@proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
                 k.sub!(/minī$/, '')
                 k += 'tor'
-                Linguistics::Latin::Phonographia.fix_macrons k
+                fix_macrons k
               end
             end
           end
