@@ -100,31 +100,31 @@ module Linguistics
           # Calculate the participial stem, used in forming participles.
           #
           ##
-          def calculate_participial_stem(first_person_singular, present_active_infinitive)
-             raise("present_active_infinitive was nil![#{first_person_singular} and #{present_active_infinitive}]") if
-               present_active_infinitive.empty? or first_person_singular.empty?
+          #def calculate_participial_stem(first_person_singular, present_active_infinitive)
+             #raise("present_active_infinitive was nil![#{first_person_singular} and #{present_active_infinitive}]") if
+               #present_active_infinitive.empty? or first_person_singular.empty?
 
-             if present_active_infinitive.to_s =~ /(.*ā)re$/
-              return $1
-            end
+             #if present_active_infinitive.to_s =~ /(.*ā)re$/
+              #return $1
+            #end
 
-            if present_active_infinitive.to_s =~ /(.*ē)re$/
-              return $1
-            end
+            #if present_active_infinitive.to_s =~ /(.*ē)re$/
+              #return $1
+            #end
 
-            if present_active_infinitive.to_s =~ /(.*)ere$/
-              match=$1
-              if first_person_singular =~ /iō/
-                return match + "iē"
-              else
-                return match + "e"
-              end
-            end
+            #if present_active_infinitive.to_s =~ /(.*)ere$/
+              #match=$1
+              #if first_person_singular =~ /iō/
+                #return match + "iē"
+              #else
+                #return match + "e"
+              #end
+            #end
 
-            if present_active_infinitive.to_s =~ /(.*)īre$/
-              return $1 + "iē"
-            end
-          end
+            #if present_active_infinitive.to_s =~ /(.*)īre$/
+              #return $1 + "iē"
+            #end
+          #end
 
         end
       end

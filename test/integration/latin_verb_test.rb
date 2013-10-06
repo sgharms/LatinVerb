@@ -144,14 +144,6 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
     end
   end
 
-  def test_participial_stem_creation
-    @verb_hash_utf8_style.each_pair do |k,v|
-      a = v.split( /\s+/ )
-      assert_equal(@verb_hash_participial_stems[k],
-         Linguistics::Latin::Verb::LatinVerb.calculate_participial_stem(a[0], a[1]))
-    end
-  end
-
   # Tests to see if the string that was given was sufficient to successfully create a LatinVerb
   def test_construction_validity
     @verb_hash_utf8_style.each_pair do |k,s|
