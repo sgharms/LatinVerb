@@ -8,14 +8,24 @@ module Linguistics
         include Linguistics::Latin::Phonographia
         def initialize(stem, plural_present_imperative, verb)
           @stem = stem
-          @verb = verb
           @plural_present_imperative = plural_present_imperative
+          @verb = verb
           @results = form_imperative_base
-
           add_additional_imperative_forms
-          fix_macrons!
+          @results.map{|v| fix_macrons v}
         end
 
+        def present_tense_singular_number
+          present('singular')
+        end
+
+        def present_tense_plural_number
+          present('plural')
+        end
+
+        def future(qualifier=nil)
+          return @results[2,4] if qualifier.nil?
+        end
 
         def present(qualifier=nil)
           j = @results[0,2]
@@ -25,38 +35,8 @@ module Linguistics
           return j[1] if qualifier =~ /plural/
         end
 
-        def future(qualifier=nil)
-          return @results[2,4] if qualifier.nil?
-        end
-
-        def to_s
-          return @results
-        end
-
-        def to_json(*a)
-          {
-            'json_class'   => self.class.name,
-            'data'         => @results.map{|i| i.to_json}
-          }.to_json(*a)
-        end
-
-        def self.json_create(o)
-         new(o['data'])
-        end
-
-        def method_missing(sym,*args)
-           if (sym =~ /^(present|future)_tense_(.*)/)
-             self.send($1.to_sym, $2)
-           else
-             super
-           end
-        end
-
         private
 
-        def fix_macrons!
-          @results = @results.map{|v| fix_macrons v}
-        end
 
         def add_additional_imperative_forms
           @results << @stem + "tō"
