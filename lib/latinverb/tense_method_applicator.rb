@@ -1,4 +1,10 @@
-require_relative './defective_checker'
+require_relative './tense_method_applicator/defective_checker'
+require_relative './tense_method_applicator/impersonal'
+require_relative './tense_method_applicator/semideponent'
+require_relative './tense_method_applicator/irregular'
+require_relative './tense_method_applicator/deponent'
+require_relative './tense_method_applicator/deponent_tense_methods'
+require_relative './tense_method_applicator/deponent_string_deriver'
 
 module Linguistics
   module Latin

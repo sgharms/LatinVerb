@@ -43,6 +43,13 @@ module Linguistics
             b = gerundive.sub( /.*\s+(.*)um.*$/, "\\1" )
             b += "ī, ō, etc."
           end
+
+          def supine
+            acc = @passive_perfect_participle
+            abl = acc.sub( /^(.*)um$/, "\\1" )
+            abl += "ū"
+            {:ablative => abl, :accusative => acc}
+          end
         end
       end
     end
