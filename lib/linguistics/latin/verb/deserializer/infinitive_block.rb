@@ -2,7 +2,13 @@ module Linguistics
   module Latin
     module Verb
       class InfinitiveBlock
-        attr_reader :infinitive_methods
+        extend Forwardable
+
+        def_delegators :@delegate, :present_active_infinitive,
+          :present_passive_infinitive, :perfect_active_infinitive,
+          :perfect_passive_infinitive, :future_active_infinitive,
+          :future_passive_infinitive
+
         def initialize(serialized_infinitives)
           @serialized_infinitives = serialized_infinitives
           @delegate = OpenStruct.new(serialized_infinitives)
@@ -10,10 +16,6 @@ module Linguistics
 
         def self.json_create(o)
           new(o['data'])
-        end
-
-        def method_missing(sym, *args)
-          @delegate.send(sym)
         end
       end
     end
