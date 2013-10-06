@@ -1,4 +1,3 @@
-require 'forwardable'
 require_relative './tense_block/json_support'
 require_relative './tense_block/instance_methods_generator'
 require_relative './tense_block/null_tense_block'

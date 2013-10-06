@@ -1,9 +1,10 @@
-require 'verbvector'
-require 'yaml'
-require 'json'
 require 'active_support'
 require 'forwardable'
-require 'byebug'
+require 'json'
+require 'ostruct'
+require 'verbvector'
+require 'yaml'
+
 
 # TODO: extract linguistics into another gem?
 require 'linguistics/latin/verb'
