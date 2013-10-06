@@ -1,53 +1,11 @@
-# encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        ##
-        #
-        # Required method for JSON deserialization
-        #
-        ##
         def self.json_create(o)
-          new( o )
+          new(o)
         end
 
-        ##
-        #
-        # Presents the LatinVerb expressed as a hash with the names of the TenseBlock
-        # specifiers as keys, and corresponding TenseBlock objects, converted to
-        # Arrays, as the values.  It also contains the +original_string+.
-        #
-        ##
-        def to_hash
-          data_structure = {}
-          @tense_list.each do |t|
-            ts = t.to_sym
-            data_structure[ts]=self.send ts
-          end
-          data_structure['original_string'] = @original_string
-          return data_structure
-        end
-
-        alias_method :to_h, :to_hash
-
-        ##
-        #
-        # Takes the hash that results from to_hash and then converts it to
-        # YAML.
-        #
-        ##
-        def to_yaml
-          to_hash.to_yaml
-        end
-
-        alias_method :to_y, :to_yaml
-
-        ##
-        #
-        # Required method for JSON deserialization
-        #
-        ##
         def to_json(*a)
           json_hash = {'json_class' => self.class.name}
 
@@ -72,15 +30,9 @@ module Linguistics
           end
         end
 
-        ##
-        #
-        # Dumps the LatinVerb as pretty JSON
-        #
-        ##
         def pretty_generate
-          JSON.pretty_generate( self.to_h )
+          JSON.pretty_generate(self.to_h)
         end
-
       end
     end
   end

@@ -1,7 +1,3 @@
-require 'linguistics/latin/verb/phonographia'
-require 'yaml'
-require 'forwardable'
-
 module Linguistics
   module Latin
     module Verb
