@@ -2,12 +2,12 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        class LatinVerbPPExtractor# {{{
+        class LatinVerbPPExtractor
           attr_reader :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :first_person_singular
 
-          class << self# {{{
+          class << self
 
-            def calculate_stem(present_active_infinitive, first_person_singular)# {{{
+            def calculate_stem(present_active_infinitive, first_person_singular)
               if present_active_infinitive =~ /āre$/
                 return present_active_infinitive.gsub(/(.*)āre$/,'\\1ā')
               end
@@ -24,11 +24,11 @@ module Linguistics
               if present_active_infinitive =~ /īre$/
                 return present_active_infinitive.gsub(/(.*)īre$/,'\\1')
               end
-            end# }}}
+            end
 
-            def derive_parts_from_given_string(s)# {{{
+            def derive_parts_from_given_string(s)
               s.split(/\s+/)
-            end# }}}
+            end
 
             def calculate_participial_stem(present_active_infinitive, first_person_singular)
               if present_active_infinitive.to_s =~ /(.*ā)re$/
@@ -54,7 +54,7 @@ module Linguistics
             end
           end# }}}
 
-          def initialize(input_string, classification)# {{{
+          def initialize(input_string, classification)
             @data_string = input_string
             @_classification = classification
 
@@ -70,7 +70,7 @@ module Linguistics
                 @deponent_proxy = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(input_string)
               end
             end
-          end# }}}
+          end
 
           def participial_stem
             @participial_stem ||= self.class.calculate_participial_stem(@present_active_infinitive, @first_person_singular)
