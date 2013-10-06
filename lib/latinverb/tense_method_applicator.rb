@@ -36,10 +36,10 @@ module Linguistics
 
           def include_classification_specific_mixins
             the_mod = if classified_as.impersonal?
-               Linguistics::Latin::Verb::LatinVerb::Impersonal
+               Linguistics::Latin::Verb::Impersonal
             elsif classified_as.irregular?
-               Linguistics::Latin::Verb::LatinVerb::Irregular
-            elsif  classified_as.deponent?
+               Linguistics::Latin::Verb::Irregular
+            elsif classified_as.deponent?
                Linguistics::Latin::Verb::Deponent
             elsif classified_as.semideponent?
                Linguistics::Latin::Verb::Semideponent
