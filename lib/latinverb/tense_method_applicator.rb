@@ -5,6 +5,7 @@ require_relative './tense_method_applicator/irregular'
 require_relative './tense_method_applicator/deponent'
 require_relative './tense_method_applicator/deponent_tense_methods'
 require_relative './tense_method_applicator/deponent_string_deriver'
+require_relative './tense_method_applicator/perfect_tense_remover'
 
 module Linguistics
   module Latin
@@ -19,7 +20,7 @@ module Linguistics
             @verb.extend Linguistics::Latin::Verb::TenseDefinitions::Invariant
             load_tense_methods_based_on_verb_type
             include_classification_specific_mixins
-            check_and_mutate_defectives
+            mutate_defectives if is_defective?
           end
 
           private
@@ -54,15 +55,17 @@ module Linguistics
             end
           end
 
-          def check_and_mutate_defectives
-            is_defective = DefectiveChecker::is_it_defective?(@verb)
-            if is_defective
-              @verb.set_as_defective
-              remove_perfect_tenses
-            end
+          def is_defective?
+            DefectiveChecker::is_it_defective?(@verb)
+          end
+
+          def mutate_defectives
+            @verb.set_as_defective
+            remove_perfect_tenses
           end
 
           def remove_perfect_tenses
+            PerfectTenseRemover.new(@verb)
             tense_blocks_to_eclipse =
               @verb.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
 
