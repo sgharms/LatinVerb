@@ -22,12 +22,14 @@ module Linguistics
         attr_reader :meaning, :results
 
         def initialize(r, opts={})
-          @results = Array(r).map{|v| fix_macrons(v)}
+          @results = Array(r).map{ |v| fix_macrons(v) }
           @meaning = opts[:meaning] || ""
           @resolver = VectorResolutionDelegate.new(@results)
         end
 
-        def to_s; return self.to_a.to_s; end
+        def to_s
+          to_a.to_s
+        end
 
         def wordless?
           !@results.find{ |r| r =~ /\w/ }

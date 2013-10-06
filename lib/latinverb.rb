@@ -5,11 +5,8 @@ require 'ostruct'
 require 'verbvector'
 require 'yaml'
 
-
-# TODO: extract linguistics into another gem?
 require 'linguistics/latin/verb'
 
-# Good
 require 'latinverb/errors'
 require 'latinverb/components'
 require 'latinverb/tense_block'

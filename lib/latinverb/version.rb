@@ -1,9 +1,8 @@
-# encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
-      VERSION = "0.9.3" # :nodoc:
-      class LatinVerb # :nodoc:
+      VERSION = "0.9.3"
+      class LatinVerb
       end
     end
   end
