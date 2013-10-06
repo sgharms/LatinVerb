@@ -62,7 +62,7 @@ module Linguistics
 
         def respond_to_missing?(method_name, include_private = false)
           resolver = DynamicMethodResolver.new(self, method_name)
-          resolver.valid? || super
+          resolver.supported_method? || super
         end
 
         def display

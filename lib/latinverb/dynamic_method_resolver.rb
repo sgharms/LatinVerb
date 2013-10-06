@@ -20,7 +20,7 @@ module Linguistics
             Array(components[6..-1]).join('_')
           end
 
-          def valid?
+          def supported_method?
             !(tense_method.nil? || vector_specifier.nil?) && @method_name.match(/_/)
           end
 
