@@ -4,6 +4,7 @@ require 'json'
 require 'ostruct'
 require 'verbvector'
 require 'yaml'
+require 'byebug'
 
 require 'linguistics/latin/verb'
 
