@@ -67,7 +67,7 @@ module Linguistics
               @first_person_perfect, @passive_perfect_participle = @principal_parts
             else
               unless classified_as.impersonal?
-                @deponent_proxy = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent(input_string)
+                @deponent_proxy = Linguistics::Latin::Verb::LatinVerb::DeponentStringDeriver.new(input_string).proxy_string
               end
             end
           end

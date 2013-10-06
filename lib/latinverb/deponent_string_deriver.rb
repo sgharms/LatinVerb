@@ -1,12 +1,8 @@
-# encoding:  UTF-8
-
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
-
-        class << self
-
+        class DeponentStringDeriver
           ##
           #
           # Deponent verbs can be conceived as being the <em>the passive</em> results of
@@ -36,8 +32,18 @@ module Linguistics
           # A pseudo-mapped, four principal-part string
           #
           ##
-          def create_pseudo_active_mask_for_deponent(s)
-            parts = s.split( /\s+/ )
+
+          attr_reader :proxy_string
+
+          def initialize(s)
+            @original_string = s
+            @proxy_string = create_pseudo_active_mask_for_deponent
+          end
+
+          private
+
+          def create_pseudo_active_mask_for_deponent
+            parts = @original_string.split( /\s+/ )
 
             # Turn the passive form into something that looks active
             parts[0].sub!( /or$/, 'ō' )
@@ -65,70 +71,8 @@ module Linguistics
 
             parts.join(' ')
           end
-
-          ##
-          #
-          # == ARGUMENTS
-          #
-          #    * present_active_infinitive
-          #
-          # == RETURNS
-          #
-          # The “stem” of a Latin Verb
-          #
-          # == PURPOSE
-          #
-          # Based on the present active infinitive, identify the “stem” and set the +@stem+
-          # iVar.  The method also returns the stem value.
-          #
-          ##
-
-          ##
-          #
-          # == ARGUMENTS
-          #
-          #     * first_person_singular
-          #     * present_active_infinitive
-          #
-          # == RETURNS
-          #
-          # The participial “stem” of a Latin Verb, used for participle
-          # formation
-          #
-          # == PURPOSE
-          #
-          # Calculate the participial stem, used in forming participles.
-          #
-          ##
-          #def calculate_participial_stem(first_person_singular, present_active_infinitive)
-             #raise("present_active_infinitive was nil![#{first_person_singular} and #{present_active_infinitive}]") if
-               #present_active_infinitive.empty? or first_person_singular.empty?
-
-             #if present_active_infinitive.to_s =~ /(.*ā)re$/
-              #return $1
-            #end
-
-            #if present_active_infinitive.to_s =~ /(.*ē)re$/
-              #return $1
-            #end
-
-            #if present_active_infinitive.to_s =~ /(.*)ere$/
-              #match=$1
-              #if first_person_singular =~ /iō/
-                #return match + "iē"
-              #else
-                #return match + "e"
-              #end
-            #end
-
-            #if present_active_infinitive.to_s =~ /(.*)īre$/
-              #return $1 + "iē"
-            #end
-          #end
-
         end
       end
     end
   end
 end
-
