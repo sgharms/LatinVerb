@@ -55,7 +55,7 @@ module Linguistics
           end
 
           def check_and_mutate_defectives
-            is_defective = Linguistics::Latin::Verb::LatinVerb::DefectiveChecker::is_it_defective?(@verb)
+            is_defective = DefectiveChecker::is_it_defective?(@verb)
             if is_defective
               @verb.set_as_defective
               remove_perfect_tenses
