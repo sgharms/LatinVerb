@@ -17,10 +17,6 @@ require 'latinverb/tense_block'
 require 'latinverb/imperative_block' # can we put this part of something else?
 require 'latinverb/participle_block' # can we put this part of something else?
 
-
-# TODO GOT TO GO
-require 'latinverb/metaprogramming'
-
 #building
 require 'latinverb/deponent_string_deriver'
 require 'latinverb/semideponent'
@@ -36,6 +32,7 @@ require 'latinverb/supine'
 require 'latinverb/infinitive_block'
 require 'latinverb/irregular'
 require 'latinverb/components/vector_applicator'
+require 'latinverb/dynamic_method_resolver'
 
 require 'latinverb/deponent'
 module Linguistics
@@ -74,6 +71,16 @@ module Linguistics
 
         def to_s
           sprintf("%s [%s]", short_class, original_string)
+        end
+
+        def method_missing(method_name, *args )
+          resolver = DynamicMethodResolver.new(self, method_name)
+          resolver.apply! || super
+        end
+
+        def respond_to_missing?(method_name, include_private = false)
+          resolver = DynamicMethodResolver.new(self, method_name)
+          resolver.valid? || super
         end
       end
     end
