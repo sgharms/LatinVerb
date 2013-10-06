@@ -5,7 +5,7 @@ module Linguistics
       module Semideponent
         def self.extended(extending_instance)
           extending_instance.instance_eval do
-            @proxy_verb_string = Linguistics::Latin::Verb::LatinVerb.create_pseudo_active_mask_for_deponent @original_string
+            @proxy_verb_string = Linguistics::Latin::Verb::LatinVerb::DeponentStringDeriver.new(@original_string).proxy_string
             @proxyVerb = Linguistics::Latin::Verb::LatinVerb.new @proxy_verb_string
             apply_semi_deponent_masking
           end

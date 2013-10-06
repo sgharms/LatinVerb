@@ -19,10 +19,10 @@ require 'latinverb/participle_block' # can we put this part of something else?
 
 
 # TODO GOT TO GO
-require 'latinverb/classmethods'
 require 'latinverb/metaprogramming'
 
 #building
+require 'latinverb/deponent_string_deriver'
 require 'latinverb/semideponent'
 require 'latinverb/tense_method_applicator'
 require 'latinverb/tense_block'
