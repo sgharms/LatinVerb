@@ -1,11 +1,9 @@
-require 'byebug'
 module Linguistics
   module Latin
     module Verb
       class TenseBlock
         class InstanceMethodsGenerator
           def initialize(tense_block)
-            #byebug
             tense_block.instance_eval do
 
               def first_person_singular_number

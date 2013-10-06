@@ -1,5 +1,3 @@
-require 'ostruct'
-
 module Linguistics
   module Latin
     module Verb
