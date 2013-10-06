@@ -1,5 +1,5 @@
 require_relative './tense_block/json_support'
-require_relative './tense_block/instance_methods_generator'
+require_relative './tense_block/vector_resolution_delegate'
 require_relative './tense_block/null_tense_block'
 
 module Linguistics
@@ -42,23 +42,28 @@ module Linguistics
 
         extend Forwardable
         def_delegators :@results, :[], :empty?, :length, :to_a
+        def_delegators :@resolver, :first_person_singular_number,
+          :singular_number_first_person, :second_person_singular_number,
+          :singular_number_second_person, :third_person_singular_number,
+          :third_person_singular_number, :singular_number_third_person,
+          :first_person_plural_number, :plural_number_first_person,
+          :second_person_plural_number, :plural_number_second_person,
+          :third_person_plural_number, :plural_number_third_person,
+          :first_person, :second_person, :third_person,
+          :singular_number, :plural_number
 
         attr_reader :meaning, :results
 
         def initialize(r, opts={})
           @results = Array(r).map{|v| fix_macrons(v)}
           @meaning = opts[:meaning] || ""
-          @resolver = InstanceMethodsGenerator.new(self)
+          @resolver = VectorResolutionDelegate.new(@results)
         end
 
         def to_s; return self.to_a.to_s; end
 
         def wordless?
           !@results.find{ |r| r =~ /\w/ }
-        end
-
-        def method_missing(symbol, *args)
-          @resolver.send(symbol)
         end
       end
     end
