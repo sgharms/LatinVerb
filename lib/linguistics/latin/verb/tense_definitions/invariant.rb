@@ -376,10 +376,6 @@ module Linguistics
           #
           ###
           def imperatives
-            @imperatives ||= form_imperatives
-          end
-
-          def form_imperatives# {{{
             args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
             Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
           end# }}}
