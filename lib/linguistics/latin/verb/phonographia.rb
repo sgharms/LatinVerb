@@ -9,7 +9,7 @@ module Linguistics
     # special notation are the vowels which may bear a long ("ā") or short
     # ("a") quantity.
     #
-    # When forming Latin words from heuristic ( as LatinVerb does ), certain
+    # When forming Latin words from heuristic (as LatinVerb does), certain
     # phonographical structures arise that one does not see in the language as
     # practiced by humans.  For example, given "amāre," the stem is "amā."
     # When the heuristic  postpends "t" to get the present, indicative, third

@@ -1,10 +1,5 @@
-# encoding: UTF-8
-#
-
 module Linguistics
-  # Generalized module for handling linguistics related to Latin
   module Latin
-    # Generalized module for handling linguistics related to Latin's verbal aspects
     module Verb
       class LatinVerb
         LATIN_VERBVECTOR_DESCRIPTION = Proc.new do
