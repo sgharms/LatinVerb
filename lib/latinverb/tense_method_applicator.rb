@@ -1,3 +1,5 @@
+require_relative './defective_checker'
+
 module Linguistics
   module Latin
     module Verb
@@ -32,11 +34,11 @@ module Linguistics
             elsif classified_as.irregular?
                Linguistics::Latin::Verb::LatinVerb::Irregular
             elsif  classified_as.deponent?
-               Linguistics::Latin::Verb::LatinVerb::Deponent
+               Linguistics::Latin::Verb::Deponent
             elsif classified_as.semideponent?
-               Linguistics::Latin::Verb::LatinVerb::Semideponent
+               Linguistics::Latin::Verb::Semideponent
             elsif classified_as.present_only?
-               Linguistics::Latin::Verb::LatinVerb::PresentOnly
+               Linguistics::Latin::Verb::PresentOnly
             end
 
             return unless the_mod

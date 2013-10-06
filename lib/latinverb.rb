@@ -2,10 +2,42 @@ require 'verbvector'
 require 'yaml'
 require 'json'
 require 'active_support'
+require 'forwardable'
+require 'byebug'
 
-require 'latinverb/dependencies'
+# TODO: extract linguistics into another gem?
+require 'linguistics/latin/verb'
+
+# Good
 require 'latinverb/version'
+require 'latinverb/data'
+require 'latinverb/components'
+require 'latinverb/tense_block'
 
+require 'latinverb/imperative_block' # can we put this part of something else?
+require 'latinverb/participle_block' # can we put this part of something else?
+
+
+# TODO GOT TO GO
+require 'latinverb/classmethods'
+require 'latinverb/metaprogramming'
+
+#building
+require 'latinverb/semideponent'
+require 'latinverb/tense_method_applicator'
+require 'latinverb/tense_block'
+require 'latinverb/verbvector_description'
+require 'latinverb/defective_checker'
+require 'latinverb/deponent_tense_methods'
+require 'latinverb/display'
+require 'latinverb/errors'
+require 'latinverb/impersonal'
+require 'latinverb/supine'
+require 'latinverb/infinitive_block'
+require 'latinverb/irregular'
+require 'latinverb/components/vector_applicator'
+
+require 'latinverb/deponent'
 module Linguistics
   module Latin
     module Verb
@@ -32,12 +64,12 @@ module Linguistics
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPPExtractor.new(@original_string, @classifier)
           @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
-          @validator = Linguistics::Latin::Verb::Validator.new(self)
-          @participler = Linguistics::Latin::Verb::Participler.new(self)
-          @infinitivizer = Linguistics::Latin::Verb::Infinitivizer.new(self)
-          @chart_presenter = Linguistics::Latin::Verb::ChartPresenter.new(self)
-          @latin_verbvector_generator = Linguistics::Verbs::Verbvector::VectorApplicator.new(self).latin_verbvector_generator
+          @validator = Linguistics::Latin::Verb::LatinVerb::Validator.new(self)
+          @participler = Linguistics::Latin::Verb::LatinVerb::Participler.new(self)
+          @infinitivizer = Linguistics::Latin::Verb::LatinVerb::Infinitivizer.new(self)
+          @chart_presenter = Linguistics::Latin::Verb::LatinVerb::ChartPresenter.new(self)
           TenseMethodApplicator.new(self)
+          @latin_verbvector_generator = Linguistics::Latin::Verb::LatinVerb::VectorApplicator.new(self).latin_verbvector_generator
         end
 
         def to_s

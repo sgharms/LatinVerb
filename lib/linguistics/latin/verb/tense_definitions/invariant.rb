@@ -1,6 +1,3 @@
-# encoding: UTF-8
-# vim:  set fdm=marker tw=80 sw=2:
-
 module Linguistics
   module Latin
     module Verb
@@ -38,7 +35,7 @@ module Linguistics
             TenseBlock.new( [ '', imp.present_tense_singular_number, '',
                                      '', imp.present_tense_plural_number, ''
                             ],
-                            { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_imperative_mood_present_tense] }
+                            { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_imperative_mood_present_tense] }
                           )
           end
 
@@ -63,7 +60,7 @@ module Linguistics
             return TenseBlock.new( [ '', f[0], f[2],
                                      '', f[1], f[3]
                                    ],
-                                  { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_imperative_mood_future_tense] }
+                                  { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_imperative_mood_future_tense] }
                                  )
           end# }}}
 
@@ -85,8 +82,8 @@ module Linguistics
           ###
           def active_voice_indicative_mood_futureperfect_tense# {{{
             substem = first_person_perfect[0..-2]
-            return TenseBlock.new [Linguistics::Latin::Verb::LatinVerb::APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten,
-                   { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_indicative_mood_futureperfect_tense] }
+            return TenseBlock.new [Linguistics::Latin::Verb::APERF_FUTURE_ENDINGS.collect{|x| substem+x}].flatten,
+                   { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_futureperfect_tense] }
           end# }}}
 
           ##
@@ -107,8 +104,8 @@ module Linguistics
           ###
           def active_voice_indicative_mood_pastperfect_tense# {{{
             substem = first_person_perfect[0..-2]
-             return TenseBlock.new [Linguistics::Latin::Verb::LatinVerb::APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten,
-                    { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_indicative_mood_pastperfect_tense] }
+             return TenseBlock.new [Linguistics::Latin::Verb::APERF_PAST_ENDINGS.collect{|x| substem+x}].flatten,
+                    { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_pastperfect_tense] }
           end# }}}
 
           ##
@@ -129,10 +126,10 @@ module Linguistics
           ###
           def active_voice_subjunctive_mood_imperfect_tense
            TenseBlock.new(
-             ['m', Linguistics::Latin::Verb::LatinVerb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
+             ['m', Linguistics::Latin::Verb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
              present_active_infinitive.sub(/e$/,'ē') + ending
             end,
-            { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_subjunctive_mood_imperfect_tense] }
+            { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_imperfect_tense] }
             )
           end
 
@@ -153,8 +150,8 @@ module Linguistics
           ###
           def active_voice_indicative_mood_perfect_tense# {{{
             substem = first_person_perfect[0..-2]
-            return TenseBlock.new [first_person_perfect.to_s, Linguistics::Latin::Verb::LatinVerb::APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten,
-                   { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_indicative_mood_perfect_tense] }
+            return TenseBlock.new [first_person_perfect.to_s, Linguistics::Latin::Verb::APERF_ENDINGS.collect{|x| substem+x.to_s}].flatten,
+                   { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_perfect_tense] }
           end# }}}
 
           ##
@@ -175,10 +172,10 @@ module Linguistics
           ###
           def active_voice_subjunctive_mood_pastperfect_tense# {{{
             asp_base = first_person_perfect[0..first_person_perfect.length-2] + "issē"
-              TenseBlock.new( ['m', Linguistics::Latin::Verb::LatinVerb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
+              TenseBlock.new( ['m', Linguistics::Latin::Verb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
                 asp_base + ending
               end,
-              { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_subjunctive_mood_pastperfect_tense] }
+              { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_pastperfect_tense] }
               )
           end# }}}
 
@@ -203,10 +200,10 @@ module Linguistics
               first_person_perfect[0..first_person_perfect.length-2] +
               "erī"
             TenseBlock.new(
-              ['m', Linguistics::Latin::Verb::LatinVerb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
+              ['m', Linguistics::Latin::Verb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do |ending|
               asp_base + ending
             end,
-            { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:active_voice_subjunctive_mood_perfect_tense] }
+            { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_perfect_tense] }
             )
           end
 
@@ -229,8 +226,8 @@ module Linguistics
           ###
           def passive_voice_indicative_mood_futureperfect_tense# {{{
             return TenseBlock.new(
-              Linguistics::Latin::Verb::LatinVerb::PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
-              { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_indicative_mood_futureperfect_tense] }
+              Linguistics::Latin::Verb::PASS_PERF_FUTURE_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
+              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_futureperfect_tense] }
               )
           end# }}}
 
@@ -253,8 +250,8 @@ module Linguistics
           ###
           def passive_voice_indicative_mood_pastperfect_tense# {{{
             TenseBlock.new(
-              Linguistics::Latin::Verb::LatinVerb::PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
-              { :meaning =>  Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_indicative_mood_pastperfect_tense]}
+              Linguistics::Latin::Verb::PASS_PERF_PAST_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
+              { :meaning =>  Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_pastperfect_tense]}
               )
           end# }}}
 
@@ -275,8 +272,8 @@ module Linguistics
           ###
           def passive_voice_indicative_mood_perfect_tense
             TenseBlock.new(
-               Linguistics::Latin::Verb::LatinVerb::PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
-               { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_indicative_mood_perfect_tense] }
+               Linguistics::Latin::Verb::PASS_PERF_PRESENT_ENDINGS.map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}"  },
+               { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_perfect_tense] }
                )
           end
 
@@ -299,10 +296,10 @@ module Linguistics
           def passive_voice_subjunctive_mood_imperfect_tense
             base = present_active_infinitive.gsub(/(.*)(.)$/,"\\1" + 'ē')
             TenseBlock.new(
-              Linguistics::Latin::Verb::LatinVerb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
+              Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
               base + ending
             end,
-            { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_imperfect_tense] }
+            { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_imperfect_tense] }
             )
           end
 
@@ -324,13 +321,13 @@ module Linguistics
           ###
           def passive_voice_subjunctive_mood_pastperfect_tense# {{{
             count = -1
-            TenseBlock.new(Linguistics::Latin::Verb::LatinVerb::PASS_PLUPERF_PAST_ENDINGS.map do |ending|
+            TenseBlock.new(Linguistics::Latin::Verb::PASS_PLUPERF_PAST_ENDINGS.map do |ending|
                count += 1
                (count <= 2 ?
                  "[ #{triplicate_and_genderize passive_perfect_participle} ]" :
                  "[ #{pluralize_participial_listing(triplicate_and_genderize(passive_perfect_participle))} ]" )+ " " + ending
             end,
-            { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_pastperfect_tense] }
+            { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_pastperfect_tense] }
             )
           end# }}}
 
@@ -352,13 +349,13 @@ module Linguistics
           ###
           def passive_voice_subjunctive_mood_perfect_tense
             counter = -1
-            TenseBlock.new(Linguistics::Latin::Verb::LatinVerb::PASS_PERF_SUBJUNCTIVE_ENDINGS.map do |ending|
+            TenseBlock.new(Linguistics::Latin::Verb::PASS_PERF_SUBJUNCTIVE_ENDINGS.map do |ending|
                counter += 1
                 (counter <=2 ?
                  "[ #{triplicate_and_genderize passive_perfect_participle} ]" :
                  "[ #{pluralize_participial_listing(triplicate_and_genderize(passive_perfect_participle))} ]" )+ " " + ending
               end,
-              { :meaning => Linguistics::Latin::Verb::LatinVerb::MEANINGS[:passive_voice_subjunctive_mood_perfect_tense] }
+              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_perfect_tense] }
               )
           end
 
