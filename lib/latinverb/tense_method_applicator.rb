@@ -1,11 +1,13 @@
 require_relative './tense_method_applicator/defective_checker'
-require_relative './tense_method_applicator/impersonal'
-require_relative './tense_method_applicator/semideponent'
-require_relative './tense_method_applicator/irregular'
-require_relative './tense_method_applicator/deponent'
 require_relative './tense_method_applicator/deponent_tense_methods'
 require_relative './tense_method_applicator/deponent_string_deriver'
 require_relative './tense_method_applicator/perfect_tense_remover'
+require_relative './tense_method_applicator/mutators/impersonal'
+require_relative './tense_method_applicator/mutators/irregular'
+require_relative './tense_method_applicator/mutators/deponent'
+require_relative './tense_method_applicator/mutators/regular'
+require_relative './tense_method_applicator/mutators/semideponent'
+require_relative './tense_method_applicator/mutator_for_classification_factory'
 
 module Linguistics
   module Latin
@@ -36,23 +38,7 @@ module Linguistics
           end
 
           def include_classification_specific_mixins
-            the_mod = if classified_as.impersonal?
-               Linguistics::Latin::Verb::Impersonal
-            elsif classified_as.irregular?
-               Linguistics::Latin::Verb::Irregular
-            elsif classified_as.deponent?
-               Linguistics::Latin::Verb::Deponent
-            elsif classified_as.semideponent?
-               Linguistics::Latin::Verb::Semideponent
-            elsif classified_as.present_only?
-               Linguistics::Latin::Verb::PresentOnly
-            end
-
-            return unless the_mod
-
-            @verb.instance_eval do
-              self.extend the_mod
-            end
+            MutatorForClassificationFactory.new(@verb).mutator.mutate!
           end
 
           def is_defective?
@@ -65,17 +51,7 @@ module Linguistics
           end
 
           def remove_perfect_tenses
-            PerfectTenseRemover.new(@verb)
-            tense_blocks_to_eclipse =
-              @verb.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
-
-            tense_blocks_to_eclipse.each do |s|
-              @verb.singleton_class.class_eval do
-                define_method s do
-                  return NullTenseBlock.new
-                end
-              end
-            end
+            PerfectTenseRemover.new(@verb).remove!
           end
         end
       end

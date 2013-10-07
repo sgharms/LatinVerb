@@ -6,6 +6,7 @@ require 'verbvector'
 require 'yaml'
 require 'byebug'
 
+require 'linguistics/latin/phonographia'
 require 'linguistics/latin/verb'
 
 require 'latinverb/errors'
