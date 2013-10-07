@@ -49,8 +49,8 @@ module Linguistics
           @participler = Participler.new(self)
           @infinitivizer = Infinitivizer.new(self)
           @chart_presenter = ChartPresenter.new(self)
-          TenseMethodApplicator.new(self)
           @latin_verbvector_generator = VectorApplicator.new(self).latin_verbvector_generator
+          TenseMethodApplicator.new(self)
         end
 
         def to_s
