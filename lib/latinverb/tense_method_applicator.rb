@@ -1,13 +1,12 @@
 require_relative './tense_method_applicator/defective_checker'
-require_relative './tense_method_applicator/deponent_tense_methods'
 require_relative './tense_method_applicator/deponent_string_deriver'
 require_relative './tense_method_applicator/perfect_tense_remover'
+require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutators/impersonal'
 require_relative './tense_method_applicator/mutators/irregular'
 require_relative './tense_method_applicator/mutators/deponent'
 require_relative './tense_method_applicator/mutators/regular'
 require_relative './tense_method_applicator/mutators/semideponent'
-require_relative './tense_method_applicator/mutator_for_classification_factory'
 
 module Linguistics
   module Latin
