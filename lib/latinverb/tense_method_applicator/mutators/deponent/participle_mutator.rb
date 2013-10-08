@@ -15,6 +15,7 @@ module Linguistics
                 proxyVerb = @proxyVerb
                 @verb.instance_eval do
                   @proxyVerb = proxyVerb
+
                   def present_active_participle
                     return @proxyVerb.present_active_participle
                   end
