@@ -26,7 +26,8 @@ module Linguistics
             def initialize(verb, opts={})
               @verb = verb
               @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string)
-              @mutators_classes = opts[:mutator_classes] || [ TenseBlockMutator, ImperativeMutator, ParticipleMutator, InfinitiveMutator ]
+              @mutators_classes = opts[:mutator_classes] ||
+                [ TenseBlockMutator, ImperativeMutator, ParticipleMutator, InfinitiveMutator ]
             end
 
             def mutate!
