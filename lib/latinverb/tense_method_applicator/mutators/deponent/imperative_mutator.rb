@@ -31,6 +31,7 @@ module Linguistics
                   def active_voice_imperative_mood_present_tense_second_person_plural_number
                     return @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
                   end
+
                   def active_voice_imperative_mood_future_tense_second_person_singular_number
                     k = @proxyVerb.send :passive_voice_indicative_mood_present_tense_second_person_plural_number
                     k.sub!(/minī$/, '')
