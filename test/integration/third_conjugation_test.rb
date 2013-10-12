@@ -166,23 +166,23 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal("[ actī, actae, acta ] essētis", @aThird.passive_voice_subjunctive_mood_pastperfect_tense_second_person_plural_number.to_s)
     assert_equal("[ actī, actae, acta ] essent",  @aThird.passive_voice_subjunctive_mood_pastperfect_tense_third_person_plural_number.to_s)
 
-          # Imperatives
-          assert_equal"age",   @aThird.imperatives[0]
-          assert_equal"agite", @aThird.imperatives[1]
+    # Imperatives
+    assert_equal"age",   @aThird.imperatives[0]
+    assert_equal"agite", @aThird.imperatives[1]
 
-          # Participles
-          assert_equal"agens, agentis",           @aThird.present_active_participle
-          assert_equal"actūrus, actūra, actūrum", @aThird.future_active_participle
-          assert_equal"actus, acta, actum",       @aThird.perfect_passive_participle
-          assert_equal"agendus, agenda, agendum", @aThird.future_passive_participle
+    # Participles
+    assert_equal"agens, agentis",           @aThird.present_active_participle
+    assert_equal"actūrus, actūra, actūrum", @aThird.future_active_participle
+    assert_equal"actus, acta, actum",       @aThird.perfect_passive_participle
+    assert_equal"agendus, agenda, agendum", @aThird.future_passive_participle
 
-          # Infinitves
-          assert_equal "agere",                   @aThird.present_active_infinitive.to_s
-          assert_equal "ēgīsse",                  @aThird.perfect_active_infinitive
-          assert_equal "actūrus esse",            @aThird.future_active_infinitive
-          assert_equal "agī",                     @aThird.present_passive_infinitive
-          assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive
-          assert_equal "actum īrī",               @aThird.future_passive_infinitive
-   end
+    # Infinitves
+    assert_equal "agere",                   @aThird.present_active_infinitive.to_s
+    assert_equal "ēgīsse",                  @aThird.perfect_active_infinitive
+    assert_equal "actūrus esse",            @aThird.future_active_infinitive
+    assert_equal "agī",                     @aThird.present_passive_infinitive
+    assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive
+    assert_equal "actum īrī",               @aThird.future_passive_infinitive
+  end
 
 end
