@@ -20,11 +20,21 @@ module Linguistics
                 "ferre"    => %w(fer ferte),
                 "nolere"   => %w(nolo nolite)
               }
-
-              def imperatives
-                args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
-                Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
+              
+              def initialize(verb)
+                @verb = verb
               end
+
+              def apply!
+                byebug
+                args = exceptional_imperative? ? calculate_exceptional_imperatives : [@verb.stem, @verb.present_active_infinitive]
+                @verb.instance_eval do
+                  def imperatives
+                    Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
+                  end
+                end
+              end
+
 
               private
 

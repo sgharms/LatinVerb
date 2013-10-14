@@ -12,10 +12,11 @@ module Linguistics
               def apply!
                 @verb.instance_eval do
                   def active_voice_indicative_mood_perfect_tense
-                  substem = first_person_perfect[0..-2]
-                  elements = [first_person_perfect.to_s, APERF_ENDINGS.flat_map{|x| substem + x.to_s}]
-                  meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_perfect_tense] }
-                  return TenseBlock.new(elements, meaning)
+                    substem = first_person_perfect[0..-2]
+                    elements = APERF_ENDINGS.flat_map{|x| substem + x.to_s}
+                    elements.unshift first_person_perfect
+                    meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_perfect_tense] }
+                    return TenseBlock.new(elements, meaning)
                   end
                 end
               end
