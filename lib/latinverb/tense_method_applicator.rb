@@ -7,6 +7,7 @@ require_relative './tense_method_applicator/mutators/irregular'
 require_relative './tense_method_applicator/mutators/deponent'
 require_relative './tense_method_applicator/mutators/regular'
 require_relative './tense_method_applicator/mutators/semideponent'
+require_relative './tense_method_applicator/mutators/invariant'
 
 module Linguistics
   module Latin
