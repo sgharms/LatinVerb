@@ -18,11 +18,14 @@ require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
 require 'latinverb/tense_method_applicator'
 require 'latinverb/verbvector_description'
+require 'latinverb/pluralizations_helper'
 
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
+        include PluralizationsHelper
+
         extend Forwardable
 
         def_delegators :@validator, :valid?
@@ -71,6 +74,30 @@ module Linguistics
         def display
           pretty_generate
         end
+
+          IMPERATIVE_EXCEPTIONS = {
+            "ducere"   => %w(duc ducite),
+            "dicere"   => %w(dic dicite),
+            "facere"   => %w(fac facite),
+            "ferre"    => %w(fer ferte),
+            "nolere"   => %w(nolo nolite)
+          }
+
+          def imperatives
+            args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
+            Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
+          end
+
+          private
+
+          def exceptional_imperative?
+            IMPERATIVE_EXCEPTIONS.has_key?(present_active_infinitive)
+          end
+
+          def calculate_exceptional_imperatives
+            IMPERATIVE_EXCEPTIONS[present_active_infinitive]
+          end
+
       end
     end
   end

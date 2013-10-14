@@ -21,6 +21,7 @@ require_relative './invariant/passive_voice_subjunctive_mood_imperfect_tense_str
 require_relative './invariant/passive_voice_subjunctive_mood_pastperfect_tense_strategy'
 require_relative './invariant/passive_voice_subjunctive_mood_perfect_tense_strategy'
 require_relative './invariant/passive_voice_subjunctive_mood_present_tense_strategy'
+require_relative './invariant/imperatives'
 
 module Linguistics
   module Latin
@@ -30,29 +31,20 @@ module Linguistics
           class Invariant
 
             STRATEGIES = [
-              #ActiveVoiceImperativeMoodPresentTenseStrategy,
-              #ActiveVoiceImperativeMoodFutureTenseStrategy,
-              #ActiveVoiceIndicativeMoodFutureTenseStrategy,
-              #ActiveVoiceIndicativeMoodFutureperfectTenseStrategy,
-              #ActiveVoiceIndicativeMoodImperfectTenseStrategy,
-              #ActiveVoiceIndicativeMoodPastperfectTenseStrategy,
-              #ActiveVoiceIndicativeMoodPerfectTenseStrategy,
-              #ActiveVoiceIndicativeMoodPresentTenseStrategy,
-              #ActiveVoiceSubjunctiveMoodImperfectTenseStrategy,
-              #ActiveVoiceSubjunctiveMoodPastperfectTenseStrategy,
-              #ActiveVoiceSubjunctiveMoodPerfectTenseStrategy,
-              #ActiveVoiceSubjunctiveMoodPresentTenseStrategy,
-              ##ImperativesStrategy,
-              #PassiveVoiceIndicativeMoodFutureTenseStrategy,
-              #PassiveVoiceIndicativeMoodFutureperfectTenseStrategy,
-              #PassiveVoiceIndicativeMoodImperfectTenseStrategy,
-              #PassiveVoiceIndicativeMoodPastperfectTenseStrategy,
-              #PassiveVoiceIndicativeMoodPerfectTenseStrategy,
-              #PassiveVoiceIndicativeMoodPresentTenseStrategy,
-              #PassiveVoiceSubjunctiveMoodImperfectTenseStrategy,
-              #PassiveVoiceSubjunctiveMoodPastperfectTenseStrategy,
-              #PassiveVoiceSubjunctiveMoodPerfectTenseStrategy,
-              #PassiveVoiceSubjunctiveMoodPresentTenseStrategy,
+              ActiveVoiceImperativeMoodPresentTenseStrategy,
+              ActiveVoiceImperativeMoodFutureTenseStrategy,
+              ActiveVoiceIndicativeMoodFutureTenseStrategy,
+              ActiveVoiceIndicativeMoodPastperfectTenseStrategy,
+              ActiveVoiceIndicativeMoodPerfectTenseStrategy,
+              ActiveVoiceSubjunctiveMoodImperfectTenseStrategy,
+              ActiveVoiceSubjunctiveMoodPastperfectTenseStrategy,
+              ActiveVoiceSubjunctiveMoodPerfectTenseStrategy,
+              PassiveVoiceIndicativeMoodFutureperfectTenseStrategy,
+              PassiveVoiceIndicativeMoodPastperfectTenseStrategy,
+              PassiveVoiceIndicativeMoodPerfectTenseStrategy,
+              PassiveVoiceSubjunctiveMoodImperfectTenseStrategy,
+              PassiveVoiceSubjunctiveMoodPastperfectTenseStrategy,
+              PassiveVoiceSubjunctiveMoodPerfectTenseStrategy,
             ]
 
             def initialize(verb)

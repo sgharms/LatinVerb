@@ -13,10 +13,10 @@ module Linguistics
                 @verb.instance_eval do
                   def active_voice_subjunctive_mood_pastperfect_tense
                     asp_base = first_person_perfect[0..first_person_perfect.length-2] + "issē"
-                      elements =  ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flat_map do |ending|
+                    elements =  ['m', *AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flat_map do |ending|
                       asp_base + ending
                     end
-                    meaning = { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_pastperfect_tense] }
+                    meaning = { :meaning => MEANINGS[:active_voice_subjunctive_mood_pastperfect_tense] }
                     TenseBlock.new(elements, meaning)
                   end
                 end
