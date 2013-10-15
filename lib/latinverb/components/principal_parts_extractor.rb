@@ -101,4 +101,3 @@ module Linguistics
     end
   end
 end
-# vim:  set fdm=marker tw=80 sw=2:

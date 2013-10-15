@@ -95,5 +95,3 @@ module Linguistics
     end
   end
 end
-
-# vim: set fdm=marker:
