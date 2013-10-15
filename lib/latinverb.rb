@@ -32,12 +32,11 @@ module Linguistics
         def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive
         def_delegators :@chart_presenter, :chart, :c
 
-        def_delegator :@latin_verbvector_generator, :vector_list, :instance_methods
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
 
-        attr_reader :original_string, :verb_methods, :latin_verbvector_generator
+        attr_reader :original_string, :verb_methods
         attr_accessor :tense_list
 
         def initialize(data)
