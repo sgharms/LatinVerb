@@ -8,80 +8,80 @@ module Linguistics
         module Fourth
           def active_voice_indicative_mood_future_tense
             return TenseBlock.new(
-              [Linguistics::Latin::Verb::AF_OTHER_ENDINGS.collect{|x| stem + "i" + x}].flatten,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_future_tense] }
+              [AF_OTHER_ENDINGS.collect{|x| stem + "i" + x}].flatten,
+              { :meaning => MEANINGS[:active_voice_indicative_mood_future_tense] }
               )
           end
 
           def active_voice_indicative_mood_imperfect_tense
             return TenseBlock.new(
-              [Linguistics::Latin::Verb::AI_THIRD_CONJUG_PERS_ENDINGS.collect do |x|
+              [AI_THIRD_CONJUG_PERS_ENDINGS.collect do |x|
                   stem + "i" + x end ].flatten!,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_imperfect_tense] }
+              { :meaning => MEANINGS[:active_voice_indicative_mood_imperfect_tense] }
               )
           end
 
           def active_voice_indicative_mood_present_tense
             return TenseBlock.new(
               [ first_person_singular,
-                       Linguistics::Latin::Verb::AP_THIRDIO_CONJG_PERS_ENDINGS.collect{ |ending| stem + ending }
+                       AP_THIRDIO_CONJG_PERS_ENDINGS.collect{ |ending| stem + ending }
                      ].flatten!,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_indicative_mood_present_tense] }
+              { :meaning => MEANINGS[:active_voice_indicative_mood_present_tense] }
               )
           end
 
           def active_voice_subjunctive_mood_present_tense
             key = verb_type.to_s.split(/::/).last.to_sym
-            asp_base = Linguistics::Latin::Verb::ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem[0..-1])
+            asp_base = ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem[0..-1])
             elems = ['m',
-               Linguistics::Latin::Verb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
+               AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!.map do  |ending|
                  asp_base + ending
             end
 
             TenseBlock.new(
               elems,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_present_tense] }
+              { :meaning => MEANINGS[:active_voice_subjunctive_mood_present_tense] }
               )
           end
 
           def passive_voice_indicative_mood_future_tense
-            ie_base = stem+"iē"
-            elems =  [stem+"ia"+Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0],
-              Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| ie_base + x}].flatten!
+            ie_base = stem + "iē"
+            elems =  [stem + "ia" + PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0],
+              PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| ie_base + x}].flatten!
             TenseBlock.new(
               elems,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_future_tense] }
+              { :meaning => MEANINGS[:passive_voice_indicative_mood_future_tense] }
               )
           end
 
           def passive_voice_indicative_mood_imperfect_tense
             base = stem+"iēbā"
-            elems = [Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| base + x}].flatten!
+            elems = [PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| base + x}].flatten!
             return TenseBlock.new(
               elems,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_imperfect_tense] }
+              { :meaning => MEANINGS[:passive_voice_indicative_mood_imperfect_tense] }
               )
           end
 
           def passive_voice_indicative_mood_present_tense
             base  = stem+"ī"
             elems = [first_person_singular+"r",
-              Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
-              base+Linguistics::Latin::Verb::PASSIVE_ENDINGS_OTHER[-1]].flatten!
+              PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
+              base + PASSIVE_ENDINGS_OTHER[-1]].flatten!
             return TenseBlock.new(
               elems,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_indicative_mood_present_tense] }
+              { :meaning => MEANINGS[:passive_voice_indicative_mood_present_tense] }
               )
           end
 
           def passive_voice_subjunctive_mood_present_tense
             subjunctive_stem = stem + "iā"
-            elems = Linguistics::Latin::Verb::PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
+            elems = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map do |ending|
               subjunctive_stem + ending
             end
             TenseBlock.new(
               elems,
-              { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_present_tense] }
+              { :meaning => MEANINGS[:passive_voice_subjunctive_mood_present_tense] }
               )
           end
         end
