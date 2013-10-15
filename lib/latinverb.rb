@@ -90,6 +90,19 @@ module Linguistics
 
           private
 
+  def pluralize_participial_listing(x)
+    x.sub!(/us,/,   'ī,' )
+    x.sub!(/a,/,    'ae,')
+    x.sub!(/um.*$/, 'a'  )
+  end
+
+  def triplicate_and_genderize(s)
+    stem = s.sub(/^(.*)um$/,"\\1")
+    [ stem + 'us',
+      stem + 'a',
+      s
+    ].join(', ')
+  end
           def exceptional_imperative?
             IMPERATIVE_EXCEPTIONS.has_key?(present_active_infinitive)
           end
