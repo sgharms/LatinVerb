@@ -28,7 +28,7 @@ module Linguistics
           private
 
           def load_tense_methods_unvarying_with_verb_type
-            Mutators::Invariant.new(self)
+            Mutators::Invariant.new(@verb)
           end
 
           def find_tense_definition_class
