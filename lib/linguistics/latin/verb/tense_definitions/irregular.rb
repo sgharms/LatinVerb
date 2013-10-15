@@ -1,5 +1,4 @@
 # encoding: UTF-8
-# vim:  set fdm=marker tw=80 sw=2 wrap:
 
 module Linguistics
   module Latin
