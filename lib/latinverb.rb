@@ -50,7 +50,6 @@ module Linguistics
           @infinitivizer = Infinitivizer.new(self)
           @chart_presenter = ChartPresenter.new(self)
           @latin_verbvector_generator = VectorApplicator.new(self).latin_verbvector_generator
-          Mutators::Invariant.new(self)
           TenseMethodApplicator.new(self)
         end
 
