@@ -19,6 +19,7 @@ module Linguistics
 
           def initialize(verb)
             @verb = verb
+            load_tense_methods_unvarying_with_verb_type
             load_tense_methods_based_on_verb_type
             include_classification_specific_mixins
             mutate_defectives if is_defective?
@@ -26,14 +27,21 @@ module Linguistics
 
           private
 
-          def load_tense_methods_based_on_verb_type
+          def load_tense_methods_unvarying_with_verb_type
+            Mutators::Invariant.new(self)
+          end
+
+          def find_tense_definition_class
             mod_path = @verb.verb_type.inspect.to_s
             return if mod_path.empty?
             mod_path.sub!('VerbTypes', 'TenseDefinitions' )
-            the_mod = mod_path.split('::').inject(Object) do |mod, class_name|
+            mod_path.split('::').inject(Object) do |mod, class_name|
               mod.const_get(class_name)
             end
-            @verb.extend the_mod
+          end
+
+          def load_tense_methods_based_on_verb_type
+            @verb.extend find_tense_definition_class
           end
 
           def include_classification_specific_mixins
