@@ -19,7 +19,6 @@ module Linguistics
 
           def initialize(verb)
             @verb = verb
-            @verb.extend Linguistics::Latin::Verb::TenseDefinitions::Invariant
             load_tense_methods_based_on_verb_type
             include_classification_specific_mixins
             mutate_defectives if is_defective?
