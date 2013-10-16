@@ -42,8 +42,10 @@ module Linguistics
         def initialize(data)
           @original_string = (data['original_string'] || data).to_s
           @classifier = LatinVerbClassifier.new(@original_string)
-          @prin_parts_extractor = LatinVerbPPExtractor.new(@original_string, @classifier)
+          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
           @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
+
+          # TODO:  Seems like there might be some sort of separation asking to be made here.  Maybe something can be injected...
           @validator = Validator.new(self)
           @participler = Participler.new(self)
           @infinitivizer = Infinitivizer.new(self)
@@ -109,7 +111,6 @@ module Linguistics
           def calculate_exceptional_imperatives
             IMPERATIVE_EXCEPTIONS[present_active_infinitive]
           end
-
       end
     end
   end

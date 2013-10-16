@@ -22,7 +22,7 @@ class PrincipalPartsExtractorTest < Minitest::Unit::TestCase
   def test_participial_stem_creation
     @verb_hash_utf8_style.each_pair do |k,v|
       a = v.split( /\s+/ )
-      result = Linguistics::Latin::Verb::LatinVerb::LatinVerbPPExtractor.calculate_participial_stem(a[1], a[0])
+      result = Linguistics::Latin::Verb::LatinVerb::LatinVerbPrincipalPartsExtractor.calculate_participial_stem(a[1], a[0])
       assert_equal(@verb_hash_participial_stems[k], result, "Should have extracted #{@verb_hash_participial_stems[k]} for #{v}")
     end
   end
