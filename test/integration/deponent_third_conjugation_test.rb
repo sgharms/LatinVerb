@@ -14,7 +14,7 @@ class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_depo
-    assert_equal(Linguistics::Latin::Verb::Classifications::Deponent, @aDep.classification)
+    assert_equal(Linguistics::Latin::Verb::Classification::Deponent, @aDep.classification)
 
     assert_equal 'sequor',     @aDep.active_voice_indicative_mood_present_tense_first_person_singular_number
     assert_equal 'sequeris',   @aDep.active_voice_indicative_mood_present_tense_second_person_singular_number
