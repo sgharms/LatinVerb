@@ -48,22 +48,22 @@ module Linguistics
         end
 
         def tense_list
-          methods.grep(/tense/) - [:tense_list, :tense_list=]
+          methods.grep(/tense\z/)
         end
 
         def to_s
           sprintf("%s [%s]", short_class, original_string)
         end
 
-        def method_missing(method_name, *args )
-          resolver = DynamicMethodResolver.new(self, method_name)
-          resolver.apply! || super
-        end
+        #def method_missing(method_name, *args )
+          #resolver = DynamicMethodResolver.new(self, method_name)
+          #resolver.apply! || super
+        #end
 
-        def respond_to_missing?(method_name, include_private = false)
-          resolver = DynamicMethodResolver.new(self, method_name)
-          resolver.supported_method? || super
-        end
+        #def respond_to_missing?(method_name, include_private = false)
+          #resolver = DynamicMethodResolver.new(self, method_name)
+          #resolver.supported_method? || super
+        #end
 
         def display
           pretty_generate
@@ -106,6 +106,54 @@ module Linguistics
 
           def apply_tenses!
             TenseMethodApplicator.new(self)
+            apply_final_vectors
+          end
+
+          def apply_final_vectors
+            final_vectors = {
+              0 => [ :first_person_singular_number, :singular_number_first_person ],
+              1 => [ :second_person_singular_number, :singular_number_second_person ],
+              2 => [ :third_person_singular_number, :singular_number_third_person ],
+              3 => [ :first_person_plural_number, :plural_number_first_person ],
+              4 => [ :second_person_plural_number, :plural_number_second_person ],
+              5 => [ :third_person_plural_number, :plural_number_third_person ]
+            }
+
+            tense_list.each do | tense_block_method |
+              final_vectors.each_pair do | tense_block_location, accessors |
+                accessors.each do | accessor |
+                  new_method = [tense_block_method, accessor].map(&:to_s).join('_').to_sym
+                  self.singleton_class.class_eval do
+                    define_method new_method, Proc.new{ self.send(tense_block_method)[tense_block_location] }
+                  end
+                end
+              end
+
+              self.singleton_class.class_eval do
+                define_method("#{tense_block_method}_first_person", Proc.new do
+                  [ self.send(tense_block_method)[0],
+                    self.send(tense_block_method)[3] ]
+                end)
+                define_method("#{tense_block_method}_second_person", Proc.new do
+                  [ self.send(tense_block_method)[1],
+                    self.send(tense_block_method)[4] ]
+                end)
+                define_method("#{tense_block_method}_third_person", Proc.new do
+                  [ self.send(tense_block_method)[2],
+                    self.send(tense_block_method)[5] ]
+                end)
+                define_method("#{tense_block_method}_singular_number", Proc.new do
+                  [ self.send(tense_block_method)[0],
+                    self.send(tense_block_method)[1],
+                    self.send(tense_block_method)[2] ]
+                end)
+                define_method("#{tense_block_method}_plural_number", Proc.new do
+                  [ self.send(tense_block_method)[3],
+                    self.send(tense_block_method)[4],
+                    self.send(tense_block_method)[5] ]
+                end)
+              end
+            end
           end
 
           def pluralize_participial_listing(x)

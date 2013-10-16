@@ -1,12 +1,6 @@
 # encoding: UTF-8
 require 'macronconversions'
-
-#  ...by others
 require "minitest/autorun"
-
-# Internal dependencies
-#require 'linguistics/latin/verb/latinverb/classmethods'
-#require 'linguistics/latin/verb/classification_types'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
@@ -84,12 +78,7 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
   def test_metaprogramming
     tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
 
-    # Test the real method that comes by part of the extension
-    assert_respond_to(tc, :latin_active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
-
-    # Test the facade method
     assert_respond_to tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number
-    assert_respond_to tc, :respondable_methods
 
     # Make sure that stuff that /shouldn't/ be respected is not respected
     assert not( tc.respond_to? :zabumiwhorter), "Should not respond to :zabumiwhorter"
