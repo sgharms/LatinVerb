@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency("macronconversions")
-  s.add_dependency("verbvector")
   s.add_dependency("rdoc")
   s.add_dependency("rake")
   s.add_dependency("active_support")
