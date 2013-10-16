@@ -52,7 +52,7 @@ module Linguistics
                 return $1 + "iē"
               end
             end
-          end# }}}
+          end
 
           def initialize(input_string, classification)
             @data_string = input_string
