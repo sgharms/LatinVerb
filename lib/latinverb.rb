@@ -40,17 +40,11 @@ module Linguistics
         attr_accessor :tense_list
 
         def initialize(data)
-          @original_string = (data['original_string'] || data).to_s
-          @classifier = LatinVerbClassifier.new(@original_string)
-          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-          @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
-
-          # TODO:  Seems like there might be some sort of separation asking to be made here.  Maybe something can be injected...
-          @validator = Validator.new(self)
-          @participler = Participler.new(self)
-          @infinitivizer = Infinitivizer.new(self)
-          @chart_presenter = ChartPresenter.new(self)
-          TenseMethodApplicator.new(self)
+          evaluate_and_classify(data)
+          build_validator
+          apply_parts_of_speech!
+          apply_tenses!
+          apply_chart_capabilities!
         end
 
         def tense_list
@@ -89,6 +83,30 @@ module Linguistics
           end
 
           private
+
+          def evaluate_and_classify(data)
+            @original_string = (data['original_string'] || data).to_s
+            @classifier = LatinVerbClassifier.new(@original_string)
+            @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
+            @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
+          end
+
+          def build_validator
+            @validator = Validator.new(self)
+          end
+
+          def apply_parts_of_speech!
+            @participler = Participler.new(self)
+            @infinitivizer = Infinitivizer.new(self)
+          end
+
+          def apply_chart_capabilities!
+            @chart_presenter = ChartPresenter.new(self)
+          end
+
+          def apply_tenses!
+            TenseMethodApplicator.new(self)
+          end
 
           def pluralize_participial_listing(x)
             x.sub!(/us,/,   'ī,' )
