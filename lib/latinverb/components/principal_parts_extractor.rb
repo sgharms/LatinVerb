@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        class LatinVerbPPExtractor
+        class LatinVerbPrincipalPartsExtractor
           attr_reader :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :first_person_singular
 
           class << self
