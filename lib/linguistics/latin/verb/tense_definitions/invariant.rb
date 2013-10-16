@@ -1,4 +1,5 @@
 module Linguistics
+
   module Latin
     module Verb
       module TenseDefinitions
