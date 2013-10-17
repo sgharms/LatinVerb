@@ -81,8 +81,10 @@ module Linguistics
           end
 
           def stem
-            unless classified_as.irregular?
+            if classified_as.regular?
               self.class.calculate_stem(present_active_infinitive, first_person_singular)
+            elsif @deponent_proxy
+              @deponent_proxy.split(/\s+/)[1]
             end
           end
 
