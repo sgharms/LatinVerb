@@ -122,19 +122,23 @@ module Linguistics
                   [ self.send(tense_block_method)[0],
                     self.send(tense_block_method)[3] ]
                 end)
+
                 define_method("#{tense_block_method}_second_person", Proc.new do
                   [ self.send(tense_block_method)[1],
                     self.send(tense_block_method)[4] ]
                 end)
+
                 define_method("#{tense_block_method}_third_person", Proc.new do
                   [ self.send(tense_block_method)[2],
                     self.send(tense_block_method)[5] ]
                 end)
+
                 define_method("#{tense_block_method}_singular_number", Proc.new do
                   [ self.send(tense_block_method)[0],
                     self.send(tense_block_method)[1],
                     self.send(tense_block_method)[2] ]
                 end)
+
                 define_method("#{tense_block_method}_plural_number", Proc.new do
                   [ self.send(tense_block_method)[3],
                     self.send(tense_block_method)[4],
