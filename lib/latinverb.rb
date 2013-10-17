@@ -39,7 +39,7 @@ module Linguistics
         attr_accessor :tense_list
 
         def initialize(data)
-          evaluate_and_classify(data)
+          classify(data)
           build_validator
           apply_parts_of_speech!
           apply_tenses!
@@ -60,8 +60,8 @@ module Linguistics
 
         private
 
-        def evaluate_and_classify(data)
-          @original_string = (data['original_string'] || data).to_s
+        def classify(data)
+          @original_string = (data['original_string'] || data)
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
           @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
