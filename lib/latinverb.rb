@@ -58,34 +58,32 @@ module Linguistics
           pretty_generate
         end
 
+        private
 
-          private
+        def evaluate_and_classify(data)
+          @original_string = (data['original_string'] || data).to_s
+          @classifier = LatinVerbClassifier.new(@original_string)
+          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
+          @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
+        end
 
-          def evaluate_and_classify(data)
-            @original_string = (data['original_string'] || data).to_s
-            @classifier = LatinVerbClassifier.new(@original_string)
-            @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-            @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
-          end
+        def build_validator
+          @validator = Validator.new(self)
+        end
 
-          def build_validator
-            @validator = Validator.new(self)
-          end
+        def apply_parts_of_speech!
+          @participler = Participler.new(self)
+          @infinitivizer = Infinitivizer.new(self)
+          @imperative_handler = ImperativesHandler.new(self)
+        end
 
-          def apply_parts_of_speech!
-            @participler = Participler.new(self)
-            @infinitivizer = Infinitivizer.new(self)
-            @imperative_handler = ImperativesHandler.new(self)
-          end
+        def apply_chart_capabilities!
+          @chart_presenter = ChartPresenter.new(self)
+        end
 
-          def apply_chart_capabilities!
-            @chart_presenter = ChartPresenter.new(self)
-          end
-
-          def apply_tenses!
-            TenseMethodApplicator.new(self)
-            apply_final_vectors
-          end
+        def apply_tenses!
+          TenseMethodApplicator.new(self)
+        end
 
           def apply_final_vectors
             final_vectors = {
