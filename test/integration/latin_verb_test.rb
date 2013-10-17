@@ -87,7 +87,7 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
     end
   end
 
-  def test_verbvector
+  def test_vectors
     tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
     assert tc
     assert_respond_to tc, :tense_list,  "Must respond to tense_list"

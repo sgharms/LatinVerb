@@ -2,7 +2,6 @@ require 'active_support'
 require 'forwardable'
 require 'json'
 require 'ostruct'
-require 'verbvector'
 require 'yaml'
 require 'byebug'
 
@@ -17,7 +16,6 @@ require 'latinverb/serialization'
 require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
 require 'latinverb/tense_method_applicator'
-require 'latinverb/verbvector_description'
 
 module Linguistics
   module Latin
@@ -54,16 +52,6 @@ module Linguistics
         def to_s
           sprintf("%s [%s]", short_class, original_string)
         end
-
-        #def method_missing(method_name, *args )
-          #resolver = DynamicMethodResolver.new(self, method_name)
-          #resolver.apply! || super
-        #end
-
-        #def respond_to_missing?(method_name, include_private = false)
-          #resolver = DynamicMethodResolver.new(self, method_name)
-          #resolver.supported_method? || super
-        #end
 
         def display
           pretty_generate
