@@ -53,11 +53,12 @@ module Linguistics
 
 
         def add_additional_imperative_forms
-          @results << @stem + "tō"
-          @results << @stem + "tōte"
+          stem = @stem || @verb.instance_variable_get(:@proxyVerb).stem
+          @results << stem + "tō"
+          @results << stem + "tōte"
 
-          @results << @stem + "tō"
-          @results << @stem + "ntō"
+          @results << stem + "tō"
+          @results << stem + "ntō"
         end
 
         def form_imperative_base
