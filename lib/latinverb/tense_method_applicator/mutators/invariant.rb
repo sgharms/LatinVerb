@@ -1,3 +1,4 @@
+require_relative './invariant/triplicate_and_pluralize_formatters'
 require_relative './invariant/active_voice_imperative_mood_future_tense_strategy'
 require_relative './invariant/active_voice_imperative_mood_present_tense_strategy'
 require_relative './invariant/active_voice_indicative_mood_futureperfect_tense_strategy'
