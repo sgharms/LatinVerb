@@ -28,8 +28,8 @@ module Linguistics
 
           def active_voice_subjunctive_mood_present_tense
             key          = verb_type.to_s.split(/::/).last.to_sym
-            asp_base     = Linguistics::Latin::Verb::ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem[0..-2])
-            endings_coll = ['m', Linguistics::Latin::Verb::AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!
+            asp_base     = ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem[0..-2])
+            endings_coll = ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!
             collection   = endings_coll.map{ |ending| asp_base + ending }
             TenseBlock.new( collection ,
               { :meaning => Linguistics::Latin::Verb::MEANINGS[:active_voice_subjunctive_mood_present_tense] }
