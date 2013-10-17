@@ -29,6 +29,7 @@ module Linguistics
         def_delegators :@participler, :supine, :future_active_participle, :future_passive_participle, :gerund, :gerundive, :perfect_passive_participle, :present_active_participle
         def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive
         def_delegators :@chart_presenter, :chart, :c
+        def_delegator  :@imperative_handler, :imperatives
 
         def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
@@ -57,18 +58,6 @@ module Linguistics
           pretty_generate
         end
 
-          IMPERATIVE_EXCEPTIONS = {
-            "ducere"   => %w(duc ducite),
-            "dicere"   => %w(dic dicite),
-            "facere"   => %w(fac facite),
-            "ferre"    => %w(fer ferte),
-            "nolere"   => %w(nolo nolite)
-          }
-
-          def imperatives
-            args = exceptional_imperative? ? calculate_exceptional_imperatives : [stem, present_active_infinitive]
-            Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
-          end
 
           private
 
@@ -86,6 +75,7 @@ module Linguistics
           def apply_parts_of_speech!
             @participler = Participler.new(self)
             @infinitivizer = Infinitivizer.new(self)
+            @imperative_handler = ImperativesHandler.new(self)
           end
 
           def apply_chart_capabilities!
@@ -160,14 +150,6 @@ module Linguistics
               stem + 'a',
               s
             ].join(', ')
-          end
-
-          def exceptional_imperative?
-            IMPERATIVE_EXCEPTIONS.has_key?(present_active_infinitive)
-          end
-
-          def calculate_exceptional_imperatives
-            IMPERATIVE_EXCEPTIONS[present_active_infinitive]
           end
       end
     end
