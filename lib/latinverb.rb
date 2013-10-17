@@ -34,7 +34,7 @@ module Linguistics
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
 
-        attr_reader :original_string, :verb_methods
+        attr_reader :original_string, :verb_methods, :verb_type
         attr_accessor :tense_list
 
         def initialize(data)
