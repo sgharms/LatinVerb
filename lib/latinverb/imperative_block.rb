@@ -10,9 +10,23 @@ module Linguistics
           @stem = stem
           @plural_present_imperative = plural_present_imperative
           @verb = verb
-          @results = form_imperative_base
-          add_additional_imperative_forms
+
+          if @verb.classification == Linguistics::Latin::Verb::Classification::Deponent
+            @results = form_imperative_base_for_deponent
+            add_additional_imperative_forms_for_deponent
+          else
+            @results = form_imperative_base
+            add_additional_imperative_forms
+          end
+
           @results.map{|v| fix_macrons v}
+        end
+
+        def form_imperative_base_for_deponent
+          [@verb.stem, @verb.active_voice_indicative_mood_present_tense.plural_number_second_person, @verb.active_voice_indicative_mood_present_tense_third_person_singular_number.sub(/tur\z/, 'tor')]
+        end
+
+        def add_additional_imperative_forms_for_deponent
         end
 
         def present_tense_singular_number
