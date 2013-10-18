@@ -1,9 +1,5 @@
 require 'active_support'
 require 'forwardable'
-require 'json'
-require 'ostruct'
-require 'yaml'
-require 'byebug'
 
 require 'linguistics/latin/phonographia'
 require 'linguistics/latin/verb'
