@@ -1,41 +1,30 @@
-require 'latinverb/components/present_only_checker'
+require_relative 'classifier/strategies/verb_classification_strategy'
+require_relative 'classifier/strategies/defective_verb_classification_strategy'
+require_relative 'classifier/strategies/irregular_verb_classification_strategy'
+require_relative 'classifier/strategies/semideponent_verb_classification_strategy'
+require_relative 'classifier/strategies/impersonal_verb_classification_strategy'
+require_relative 'classifier/strategies/very_irregular_verb_classification_strategy'
+require_relative 'classifier/strategies/deponent_verb_classification_strategy'
+require_relative 'classifier/strategies/present_only_verb_classification_strategy'
+require_relative 'classifier/strategies/regular_verb_classification_strategy'
 
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
         class LatinVerbClassifier
-          attr_reader :classification
+          attr_reader :classification, :input
 
-          def initialize(input)
+          def initialize(input, opts={})
             @input = input
+            @strategies = opts[:strategies] || default_strategies
           end
 
           def classification
-            return Classification::Defective if
-              Linguistics::Latin::Verb::DEFECTIVE_VERBS.member? first_pres
-
-
-            return Classification::Irregular if
-              Linguistics::Latin::Verb::IRREGULAR_VERBS.member? first_pres
-
-            return Classification::Semideponent if
-              Linguistics::Latin::Verb::SEMI_DEPONENTS.keys.any?{ |k| first_pres=~/#{k}$/} &&
-              @input !~ /PreventDeponentInfiniteRegress/
-
-            return Classification::Impersonal if
-              Linguistics::Latin::Verb::IMPERSONAL_VERBS.member?(@input)
-
-            # Very irregular irregulars, A&G206, e/f
-            return Classification::Irregular if
-              @input =~ %r'^(aiō|quaesō|ovāre)$'
-
-            return Classification::PresentOnly if PresentOnlyChecker.new(@input).present_only?
-
-            return Classification::Deponent if
-              (infinitive =~ /ī$/ && first_pres =~ /r$/)
-
-            return Classification::Regular
+            applicable_strategy = @strategies.detect do |strategy|
+              strategy.new(self).applicable?
+            end
+            applicable_strategy.classification
           end
 
           def present_only?
@@ -68,14 +57,18 @@ module Linguistics
 
           private
 
-          def first_pres
-            @input.split(/\s+/)[0]
+          def default_strategies
+            [
+              DefectiveVerbClassificationStrategy,
+              IrregularVerbClassificationStrategy,
+              SemideponentVerbClassificationStrategy,
+              ImpersonalVerbClassificationStrategy,
+              VeryIrregularVerbClassificationStrategy,
+              PresentonlyVerbClassificationStrategy,
+              DeponentVerbClassificationStrategy,
+              RegularVerbClassificationStrategy
+            ]
           end
-
-          def infinitive
-            @input.split(/\s+/)[1]
-          end
-
         end
       end
     end
