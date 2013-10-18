@@ -55,6 +55,7 @@ module Linguistics
             #  Applying the first's rule to the second results in 'seque' not
             #  'sequere'.  Ergo the conditional.
             #
+            parts[1] ||= ""
             parts[1].sub!( /ī$/, 'e' )
 
             # Fixes sequī -> sequere
@@ -64,6 +65,7 @@ module Linguistics
             parts[3] = parts[2]
 
             # Another modification for third conjugation deponents
+            parts[3] ||= ""
             parts[3].sub!( /us$/, 'um' )
 
             # This value shouldn't be used
