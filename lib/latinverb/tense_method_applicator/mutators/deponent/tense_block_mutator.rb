@@ -24,7 +24,7 @@ module Linguistics
 
                 storage = {}
 
-                @proxyVerb.tense_list.grep(/^passive/).each do |pass|
+                @proxyVerb.methods.grep(/\Apassive.+tense\z/).each do |pass|
                   # Find the active correlate
                   active_corr = pass.to_s.sub( /^passive(.*)/, "active\\1" )
 
