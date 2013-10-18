@@ -66,8 +66,6 @@ module Linguistics
           @original_string = (data['original_string'] || data)
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-          @stem_deriver = LatinverbStemDeriver.new(self)
-          @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier, self).inspect
         end
 
         def build_validator
@@ -75,6 +73,7 @@ module Linguistics
         end
 
         def apply_parts_of_speech!
+          @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
           @participler = Participler.new(self)
           @infinitivizer = Infinitivizer.new(self)
