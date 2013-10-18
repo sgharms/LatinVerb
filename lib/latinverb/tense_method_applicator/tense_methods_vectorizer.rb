@@ -18,10 +18,9 @@ class TenseMethodsVectorizer
   end
 
   private
-
   def add_by_person_and_number_methods!
     locally_bound_verb = @verb
-    @verb.tense_list.each do | tense_block_method |
+    verb_tense_methods.each do | tense_block_method |
       FINAL_VECTORS.each_pair do | tense_block_location, accessors |
         accessors.each do | accessor |
           new_method = [tense_block_method, accessor].map(&:to_s).join('_').to_sym
@@ -34,7 +33,7 @@ class TenseMethodsVectorizer
   end
 
   def add_methods_for_aggregation_when_person_or_number_is_missing!
-    @verb.tense_list.each do | tense_block_method |
+    verb_tense_methods.each do | tense_block_method |
       @verb.singleton_class.class_eval do
         define_method("#{tense_block_method}_first_person", Proc.new do
           [ self.send(tense_block_method)[0],
@@ -65,5 +64,10 @@ class TenseMethodsVectorizer
       end
     end
   end
-end
 
+  private
+
+  def verb_tense_methods
+    @verb.methods.grep(/tense\z/)
+  end
+end

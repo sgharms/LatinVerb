@@ -89,11 +89,12 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
 
   def test_vectors
     tc = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
+    tense_list = tc.methods.grep(/tense\z/)
     assert tc
-    assert_respond_to tc, :tense_list,  "Must respond to tense_list"
-    assert_equal 22, tc.tense_list.length
+    assert_equal 22, tense_list.length
+
     assert_respond_to(tc, :active_voice_indicative_mood_imperfect_tense_third_person_singular_number)
-    tc.tense_list.each do |cluster_method|
+    tense_list.each do |cluster_method|
       assert tc.respond_to? cluster_method.to_sym
     end
   end

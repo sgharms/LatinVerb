@@ -38,7 +38,6 @@ module Linguistics
         def_delegator :@type_evaluator, :type, :verb_type
 
         attr_reader :original_string, :verb_methods, :classifier
-        attr_accessor :tense_list
 
         def initialize(data)
           classify(data)
@@ -46,10 +45,6 @@ module Linguistics
           apply_parts_of_speech!
           apply_tenses!
           apply_chart_capabilities!
-        end
-
-        def tense_list
-          methods.grep(/tense\z/)
         end
 
         def to_s
