@@ -4,35 +4,36 @@ module Linguistics
       class LatinVerb
         class Participler
           include Linguistics::Latin::Phonographia
+          extend Forwardable
+
+          def_delegators :@verb, :passive_perfect_participle, :participial_stem
 
           def initialize(verb)
             @verb = verb
-            @passive_perfect_participle = @verb.passive_perfect_participle
-            @participial_stem = @verb.participial_stem
           end
 
           def present_active_participle
-            raise "Participial stem was nil" if  @participial_stem.nil?
+            raise "Participial stem was nil" if  participial_stem.nil?
             endings = %w(ns ntis)
-            endings.collect{ |x| fix_macrons(@participial_stem + x.chomp) }.join(', ')
+            endings.collect{ |x| fix_macrons(participial_stem + x.chomp) }.join(', ')
           end
 
           def future_active_participle
-            mybase = @passive_perfect_participle.gsub(/u[sm]$/, "ūr")
+            mybase = passive_perfect_participle.gsub(/u[sm]$/, "ūr")
             singular_endings = %w(us a um)
             singular_endings.collect{ |x| mybase + "#{x}".chomp }.join(', ')
           end
 
           def perfect_passive_participle
-            mybase = @passive_perfect_participle.sub(/u[sm]$/,'')
+            mybase = passive_perfect_participle.sub(/u[sm]$/,'')
             singular_endings=%w(us a um)
             singular_endings.collect{ |x| mybase + "#{x}".chomp }.join(', ')
           end
 
           def future_passive_participle
-            mybase = @participial_stem + "nd"
+            mybase = participial_stem + "nd"
             singular_endings = %w(us a um)
-            singular_endings.collect{ |x| fix_macrons(mybase+"#{x}".chomp) }.join(', ')
+            singular_endings.collect{ |x| fix_macrons(mybase + "#{x}".chomp) }.join(', ')
           end
 
           def gerundive
@@ -45,7 +46,7 @@ module Linguistics
           end
 
           def supine
-            acc = @passive_perfect_participle
+            acc = passive_perfect_participle
             abl = acc.sub( /^(.*)um$/, "\\1" )
             abl += "ū"
             {:ablative => abl, :accusative => acc}
