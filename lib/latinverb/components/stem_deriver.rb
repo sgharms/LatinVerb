@@ -8,11 +8,7 @@ module Linguistics
           end
 
           def stem
-            if @verb.classifier.regular?
-              calculate_stem(@verb.present_active_infinitive, @verb.first_person_singular)
-            else deponent_or_impersonal?
-              DeponentStringDeriver.new(@verb.original_string).proxy_string.split(/\s+/)[1]
-            end
+            verb_is_regular? ?  calculate_stem : calculate_deponent_proxy_stem
           end
 
           def participial_stem
@@ -40,6 +36,14 @@ module Linguistics
 
           private
 
+          def calculate_deponent_proxy_stem
+            DeponentStringDeriver.new(@verb.original_string).proxy_string.split(/\s+/)[1]
+          end
+
+          def verb_is_regular?
+            @verb.classifier.regular?
+          end
+
           def present_active_infinitive
             @verb.present_active_infinitive
           end
@@ -52,7 +56,7 @@ module Linguistics
             @verb.classifier.deponent? or @verb.classifier.semideponent? or @verb.classifier.impersonal?
           end
 
-          def calculate_stem(present_active_infinitive, first_person_singular)
+          def calculate_stem
             if present_active_infinitive =~ /āre$/
               return present_active_infinitive.gsub(/(.*)āre$/,'\\1ā')
             end
