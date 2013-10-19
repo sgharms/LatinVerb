@@ -26,7 +26,6 @@ module Linguistics
               end
 
               def apply!
-                byebug
                 args = exceptional_imperative? ? calculate_exceptional_imperatives : [@verb.stem, @verb.present_active_infinitive]
                 @verb.instance_eval do
                   def imperatives
