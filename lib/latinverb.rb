@@ -31,11 +31,12 @@ module Linguistics
         def_delegators :@chart_presenter, :chart, :c
         def_delegator  :@imperative_handler, :imperatives
 
-        def_delegator :@verb_type, :inspect, :verb_type
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
+        def_delegator :@classifier, :dup, :classified_as
+        def_delegator :@type_evaluator, :type, :verb_type
 
-        attr_reader :original_string, :verb_methods, :verb_type
+        attr_reader :original_string, :verb_methods, :classifier
         attr_accessor :tense_list
 
         def initialize(data)
@@ -64,7 +65,7 @@ module Linguistics
           @original_string = (data['original_string'] || data)
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-          @verb_type = LatinVerbTypeEvaluator.new(first_person_singular, present_active_infinitive, @classifier)
+          @stem_deriver = LatinverbStemDeriver.new(self)
         end
 
         def build_validator
@@ -72,6 +73,7 @@ module Linguistics
         end
 
         def apply_parts_of_speech!
+          @type_evaluator = LatinVerbTypeEvaluator.new(self)
           @participler = Participler.new(self)
           @infinitivizer = Infinitivizer.new(self)
           @imperative_handler = ImperativesHandler.new(self)

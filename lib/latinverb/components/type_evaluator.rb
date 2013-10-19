@@ -3,31 +3,30 @@ module Linguistics
     module Verb
       class LatinVerb
         class LatinVerbTypeEvaluator
-          def initialize(first_pres, infinitive, classifier)
-            @first_pres = first_pres
-            @infinitive = infinitive
-            @classifier = classifier
-            @type = determine_type
+          extend Forwardable
+          # "Type" is key stem associated with the verb versus the
+          # classification.  i.e. a verb might be "classified" as "Deponent"
+          # but has a "type" of first conjugation e.g. miror / mirari
+          def_delegators :@verb, :first_person_singular, :present_active_infinitive
+
+          def initialize(verb)
+            @verb = verb
           end
 
-          def determine_type
-            if @infinitive =~ /āre$/
+          def type
+            if present_active_infinitive =~ /āre$/
               Linguistics::Latin::Verb::VerbTypes::First
-            elsif @infinitive =~ /ēre$/
+            elsif present_active_infinitive =~ /ēre$/
               Linguistics::Latin::Verb::VerbTypes::Second
-            elsif @infinitive =~ /ere$/
-              @first_pres =~ /i.$/ ? Linguistics::Latin::Verb::VerbTypes::ThirdIO : Linguistics::Latin::Verb::VerbTypes::Third
-            elsif @infinitive =~ /.+īre$/
+            elsif present_active_infinitive =~ /ere$/
+              first_person_singular =~ /i.$/ ? Linguistics::Latin::Verb::VerbTypes::ThirdIO : Linguistics::Latin::Verb::VerbTypes::Third
+            elsif present_active_infinitive =~ /.+īre$/
               Linguistics::Latin::Verb::VerbTypes::Fourth
-            elsif (@infinitive =~ /ī$/  and @first_pres =~ /r$/)
-              Linguistics::Latin::Verb::VerbTypes::Deponent
+            elsif (present_active_infinitive =~ /ī$/  and first_person_singular =~ /r$/)
+              LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string).verb_type
             else
               Linguistics::Latin::Verb::VerbTypes::Irregular
             end
-          end
-
-          def inspect
-            @type
           end
         end
       end
