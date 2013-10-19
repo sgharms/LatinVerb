@@ -1,3 +1,5 @@
+require_relative './imperative_block/imperative_rule_factory'
+
 module Linguistics
   module Latin
     module Verb
@@ -51,7 +53,6 @@ module Linguistics
 
         private
 
-
         def add_additional_imperative_forms
           stem = @stem || @verb.instance_variable_get(:@proxyVerb).stem
           @results << stem + "tō"
@@ -62,7 +63,7 @@ module Linguistics
         end
 
         def form_imperative_base
-          @verb.verb_type.form_present_tense_imperative_rule.call(@stem, @plural_present_imperative)
+          ImperativeRuleFactory.new(@verb).present_tense_rule.call(@stem, @plural_present_imperative)
         end
       end
     end
