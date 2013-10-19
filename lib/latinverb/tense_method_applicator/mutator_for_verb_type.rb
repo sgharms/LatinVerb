@@ -8,12 +8,12 @@ module Linguistics
             def_delegators :@verb, :verb_type
 
             MAPPING = {
-              first: Linguistics::Latin::Verb::TenseDefinitions::First,
-              second: Linguistics::Latin::Verb::TenseDefinitions::First,
-              thirdio: Linguistics::Latin::Verb::TenseDefinitions::ThirdIO,
-              third: Linguistics::Latin::Verb::TenseDefinitions::Third,
-              fourth: Linguistics::Latin::Verb::TenseDefinitions::Fourth,
-              irregular: Linguistics::Latin::Verb::TenseDefinitions::Irregular
+              First: Linguistics::Latin::Verb::TenseDefinitions::First,
+              Second: Linguistics::Latin::Verb::TenseDefinitions::First,
+              ThirdIO: Linguistics::Latin::Verb::TenseDefinitions::ThirdIO,
+              Third: Linguistics::Latin::Verb::TenseDefinitions::Third,
+              Fourth: Linguistics::Latin::Verb::TenseDefinitions::Fourth,
+              Irregular: Linguistics::Latin::Verb::TenseDefinitions::Irregular
             }
 
             def initialize(verb)
@@ -21,17 +21,7 @@ module Linguistics
             end
 
             def mutate!
-              @verb.extend MAPPING[key]
-            end
-
-            private
-
-            def key
-              mod_path.split('::').last.downcase.to_sym
-            end
-
-            def mod_path
-              verb_type.to_s
+              @verb.extend MAPPING[verb_type.ordinal_name_key]
             end
           end
         end

@@ -4,11 +4,11 @@ module Linguistics
       class ImperativeBlock
         class ImperativeRuleFactory
           MAPPING = {
-            first: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
-            second: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
-            thirdio: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
-            third: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
-            fourth: ->(stem, plural_present_imperative){ [stem+"ī", stem+"īte"] }
+            First: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
+            Second: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
+            ThirdIO: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
+            Third: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
+            Fourth: ->(stem, plural_present_imperative){ [stem+"ī", stem+"īte"] }
           }
 
           def initialize(verb)
@@ -26,7 +26,7 @@ module Linguistics
           end
 
           def type_key
-            verb_type.to_s.split('::').last.downcase.to_sym
+            verb_type.ordinal_name_key
           end
         end
       end

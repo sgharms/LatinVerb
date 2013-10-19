@@ -25,7 +25,7 @@ module Linguistics
           end
 
           def active_voice_subjunctive_mood_present_tense
-            key = verb_type.to_s.split('::').last.to_sym
+            key = verb_type.ordinal_name_key
 
             TenseBlock.new(
               ['m',

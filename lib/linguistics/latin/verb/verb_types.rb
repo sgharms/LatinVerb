@@ -3,6 +3,13 @@ module Linguistics
     module Verb
       module VerbTypes
         class VerbType
+          def self.ordinal_name
+            self.to_s.split('::').last
+          end
+
+          def self.ordinal_name_key
+            ordinal_name.to_sym
+          end
         end
       end
     end

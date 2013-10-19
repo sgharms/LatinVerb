@@ -8,12 +8,12 @@ module Linguistics
             def_delegators :@verb, :present_active_infinitive, :verb_type
 
             MAPPING = {
-              first: [/(.*)e$/,"\\1ī"],
-              second: [/(.*)e$/,"\\1ī"],
-              thirdio: [/(.*)ere$/,"\\1ī"],
-              third: [/(.*)ere$/,"\\1ī"],
-              fourth: [/(.*)e$/,"\\1ī"],
-              irregular: [/(.*)/,"\\1"]
+              First: [/(.*)e$/,"\\1ī"],
+              Second: [/(.*)e$/,"\\1ī"],
+              ThirdIO: [/(.*)ere$/,"\\1ī"],
+              Third: [/(.*)ere$/,"\\1ī"],
+              Fourth: [/(.*)e$/,"\\1ī"],
+              Irregular: [/(.*)/,"\\1"]
             }
 
 
@@ -32,7 +32,7 @@ module Linguistics
             end
 
             def type_key
-              verb_type.to_s.split('::').last.downcase.to_sym
+              verb_type.ordinal_name_key
             end
           end
         end
