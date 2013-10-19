@@ -3,6 +3,13 @@ module Linguistics
     module Verb
       module Classification
         class ClassificationType
+          def self.short_name
+            self.to_s.split('::').last
+          end
+
+          def self.short_name_key
+            short_name.to_sym
+          end
         end
       end
     end
