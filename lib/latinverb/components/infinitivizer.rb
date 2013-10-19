@@ -1,3 +1,5 @@
+require_relative './passive_infinitive_factory'
+
 module Linguistics
   module Latin
     module Verb
@@ -31,7 +33,7 @@ module Linguistics
           end
 
           def present_passive_infinitive
-            verb_type.form_present_passive_infinitive(present_active_infinitive)
+            PassiveInfinitiveVactory.new(@verb).passive_infinitive
           end
 
           def perfect_passive_infinitive
