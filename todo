@@ -1,3 +1,17 @@
 const_get
 included / inclusor
 make tenseblocks do the calculation of first and second stuff
+why?
+
+tense_method_applicator/mutators/invariant/passive_voice_subjunctive_mood_perfect_tense_strategy.rb
+16:                    formatter = Object.new.extend(Mutators::TriplicateAndPluralizeFormatters)
+
+tense_method_applicator/mutators/invariant/passive_voice_subjunctive_mood_pastperfect_tense_strategy.rb
+17:                    formatter = Object.new.extend(Mutators::TriplicateAndPluralizeFormatters)
+
+#===============================================================================
+
+
+inclusor:
+
+the reason we're doing strangeness around tih inclusion and inclusor behavior is because we're using extend out fo that one mapoping method.  if we were using an object, we would bew able to avoid that.....

@@ -1,3 +1,10 @@
+require_relative './first_builder'
+require_relative './second_builder'
+require_relative './third_builder'
+require_relative './thirdio_builder'
+require_relative './fourth_builder'
+require_relative './irregular_builder'
+
 module Linguistics
   module Latin
     module Verb
@@ -8,12 +15,12 @@ module Linguistics
             def_delegators :@verb, :verb_type
 
             MAPPING = {
-              First: Linguistics::Latin::Verb::TenseDefinitions::First,
-              Second: Linguistics::Latin::Verb::TenseDefinitions::First,
-              ThirdIO: Linguistics::Latin::Verb::TenseDefinitions::ThirdIO,
-              Third: Linguistics::Latin::Verb::TenseDefinitions::Third,
-              Fourth: Linguistics::Latin::Verb::TenseDefinitions::Fourth,
-              Irregular: Linguistics::Latin::Verb::TenseDefinitions::Irregular
+              First: FirstBuilder,
+              Second: SecondBuilder,
+              ThirdIO: ThirdIOBuilder,
+              Third: ThirdBuilder,
+              Fourth: FourthBuilder,
+              Irregular: IrregularBuilder
             }
 
             def initialize(verb)
@@ -21,7 +28,7 @@ module Linguistics
             end
 
             def mutate!
-              @verb.extend MAPPING[verb_type.ordinal_name_key]
+              MAPPING[verb_type.ordinal_name_key].new(@verb).build!
             end
           end
         end
