@@ -7,6 +7,8 @@ require_relative './tense_method_applicator/mutators/irregular'
 require_relative './tense_method_applicator/mutators/deponent'
 require_relative './tense_method_applicator/mutators/regular'
 require_relative './tense_method_applicator/mutators/semideponent'
+require_relative './tense_method_applicator/mutator_for_classification_factory'
+require_relative './tense_method_applicator/mutators/present_only'
 require_relative './tense_method_applicator/mutators/invariant'
 
 module Linguistics
@@ -54,7 +56,6 @@ module Linguistics
           end
 
           def mutate_defectives
-            @verb.set_as_defective
             remove_perfect_tenses
           end
 

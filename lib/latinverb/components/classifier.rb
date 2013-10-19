@@ -38,12 +38,6 @@ module Linguistics
             return Classification::Regular
           end
 
-          def set_as_defective
-            unless @classification == Linguistics::Latin::Verb::Classification::Impersonal
-              @classification = Linguistics::Latin::Verb::Classification::PresentOnly
-            end
-          end
-
           def present_only?
             classification == Linguistics::Latin::Verb::Classification::PresentOnly
           end
