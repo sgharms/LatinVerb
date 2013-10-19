@@ -1,6 +1,7 @@
 require 'active_support'
 require 'forwardable'
 
+require 'byebug' # who am I kidding?
 require 'linguistics/latin/phonographia'
 require 'linguistics/latin/verb'
 
