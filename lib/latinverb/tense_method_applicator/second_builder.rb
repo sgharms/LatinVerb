@@ -29,7 +29,7 @@ module Linguistics
                     return TenseBlock.new(
                       [ first_person_singular,
                           AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS.collect{ |ending| stem + ending}
-                         ].flatten!,
+                         ].flatten,
                       { :meaning => MEANINGS[:active_voice_indicative_mood_present_tense] }
                       )
                   end
