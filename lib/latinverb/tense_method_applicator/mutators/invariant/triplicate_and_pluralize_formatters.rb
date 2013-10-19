@@ -3,14 +3,15 @@ module Linguistics
     module Verb
       class LatinVerb
         module Mutators
-          module TriplicateAndPluralizeFormatters
-            def pluralize_participial_listing(x)
+          class TriplicateAndPluralizeFormatters
+            def self.pluralize_participial_listing(participle)
+              x = triplicate_and_genderize(participle)
               x.sub!(/us,/,   'ī,' )
               x.sub!(/a,/,    'ae,')
               x.sub!(/um.*$/, 'a'  )
             end
 
-            def triplicate_and_genderize(s)
+            def self.triplicate_and_genderize(s)
               stem = s.sub(/^(.*)um$/,"\\1")
               [ stem + 'us',
                 stem + 'a',
