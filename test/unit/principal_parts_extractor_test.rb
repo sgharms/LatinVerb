@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'latinverb'
 
 class PrincipalPartsExtractorTest < Minitest::Unit::TestCase
   def setup
@@ -22,7 +23,8 @@ class PrincipalPartsExtractorTest < Minitest::Unit::TestCase
   def test_participial_stem_creation
     @verb_hash_utf8_style.each_pair do |k,v|
       a = v.split( /\s+/ )
-      result = Linguistics::Latin::Verb::LatinVerb::LatinVerbPrincipalPartsExtractor.calculate_participial_stem(a[1], a[0])
+      stub_classifier = OpenStruct.new( deponent?: false, semideponent?: false, impersonal?: false, regular?: true)
+      result = Linguistics::Latin::Verb::LatinVerb::LatinVerbPrincipalPartsExtractor.new(v, stub_classifier).participial_stem
       assert_equal(@verb_hash_participial_stems[k], result, "Should have extracted #{@verb_hash_participial_stems[k]} for #{v}")
     end
   end

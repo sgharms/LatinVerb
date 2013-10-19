@@ -3,101 +3,99 @@ module Linguistics
     module Verb
       class LatinVerb
         class LatinVerbPrincipalPartsExtractor
-          attr_reader :passive_perfect_participle, :first_person_perfect, :present_active_infinitive, :first_person_singular
-
-          class << self
-
-            def calculate_stem(present_active_infinitive, first_person_singular)
-              if present_active_infinitive =~ /āre$/
-                return present_active_infinitive.gsub(/(.*)āre$/,'\\1ā')
-              end
-              if present_active_infinitive =~ /ēre$/
-                return present_active_infinitive.gsub(/(.*)ēre$/,'\\1ē')
-              end
-              if present_active_infinitive =~ /ere$/
-                if first_person_singular =~ /iō$/
-                  return present_active_infinitive.gsub(/(.*)ere$/,'\\1')
-                else
-                  return present_active_infinitive.gsub(/(.*)ere$/,'\\1')
-                end
-              end
-              if present_active_infinitive =~ /īre$/
-                return present_active_infinitive.gsub(/(.*)īre$/,'\\1')
-              end
-            end
-
-            def derive_parts_from_given_string(s)
-              s.split(/\s+/)
-            end
-
-            def calculate_participial_stem(present_active_infinitive, first_person_singular)
-              if present_active_infinitive.to_s =~ /(.*ā)re$/
-                return $1
-              end
-
-              if present_active_infinitive.to_s =~ /(.*ē)re$/
-                return $1
-              end
-
-              if present_active_infinitive.to_s =~ /(.*)ere$/
-                match=$1
-                if first_person_singular =~ /iō/
-                  return match + "iē"
-                else
-                  return match + "e"
-                end
-              end
-
-              if present_active_infinitive.to_s =~ /(.*)īre$/
-                return $1 + "iē"
-              end
-            end
-          end
-
           def initialize(input_string, classification)
             @data_string = input_string
-            @_classification = classification
+            @classification = classification
 
-            non_defective = ( classified_as.deponent? or
-                              classified_as.semideponent? or
-                              classified_as.impersonal? )
-            unless non_defective
-              @principal_parts = self.class.derive_parts_from_given_string input_string
+            if deponent_or_impersonal?
+                @deponent_proxy = Linguistics::Latin::Verb::LatinVerb::DeponentStringDeriver.new(input_string).proxy_string
+            else
+              @principal_parts = principal_parts
               @first_person_singular, @present_active_infinitive,
               @first_person_perfect, @passive_perfect_participle = @principal_parts
-            else
-              unless classified_as.impersonal?
-                @deponent_proxy = Linguistics::Latin::Verb::LatinVerb::DeponentStringDeriver.new(input_string).proxy_string
-              end
             end
-          end
-
-          def participial_stem
-            @participial_stem ||= self.class.calculate_participial_stem(@present_active_infinitive, @first_person_singular)
           end
 
           def principal_parts
-            @principal_parts
+            @data_string.split(/\s+/)
+          end
+
+          def first_person_singular
+            principal_parts[0]
+          end
+
+          def present_active_infinitive
+            principal_parts[1]
+          end
+
+          def first_person_perfect
+            principal_parts[2]
+          end
+
+          def passive_perfect_participle
+            principal_parts[3]
+          end
+
+          def participial_stem
+            calculate_participial_stem(present_active_infinitive, first_person_singular)
           end
 
           def stem
-            if classified_as.regular?
-              self.class.calculate_stem(present_active_infinitive, first_person_singular)
+            if @classification.regular?
+              calculate_stem(present_active_infinitive, first_person_singular)
             elsif @deponent_proxy
-              @deponent_proxy.split(/\s+/)[1]
+              DeponentStringDeriver.new(@data_string).proxy_string.split(/\s+/)[1]
             end
           end
 
-          def classification
-            @_classification
+          private
+
+          def deponent_or_impersonal?
+            @classification.deponent? or @classification.semideponent? or @classification.impersonal?
           end
-          alias :classified_as :classification
+
+          def calculate_stem(present_active_infinitive, first_person_singular)
+            if present_active_infinitive =~ /āre$/
+              return present_active_infinitive.gsub(/(.*)āre$/,'\\1ā')
+            end
+            if present_active_infinitive =~ /ēre$/
+              return present_active_infinitive.gsub(/(.*)ēre$/,'\\1ē')
+            end
+            if present_active_infinitive =~ /ere$/
+              if first_person_singular =~ /iō$/
+                return present_active_infinitive.gsub(/(.*)ere$/,'\\1')
+              else
+                return present_active_infinitive.gsub(/(.*)ere$/,'\\1')
+              end
+            end
+            if present_active_infinitive =~ /īre$/
+              return present_active_infinitive.gsub(/(.*)īre$/,'\\1')
+            end
+          end
 
 
-        end
+          def calculate_participial_stem(present_active_infinitive, first_person_singular)
+            if present_active_infinitive.to_s =~ /(.*ā)re$/
+              return $1
+            end
 
-        def to_a
-          @principal_parts
+            if present_active_infinitive.to_s =~ /(.*ē)re$/
+              return $1
+            end
+
+            if present_active_infinitive.to_s =~ /(.*)ere$/
+              match=$1
+              if first_person_singular =~ /iō/
+                return match + "iē"
+              else
+                return match + "e"
+              end
+            end
+
+            if present_active_infinitive.to_s =~ /(.*)īre$/
+              return $1 + "iē"
+            end
+          end
         end
       end
     end
