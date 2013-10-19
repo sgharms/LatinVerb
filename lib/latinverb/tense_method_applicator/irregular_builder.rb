@@ -103,7 +103,7 @@ module Linguistics
                 if o.match(/^([ĀĒĪŌŪ])(.*)/)
                   x = o[0,1].tr 'ĀĒĪŌŪ', 'AEIOU'
                   y = o[1,o.length]
-                  o = x+y
+                  o = x + y
                 end
 
                 o.to_sym

@@ -46,7 +46,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_future_tense
-                    ie_base = stem+"iē"
+                    ie_base = stem + "iē"
                     collection = [
                       stem + "ia" + PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[0],
                       PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| ie_base + x}

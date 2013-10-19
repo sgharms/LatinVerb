@@ -46,7 +46,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_future_tense
-                    fp_stem = stem+"ē"
+                    fp_stem = stem + "ē"
                     standards = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-1].map{|x| fp_stem + x}
                     collection = [stem + "ar", standards].flatten
                     TenseBlock.new(
@@ -65,7 +65,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_present_tense
-                    collection = [first_person_singular+"r", PASSIVE_ENDINGS_OTHER[1..-1].map{|x| stem + x}].flatten
+                    collection = [first_person_singular + "r", PASSIVE_ENDINGS_OTHER[1..-1].map{|x| stem + x}].flatten
                     return TenseBlock.new(
                       collection,
                       { :meaning => MEANINGS[:passive_voice_indicative_mood_present_tense] }

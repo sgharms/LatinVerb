@@ -44,7 +44,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_future_tense
-                    fp_stem   = stem+"bi"
+                    fp_stem   = stem + "bi"
                     standards = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[2..-1].map{|x| fp_stem + x}
                     standards.pop
                     fp_stem.sub!(/.$/,'u')
@@ -62,7 +62,7 @@ module Linguistics
 
                   def passive_voice_indicative_mood_imperfect_tense
                     imperfect_stem = stem + "b\xc4\x81"
-                    collection = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| imperfect_stem+x}
+                    collection = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| imperfect_stem + x}
                     return TenseBlock.new(
                       collection,
                       { :meaning => MEANINGS[:passive_voice_indicative_mood_imperfect_tense] }

@@ -60,7 +60,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_imperfect_tense
-                    base = stem+"iēbā"
+                    base = stem + "iēbā"
                     elems = [PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| base + x}].flatten!
                     return TenseBlock.new(
                       elems,
@@ -69,8 +69,8 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_present_tense
-                    base  = stem+"ī"
-                    elems = [first_person_singular+"r",
+                    base  = stem + "ī"
+                    elems = [first_person_singular + "r",
                       PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[1..-2].map{|x| base + x},
                       base + PASSIVE_ENDINGS_OTHER[-1]].flatten!
                     return TenseBlock.new(

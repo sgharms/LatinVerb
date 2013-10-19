@@ -49,7 +49,7 @@ module Linguistics
                   end
 
                   def passive_voice_indicative_mood_future_tense
-                    fp_stem = stem+"bi"
+                    fp_stem = stem + "bi"
                     standards = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG[2..-1].map{|x| fp_stem + x}
                     standards.pop
                     fp_stem.sub!(/.$/,'u')
