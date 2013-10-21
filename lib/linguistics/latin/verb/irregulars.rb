@@ -45,7 +45,6 @@ module Linguistics
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "esse",
               "present_passive_infinitive": "",
@@ -238,7 +237,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "ferre",
               "present_passive_infinitive": "ferrī",
@@ -470,7 +468,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "īre",
               "present_passive_infinitive": "īrī",
@@ -697,7 +694,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "mālle",
               "present_passive_infinitive": "",
@@ -889,7 +885,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "velle",
               "present_passive_infinitive": "",
@@ -1075,7 +1070,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "dāre",
               "present_passive_infinitive": "dārī",
@@ -1350,7 +1344,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "ēsse",
               "present_passive_infinitive": "",
@@ -1625,7 +1618,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "quīre",
               "present_passive_infinitive": "",
@@ -1818,7 +1810,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "nequīre",
               "present_passive_infinitive": "",
@@ -2044,7 +2035,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "facere",
               "present_passive_infinitive": "fierī",
@@ -2311,7 +2301,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "prōdesse",
               "present_passive_infinitive": "",
@@ -2515,7 +2504,6 @@ EOJSON
               }
             },
             "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "posse",
               "present_passive_infinitive": "",
@@ -2708,7 +2696,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "nōlle",
               "present_passive_infinitive": "",
@@ -2901,7 +2888,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -3092,7 +3078,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -3280,7 +3265,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -3451,7 +3435,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -3641,7 +3624,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -3847,7 +3829,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "fārī",
               "present_passive_infinitive": "",
@@ -4039,7 +4020,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
@@ -4213,7 +4193,6 @@ EOJSON
             }
           },
           "infinitives":{
-            "json_class": "Linguistics::Latin::Verb::InfinitiveBlock",
             "data": {
               "present_active_infinitive": "",
               "present_passive_infinitive": "",
