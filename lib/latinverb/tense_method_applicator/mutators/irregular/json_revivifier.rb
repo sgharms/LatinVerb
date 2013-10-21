@@ -29,7 +29,7 @@ module Linguistics
               end
 
               def build_infinitives!
-                irregular_infinitives = JSON.load(@structure['infinitives'].to_json)
+                irregular_infinitives = @structure['infinitives']['data']
                 return if irregular_infinitives.nil?
                 InfinitivesBuilder.new(@verb, irregular_infinitives)
               end
