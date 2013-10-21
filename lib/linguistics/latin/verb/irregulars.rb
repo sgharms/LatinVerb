@@ -57,7 +57,6 @@ module Linguistics
           },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "es",
@@ -68,7 +67,6 @@ module Linguistics
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "erō",
                   "eris",
@@ -79,7 +77,6 @@ module Linguistics
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fuerō",
                   "fueris",
@@ -90,7 +87,6 @@ module Linguistics
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "eram",
                   "erās",
@@ -101,7 +97,6 @@ module Linguistics
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fueram",
                   "fuerās",
@@ -112,7 +107,6 @@ module Linguistics
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fuī",
                   "fuistī",
@@ -123,7 +117,6 @@ module Linguistics
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "sum",
                   "es",
@@ -134,7 +127,6 @@ module Linguistics
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "essem",
                   "essēs",
@@ -145,7 +137,6 @@ module Linguistics
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fuissem",
                   "fuissēs",
@@ -156,7 +147,6 @@ module Linguistics
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fuerim",
                   "fueris",
@@ -167,7 +157,6 @@ module Linguistics
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "sim",
                   "sīs",
@@ -178,43 +167,33 @@ module Linguistics
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               }
             }
@@ -248,7 +227,6 @@ EOJSON
           },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "fer",
@@ -259,7 +237,6 @@ EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "feram",
                   "ferēs",
@@ -270,7 +247,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "tulerō",
                   "tuleris",
@@ -281,7 +257,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferēbam",
                   "ferēbās",
@@ -292,7 +267,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "tuleram",
                   "tulerās",
@@ -303,7 +277,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "tulī",
                   "tulistī",
@@ -314,7 +287,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferō",
                   "fers",
@@ -325,7 +297,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferrem",
                   "ferrēs",
@@ -336,7 +307,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "tulissem",
                   "tulissēs",
@@ -347,7 +317,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "tulerim",
                   "tuleris",
@@ -358,7 +327,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "feram",
                   "ferās",
@@ -369,7 +337,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferar",
                   "ferēris",
@@ -380,12 +347,10 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["lātus erō", "lātus eris", "lātus erit",
                          "lātī erimus", "lātī eritis", "lātī erunt"]
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferēbar",
                   "ferēbāris",
@@ -396,17 +361,14 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["lātus eram", "lātus erās", "lātus erat",
                          "lātī erāmus", "lātī erātis", "lātī erant"]
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["lātus sum", "lātus es", "lātus est",
                          "lātī sumus", "lātī estis", "lātī sunt"]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "feror",
                   "ferris",
@@ -417,7 +379,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferrer",
                   "ferrēris",
@@ -428,17 +389,14 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["lātus essem", "lātus essēs", "lātus esset",
                          "lātī essēumus", "lātī essētis", "lātī essent"]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["lātus sim", "lātus sīs", "lātus sit",
                          "lātī sīmus", "lātī sītis", "lātī sint"]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ferar",
                   "ferāris",
@@ -478,7 +436,6 @@ EOJSON
           },
           "tense_blocks": {
             "active voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "i",
@@ -489,7 +446,6 @@ EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ībō",
                   "ībis",
@@ -500,7 +456,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ierō",
                   "ieris",
@@ -511,7 +466,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ībam",
                   "ībās",
@@ -522,7 +476,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ieram",
                   "ierās",
@@ -533,7 +486,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "iī",
                   "iistī",
@@ -544,7 +496,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "eō",
                   "īs",
@@ -555,7 +506,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "īrem",
                   "īrēs",
@@ -566,7 +516,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "īssem",
                   "īssēs",
@@ -577,7 +526,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ierim",
                   "ieris",
@@ -588,7 +536,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "eam",
                   "eās",
@@ -599,7 +546,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -610,11 +556,9 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","itum erit (Impersonal)","","",""]
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -625,15 +569,12 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","itum erat (Impersonal)","","",""]
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","itum est (Impersonal)","","",""]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -644,7 +585,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -655,15 +595,12 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","itum esset (Impersonal)","","",""]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","itum sit (Impersonal)","","",""]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -703,7 +640,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -714,7 +650,6 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "mālam",
                     "mālēs",
@@ -725,7 +660,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "māluerō",
                     "mālueris",
@@ -736,7 +670,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "mālēbam",
                     "mālēbās",
@@ -747,7 +680,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "mālueram",
                     "māluerās",
@@ -758,7 +690,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "māluī",
                     "māluistī",
@@ -769,7 +700,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "mālō",
                     "māvīs",
@@ -780,7 +710,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "māllem",
                     "māllēs",
@@ -791,7 +720,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "māluissem",
                     "māluissēs",
@@ -802,7 +730,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "māluerim",
                     "mālueris",
@@ -813,7 +740,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "mālim",
                     "mālis",
@@ -824,43 +750,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -893,11 +809,9 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
                 },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "volam",
                     "volēs",
@@ -908,7 +822,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "voluerō",
                     "volueris",
@@ -919,7 +832,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "volēbam",
                     "volēbās",
@@ -930,7 +842,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "volueram",
                     "voluerās",
@@ -941,7 +852,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "voluī",
                     "voluistī",
@@ -952,7 +862,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "volō",
                     "vīs",
@@ -963,7 +872,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "vellem",
                     "vellēs",
@@ -974,7 +882,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "voluissem",
                     "voluissēs",
@@ -985,7 +892,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "voluerim",
                     "volueris",
@@ -996,7 +902,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "velim",
                     "velīs",
@@ -1007,43 +912,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
               }
@@ -1077,7 +972,6 @@ EOJSON
           },
           "tense_blocks": {
             "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1088,7 +982,6 @@ EOJSON
                 ]
               },
             "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "dā",
@@ -1099,7 +992,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dābō",
                   "dābis",
@@ -1110,7 +1002,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dederō",
                   "dederis",
@@ -1121,7 +1012,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dābam",
                   "dābās",
@@ -1132,7 +1022,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dederam",
                   "dederās",
@@ -1143,7 +1032,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dedī",
                   "dedistī",
@@ -1154,7 +1042,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dō",
                   "dās",
@@ -1165,7 +1052,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dārem",
                   "dārēs",
@@ -1176,7 +1062,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dedissem",
                   "dedissēs",
@@ -1187,7 +1072,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dederim",
                   "dederis",
@@ -1198,7 +1082,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dem",
                   "dēs",
@@ -1209,7 +1092,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dābor",
                   "dāberis",
@@ -1220,7 +1102,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "datum erō",
                   "datum eris",
@@ -1231,7 +1112,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dābar",
                   "dābāris",
@@ -1242,7 +1122,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "datum eram",
                   "datum erās",
@@ -1253,7 +1132,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "datum sum",
                   "datum es",
@@ -1264,7 +1142,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "dāris",
@@ -1275,7 +1152,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "dārer",
                   "dārēris",
@@ -1286,7 +1162,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "[ datus, data, datum ] essem",
                   "[ datus, data, datum ] essēs",
@@ -1297,7 +1172,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "[ datus, data, datum ] sim",
                   "[ datus, data, datum ] sis",
@@ -1308,7 +1182,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "dēris",
@@ -1350,7 +1223,6 @@ EOJSON
           },
           "tense_blocks": {
             "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1361,7 +1233,6 @@ EOJSON
                 ]
               },
             "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "ēs",
@@ -1372,7 +1243,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "edam",
                   "edēs",
@@ -1383,7 +1253,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ēderō",
                   "ēderis",
@@ -1394,7 +1263,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "edēbam",
                   "edēbās",
@@ -1405,7 +1273,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ēderam",
                   "ēderās",
@@ -1416,7 +1283,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ēdī",
                   "ēdistī",
@@ -1427,7 +1293,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "edō",
                   "ēs (edis)",
@@ -1438,7 +1303,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ederem",
                   "ēssēs (ederēs)",
@@ -1449,7 +1313,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ēdissem",
                   "ēdissēs",
@@ -1460,7 +1323,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "ēderim",
                   "ēderis",
@@ -1471,7 +1333,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "edam (edim)",
                   "edās (edīs)",
@@ -1482,7 +1343,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1493,7 +1353,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1504,7 +1363,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1515,7 +1373,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1526,7 +1383,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1537,7 +1393,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1548,7 +1403,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1559,7 +1413,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1570,7 +1423,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1581,7 +1433,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1623,7 +1474,6 @@ EOJSON
           },
           "tense_blocks": {
             "active voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "",
@@ -1634,7 +1484,6 @@ EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quībō",
                   "",
@@ -1645,7 +1494,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1656,7 +1504,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quībam",
                   "",
@@ -1667,7 +1514,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1678,7 +1524,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quīvī",
                   "",
@@ -1689,7 +1534,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "queō",
                   "quīs",
@@ -1700,7 +1544,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1711,7 +1554,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1722,7 +1564,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1733,7 +1574,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "queam",
                   "queās",
@@ -1744,43 +1584,33 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [] }
           }
         }
@@ -1814,7 +1644,6 @@ EOJSON
           },
           "tense_blocks": {
             "active voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "",
@@ -1825,7 +1654,6 @@ EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quībō",
                   "",
@@ -1836,7 +1664,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1847,7 +1674,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quībam",
                   "",
@@ -1858,7 +1684,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1869,7 +1694,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "quīvī",
                   "",
@@ -1880,7 +1704,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "queō",
                   "quīs",
@@ -1891,7 +1714,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1902,7 +1724,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1913,7 +1734,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1924,7 +1744,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "queam",
                   "queās",
@@ -1935,7 +1754,6 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1946,11 +1764,9 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","","","",""]
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1961,15 +1777,12 @@ EOJSON
                 ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","","","",""]
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","","","",""]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1980,7 +1793,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -1991,15 +1803,12 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","","","",""]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": ["","","","","",""]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2039,7 +1848,6 @@ EOJSON
           "tense_blocks": {
 
             "active_voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "",
@@ -2050,7 +1858,6 @@ EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2061,7 +1868,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2072,7 +1878,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2083,7 +1888,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2094,7 +1898,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2105,7 +1908,6 @@ EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2116,7 +1918,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2127,7 +1928,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2138,7 +1938,6 @@ EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2149,7 +1948,6 @@ EOJSON
                 ]
              },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   "",
@@ -2159,7 +1957,6 @@ EOJSON
                   "" ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fiam",
                   "fiēs",
@@ -2169,7 +1966,6 @@ EOJSON
                   "fient"]
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum erō",
                   "factum eris",
@@ -2180,7 +1976,6 @@ EOJSON
               },
 
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fiēbam",
                   "fiēbās",
@@ -2191,7 +1986,6 @@ EOJSON
                   ]
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum eram",
                   "factum erās",
@@ -2203,7 +1997,6 @@ EOJSON
 
 
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum sum",
                   "factum es",
@@ -2213,7 +2006,6 @@ EOJSON
                   "factum sunt"]
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fiō",
                   "fīs",
@@ -2223,7 +2015,6 @@ EOJSON
                   "fiunt"]
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fierem",
                   "fierēs",
@@ -2234,7 +2025,6 @@ EOJSON
                 ]
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum essem",
                   "factum essēs",
@@ -2245,7 +2035,6 @@ EOJSON
                   ]
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "factum sim",
                   "factum sīs",
@@ -2255,7 +2044,6 @@ EOJSON
                   "factum sint"]
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "fīam",
                   "fīās",
@@ -2303,7 +2091,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
           },
           "tense_blocks": {
             "active_voice_imperative_mood_present_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "prōdēs",
@@ -2314,7 +2101,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                ]
              },
             "active_voice_imperative_mood_future_tense": {
-              "json_class": "Linguistics::Latin::Verb::TenseBlock",
               "data": [
                 [],
                 "prōdestō",
@@ -2325,7 +2111,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                ]
              },
             "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōderō",
                   "prōderis",
@@ -2336,7 +2121,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōfuerō",
                   "prōfueris",
@@ -2347,7 +2131,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōderam",
                   "prōderās",
@@ -2358,7 +2141,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōfueram",
                   "prōfuerās",
@@ -2369,7 +2151,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōfuī",
                   "prōfuistī",
@@ -2380,7 +2161,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōsum",
                   "prōdēs",
@@ -2391,7 +2171,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōdessem",
                   "prōdessēs",
@@ -2402,7 +2181,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōfuissem",
                   "prōfuissēs",
@@ -2413,7 +2191,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōfuerim",
                   "prōfueris",
@@ -2424,7 +2201,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "prōsim",
                   "prōsīs",
@@ -2435,43 +2211,33 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
                 ]
               },
             "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
             "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               }
             }
@@ -2505,7 +2271,6 @@ EOJSON
           },
             "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                 "",
@@ -2516,7 +2281,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "poterō",
                   "poteris",
@@ -2527,7 +2291,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "potuerō",
                   "potueris",
@@ -2538,7 +2301,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "poteram",
                   "poterās",
@@ -2549,7 +2311,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "potueram",
                   "potuerās",
@@ -2560,7 +2321,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "potuī",
                   "potuistī",
@@ -2571,7 +2331,6 @@ EOJSON
                   ]
               },
               "active_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "possum",
                   "potes",
@@ -2582,7 +2341,6 @@ EOJSON
                   ]
               },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "possem",
                   "possēs",
@@ -2593,7 +2351,6 @@ EOJSON
                   ]
               },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "potuissem",
                   "potuissēs",
@@ -2604,7 +2361,6 @@ EOJSON
                   ]
               },
               "active_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "potuerim",
                   "potueris",
@@ -2615,7 +2371,6 @@ EOJSON
                   ]
               },
               "active_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "possim",
                   "possīs",
@@ -2626,43 +2381,33 @@ EOJSON
                   ]
               },
               "passive_voice_indicative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_indicative_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_indicative_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_indicative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               },
               "passive_voice_subjunctive_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": []
               }
             }
@@ -2696,7 +2441,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "nōli",
@@ -2707,7 +2451,6 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōlam",
                     "nōlēs",
@@ -2718,7 +2461,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōluerō",
                     "nōlueris",
@@ -2729,7 +2471,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōlēbam",
                     "nōlēbās",
@@ -2740,7 +2481,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōlueram",
                     "nōluerās",
@@ -2751,7 +2491,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōluī",
                     "nōluistī",
@@ -2762,7 +2501,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōlō",
                     "nōn vīs",
@@ -2773,7 +2511,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōllem",
                     "nōllēs",
@@ -2784,7 +2521,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōluissem",
                     "nōluissēs",
@@ -2795,7 +2531,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōluerim",
                     "nōlueris",
@@ -2806,7 +2541,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "nōlim",
                     "nōlis",
@@ -2817,43 +2551,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -2887,7 +2611,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -2898,11 +2621,9 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeperō",
                     "coeperis",
@@ -2913,11 +2634,9 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeperam",
                     "coeperās",
@@ -2928,7 +2647,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coepī",
                     "coepistī",
@@ -2939,15 +2657,12 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coepissem",
                     "coepissēs",
@@ -2958,7 +2673,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeperim",
                     "coeperis",
@@ -2969,15 +2683,12 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeptus erō",
                     "coeptus eris",
@@ -2988,11 +2699,9 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeptus eram",
                     "coeptus erās",
@@ -3003,7 +2712,6 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeptus sum",
                     "coeptus es",
@@ -3014,15 +2722,12 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeptus essem",
                     "coeptus essēs",
@@ -3033,7 +2738,6 @@ EOJSON
                   ]
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "coeptus sim",
                     "coeptus sīs",
@@ -3044,7 +2748,6 @@ EOJSON
                   ]
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -3076,7 +2779,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -3087,7 +2789,6 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3098,7 +2799,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "ōderō",
                     "ōderis",
@@ -3109,7 +2809,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3120,7 +2819,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "ōderam",
                     "ōderās",
@@ -3131,7 +2829,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "ōdī",
                     "ōdistī",
@@ -3142,7 +2839,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3153,7 +2849,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3164,7 +2859,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "ōdissem",
                     "ōdissēs",
@@ -3175,7 +2869,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "ōderim",
                     "ōderis",
@@ -3186,47 +2879,36 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -3262,7 +2944,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "mementō",
@@ -3273,7 +2954,6 @@ EOJSON
                  ]
                },
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -3284,11 +2964,9 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "meminerō",
                     "memineris",
@@ -3299,11 +2977,9 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "memineram",
                     "meminerās",
@@ -3314,7 +2990,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "meminī",
                     "meministī",
@@ -3325,15 +3000,12 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "meminissem",
                     "meminissēs",
@@ -3344,7 +3016,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "meminerim",
                     "memineris",
@@ -3355,47 +3026,36 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -3431,7 +3091,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -3442,7 +3101,6 @@ EOJSON
                  ]
                },
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "aī",
@@ -3453,11 +3111,9 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3468,7 +3124,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "aiēbam",
                     "aiēbās",
@@ -3479,7 +3134,6 @@ EOJSON
                    ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3490,7 +3144,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3501,7 +3154,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "aiō",
                     "ais",
@@ -3511,11 +3163,9 @@ EOJSON
                     "aiunt"]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3526,7 +3176,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3537,7 +3186,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "aiās",
@@ -3548,43 +3196,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -3619,7 +3257,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "inquitō",
@@ -3630,7 +3267,6 @@ EOJSON
                  ]
                },
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "inque",
@@ -3641,7 +3277,6 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "inquam",
                     "inquis",
@@ -3652,7 +3287,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3663,7 +3297,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3674,7 +3307,6 @@ EOJSON
                    ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3685,7 +3317,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "inquiī",
                     "inquīstī",
@@ -3696,7 +3327,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "inquiēs",
@@ -3707,7 +3337,6 @@ EOJSON
                    ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3718,7 +3347,6 @@ EOJSON
                     ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3729,7 +3357,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3740,7 +3367,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3751,43 +3377,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -3823,7 +3439,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   "",
                   ""
@@ -3833,7 +3448,6 @@ EOJSON
                   ""]
                 },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "fābor",
                     "",
@@ -3844,7 +3458,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3855,7 +3468,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3866,7 +3478,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "fātus eram",
                     "",
@@ -3877,7 +3488,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3888,7 +3498,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3899,7 +3508,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3910,7 +3518,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3921,7 +3528,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3932,7 +3538,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -3943,43 +3548,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
               }
@@ -4013,7 +3608,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -4024,7 +3618,6 @@ EOJSON
                  ]
                },
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -4035,11 +3628,9 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4050,11 +3641,9 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4065,7 +3654,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4076,7 +3664,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "quaesō",
                     "",
@@ -4086,11 +3673,9 @@ EOJSON
                     ""]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4101,7 +3686,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4112,47 +3696,36 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
@@ -4185,7 +3758,6 @@ EOJSON
           },
           "tense_blocks": {
               "active_voice_imperative_mood_future_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -4196,7 +3768,6 @@ EOJSON
                  ]
                },
               "active_voice_imperative_mood_present_tense": {
-                "json_class": "Linguistics::Latin::Verb::TenseBlock",
                 "data": [
                   [],
                   "",
@@ -4207,11 +3778,9 @@ EOJSON
                  ]
                },
               "active_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4222,11 +3791,9 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "active_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4237,7 +3804,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4248,7 +3814,6 @@ EOJSON
                   ]
                 },
               "active_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "ovās",
@@ -4258,7 +3823,6 @@ EOJSON
                     ""]
                 },
               "active_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4269,7 +3833,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4280,7 +3843,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4291,7 +3853,6 @@ EOJSON
                   ]
                 },
               "active_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": [
                     "",
                     "",
@@ -4302,43 +3863,33 @@ EOJSON
                   ]
                 },
               "passive_voice_indicative_mood_future_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_futureperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_indicative_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_imperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_pastperfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_perfect_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 },
               "passive_voice_subjunctive_mood_present_tense": {
-                  "json_class": "Linguistics::Latin::Verb::TenseBlock",
                   "data": []
                 }
             }
