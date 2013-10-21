@@ -13,8 +13,9 @@ module Linguistics
                 end
 
                 def mutate!
-                  i = @participles_structure
-                  @verb.instance_eval do
+                  i = OpenStruct.new(@participles_structure)
+
+                  @verb.instance_exec do
                     @__irregular_participles = i
                     def present_active_participle; @__irregular_participles.present_active_participle; end
                     def future_active_participle; @__irregular_participles.future_active_participle; end
@@ -23,7 +24,6 @@ module Linguistics
                     def gerundive; @__irregular_participles.gerundive; end
                     def gerund; @__irregular_participles.d; end
                   end
-
                 end
               end
             end

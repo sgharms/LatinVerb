@@ -36,7 +36,6 @@ module Linguistics
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"ens, entis",
               "future_active_participle":"futūrus",
@@ -228,7 +227,6 @@ EOJSON
           "original string":"ferō ferre tulī lātum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"ferēns, ferentis",
               "future_active_participle":"lātūrus",
@@ -459,7 +457,6 @@ EOJSON
           "original string":"eō īre ivī itum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"iēns (euntis)",
               "future_active_participle":"itūrus",
@@ -685,7 +682,6 @@ EOJSON
           "original string":"mālō mālle māluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"",
@@ -876,7 +872,6 @@ EOJSON
           "original string":"volō velle voluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"volēns, volentis",
               "future_active_participle":"",
@@ -1061,7 +1056,6 @@ EOJSON
           "original string":"dō dāre dedī datum",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"dāns, dantis",
               "future_active_participle":"datūrus (-a, -um)",
@@ -1335,7 +1329,6 @@ EOJSON
           "original string":"EDŌ ĒSSE ĒDĪ ĒSUM",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"edēns, edentis",
               "future_active_participle":"ēsūrus (-a, -um)",
@@ -1609,7 +1602,6 @@ EOJSON
           "original string":"queō quīre quivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"quiēns",
               "future_active_participle":"",
@@ -1801,7 +1793,6 @@ EOJSON
           "original string":"nequeō nequīre qneuivī ",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"nequiēns, nequientis",
               "future_active_participle":"",
@@ -2026,7 +2017,6 @@ EOJSON
           "original string":"sum esse fuī futūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"faciēns, facientis",
               "future_active_participle":"factūrus",
@@ -2292,7 +2282,6 @@ PRŌSUM_PRŌDESSE_PRŌFUĪ_PRŌFUTŪRUS=<<EOJSON
           "original string":"prōsum prōdesse prōfuī prōfutūrus",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"prōfutūrus",
@@ -2495,7 +2484,6 @@ EOJSON
           "original string":"possum posse potuī",
             "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
             "participles":{
-              "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
               "data": {
                 "present_active_participle":"potēns, potentis",
                 "future_active_participle":"",
@@ -2687,7 +2675,6 @@ EOJSON
           "original string":"nōlō nōlle nōluī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"nōlēns, nōlentis",
               "future_active_participle":"",
@@ -2879,7 +2866,6 @@ EOJSON
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
 
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"coeptūrus",
@@ -3069,7 +3055,6 @@ EOJSON
           "original string":"ōdī_ōdisse",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"",
@@ -3256,7 +3241,6 @@ EOJSON
           "original string":"meminī meminisse",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"",
@@ -3426,7 +3410,6 @@ EOJSON
           "original string":"aiō",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"aiēns",
               "future_active_participle":"",
@@ -3615,7 +3598,6 @@ EOJSON
           "original string":"inquam",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"",
@@ -3820,7 +3802,6 @@ EOJSON
           "original string":"for fārī",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"fāns, fantis",
               "future_active_participle":"",
@@ -4011,7 +3992,6 @@ EOJSON
           "original string":"quaesō",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"",
               "future_active_participle":"",
@@ -4184,7 +4164,6 @@ EOJSON
           "original string":"ovāre",
           "classification": "Linguistics::Latin::Verb::VerbTypes::Irregular",
           "participles":{
-            "json_class": "Linguistics::Latin::Verb::ParticipleBlock",
             "data": {
               "present_active_participle":"ovāns, ovantis",
               "future_active_participle":"ovātūrus",

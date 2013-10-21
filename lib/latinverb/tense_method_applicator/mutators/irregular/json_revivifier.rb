@@ -35,7 +35,7 @@ module Linguistics
               end
 
               def build_participles!
-                irregular_participles = JSON.load(@structure['participles'].to_json)
+                irregular_participles = @structure['participles']['data']
                 return if irregular_participles.nil?
                 ParticiplesBuilder.new(@verb, irregular_participles)
               end
