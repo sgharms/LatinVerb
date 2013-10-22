@@ -38,11 +38,11 @@ module Linguistics
         # hash for getting a verb's subjunctive stem
         # based off the W[e] F[ea]r [A] L[ia]r mnemonic
         ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS = {
-          :First   => lambda  { |x| return x + "ē"  },
-          :Second  => lambda  { |x| return x + "eā" },
-          :Third   => lambda  { |x| return x + "ā"  },
-          :Fourth  => lambda  { |x| return x + "iā" },
-          :ThirdIO => lambda  { |x| return x + "iā" }
+          :First   => "ē" ,
+          :Second  => "eā",
+          :Third   => "ā" ,
+          :Fourth  => "iā",
+          :ThirdIO => "iā"
         }
 
       # Listing of all defective verbs

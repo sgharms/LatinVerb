@@ -36,7 +36,7 @@ module Linguistics
                     key = verb_type.ordinal_name_key
                     endings = ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS]
                     collection = endings.flatten.map do  |ending|
-                       ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key].call(stem) + ending
+                       stem + ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key] + ending
                      end
 
                     TenseBlock.new(
