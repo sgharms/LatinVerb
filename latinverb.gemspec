@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("linguistics_latin")
   s.add_runtime_dependency("rdoc")
   s.add_runtime_dependency("rake")
-  s.add_runtime_dependency("active_support")
+  s.add_runtime_dependency("activesupport")
 end
