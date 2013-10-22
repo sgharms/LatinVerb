@@ -11,7 +11,7 @@ module Linguistics
 
               def apply!
                 return unless irregular_and_present_only?
-                @verb.singleton_class.class_eval do
+                @verb.instance_eval do
                   def classification
                     Classification::PresentOnly
                   end

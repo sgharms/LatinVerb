@@ -9,7 +9,7 @@ module Linguistics
             end
 
             def mutate!
-              @verb.singleton_class.class_eval do
+              @verb.instance_eval do
                 def active_voice_indicative_mood_present_tense
                   TenseBlock.new ["", "", @original_string, "", "", ""]
                 end

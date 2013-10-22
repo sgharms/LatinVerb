@@ -33,7 +33,7 @@ module Linguistics
 
                   # In verb, find the passive and save its resultant object into a
                   # hash for future use.
-                  @verb.singleton_class.class_eval do
+                  @verb.instance_eval do
                     storage[active_corr.to_sym] = pV.send(pass)
                   end
                 end
