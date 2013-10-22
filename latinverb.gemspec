@@ -20,9 +20,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency("macronconversions")
-  s.add_dependency("linguistics_latin")
-  s.add_dependency("rdoc")
-  s.add_dependency("rake")
-  s.add_dependency("active_support")
+  s.add_runtime_dependency("macronconversions")
+  s.add_runtime_dependency("linguistics_latin")
+  s.add_runtime_dependency("rdoc")
+  s.add_runtime_dependency("rake")
+  s.add_runtime_dependency("active_support")
 end
