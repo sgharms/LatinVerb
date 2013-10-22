@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    latinverb (0.9.3)
+    latinverb (0.9.5)
       activesupport
       linguistics_latin
       macronconversions
