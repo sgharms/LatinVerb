@@ -82,3 +82,5 @@ module Linguistics
     end
   end
 end
+
+require 'latinverb/paradigmatic_verbs'
