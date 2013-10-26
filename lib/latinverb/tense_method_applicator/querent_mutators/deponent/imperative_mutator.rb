@@ -2,12 +2,14 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
+        module QuerentMutators
           class Deponent
             class ImperativeMutator
               def initialize(verb, proxyVerb)
                 @verb = verb
                 @proxyVerb = proxyVerb
+                @querent = @proxyVerb.querent
+
                 mutate!
               end
 
@@ -20,7 +22,7 @@ module Linguistics
 
               def mutate!
                 proxyVerb = @proxyVerb
-                @verb.instance_eval do
+                @querent.instance_eval do
                   extend Linguistics::Latin::Phonographia
                   @proxyVerb = proxyVerb
 

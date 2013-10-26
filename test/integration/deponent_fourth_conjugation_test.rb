@@ -60,5 +60,10 @@ class TestDeponentFourthConjugation < MiniTest::Unit::TestCase # :nodoc:
     assert_equal 'partītū',  @aDep.supine[:ablative]
   end
 
+  def test_querent
+    assert @aDep.querent, "Should find to a querent object"
+    assert_equal 6,  @aDep.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "partior", @aDep.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
 
 end
