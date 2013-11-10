@@ -8,13 +8,13 @@ module Linguistics
         ::ATHIRDIO = LatinVerb.new('capiō capere cēpī captum')
         ::AFOURTH = LatinVerb.new('audiō audīre audīvī auditum')
 
-        ::AFIRST_DEP =  LatinVerb.new('mīror mīrārī mīrātum')
-        ::ASECOND_DEP =  LatinVerb.new('vereor verērī veritum')
-        ::ATHIRD_DEP = LatinVerb.new('sequor sequī secūtum')
-        ::ATHIRDIO_DEP = LatinVerb.new('patior patī passum')
-        ::AFOURTH_DEP = LatinVerb.new('partior partīrī partītum')
+        #::AFIRST_DEP =  LatinVerb.new('mīror mīrārī mīrātum')
+        #::ASECOND_DEP =  LatinVerb.new('vereor verērī veritum')
+        #::ATHIRD_DEP = LatinVerb.new('sequor sequī secūtum')
+        #::ATHIRDIO_DEP = LatinVerb.new('patior patī passum')
+        #::AFOURTH_DEP = LatinVerb.new('partior partīrī partītum')
 
-        ::SUM = LatinVerb.new('sum esse fuī futūrus')
+        #::SUM = LatinVerb.new('sum esse fuī futūrus')
       end
     end
   end

@@ -185,4 +185,10 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "actum īrī",               @aThird.future_passive_infinitive
   end
 
+  def test_querent
+    assert @aThird.querent, "Should find to a querent object"
+    assert_equal 6,  @aThird.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "agō", @aThird.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
+
 end
