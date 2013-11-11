@@ -26,7 +26,7 @@ module Linguistics
             end
 
             def active_voice_subjunctive_mood_present_tense
-              key = verb_type.ordinal_name_key
+              key = @verb.verb_type.ordinal_name_key
               asp_base     = stem[0..-2] + ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key]
               endings_coll = ['m', AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS].flatten!
               collection   = endings_coll.map{ |ending| asp_base + ending }
@@ -72,7 +72,7 @@ module Linguistics
             end
 
             def passive_voice_subjunctive_mood_present_tense
-              key = verb_type.ordinal_name_key
+              key = @verb.verb_type.ordinal_name_key
               short_base = stem[0..-2] + ACTIVE_PRESENT_SUBJUNCTIVE_ENDINGS[key]
               collection = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map { |ending| short_base + ending }
               TenseBlock.new(

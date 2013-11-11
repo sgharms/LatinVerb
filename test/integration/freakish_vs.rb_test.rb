@@ -22,6 +22,7 @@ class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
     assert v.present_only?, "Must be present_only: was #{v.classification}"
 
     # Primary use of this verb
+
     assert_equal 'ait', v.active_voice_indicative_mood_present_tense_third_person_singular_number,
       "Must respond to active_voice_indicative_mood_present_tense_third_person_singular_number"
 

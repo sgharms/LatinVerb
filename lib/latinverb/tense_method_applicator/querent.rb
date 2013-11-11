@@ -7,7 +7,7 @@ module Linguistics
             extend Forwardable
 
             def_delegators :@verb, :stem, :imperatives, :first_person_singular, :first_person_perfect,
-              :present_active_infinitive, :passive_perfect_participle, :present_active_infinitive
+              :present_active_infinitive, :passive_perfect_participle, :present_active_infinitive, :verb_type
 
             def initialize(verb)
               @verb = verb
@@ -138,8 +138,8 @@ module Linguistics
               elements = PASS_PLUPERF_PAST_ENDINGS.map do |ending|
                 count += 1
                 (count <= 2 ?
-                 "[ #{TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
-                 "[ #{TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
+                 "[ #{Mutators::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
+                 "[ #{Mutators::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
               end
               meaning = { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_pastperfect_tense] }
               TenseBlock.new(elements, meaning)
@@ -150,8 +150,8 @@ module Linguistics
               elements = PASS_PERF_SUBJUNCTIVE_ENDINGS.map do |ending|
                 counter += 1
                 (counter <= 2 ?
-                 "[ #{TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
-                 "[ #{TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
+                 "[ #{Mutators::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
+                 "[ #{Mutators::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
               end
               meaning = { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_perfect_tense] }
               TenseBlock.new(elements, meaning)

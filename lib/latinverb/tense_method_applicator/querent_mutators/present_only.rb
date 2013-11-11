@@ -5,6 +5,7 @@ module Linguistics
         module QuerentMutators
           class PresentOnly
             def initialize(querent)
+              @verb = querent
             end
             def mutate!
             end

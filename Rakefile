@@ -12,7 +12,7 @@ RDoc::Task.new do | rd |
 end
 
 Rake::TestTask.new do  |t|
-  t.ruby_opts = [ '-rminitest/pride' ]
+  t.ruby_opts = [ '-rminitest/pride', '-rbyebug' ]
   t.test_files = FileList['test/**/*test*.rb']
   t.verbose = true
 end

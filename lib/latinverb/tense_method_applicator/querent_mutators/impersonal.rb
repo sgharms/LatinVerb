@@ -9,7 +9,7 @@ module Linguistics
             end
 
             def mutate!
-              @verb.instance_variable_get(:@qu).instance_eval do
+              @verb.querent.instance_eval do
                 def active_voice_indicative_mood_present_tense
                   TenseBlock.new ["", "", @verb.original_string, "", "", ""]
                 end
