@@ -1,5 +1,4 @@
 require_relative './querent_mutators/deponent'
-require_relative './querent_mutators/impersonal'
 require_relative './querent_mutators/invariant'
 require_relative './querent_mutators/irregular'
 require_relative './querent_mutators/semideponent'
@@ -15,7 +14,6 @@ module Linguistics
             def_delegators :@classification, :short_name_key
 
             MAPPING = {
-              Impersonal: QuerentMutators::Impersonal,
               Irregular: QuerentMutators::Irregular,
               Deponent: QuerentMutators::Deponent,
               Semideponent: QuerentMutators::Semideponent
