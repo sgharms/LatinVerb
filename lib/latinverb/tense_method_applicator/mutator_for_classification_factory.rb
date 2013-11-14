@@ -1,7 +1,6 @@
 require_relative './mutators/deponent'
-require_relative './mutators/invariant'
+#require_relative './mutators/invariant'
 require_relative './mutators/irregular'
-require_relative './mutators/semideponent'
 
 module Linguistics
   module Latin
@@ -15,7 +14,6 @@ module Linguistics
             MAPPING = {
               Irregular: Mutators::Irregular,
               Deponent: Mutators::Deponent,
-              Semideponent: Mutators::Semideponent,
             }
 
             def initialize(verb)

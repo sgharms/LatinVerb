@@ -38,6 +38,7 @@ module Linguistics
           classify(data)
           build_validator
           apply_parts_of_speech!
+          prepare_querent!
           apply_tenses!
           apply_chart_capabilities!
         end
@@ -51,6 +52,9 @@ module Linguistics
         end
 
         private
+
+        def prepare_querent!
+        end
 
         def classify(data)
           @original_string = (data['original_string'] || data)
