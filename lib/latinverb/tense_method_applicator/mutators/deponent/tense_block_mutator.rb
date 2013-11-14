@@ -7,6 +7,7 @@ module Linguistics
             class TenseBlockMutator
               def initialize(verb, proxyVerb)
                 @verb = verb
+                @querent = verb.querent
                 @proxyVerb = proxyVerb
 
                 mutate!
@@ -24,7 +25,7 @@ module Linguistics
 
                 storage = {}
 
-                @proxyVerb.methods.grep(/\Apassive.+tense\z/).each do |pass|
+                @querent.methods.grep(/\Apassive.+tense\z/).each do |pass|
                   # Find the active correlate
                   active_corr = pass.to_s.sub( /^passive(.*)/, "active\\1" )
 

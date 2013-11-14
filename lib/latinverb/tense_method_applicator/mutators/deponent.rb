@@ -28,7 +28,10 @@ module Linguistics
               @querent = verb.querent
               @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string)
               @mutators_classes = opts[:mutator_classes] ||
-                [ TenseBlockMutator, ImperativeMutator, ParticipleMutator, InfinitiveMutator ]
+                [ TenseBlockMutator,
+                  ParticipleMutator,
+                  InfinitiveMutator
+              ]
             end
 
             def mutate!
