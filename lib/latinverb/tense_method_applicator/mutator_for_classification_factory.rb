@@ -1,5 +1,4 @@
 require_relative './mutators/deponent'
-#require_relative './mutators/invariant'
 require_relative './mutators/irregular'
 
 module Linguistics
