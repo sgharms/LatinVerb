@@ -8,6 +8,7 @@ module Linguistics
               attr_reader :revivified_data_structure
 
               def initialize(verb)
+                byebug #x
                 @verb = verb
                 json_string = Linguistics::Latin::Verb.const_get(symbolize_original_string)
                 raise "Found a JSON string with an absurdly small length!" if json_string.length <= 10

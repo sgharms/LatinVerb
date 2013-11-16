@@ -8,6 +8,7 @@ module Linguistics
               def initialize(verb, structure)
                 @verb = verb
                 @structure = structure
+                byebug
                 build_tense_blocks!
                 build_infinitives!
                 build_participles!
@@ -38,11 +39,13 @@ module Linguistics
               end
             end
             def initialize(verb)
+              #OUD
               @verb = verb
               @deserializer = Deserializer.new(@verb)
             end
 
             def mutate!
+              #oud!
               Revivifier.new(@verb, @deserializer.revivified_data_structure)
               PresentOnlyIrregularMask.new(@verb).apply!
             end
