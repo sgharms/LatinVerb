@@ -45,10 +45,8 @@ module Linguistics
 
         def initialize(data)
           classify(data)
-          build_validator
-          apply_parts_of_speech!
-          prepare_querent!
-          apply_tenses!
+          build_lookup_delegates!
+          build_validator!
           apply_chart_capabilities!
         end
 
@@ -62,22 +60,17 @@ module Linguistics
 
         private
 
-        def prepare_querent!
-        end
-
         def classify(data)
           @original_string = (data['original_string'] || data)
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-        end
-
-        def build_validator
-          @validator = Validator.new(self)
-        end
-
-        def apply_parts_of_speech!
           @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
+        end
+
+        def build_lookup_delegates!
+          @querent = QuerentFactory.new(self).querent
+          @tense_method_applicator = TenseMethodApplicator.new(self)
           @participler = Participler.new(self)
           @infinitivizer = Infinitivizer.new(self)
           @imperative_handler = ImperativesHandler.new(self)
@@ -87,9 +80,8 @@ module Linguistics
           @chart_presenter = ChartPresenter.new(self)
         end
 
-        def apply_tenses!
-          @querent = QuerentFactory.new(self).querent
-          @tense_method_applicator = TenseMethodApplicator.new(self)
+        def build_validator!
+          @validator = Validator.new(self)
         end
       end
     end
