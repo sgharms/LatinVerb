@@ -78,7 +78,7 @@ module Linguistics
 
         def build_lookup_delegates!
           if irregular?
-            Mutators::Irregular.new(self).mutate!
+            QuerentMutators::Irregular.new(self).mutate!
             QuerentTenseMethodsVectorizer.new(self).add_vector_methods!
           else
             @querent = QuerentFactory.new(self).querent

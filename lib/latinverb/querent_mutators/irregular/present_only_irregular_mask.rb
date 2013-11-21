@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
+        module QuerentMutators
           class Irregular
             class PresentOnlyIrregularMask
               def initialize(verb)
