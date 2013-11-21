@@ -53,7 +53,7 @@ module Linguistics
             end
 
             def apply_strategies!
-              STRATEGIES.each do |strategy|
+              Invariant::STRATEGIES.each do |strategy|
                 strategy.new(@verb).apply!
               end
             end
