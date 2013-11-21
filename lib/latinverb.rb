@@ -5,6 +5,7 @@ require 'linguistics_latin'
 
 require 'latinverb/errors'
 require 'latinverb/components'
+require 'latinverb/defective_checker'
 require 'latinverb/tense_block'
 require 'latinverb/imperative_block'
 require 'latinverb/serialization'
