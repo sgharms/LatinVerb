@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
+        module QuerentMutators
           class Irregular
             class Deserializer
               attr_reader :revivified_data_structure
