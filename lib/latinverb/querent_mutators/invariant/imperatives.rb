@@ -13,14 +13,6 @@ module Linguistics
             #
             ###
             class ImperativesStrategy
-              IMPERATIVE_EXCEPTIONS = {
-                "ducere"   => %w(duc ducite),
-                "dicere"   => %w(dic dicite),
-                "facere"   => %w(fac facite),
-                "ferre"    => %w(fer ferte),
-                "nolere"   => %w(nolo nolite)
-              }
-              
               def initialize(verb)
                 @verb = verb
               end
