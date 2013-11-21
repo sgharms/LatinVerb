@@ -5,7 +5,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
+        module QuerentMutators
           class Irregular
             class Revivifier
               def initialize(verb, structure)

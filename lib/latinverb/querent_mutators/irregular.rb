@@ -9,7 +9,6 @@ module Linguistics
         module QuerentMutators
           class Irregular
             def initialize(verb)
-              byebug; #neu
               @verb = verb
               @deserializer = Deserializer.new(@verb)
             end
