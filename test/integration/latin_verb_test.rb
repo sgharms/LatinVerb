@@ -118,8 +118,7 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
   # Test the creation of stems
   def test_stem_production
     @verb_hash_utf8_style.each_pair do |k,v|
-      result = Linguistics::Latin::Verb::LatinVerb.new(v).instance_eval { stem }
-      assert_equal @verb_hash_stems[k], result
+      assert_equal @verb_hash_stems[k], Linguistics::Latin::Verb::LatinVerb.new(v).stem
     end
   end
 
