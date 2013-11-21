@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
+        module Formatters
           class TriplicateAndPluralizeFormatters
             def self.pluralize_participial_listing(participle)
               x = triplicate_and_genderize(participle)
