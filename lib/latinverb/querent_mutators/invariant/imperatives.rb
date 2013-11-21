@@ -18,7 +18,7 @@ module Linguistics
               end
 
               def apply!
-                args = exceptional_imperative? ? calculate_exceptional_imperatives : [@verb.stem, @verb.present_active_infinitive]
+                exceptional_imperative? ? calculate_exceptional_imperatives : [@verb.stem, @verb.present_active_infinitive]
                 @verb.instance_eval do
                   def imperatives
                     Linguistics::Latin::Verb::ImperativeBlock.new(*args, self)
