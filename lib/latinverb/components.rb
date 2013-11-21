@@ -1,4 +1,5 @@
 require_relative './components/chart_presenter'
+require_relative './components/deponent_string_deriver'
 require_relative './components/infinitivizer'
 require_relative './components/classifier'
 require_relative './components/principal_parts_extractor'
