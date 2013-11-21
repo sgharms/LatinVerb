@@ -21,7 +21,7 @@ module Linguistics
           end
 
           def querent
-            MAPPING[short_verb_type].new(@verb)
+            MAPPING[short_verb_type].new(@verb) if MAPPING.has_key?(short_verb_type)
           end
 
           private
