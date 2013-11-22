@@ -15,6 +15,7 @@ class QuerentTenseMethodsVectorizer
   def add_vector_methods!
     add_by_person_and_number_methods!
     add_methods_for_aggregation_when_person_or_number_is_missing!
+    @tense_block_bearer
   end
 
   private

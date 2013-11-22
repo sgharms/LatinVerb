@@ -21,6 +21,7 @@ module Linguistics
 
             def mutate!
               @mutators_classes.each{ |m| m.new(@verb, @proxyVerb) }
+              @verb
             end
           end
         end

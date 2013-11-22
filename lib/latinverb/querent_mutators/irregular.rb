@@ -7,13 +7,15 @@ module Linguistics
       class LatinVerb
         module QuerentMutators
           class Irregular
-            def initialize(verb)
-              @verb = verb
-              @deserializer = Deserializer.new(@verb)
+            def initialize(mutatee, defining_string)
+              @mutatee = mutatee
+              @defining_string = defining_string
             end
 
             def mutate!
-              Revivifier.new(@verb, @deserializer.revivified_data_structure)
+              deserializer = Deserializer.new(@defining_string)
+              Revivifier.new(@mutatee, deserializer.revivified_data_structure)
+              @mutatee
             end
           end
         end

@@ -76,10 +76,17 @@ module Linguistics
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
         end
 
+        def deserialize_irregular_querent
+        end
+
+        def construct_regular_querent
+        end
+
         def build_lookup_delegates!
+          @querent  = irregular? ? deserialize_irregular_querent : construct_regular_querent
           if irregular?
-            QuerentMutators::Irregular.new(self).mutate!
-            QuerentTenseMethodsVectorizer.new(self).add_vector_methods!
+            q = QuerentMutators::Irregular.new(Object.new, original_string).mutate!
+            QuerentTenseMethodsVectorizer.new(q).add_vector_methods!
           else
             @querent = QuerentFactory.new(self).querent
             mutate_defectives_on_querent!
