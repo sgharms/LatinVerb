@@ -1,5 +1,4 @@
 require_relative 'irregular/json_deserializer'
-require_relative 'irregular/json_revivifier'
 
 module Linguistics
   module Latin
