@@ -4,16 +4,20 @@ module Linguistics
       class LatinVerb
         module QuerentMutators
           class Semideponent
-            def initialize(verb)
+            extend Forwardable
+            def_delegators :@verb, :original_string
+
+            def initialize(verb, querent, opts={})
               @verb = verb
-              @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string)
+              @querent = querent
+              @proxyVerb = LatinVerb.new(proxy_string)
 
               mutate!
             end
 
             def mutate!
               p = @proxyVerb
-              @verb.querent.instance_eval do
+              @querent.instance_eval do
                 @proxyVerb = p
                 def active_voice_indicative_mood_present_tense
                   return @proxyVerb.send :active_voice_indicative_mood_present_tense
@@ -79,6 +83,10 @@ module Linguistics
                   return NullTenseBlock.new
                 end
               end
+            end
+
+            def proxy_string
+              DeponentStringDeriver.new(original_string).proxy_string
             end
           end
         end

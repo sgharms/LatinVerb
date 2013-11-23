@@ -13,6 +13,10 @@ class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc:
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'vereor verērī veritum'
   end
 
+  def test_fu
+    assert_equal 'verēris',   @aDep.active_voice_indicative_mood_present_tense_second_person_singular_number
+  end
+
   def test_depo
     assert_equal(Linguistics::Latin::Verb::Classification::Deponent, @aDep.classification)
 

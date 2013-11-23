@@ -9,18 +9,28 @@ module Linguistics
       class LatinVerb
         module QuerentMutators
           class Deponent
-          include Linguistics::Latin::Phonographia
+            extend Forwardable
+            def_delegators :@verb, :original_string
 
-            def initialize(verb, opts={})
+            def initialize(verb, querent, opts={})
               @verb = verb
-              @querent = verb.querent
-              @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string)
-              @mutators_classes = opts[:mutator_classes] ||
-                [ TenseBlockMutator, ParticipleMutator, InfinitiveMutator ]
+              @querent = querent
+              @proxyVerb = LatinVerb.new(proxy_string)
+              @mutators_classes = opts[:mutator_classes] || default_mutators
             end
 
             def mutate!
-              @mutators_classes.each{ |m| m.new(@verb, @proxyVerb) }
+              @mutators_classes.each{ |m| m.new(@verb, @querent, @proxyVerb) }
+            end
+
+            private
+
+            def default_mutators
+              [ TenseBlockMutator, ParticipleMutator, InfinitiveMutator ]
+            end
+
+            def proxy_string
+              DeponentStringDeriver.new(original_string).proxy_string
             end
           end
         end
