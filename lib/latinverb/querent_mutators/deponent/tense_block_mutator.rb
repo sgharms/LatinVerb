@@ -5,10 +5,11 @@ module Linguistics
         module QuerentMutators
           class Deponent
             class TenseBlockMutator
-              def initialize(verb, proxyVerb)
+              def initialize(verb, querent, proxyVerb)
                 @verb = verb
                 @proxyVerb = proxyVerb
-                @querent = @proxyVerb.querent
+                @querent = querent
+                @proxyQuerent = @proxyVerb.querent
 
                 mutate!
               end
@@ -21,11 +22,11 @@ module Linguistics
               #
               ##
               def mutate!
-
                 # TENSE BLOCK STUFF HERE:
                 storage = {}
+                local_full_querent = @querent
 
-                @querent.methods.grep(/\Apassive.+tense\z/).each do |pass|
+                @proxyQuerent.methods.grep(/\Apassive.+tense\z/).each do |pass|
                   # Find the active correlate
                   active_corr = pass.to_s.sub( /^passive(.*)/, "active\\1" )
 
@@ -34,7 +35,7 @@ module Linguistics
 
                   # In verb, find the passive and save its resultant object into a
                   # hash for future use.
-                  @verb.querent.instance_eval do
+                  @querent.instance_eval do
                     storage[active_corr.to_sym] = pV.send(pass)
                   end
                 end
@@ -42,7 +43,7 @@ module Linguistics
                 # Take the stored hashes and define instance methods on verb such
                 # that we intercept the mixed-in methods ( C-c-c-combo breaker! ).
                 storage.each_pair do |k,v|
-                  @verb.querent.singleton_class.class_eval do
+                  local_full_querent.singleton_class.class_eval do
                     define_method k, Proc.new { return v }
                   end
                 end

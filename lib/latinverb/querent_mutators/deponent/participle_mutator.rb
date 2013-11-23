@@ -5,10 +5,10 @@ module Linguistics
         module QuerentMutators
           class Deponent
             class ParticipleMutator
-              def initialize(verb, proxyVerb)
+              def initialize(verb, querent, proxyVerb)
                 @verb = verb
                 @proxyVerb = proxyVerb
-                @querent = @proxyVerb.querent
+                @querent = querent
 
                 mutate!
               end
