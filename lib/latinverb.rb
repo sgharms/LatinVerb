@@ -78,26 +78,20 @@ module Linguistics
         end
 
         def build_lookup_delegates!
-          #@querent = QuerentBuilder.new(self).querent
-
           if irregular?
-            builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
-            @querent = builder.querent
-            add_number_and_person_methods_to_tense_block_on_querent!
-            delegate_verb_method_calls_to_delegate!
-            @infinitivizer = builder.infinitivizer
-            @imperative_handler = builder.imperative_handler
-            @participler = builder.participler
+            @querent, @infinitivizer, @imperative_handler, @participler = QuerentBuilder.new(self).call
           else
-            @querent = QuerentFactory.new(self).querent
-            mutate_defectives_on_querent!
-            add_classification_specific_behavior_to_querent!
+            #@querent = QuerentFactory.new(self).querent
+            #@querent, @infinitivizer, @imperative_handler, @participler = QuerentBuilder.new(self).call
+            @querent = QuerentBuilder.new(self).call2
+            #mutate_defectives_on_querent!
+            #add_classification_specific_behavior_to_querent!
             add_number_and_person_methods_to_tense_block_on_querent!
-            delegate_verb_method_calls_to_delegate!
             @infinitivizer = Infinitivizer.new(self)
             @imperative_handler = ImperativesHandler.new(self)
             @participler = Participler.new(self)
           end
+          delegate_verb_method_calls_to_delegate!
         end
 
         def add_classification_specific_behavior_to_querent!

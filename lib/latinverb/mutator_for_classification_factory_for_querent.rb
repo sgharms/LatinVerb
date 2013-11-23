@@ -3,12 +3,13 @@ module Linguistics
     module Verb
       class LatinVerb
         class MutatorForClassificationFactoryForQuerent
-          attr_reader :mutator_class
           extend Forwardable
           def_delegators :@classification, :short_name_key
 
+          attr_reader :mutator_class
+
           MAPPING = {
-            Irregular: QuerentMutators::Irregular,
+            #Irregular: QuerentMutators::Irregular,
             Deponent: QuerentMutators::Deponent,
             Semideponent: QuerentMutators::Semideponent
           }
@@ -20,7 +21,7 @@ module Linguistics
           end
 
           def mutator
-            return MAPPING[short_name_key].new(@verb) if MAPPING.has_key?(short_name_key)
+            return MAPPING[short_name_key].new(@verb, @querent) if MAPPING.has_key?(short_name_key)
             OpenStruct.new( mutate!: -> {} )
           end
         end

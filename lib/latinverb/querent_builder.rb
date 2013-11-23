@@ -3,13 +3,65 @@ module Linguistics
     module Verb
       class LatinVerb
         class QuerentBuilder
+          extend Forwardable
+          def_delegators :@verb, :short_class, :irregular?, :deponent?, :regular?
+
+          MAPPING = {
+          }
+
           attr_reader :querent
 
           def initialize(verb)
             @verb = verb
-
-            calculate_querent!
           end
+
+          def call
+
+            if irregular?
+              builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
+              @querent = builder.querent
+              add_number_and_person_methods_to_tense_block_on_querent!
+              @infinitivizer = builder.infinitivizer
+              @imperative_handler = builder.imperative_handler
+              @participler = builder.participler
+            else
+              @querent = QuerentFactory.new(@verb).querent
+              mutate_defectives_on_querent!
+              add_classification_specific_behavior_to_querent!
+              add_number_and_person_methods_to_tense_block_on_querent!
+              @infinitivizer = Infinitivizer.new(@verb)
+              @imperative_handler = ImperativesHandler.new(@verb)
+              @participler = Participler.new(@verb)
+            end
+            [ @querent, @infinitivizer, @imperative_handler, @participler  ]
+          end
+
+          def call2
+            @querent = QuerentFactory.new(@verb).querent
+            mutate_defectives_on_querent!
+            add_classification_specific_behavior_to_querent!
+            @querent
+          end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           def delegates
             [querent, *calculate_components]
@@ -17,17 +69,6 @@ module Linguistics
 
           private
 
-          def calculate_querent!
-            @querent = if @verb.irregular?
-              @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
-              @builder.querent
-            else
-              QuerentFactory.new(@verb).querent
-            end
-            mutate_defectives_on_querent!
-            add_classification_specific_behavior_to_querent!
-            add_number_and_person_methods_to_tense_block_on_querent!
-          end
 
           def original_string
             @verb.original_string
