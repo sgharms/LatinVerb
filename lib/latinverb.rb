@@ -78,6 +78,8 @@ module Linguistics
         end
 
         def build_lookup_delegates!
+          #@querent = QuerentBuilder.new(self).querent
+
           if irregular?
             builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
             @querent = builder.querent

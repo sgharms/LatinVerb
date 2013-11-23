@@ -3,12 +3,12 @@ module Linguistics
     module Verb
       class LatinVerb
         class QuerentBuilder
-          extend Forwardable
-          def_delegators :@verb, :original_string, :passive_perfect_participle
+          attr_reader :querent
 
           def initialize(verb)
             @verb = verb
-            @querent = calculate_querent
+
+            calculate_querent!
           end
 
           def delegates
@@ -17,20 +17,24 @@ module Linguistics
 
           private
 
-          def querent
-            mutate_defectives_on_querent!
-            add_classification_specific_behavior_to_querent!
-            add_number_and_person_methods_to_tense_block_on_querent!
-            @querent
-          end
-
-          def calculate_querent
-            if @verb.irregular?
+          def calculate_querent!
+            @querent = if @verb.irregular?
               @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
               @builder.querent
             else
               QuerentFactory.new(@verb).querent
             end
+            mutate_defectives_on_querent!
+            add_classification_specific_behavior_to_querent!
+            add_number_and_person_methods_to_tense_block_on_querent!
+          end
+
+          def original_string
+            @verb.original_string
+          end
+
+          def passive_perfect_participle
+            @verb.passive_perfect_participle
           end
 
           def calculate_components
