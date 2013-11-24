@@ -36,6 +36,24 @@ module Linguistics
             [ @querent, @infinitivizer, @imperative_handler, @participler  ]
           end
 
+          def others
+            if irregular?
+              builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
+              @infinitivizer = builder.infinitivizer
+              @imperative_handler = builder.imperative_handler
+              @participler = builder.participler
+            else
+              @infinitivizer = Infinitivizer.new(@verb)
+              @imperative_handler = ImperativesHandler.new(@verb)
+              @participler = Participler.new(@verb)
+            end
+            [@infinitivizer, @imperative_handler, @participler  ]
+          end
+
+          def get_querent
+            irregular? ? call3 : call2
+          end
+
           def call2
             @querent = QuerentFactory.new(@verb).querent
             mutate_defectives_on_querent!
@@ -43,6 +61,12 @@ module Linguistics
             @querent
           end
 
+          def call3
+            b = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
+            q = b.querent
+            add_number_and_person_methods_to_tense_block_on_querent2(q)
+            q
+          end
 
 
 
@@ -100,6 +124,10 @@ module Linguistics
 
           def add_classification_specific_behavior_to_querent!
             MutatorForClassificationFactoryForQuerent.new(@verb, @querent).mutator.mutate!
+          end
+
+          def add_number_and_person_methods_to_tense_block_on_querent2(q)
+            QuerentTenseMethodsVectorizer.new(q).add_vector_methods!
           end
 
           def add_number_and_person_methods_to_tense_block_on_querent!
