@@ -27,6 +27,7 @@ require 'latinverb/querent_tense_methods_vectorizer'
 require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/perfect_tense_remover'
 require 'latinverb/querent_for_classification_builder'
+require 'latinverb/irregular_components_builder'
 
 
 module Linguistics
@@ -53,8 +54,7 @@ module Linguistics
 
         def initialize(data)
           classify(data)
-          build_lookup_delegates!
-          delegate_verb_method_calls_to_delegate!
+          build_lookup_components!
           build_validator!
           apply_chart_capabilities!
         end
@@ -77,29 +77,9 @@ module Linguistics
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
         end
 
-        def build_lookup_delegates!
+        def build_lookup_components!
           @querent = QuerentForClassificationBuilder.new(self).querent
-
-          if irregular?
-            @infinitivizer, @imperative_handler, @participler = QuerentForClassificationBuilder.new(self).others
-          else
-            add_number_and_person_methods_to_tense_block_on_querent!
-            @infinitivizer = Infinitivizer.new(self)
-            @imperative_handler = ImperativesHandler.new(self)
-            @participler = Participler.new(self)
-          end
-        end
-
-        def add_classification_specific_behavior_to_querent!
-          MutatorForClassificationFactoryForQuerent.new(self, @querent).mutator.mutate!
-        end
-
-        def mutate_defectives_on_querent!
-          QuerentPerfectTenseRemover.new(@querent).remove! if DefectiveChecker.new(self).defective?
-        end
-
-        def add_number_and_person_methods_to_tense_block_on_querent!
-          QuerentTenseMethodsVectorizer.new(@querent).add_vector_methods!
+          @infinitivizer, @imperative_handler, @participler = irregular? ? components_for_irregular : components
         end
 
         def apply_chart_capabilities!
@@ -110,16 +90,16 @@ module Linguistics
           @validator = Validator.new(self)
         end
 
-        def delegate_verb_method_calls_to_delegate!
-          self.extend Forwardable
-          @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do | sym |  # TODO goes on querent...
-            self.def_delegator "@querent", sym.to_s
-          end
+        def components_for_irregular
+          IrregularComponentsBuilder.new(self).components
         end
 
+        def components
+          [ Infinitivizer.new(self), ImperativesHandler.new(self), Participler.new(self) ]
+        end
       end
     end
   end
 end
 
-#require 'latinverb/paradigmatic_verbs'
+require 'latinverb/paradigmatic_verbs'

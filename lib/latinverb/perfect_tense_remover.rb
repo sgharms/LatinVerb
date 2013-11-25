@@ -3,16 +3,16 @@ module Linguistics
     module Verb
       class LatinVerb
         class QuerentPerfectTenseRemover
-          def initialize(verb_with_perfect_tenses)
-            @verb = verb_with_perfect_tenses
+          def initialize(perfect_tense_block_bearer)
+            @perfect_tense_block_bearer = perfect_tense_block_bearer
           end
 
           def remove!
             tense_blocks_to_eclipse =
-              @verb.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
+              @perfect_tense_block_bearer.methods.grep( /^(active|passive).*(_|past|future)perfect_/ )
 
             tense_blocks_to_eclipse.each do |s|
-              @verb.singleton_class.class_eval do
+              @perfect_tense_block_bearer.singleton_class.class_eval do
                 define_method s do
                   return NullTenseBlock.new
                 end

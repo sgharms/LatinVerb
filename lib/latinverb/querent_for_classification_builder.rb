@@ -26,20 +26,14 @@ module Linguistics
           def initialize(verb)
             @verb = verb
             @querent = MAPPING[short_class.to_sym].new(@verb).querent
+            delegate_verb_method_calls_to_delegate!
           end
 
-          def others
-            if irregular?
-              builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
-              @infinitivizer = builder.infinitivizer
-              @imperative_handler = builder.imperative_handler
-              @participler = builder.participler
-            else
-              @infinitivizer = Infinitivizer.new(@verb)
-              @imperative_handler = ImperativesHandler.new(@verb)
-              @participler = Participler.new(@verb)
+          def delegate_verb_method_calls_to_delegate!
+            @verb.extend Forwardable
+            @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do |sym|
+              @verb.def_delegator "@querent", sym.to_s
             end
-            [@infinitivizer, @imperative_handler, @participler  ]
           end
         end
       end
