@@ -24,10 +24,9 @@ require 'latinverb/querent_mutators/deponent'
 require 'latinverb/querent_mutators/irregular'
 require 'latinverb/querent_mutators/semideponent'
 require 'latinverb/querent_tense_methods_vectorizer'
-require 'latinverb/mutator_for_classification_factory_for_querent'
 require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/perfect_tense_remover'
-require 'latinverb/querent_builder'
+require 'latinverb/querent_for_classification_builder'
 
 
 module Linguistics
@@ -55,6 +54,7 @@ module Linguistics
         def initialize(data)
           classify(data)
           build_lookup_delegates!
+          delegate_verb_method_calls_to_delegate!
           build_validator!
           apply_chart_capabilities!
         end
@@ -78,17 +78,16 @@ module Linguistics
         end
 
         def build_lookup_delegates!
-          @querent = QuerentBuilder.new(self).get_querent
+          @querent = QuerentForClassificationBuilder.new(self).querent
 
           if irregular?
-            @infinitivizer, @imperative_handler, @participler = QuerentBuilder.new(self).others
+            @infinitivizer, @imperative_handler, @participler = QuerentForClassificationBuilder.new(self).others
           else
             add_number_and_person_methods_to_tense_block_on_querent!
             @infinitivizer = Infinitivizer.new(self)
             @imperative_handler = ImperativesHandler.new(self)
             @participler = Participler.new(self)
           end
-          delegate_verb_method_calls_to_delegate!
         end
 
         def add_classification_specific_behavior_to_querent!

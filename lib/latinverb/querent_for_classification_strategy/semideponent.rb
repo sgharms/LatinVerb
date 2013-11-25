@@ -4,16 +4,11 @@ module Linguistics
       class LatinVerb
         class QuerentForClassificationBuilder
           module QuerentForClassificationStrategy
-            class Other
+            class Semideponent < Regular
               extend Forwardable
-              def_delegators :@verb, :original_string, :passive_perfect_participle
-
               def initialize(verb)
-                @verb = verb
-              end
-
-              def querent
-                QuerentFactory.new(@verb).querent
+                super
+                QuerentMutators::Semideponent.new(@verb, @querent).mutate!
               end
             end
           end
