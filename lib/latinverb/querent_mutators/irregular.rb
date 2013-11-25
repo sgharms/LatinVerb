@@ -16,7 +16,7 @@ module Linguistics
 
             def build_querent!
               @querent = LatinVerb::IrregularQuerent.new
-              @structure = Deserializer.new(@lookup_string).revivified_data_structure
+              @structure = JsonDeserializer.new(@lookup_string).revivified_data_structure
               build_tense_blocks!
             end
 
