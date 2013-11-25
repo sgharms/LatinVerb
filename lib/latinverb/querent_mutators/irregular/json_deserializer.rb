@@ -4,7 +4,7 @@ module Linguistics
       class LatinVerb
         module QuerentMutators
           class Irregular
-            class Deserializer
+            class JsonDeserializer
               attr_reader :revivified_data_structure
 
               def initialize(lookup_string)
