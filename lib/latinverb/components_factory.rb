@@ -13,7 +13,7 @@ module Linguistics
           def components
             return components_for_irregular if irregular?
             if deponent? || semideponent?
-              components_for_deponents
+              standard_components
             else
               standard_components
             end
