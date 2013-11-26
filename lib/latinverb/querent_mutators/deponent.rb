@@ -12,8 +12,7 @@ module Linguistics
             def initialize(verb, querent, opts={})
               @verb = verb
               @querent = querent
-              @proxyVerb = LatinVerb.new(proxy_string)
-              @mutators_classes = opts[:mutator_classes]
+              @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string)
             end
 
             def mutate!

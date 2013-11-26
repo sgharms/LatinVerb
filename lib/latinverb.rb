@@ -4,7 +4,7 @@ require 'forwardable'
 require 'linguistics_latin'
 
 require 'latinverb/errors'
-require 'latinverb/components'
+require 'latinverb/components' # TODO:  components and components again later, need differentiating names
 require 'latinverb/defective_checker'
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
@@ -28,6 +28,7 @@ require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/perfect_tense_remover'
 require 'latinverb/querent_for_classification_builder'
 require 'latinverb/irregular_components_builder'
+require 'latinverb/deponent_components_builder'
 require 'latinverb/components_factory'
 
 
@@ -88,14 +89,6 @@ module Linguistics
 
         def build_validator!
           @validator = Validator.new(self)
-        end
-
-        def components_for_irregular
-          IrregularComponentsBuilder.new(self).components
-        end
-
-        def components
-          [ Infinitivizer.new(self), ImperativesHandler.new(self), Participler.new(self) ]
         end
       end
     end
