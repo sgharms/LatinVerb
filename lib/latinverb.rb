@@ -28,7 +28,6 @@ require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/perfect_tense_remover'
 require 'latinverb/querent_for_classification_builder'
 require 'latinverb/irregular_components_builder'
-require 'latinverb/deponent_components_builder'
 require 'latinverb/components_factory'
 
 
