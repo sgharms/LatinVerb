@@ -40,7 +40,6 @@ class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc:
     assert @aDep.active_voice_subjunctive_mood_pastperfect_tense_first_person_singular_number =~ /veritus.*essem/
 
     # Imperatives
-    byebug
     assert_equal 'verēre',   @aDep.active_voice_imperative_mood_present_tense_second_person_singular_number
     assert_equal 'verēminī', @aDep.active_voice_imperative_mood_present_tense_second_person_plural_number
     assert_equal 'verētor',  @aDep.active_voice_imperative_mood_future_tense_second_person_singular_number
