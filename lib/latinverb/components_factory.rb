@@ -12,19 +12,14 @@ module Linguistics
 
           def components
             return components_for_irregular if irregular?
-            if deponent? || semideponent?
-              DeponentComponentsBuilder.new(@verb).components
-            else
-              components
-            end
+            standard_components
           end
 
           def components_for_irregular
-            byebug;
             IrregularComponentsBuilder.new(@verb).components
           end
 
-          def components
+          def standard_components
             [ Infinitivizer.new(@verb), ImperativesHandler.new(@verb), Participler.new(@verb) ]
           end
         end
