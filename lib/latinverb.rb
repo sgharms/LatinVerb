@@ -80,7 +80,7 @@ module Linguistics
 
         def build_lookup_components!
           @querent = QuerentForClassificationBuilder.new(self).querent
-          @infinitivizer, @imperative_handler, @participler = irregular? ? components_for_irregular : components
+          @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
         end
 
         def apply_chart_capabilities!
