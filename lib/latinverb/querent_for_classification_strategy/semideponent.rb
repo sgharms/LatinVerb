@@ -1,3 +1,4 @@
+
 module Linguistics
   module Latin
     module Verb
@@ -5,10 +6,8 @@ module Linguistics
         class QuerentForClassificationBuilder
           module QuerentForClassificationStrategy
             class Semideponent < Regular
-              extend Forwardable
-              def initialize(verb)
-                super
-                QuerentMutators::Semideponent.new(@verb, @querent).mutate!
+              def post_initialize
+                @querent = SemideponentQuerentAdapter.new(@verb, @querent)
               end
             end
           end
