@@ -1,3 +1,4 @@
+#TODO:  remove class_evals
 module Linguistics
   module Latin
     module Verb
@@ -27,14 +28,11 @@ module Linguistics
               end
 
               def mapping_from_proxy_querent_passive_to_current_active
-                local_full_querent = @querent
                 locally_bound_proxy_verb = @proxyVerb
 
                 passive_calls_on_proxy.each_with_object({}) do |passive_name, memo|
                   key = active_correlate(passive_name).to_sym
-                  local_full_querent.instance_eval do
-                    memo[key] = locally_bound_proxy_verb.send(passive_name)
-                  end
+                  memo[key] = locally_bound_proxy_verb.send(passive_name)
                 end
               end
 

@@ -29,6 +29,7 @@ require 'latinverb/perfect_tense_remover'
 require 'latinverb/querent_for_classification_builder'
 require 'latinverb/irregular_components_builder'
 require 'latinverb/components_factory'
+require 'latinverb/semideponent_querent_adapter'
 
 
 module Linguistics
