@@ -10,7 +10,7 @@ module Linguistics
       class LatinVerb
         class QuerentForClassificationBuilder
           extend Forwardable
-          def_delegators :@verb, :short_class, :irregular?, :deponent?, :regular?, :original_string, :passive_perfect_participle
+          def_delegators :@verb, :short_class
 
           MAPPING = {
             Regular: QuerentForClassificationStrategy::Regular,
@@ -31,6 +31,7 @@ module Linguistics
 
           def delegate_verb_method_calls_to_delegate!
             @verb.extend Forwardable
+            # TODO: I'd like to take this grep thing away...we should get rid of greps...
             @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do |sym|
               @verb.def_delegator "@querent", sym.to_s
             end

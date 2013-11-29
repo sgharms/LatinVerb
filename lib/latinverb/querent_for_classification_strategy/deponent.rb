@@ -6,6 +6,8 @@ module Linguistics
           module QuerentForClassificationStrategy
             class Deponent < Regular
               extend Forwardable
+              def_delegators :@verb, :original_string
+
               def initialize(verb)
                 super
                 @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string)
