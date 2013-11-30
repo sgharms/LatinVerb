@@ -4,12 +4,47 @@ module Linguistics
       class LatinVerb
         class Querent
           extend Forwardable
-
           def_delegators :@verb, :stem, :imperatives, :first_person_singular, :first_person_perfect,
             :present_active_infinitive, :passive_perfect_participle, :present_active_infinitive, :verb_type
 
           def initialize(verb)
             @verb = verb
+          end
+
+          def passive_tense_methods
+            [
+              :passive_voice_indicative_mood_futureperfect_tense,
+              :passive_voice_indicative_mood_future_tense,
+              :passive_voice_indicative_mood_imperfect_tense,
+              :passive_voice_indicative_mood_pastperfect_tense,
+              :passive_voice_indicative_mood_perfect_tense,
+              :passive_voice_indicative_mood_present_tense,
+              :passive_voice_subjunctive_mood_imperfect_tense,
+              :passive_voice_subjunctive_mood_pastperfect_tense,
+              :passive_voice_subjunctive_mood_perfect_tense,
+              :passive_voice_subjunctive_mood_present_tense
+            ]
+          end
+
+          def active_tense_methods
+            [
+              :active_voice_imperative_mood_future_tense,
+              :active_voice_imperative_mood_present_tense,
+              :active_voice_indicative_mood_futureperfect_tense,
+              :active_voice_indicative_mood_futureperfect_tense,
+              :active_voice_indicative_mood_imperfect_tense,
+              :active_voice_indicative_mood_pastperfect_tense,
+              :active_voice_indicative_mood_perfect_tense,
+              :active_voice_indicative_mood_present_tense,
+              :active_voice_subjunctive_mood_imperfect_tense,
+              :active_voice_subjunctive_mood_pastperfect_tense,
+              :active_voice_subjunctive_mood_perfect_tense,
+              :active_voice_subjunctive_mood_present_tense,
+            ]
+          end
+
+          def defined_tense_methods
+            active_tense_methods + passive_tense_methods
           end
 
           def active_voice_imperative_mood_future_tense
