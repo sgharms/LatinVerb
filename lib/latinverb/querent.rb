@@ -49,7 +49,7 @@ module Linguistics
 
           def active_voice_imperative_mood_future_tense
             f = imperatives.future
-            return TenseBlock.new(
+            TenseBlock.new(
               [ '', f[0], f[2], '', f[1], f[3] ],
               { :meaning => MEANINGS[:active_voice_imperative_mood_future_tense] }
             )
@@ -71,8 +71,10 @@ module Linguistics
 
           def active_voice_indicative_mood_futureperfect_tense
             substem = first_person_perfect[0..-2]
-            return TenseBlock.new [APERF_FUTURE_ENDINGS.collect{|x| substem + x}].flatten,
+            TenseBlock.new(
+              [APERF_FUTURE_ENDINGS.collect{|x| substem + x}].flatten,
               { :meaning => MEANINGS[:active_voice_indicative_mood_futureperfect_tense] }
+            )
           end
 
           def active_voice_indicative_mood_imperfect_tense
@@ -83,7 +85,7 @@ module Linguistics
             substem = first_person_perfect[0..-2]
             elements = APERF_PAST_ENDINGS.flat_map{|x| substem + x}
             meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_pastperfect_tense] }
-            return TenseBlock.new(elements, meaning)
+            TenseBlock.new(elements, meaning)
           end
 
           def active_voice_indicative_mood_perfect_tense
@@ -91,7 +93,7 @@ module Linguistics
             elements = APERF_ENDINGS.flat_map{|x| substem + x.to_s}
             elements.unshift first_person_perfect
             meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_perfect_tense] }
-            return TenseBlock.new(elements, meaning)
+            TenseBlock.new(elements, meaning)
           end
 
           def active_voice_indicative_mood_present_tense
@@ -131,7 +133,7 @@ module Linguistics
           def passive_voice_indicative_mood_futureperfect_tense
             elements = PASS_PERF_FUTURE_ENDINGS.flat_map{ |helping_verb| "#{passive_perfect_participle} #{helping_verb}" }
             meaning = { :meaning => MEANINGS[:passive_voice_indicative_mood_futureperfect_tense] }
-            return TenseBlock.new(elements, meaning)
+            TenseBlock.new(elements, meaning)
           end
 
           def passive_voice_indicative_mood_future_tense

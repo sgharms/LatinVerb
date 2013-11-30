@@ -4,24 +4,24 @@ module Linguistics
       class LatinVerb
         class FirstQuerent < Querent
           def active_voice_indicative_mood_future_tense
-            return TenseBlock.new(
+            TenseBlock.new(
               [AF_ONE_TWO_ENDINGS.collect{|x| stem + x}].flatten,
               { :meaning => MEANINGS[:active_voice_indicative_mood_future_tense] }
             )
           end
 
           def active_voice_indicative_mood_imperfect_tense
-            return TenseBlock.new(
+            TenseBlock.new(
               [AI_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS.collect{|x| stem + x}].flatten,
               { :meaning => MEANINGS[:active_voice_indicative_mood_imperfect_tense] }
             )
           end
 
           def active_voice_indicative_mood_present_tense
-            return TenseBlock.new(
-                 [ first_person_singular, AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS.collect{ |ending| stem + ending} ].flatten,
+            TenseBlock.new(
+              [ first_person_singular, AP_FIRST_AND_SECOND_CONJUG_PERS_ENDINGS.collect{ |ending| stem + ending} ].flatten,
               { :meaning => MEANINGS[:active_voice_indicative_mood_present_tense] }
-              )
+            )
           end
 
           def active_voice_subjunctive_mood_present_tense
@@ -55,19 +55,18 @@ module Linguistics
           def passive_voice_indicative_mood_imperfect_tense
             imperfect_stem = stem + "b\xc4\x81"
             collection = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.map{|x| imperfect_stem + x}
-            return TenseBlock.new(
-              collection,
+            TenseBlock.new( collection,
               { :meaning => MEANINGS[:passive_voice_indicative_mood_imperfect_tense] }
-              )
+            )
           end
 
           def passive_voice_indicative_mood_present_tense
             local_pe = PASSIVE_ENDINGS_FIRST_AND_SECOND_CONJG.clone
             collection = [first_person_singular.to_s + "r", local_pe[1..-1].map{|x| stem + x}].flatten
-            return TenseBlock.new(
+            TenseBlock.new(
               collection,
               { :meaning => MEANINGS[:passive_voice_indicative_mood_present_tense] }
-              )
+            )
           end
 
           def passive_voice_subjunctive_mood_present_tense
@@ -77,7 +76,7 @@ module Linguistics
             TenseBlock.new(
               collection,
               { :meaning => MEANINGS[:passive_voice_subjunctive_mood_present_tense] }
-              )
+            )
           end
         end
       end
