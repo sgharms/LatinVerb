@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require_relative './passive_infinitive_factory'
 
 module Linguistics

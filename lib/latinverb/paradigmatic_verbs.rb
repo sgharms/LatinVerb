@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
