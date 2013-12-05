@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'active_support'
 
 require 'linguistics_latin'
 
