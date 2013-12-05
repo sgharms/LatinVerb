@@ -7,7 +7,7 @@ require 'latinverb'
 
 # Internal dependencies
 
-class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbFirstConjTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end

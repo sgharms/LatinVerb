@@ -9,7 +9,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class TestIrregulars< MiniTest::Unit::TestCase # :nodoc:
+class IrregularsTest< MiniTest::Unit::TestCase # :nodoc:
   def test_to_give
     v =  Linguistics::Latin::Verb::LatinVerb.new 'dō dāre dedī datum'
     assert_equal Linguistics::Latin::Verb::Classification::Irregular,  v.classification

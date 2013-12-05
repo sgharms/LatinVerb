@@ -7,7 +7,7 @@ require 'latinverb'
 
 # Internal dependencies
 
-class TestImperfectBlock < MiniTest::Unit::TestCase # :nodoc:
+class ImperfectBlockTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end

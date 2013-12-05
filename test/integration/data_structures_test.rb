@@ -7,7 +7,7 @@ require 'latinverb'
 
 # Internal dependencies
 
-class TestDataStructures < MiniTest::Unit::TestCase # :nodoc:
+class DataStructuresTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aFirstDS = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end

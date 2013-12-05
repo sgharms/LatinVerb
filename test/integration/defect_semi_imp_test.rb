@@ -6,7 +6,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
+class DefectSemiImpTest < MiniTest::Unit::TestCase # :nodoc:
   def test_semideponents
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
