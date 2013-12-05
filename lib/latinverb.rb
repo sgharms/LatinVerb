@@ -93,12 +93,9 @@ module Linguistics
         end
 
         def delegate_verb_method_calls_to_delegate!
-          require 'pry'
-          puts $LOAD_PATH
-          binding.pry
           self.extend Forwardable
           # TODO: I'd like to take this grep thing away...we should get rid of greps...
-          @querent.defined_tense_methods.each do |sym|
+          @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do |sym|
             self.def_delegator "@querent", sym.to_s
           end
         end
