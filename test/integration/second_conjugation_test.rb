@@ -6,7 +6,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbSecondConjTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
   end
