@@ -1,4 +1,3 @@
-require 'active_support'
 require 'forwardable'
 
 require 'linguistics_latin'
@@ -81,6 +80,7 @@ module Linguistics
         def build_lookup_components!
           @querent = QuerentForClassificationBuilder.new(self).querent
           @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
+          delegate_verb_method_calls_to_delegate!
         end
 
         def apply_chart_capabilities!
@@ -89,6 +89,17 @@ module Linguistics
 
         def build_validator!
           @validator = Validator.new(self)
+        end
+
+        def delegate_verb_method_calls_to_delegate!
+          require 'pry'
+          puts $LOAD_PATH
+          binding.pry
+          self.extend Forwardable
+          # TODO: I'd like to take this grep thing away...we should get rid of greps...
+          @querent.defined_tense_methods.each do |sym|
+            self.def_delegator "@querent", sym.to_s
+          end
         end
       end
     end

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require_relative 'irregular/json_deserializer'
 
 module Linguistics
