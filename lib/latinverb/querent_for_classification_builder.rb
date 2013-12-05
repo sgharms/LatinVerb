@@ -26,15 +26,6 @@ module Linguistics
           def initialize(verb)
             @verb = verb
             @querent = MAPPING[short_class.to_sym].new(@verb).querent
-            delegate_verb_method_calls_to_delegate!
-          end
-
-          def delegate_verb_method_calls_to_delegate!
-            @verb.extend Forwardable
-            # TODO: I'd like to take this grep thing away...we should get rid of greps...
-            @querent.defined_tense_methods.each do |sym|
-              @verb.def_delegator "@querent", sym.to_s
-            end
           end
         end
       end
