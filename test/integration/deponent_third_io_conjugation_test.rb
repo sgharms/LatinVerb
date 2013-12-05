@@ -8,7 +8,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc:
+class DeponentThirdConjugationTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'patior patī passum'
   end

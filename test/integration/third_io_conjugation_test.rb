@@ -5,7 +5,7 @@ require "minitest/autorun"
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
-class TestLatinVerbThirdIOConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbThirdIOConjTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aThirdIO = Linguistics::Latin::Verb::LatinVerb.new 'capiō capere cēpī captum'
   end

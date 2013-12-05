@@ -8,7 +8,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class TestDeponent < MiniTest::Unit::TestCase # :nodoc:
+class DeponentTest < MiniTest::Unit::TestCase # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'mīror mīrārī mīrātum'
   end
