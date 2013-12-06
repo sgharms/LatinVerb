@@ -9,3 +9,7 @@ group :development do
   gem 'pry-stack_explorer'
   gem 'pry-rescue'
 end
+
+group :test do
+  gem 'mocha'
+end

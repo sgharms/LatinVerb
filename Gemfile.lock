@@ -26,8 +26,11 @@ GEM
     interception (0.3)
     linguistics_latin (0.0.1)
     macronconversions (0.0.1)
+    metaclass (0.0.1)
     method_source (0.8.2)
     minitest (4.7.5)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.2)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -50,6 +53,7 @@ PLATFORMS
 
 DEPENDENCIES
   latinverb!
+  mocha
   pry
   pry-rescue
   pry-stack_explorer
