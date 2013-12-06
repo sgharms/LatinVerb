@@ -6,12 +6,12 @@ module Linguistics
           extend Forwardable
           def_delegators :@verb, :original_string
           def_delegators :@proxyVerb,  :active_voice_indicative_mood_present_tense, :active_voice_indicative_mood_imperfect_tense, :active_voice_indicative_mood_future_tense, :passive_voice_indicative_mood_perfect_tense, :passive_voice_indicative_mood_pastperfect_tense, :passive_voice_indicative_mood_futureperfect_tense, :active_voice_subjunctive_mood_present_tense, :active_voice_subjunctive_mood_imperfect_tense, :passive_voice_subjunctive_mood_perfect_tense, :passive_voice_subjunctive_mood_pastperfect_tense
-          def_delegators :@wrapped_querent,  :active_voice_subjunctive_mood_perfect_tense, :active_voice_subjunctive_mood_pastperfect_tense
+          def_delegators :@wrapped_querent,  :active_voice_subjunctive_mood_perfect_tense, :active_voice_subjunctive_mood_pastperfect_tense, :defined_tense_methods
 
           def initialize(verb, wrapped_querent)
             @verb = verb
             @wrapped_querent = wrapped_querent
-            @proxyVerb = LatinVerb.new(proxy_string) #TODO: prefer proxy_string to other long-winded invocations
+            @proxyVerb = LatinVerb.new(proxy_string)
           end
 
           def proxy_string
