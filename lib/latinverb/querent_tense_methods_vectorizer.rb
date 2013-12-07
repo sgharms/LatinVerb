@@ -27,7 +27,10 @@ class QuerentTenseMethodsVectorizer
           @tense_block_bearer.singleton_class.instance_eval do
             define_method new_method, Proc.new{ locally_bound_tense_block_bearer.send(tense_block_method)[tense_block_location] }
           end
-          @tense_block_bearer.add_method(new_method)
+          type =  locally_bound_tense_block_bearer.class.to_s.split('::').last
+          if !(type =~ /(Adapt|Irreg)/)
+            @tense_block_bearer.add_method(new_method)
+          end
         end
       end
     end
@@ -63,13 +66,14 @@ class QuerentTenseMethodsVectorizer
             self.send(tense_block_method)[5] ]
         end)
       end
+      type = @tense_block_bearer.class.to_s.split('::').last
       [
         "#{tense_block_method}_first_person",
         "#{tense_block_method}_second_person",
         "#{tense_block_method}_third_person",
         "#{tense_block_method}_singular_number",
         "#{tense_block_method}_plural_number"
-      ].each{|m| @tense_block_bearer.add_method(m.to_sym)}
+      ].each{|m| @tense_block_bearer.add_method(m.to_sym)} if !(type =~ /(Adapt|Irreg)/)
     end
   end
 
