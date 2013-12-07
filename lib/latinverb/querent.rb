@@ -10,6 +10,7 @@ module Linguistics
 
           def initialize(verb)
             @verb = verb
+            @added_vectorized_method = []
           end
 
           def passive_tense_methods
@@ -45,7 +46,11 @@ module Linguistics
           end
 
           def defined_tense_methods
-            active_tense_methods + passive_tense_methods
+            active_tense_methods + passive_tense_methods + @added_vectorized_method
+          end
+
+          def add_method(method_symbol)
+            @added_vectorized_method << method_symbol
           end
 
           def active_voice_imperative_mood_future_tense
