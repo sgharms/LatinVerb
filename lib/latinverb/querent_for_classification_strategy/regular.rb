@@ -5,6 +5,9 @@ module Linguistics
         class QuerentForClassificationBuilder
           module QuerentForClassificationStrategy
             class Regular
+              extend Forwardable
+              def_delegators :@querent, :defined_tense_methods, :add_method
+
               attr_reader :querent
 
               def initialize(verb)
