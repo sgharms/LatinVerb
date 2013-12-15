@@ -18,6 +18,7 @@ class QuerentTenseMethodsVectorizer
   end
 
   private
+
   def add_by_person_and_number_methods!
     locally_bound_tense_block_bearer = @tense_block_bearer
     verb_tense_methods.each do | tense_block_method |
