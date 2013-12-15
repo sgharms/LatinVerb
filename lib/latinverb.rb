@@ -101,7 +101,7 @@ module Linguistics
               self.def_delegator "@querent", sym.to_s
             end
           else
-            @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do |sym|
+            @querent.defined_tense_methods.each do |sym|
               self.def_delegator "@querent", sym.to_s
             end
           end
