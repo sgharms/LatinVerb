@@ -18,8 +18,7 @@ module Linguistics
 
               def calculate_querent!
                 unvectorized_querent = @builder.querent
-                QuerentTenseMethodsVectorizer.new(unvectorized_querent).add_vector_methods!
-                unvectorized_querent
+                vectorized_querent = QuerentTenseMethodsVectorizer.new(unvectorized_querent).add_vector_methods!
               end
             end
           end
