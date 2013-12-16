@@ -96,9 +96,13 @@ module Linguistics
           self.extend Forwardable
           # TODO: I'd like to take this grep thing away...we should get rid of greps...
           type =  @querent.class.to_s.split('::').last
-          if type =~ /(Adapt|Irreg)/
-            @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do |sym|
+          if type =~ /(Irreg)/
+            @querent.defined_tense_methods.each do |sym|
+            begin
               self.def_delegator "@querent", sym.to_s
+            rescue NoMethodError => e
+              puts e.class
+            end
             end
           else
             @querent.defined_tense_methods.each do |sym|
@@ -111,4 +115,4 @@ module Linguistics
   end
 end
 
-require 'latinverb/paradigmatic_verbs'
+#require 'latinverb/paradigmatic_verbs'

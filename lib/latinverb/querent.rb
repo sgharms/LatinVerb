@@ -46,7 +46,7 @@ module Linguistics
           end
 
           def defined_tense_methods
-            active_tense_methods + passive_tense_methods + @added_vectorized_method
+            active_tense_methods + passive_tense_methods + Array(@added_vectorized_method)
           end
 
           def add_method(method_symbol)

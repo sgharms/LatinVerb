@@ -5,6 +5,11 @@ module Linguistics
         class IrregularQuerent < Querent
           def initialize(*args) # TODO:  This is FUDness,as is the call from two sources
             @verb = args[0] if !args.empty?
+            @added_vectorized_method = []
+          end
+
+          def imperatives
+            OpenStruct.new( :future => Proc.new{}, :present => Proc.new{} )
           end
 
           def active_voice_indicative_mood_present_tense
