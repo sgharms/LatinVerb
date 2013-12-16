@@ -12,7 +12,7 @@ RDoc::Task.new do | rd |
 end
 
 Rake::TestTask.new do  |t|
-  t.ruby_opts = [ '-rminitest/autorun', '-rminitest/pride', '-rpry', '-rmocha/setup' ]
+  t.ruby_opts = [ '-rminitest/autorun', '-rminitest/pride', '-rpry', '-rmocha/setup', '-rbyebug' ]
   t.test_files = FileList['test/**/*test*.rb']
   t.verbose = true
 end

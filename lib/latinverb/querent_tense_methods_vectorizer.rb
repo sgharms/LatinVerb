@@ -15,6 +15,7 @@ class QuerentTenseMethodsVectorizer
   def add_vector_methods!
     add_by_person_and_number_methods!
     add_methods_for_aggregation_when_person_or_number_is_missing!
+    @tense_block_bearer
   end
 
   private
@@ -29,9 +30,7 @@ class QuerentTenseMethodsVectorizer
             define_method new_method, Proc.new{ locally_bound_tense_block_bearer.send(tense_block_method)[tense_block_location] }
           end
           type =  locally_bound_tense_block_bearer.class.to_s.split('::').last
-          if !(type =~ /(Adapt|Irreg)/)
-            @tense_block_bearer.add_method(new_method)
-          end
+          @tense_block_bearer.add_method(new_method)
         end
       end
     end

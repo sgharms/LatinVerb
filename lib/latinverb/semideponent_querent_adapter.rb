@@ -12,6 +12,11 @@ module Linguistics
             @verb = verb
             @wrapped_querent = wrapped_querent
             @proxyVerb = LatinVerb.new(proxy_string)
+            @added_vectorized_method = []
+          end
+
+          def add_method(sym)
+            @added_vectorized_method << sym
           end
 
           def proxy_string
