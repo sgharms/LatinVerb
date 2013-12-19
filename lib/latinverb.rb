@@ -79,6 +79,7 @@ module Linguistics
         end
 
         def build_lookup_components!
+	  #TODO:  install commenter as part of default vim!
           @querent = QuerentForClassificationBuilder.new(self).querent
           @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
           delegate_verb_method_calls_to_delegate!

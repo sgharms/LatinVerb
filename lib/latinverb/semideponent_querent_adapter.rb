@@ -11,6 +11,7 @@ module Linguistics
           def initialize(verb, wrapped_querent)
             @verb = verb
             @wrapped_querent = wrapped_querent
+	    QuerentTenseMethodsVectorizer.new(@wrapped_querent).add_vector_methods!
             @proxyVerb = LatinVerb.new(proxy_string)
             @added_vectorized_method = []
           end
