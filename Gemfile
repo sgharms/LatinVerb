@@ -8,4 +8,5 @@ group :development do
   gem 'pry'
   gem 'pry-stack_explorer'
   gem 'pry-rescue'
+  gem 'byebug'
 end
