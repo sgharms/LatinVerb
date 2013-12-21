@@ -20,7 +20,7 @@ module Linguistics
               end
 
               def passive_calls_on_proxy
-                @proxyQuerent.methods.grep(/\Apassive.+tense\z/)
+		return LatinVerb::Querent::PASSIVE_TENSE_METHODS
               end
 
               def active_correlate(passive_vector_name)

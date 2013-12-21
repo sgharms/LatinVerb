@@ -40,7 +40,7 @@ module Linguistics
             end
 
             def infinitivizer
-              OpenStruct.new(@structure['infinitives']['data'])
+              OpenStruct.new(@structure['infinitives']['data'].merge(:participle_methods => @structure['participles']['data'].keys))
             end
 
             def participler

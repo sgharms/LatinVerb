@@ -25,6 +25,10 @@ module Linguistics
             }
           end
 
+	  def infinitive_methods
+	    inivitives.keys
+	  end
+
           def perfect_active_infinitive
             first_person_perfect + "sse"
           end
