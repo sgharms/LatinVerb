@@ -3,7 +3,7 @@ module Linguistics
     module Verb
       class LatinVerb
         def to_hash
-          methods.grep(/tense\z/).inject({'original_string' => @original_string}) do |memo, tense_block_identifier|
+          @querent.tense_block_methods.inject({'original_string' => @original_string}) do |memo, tense_block_identifier|
             ts = tense_block_identifier.to_sym
             memo[ts] = self.send(ts)
             memo
