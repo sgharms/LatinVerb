@@ -80,7 +80,7 @@ class QuerentTenseMethodsVectorizer
   private
 
   def verb_tense_methods
-    @tense_block_bearer.methods.grep(/tense\z/)
+    @tense_block_bearer.tense_block_methods
   end
 end
 

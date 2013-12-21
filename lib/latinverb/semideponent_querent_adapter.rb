@@ -20,6 +20,10 @@ module Linguistics
             @added_vectorized_method << sym
           end
 
+	  def tense_block_methods
+	    Querent.tense_block_methods # TODO:  extract to a mixin or something that querents and this guy can both share
+	  end
+
           def proxy_string
             DeponentStringDeriver.new(original_string).proxy_string
           end

@@ -4,17 +4,7 @@ module Linguistics
     module Verb
       class LatinVerb
         class Querent
-          extend Forwardable
-          def_delegators :@verb, :stem, :imperatives, :first_person_singular, :first_person_perfect,
-            :present_active_infinitive, :passive_perfect_participle, :present_active_infinitive, :verb_type
-
-          def initialize(verb)
-            @verb = verb
-            @added_vectorized_method = []
-          end
-
-          def passive_tense_methods
-            [
+	  PASSIVE_TENSE_METHODS = [
               :passive_voice_indicative_mood_futureperfect_tense,
               :passive_voice_indicative_mood_future_tense,
               :passive_voice_indicative_mood_imperfect_tense,
@@ -26,10 +16,8 @@ module Linguistics
               :passive_voice_subjunctive_mood_perfect_tense,
               :passive_voice_subjunctive_mood_present_tense
             ]
-          end
 
-          def active_tense_methods
-            [
+	  ACTIVE_TENSE_METHODS = [
               :active_voice_imperative_mood_future_tense,
               :active_voice_imperative_mood_present_tense,
               :active_voice_indicative_mood_future_tense,
@@ -43,10 +31,34 @@ module Linguistics
               :active_voice_subjunctive_mood_perfect_tense,
               :active_voice_subjunctive_mood_present_tense,
             ]
+
+          extend Forwardable
+          def_delegators :@verb, :stem, :imperatives, :first_person_singular, :first_person_perfect,
+            :present_active_infinitive, :passive_perfect_participle, :present_active_infinitive, :verb_type
+
+          def initialize(verb)
+            @verb = verb
+            @added_vectorized_method = []
           end
 
+          def passive_tense_methods
+	    PASSIVE_TENSE_METHODS
+          end
+
+          def active_tense_methods
+	    ACTIVE_TENSE_METHODS
+          end
+
+	  def self.tense_block_methods
+	    ACTIVE_TENSE_METHODS + PASSIVE_TENSE_METHODS
+	  end
+
+	  def tense_block_methods
+	    self.class.tense_block_methods
+	  end
+
           def defined_tense_methods
-            active_tense_methods + passive_tense_methods + Array(@added_vectorized_method) # TODO:  shouldn't this be plural?
+             tense_block_methods + Array(@added_vectorized_method) # TODO:  shouldn't this be plural?
           end
 
           def add_method(method_symbol)
