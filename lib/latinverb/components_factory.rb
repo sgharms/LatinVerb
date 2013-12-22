@@ -19,7 +19,7 @@ module Linguistics
             end
           end
 
-          def components_for_irregular # TODO use strategy or mapping
+          def components_for_irregular
             IrregularComponentsBuilder.new(@verb).components
           end
 

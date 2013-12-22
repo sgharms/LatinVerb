@@ -3,7 +3,7 @@ module Linguistics
     module Verb
       class LatinVerb
         class IrregularQuerent < Querent
-          def initialize(*args) # TODO:  This is FUDness,as is the call from two sources
+          def initialize(*args)
             @verb = args[0] if !args.empty?
             @added_vectorized_method = []
           end
