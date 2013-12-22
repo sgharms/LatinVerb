@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        class SemideponentQuerentAdapter # TODO:  fix horrible name
+        class SemideponentQuerentAdapter
           extend Forwardable
           def_delegators :@verb, :original_string
           def_delegators :@proxyVerb,  :active_voice_indicative_mood_present_tense, :active_voice_indicative_mood_imperfect_tense, :active_voice_indicative_mood_future_tense, :passive_voice_indicative_mood_perfect_tense, :passive_voice_indicative_mood_pastperfect_tense, :passive_voice_indicative_mood_futureperfect_tense, :active_voice_subjunctive_mood_present_tense, :active_voice_subjunctive_mood_imperfect_tense, :passive_voice_subjunctive_mood_perfect_tense, :passive_voice_subjunctive_mood_pastperfect_tense
@@ -21,7 +21,7 @@ module Linguistics
           end
 
 	  def tense_block_methods
-	    Querent.tense_block_methods # TODO:  extract to a mixin or something that querents and this guy can both share
+	    Querent.tense_block_methods
 	  end
 
           def proxy_string

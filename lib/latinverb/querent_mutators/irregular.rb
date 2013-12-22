@@ -33,7 +33,6 @@ module Linguistics
 
             def imperative_handler
               raw = @structure["tense_blocks"]
-              # Bug in data source: TODO
               source = raw["active_voice_imperative_mood_present_tense"] || raw["active voice_imperative_mood_present_tense"]
               raw = source["data"]
               OpenStruct.new( :imperatives => [String(raw[1]).gsub(/\s+/,''), String(raw[4]).gsub(/\s+/,'')] )
@@ -47,7 +46,7 @@ module Linguistics
               OpenStruct.new(add_supine(@structure['participles']['data']))
             end
 
-            def add_supine(hash) # TODO:  Fudness for sure
+            def add_supine(hash)
               accusative_supine =  hash["perfect_passive_participle"].split(/\s+/).first
               return hash unless accusative_supine
               accusative_supine.sub!(/s\z/,'m')
