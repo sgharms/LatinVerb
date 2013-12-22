@@ -4,7 +4,7 @@ require 'active_support'
 require 'linguistics_latin'
 
 require 'latinverb/errors'
-require 'latinverb/components' # TODO:  components and components again later, need differentiating names
+require 'latinverb/components'
 require 'latinverb/defective_checker'
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
@@ -79,7 +79,6 @@ module Linguistics
         end
 
         def build_lookup_components!
-	  #TODO:  install commenter as part of default vim!
           @querent = QuerentForClassificationBuilder.new(self).querent
           @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
           delegate_verb_method_calls_to_delegate!
@@ -100,8 +99,6 @@ module Linguistics
           end
         end
 
-	# TODO:  Fix Latinverb library definition for eo and queo so that it
-	# doesn't pass these vectors with spaces
 	def handle_bug_in_vectorization!(vector_name)
 	  vector_name.to_s.gsub(/\s+/, '')
 	end

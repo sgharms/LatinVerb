@@ -1,4 +1,3 @@
-#TODO:  remove class_evals
 module Linguistics
   module Latin
     module Verb

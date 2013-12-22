@@ -13,7 +13,7 @@ module Linguistics
             Third: ThirdQuerent,
             ThirdIO: ThirdIOQuerent,
             Fourth: FourthQuerent,
-            Irregular: IrregularQuerent, # TODO: bad name, not right....
+            Irregular: IrregularQuerent
           }
 
           def initialize(verb)

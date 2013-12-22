@@ -58,7 +58,7 @@ module Linguistics
 	  end
 
           def defined_tense_methods
-             tense_block_methods + Array(@added_vectorized_method) # TODO:  shouldn't this be plural?
+             tense_block_methods + Array(@added_vectorized_method)
           end
 
           def add_method(method_symbol)
