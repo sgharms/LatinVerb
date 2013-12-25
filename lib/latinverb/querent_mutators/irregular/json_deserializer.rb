@@ -1,4 +1,5 @@
-#encoding: UTF-8
+require 'latinverb/irregular_verb_serialization_retriever'
+
 module Linguistics
   module Latin
     module Verb
@@ -6,13 +7,20 @@ module Linguistics
         module QuerentMutators
           class Irregular
             class JsonDeserializer
+              extend Forwardable
+              def_delegators :@retriver, :serialized_verb
               attr_reader :revivified_data_structure
 
               def initialize(lookup_string)
                 @lookup_string = lookup_string
-                json_string = Linguistics::Latin::Verb.const_get(symbolize_original_string)
-                raise "Found a JSON string with an absurdly small length!" if json_string.length <= 10
-                @revivified_data_structure = JSON.parse( json_string )
+                @retriver = Linguistics::Latin::Verb::LatinVerb::IrregularVerbSerializationRetriever.new(@lookup_string)
+                @revivified_data_structure = eager_load_serialized_object
+              end
+
+              private
+
+              def eager_load_serialized_object
+                JSON.parse(serialized_verb)
               rescue JSON::ParserError => e
                 puts "We were unable to parse JSON for #{@lookup_string} [o:#{o}] [o_sym:#{o_upcase_and_symbolic}].  Please verify your syntax."
                 raise e
@@ -22,27 +30,6 @@ module Linguistics
               rescue => e
                 warn "#{@lookup_string} was identified as irregular but did not have a definition provided."
                 raise e
-              end
-
-              private
-
-              def symbolize_original_string
-                # Translation added to account for Ruby not liking constants /^/
-                # with a multibyte.  Probably a bug.
-                #
-                # This bug can be discovered by running #constants on
-                # Linguistics::Latin::Verb and seeing that Ōxxx is not found.  To
-                # fix this i had to store it as ODI_.  To make /that/ hack work, I
-                # had to add this bit beginning two lines below :-/
-                o = ActiveSupport::Multibyte::Chars.new( @lookup_string.gsub(/\s+/,'_') ).upcase
-
-                if o.match(/^([ĀĒĪŌŪ])(.*)/)
-                  x=o[0,1].tr 'ĀĒĪŌŪ', 'AEIOU'
-                  y=o[1,o.length]
-                  o= x + y
-                end
-
-                o.to_sym
               end
             end
           end
