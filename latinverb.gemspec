@@ -27,5 +27,4 @@ Gem::Specification.new do |s|
   # Environmental requirements
   s.add_runtime_dependency("rake")
   s.add_runtime_dependency("multi_json", "~>1.8")
-  s.add_runtime_dependency("activesupport")
 end
