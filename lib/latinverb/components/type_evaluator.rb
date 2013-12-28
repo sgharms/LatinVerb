@@ -29,6 +29,10 @@ module Linguistics
               Linguistics::Latin::Verb::VerbTypes::Irregular
             end
           end
+
+          def short_type
+            type.to_s.split('::').last.to_sym
+          end
         end
       end
     end

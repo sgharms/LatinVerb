@@ -38,7 +38,7 @@ class FreakishVerbsTest < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_impersonal
-    v =  Linguistics::Latin::Verb::LatinVerb.new 'pluit'
+    v = Linguistics::Latin::Verb::LatinVerb.new('pluit')
     assert_equal Linguistics::Latin::Verb::Classification::Impersonal, v.classification
     assert_equal 'pluit', v.active_voice_indicative_mood_present_tense_third_person_singular_number, "Impersonal verb must return third_person_singular_number"
   end
