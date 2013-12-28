@@ -26,8 +26,8 @@ class DefectSemiImpTest < MiniTest::Unit::TestCase # :nodoc:
       Linguistics::Latin::Verb::LatinVerb.new("confidō confidere confīsus sum").classification
   end
 
-  def test_semideponent_exhaustively #:nodoc:
-    f = Linguistics::Latin::Verb::LatinVerb.new "gaudeō gaudēre gāvīsus"
+  def test_semideponent_exhaustively
+    f = Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gāvīsus")
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent, f.classification
 
     assert_equal "gaudeō",       f.active_voice_indicative_mood_present_tense_first_person_singular_number

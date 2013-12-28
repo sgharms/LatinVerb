@@ -2,6 +2,48 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
+	module PerfectAndPastperfectTenseBlockEclipser
+	  def active_voice_indicative_mood_futureperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def active_voice_indicative_mood_pastperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def active_voice_indicative_mood_perfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def active_voice_subjunctive_mood_pastperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def active_voice_subjunctive_mood_perfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def passive_voice_indicative_mood_futureperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def passive_voice_indicative_mood_pastperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def passive_voice_indicative_mood_perfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def passive_voice_subjunctive_mood_pastperfect_tense
+	    return NullTenseBlock.new
+	  end
+
+	  def passive_voice_subjunctive_mood_perfect_tense
+	    return NullTenseBlock.new
+	  end
+	end
+
         class QuerentPerfectTenseRemover
           TENSE_BLOCKS_TO_ECLIPSE = [
             :active_voice_indicative_mood_futureperfect_tense,
@@ -21,9 +63,11 @@ module Linguistics
           end
 
           def remove!
-            TENSE_BLOCKS_TO_ECLIPSE.each do |s|
+	    @perfect_tense_block_bearer.extend(PerfectAndPastperfectTenseBlockEclipser)
+
+            TENSE_BLOCKS_TO_ECLIPSE.each do |method_to_eclipse|
               @perfect_tense_block_bearer.singleton_class.class_eval do
-                define_method s do
+                define_method method_to_eclipse do
                   return NullTenseBlock.new
                 end
               end
