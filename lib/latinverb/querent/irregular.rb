@@ -1,3 +1,5 @@
+require_relative './impersonal_verb_mixin'
+
 module Linguistics
   module Latin
     module Verb
@@ -6,19 +8,19 @@ module Linguistics
           def initialize(*args)
             @verb = args[0] if !args.empty?
             @added_vectorized_method = []
+	    self.extend(ImpersonalVerbMixin) if impersonal?
           end
 
           def imperatives
             OpenStruct.new( :future => Proc.new{}, :present => Proc.new{} )
           end
 
-          def active_voice_indicative_mood_present_tense
-            TenseBlock.new ["", "", @verb.original_string, "", "", ""]
-          end
+	  private
 
-          def active_voice_indicative_mood_present_tense_third_person_singular_number
-            return @verb.querent.active_voice_indicative_mood_present_tense[2]
-          end
+	  def impersonal?
+	    return false unless @verb
+	    Linguistics::Latin::Verb::IMPERSONAL_VERBS.member?(@verb.original_string)
+	  end
         end
       end
     end

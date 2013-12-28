@@ -1,8 +1,10 @@
+# TODO:require_relative -- move these up!
 require_relative './querent_for_classification_strategy/irregular'
 require_relative './querent_for_classification_strategy/regular'
 require_relative './querent_for_classification_strategy/present_only'
 require_relative './querent_for_classification_strategy/deponent'
 require_relative './querent_for_classification_strategy/semideponent'
+require_relative './querent_for_classification_strategy/impersonal'
 
 module Linguistics
   module Latin
@@ -18,7 +20,7 @@ module Linguistics
             PresentOnly: QuerentForClassificationStrategy::PresentOnly,
             Deponent: QuerentForClassificationStrategy::Deponent,
             Semideponent: QuerentForClassificationStrategy::Semideponent,
-            Impersonal: QuerentForClassificationStrategy::Regular,
+            Impersonal: QuerentForClassificationStrategy::Impersonal,
           }
 
           attr_reader :querent
