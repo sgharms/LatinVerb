@@ -4,7 +4,6 @@ require 'linguistics_latin'
 
 require 'latinverb/errors'
 require 'latinverb/components'
-require 'latinverb/defective_checker'
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
 require 'latinverb/imperative_block'
@@ -24,11 +23,12 @@ require 'latinverb/querent_mutators/irregular'
 require 'latinverb/querent_mutators/semideponent'
 require 'latinverb/querent_tense_methods_vectorizer'
 require 'latinverb/tense_block/null_tense_block'
-require 'latinverb/perfect_tense_remover'
 require 'latinverb/querent_for_classification_builder'
 require 'latinverb/irregular_components_builder'
 require 'latinverb/components_factory'
 require 'latinverb/semideponent_querent_adapter'
+require 'latinverb/past_and_perfect_tense_block_eclipser'
+
 
 
 module Linguistics
