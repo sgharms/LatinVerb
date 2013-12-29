@@ -8,11 +8,11 @@ module Linguistics
               private
 
               def post_initialize
-                mutate_defectives_on_querent!
+                eclipse_past_and_pastperfect_tenses!
               end
 
-              def mutate_defectives_on_querent!
-                QuerentPerfectTenseRemover.new(@querent).remove! if DefectiveChecker.new(@verb).defective?
+              def eclipse_past_and_pastperfect_tenses!
+		@querent.extend(PerfectAndPastperfectTenseBlockEclipser)
               end
             end
           end
