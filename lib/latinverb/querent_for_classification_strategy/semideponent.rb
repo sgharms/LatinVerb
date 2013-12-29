@@ -7,8 +7,18 @@ module Linguistics
           module QuerentForClassificationStrategy
             class Semideponent < Regular
               def post_initialize
-                @querent = SemideponentQuerentAdapter.new(@verb, @querent)
+		override_default_querent!
               end
+
+	      private
+
+	      def override_default_querent!
+                @querent = SemideponentQuerentAdapter.new(@verb, default_querent)
+	      end
+
+	      def default_querent
+		@querent
+	      end
             end
           end
         end

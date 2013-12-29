@@ -44,6 +44,7 @@ module Linguistics
         def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive, :infinitive_methods
         def_delegators :@stem_deriver, :stem, :participial_stem
         def_delegators :@chart_presenter, :chart, :c
+        def_delegators :@type_evaluator, :short_type
         def_delegator  :@imperative_handler, :imperatives
 
         def_delegator :@classifier, :to_s, :conjugation
@@ -106,4 +107,4 @@ module Linguistics
   end
 end
 
-require 'latinverb/paradigmatic_verbs'
+#require 'latinverb/paradigmatic_verbs'
