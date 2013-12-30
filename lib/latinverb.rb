@@ -17,6 +17,7 @@ require 'latinverb/querent/third'
 require 'latinverb/querent/third_io'
 require 'latinverb/querent/fourth'
 require 'latinverb/querent/irregular'
+require 'latinverb/querent/impersonal'
 require 'latinverb/querent_factory'
 require 'latinverb/querent_mutators/irregular'
 require 'latinverb/querent_mutators/semideponent'
@@ -27,6 +28,7 @@ require 'latinverb/irregular_components_builder'
 require 'latinverb/components_factory'
 require 'latinverb/semideponent_querent_adapter'
 require 'latinverb/past_and_perfect_tense_block_eclipser'
+require 'latinverb/querent/impersonal_verb_mixin'
 
 
 

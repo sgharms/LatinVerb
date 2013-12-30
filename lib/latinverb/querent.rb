@@ -4,33 +4,33 @@ module Linguistics
     module Verb
       class LatinVerb
         class Querent
-	  PASSIVE_TENSE_METHODS = [
-              :passive_voice_indicative_mood_futureperfect_tense,
-              :passive_voice_indicative_mood_future_tense,
-              :passive_voice_indicative_mood_imperfect_tense,
-              :passive_voice_indicative_mood_pastperfect_tense,
-              :passive_voice_indicative_mood_perfect_tense,
-              :passive_voice_indicative_mood_present_tense,
-              :passive_voice_subjunctive_mood_imperfect_tense,
-              :passive_voice_subjunctive_mood_pastperfect_tense,
-              :passive_voice_subjunctive_mood_perfect_tense,
-              :passive_voice_subjunctive_mood_present_tense
-            ]
+          PASSIVE_TENSE_METHODS = [
+            :passive_voice_indicative_mood_futureperfect_tense,
+            :passive_voice_indicative_mood_future_tense,
+            :passive_voice_indicative_mood_imperfect_tense,
+            :passive_voice_indicative_mood_pastperfect_tense,
+            :passive_voice_indicative_mood_perfect_tense,
+            :passive_voice_indicative_mood_present_tense,
+            :passive_voice_subjunctive_mood_imperfect_tense,
+            :passive_voice_subjunctive_mood_pastperfect_tense,
+            :passive_voice_subjunctive_mood_perfect_tense,
+            :passive_voice_subjunctive_mood_present_tense
+          ]
 
-	  ACTIVE_TENSE_METHODS = [
-              :active_voice_imperative_mood_future_tense,
-              :active_voice_imperative_mood_present_tense,
-              :active_voice_indicative_mood_future_tense,
-              :active_voice_indicative_mood_futureperfect_tense,
-              :active_voice_indicative_mood_imperfect_tense,
-              :active_voice_indicative_mood_pastperfect_tense,
-              :active_voice_indicative_mood_perfect_tense,
-              :active_voice_indicative_mood_present_tense,
-              :active_voice_subjunctive_mood_imperfect_tense,
-              :active_voice_subjunctive_mood_pastperfect_tense,
-              :active_voice_subjunctive_mood_perfect_tense,
-              :active_voice_subjunctive_mood_present_tense,
-            ]
+          ACTIVE_TENSE_METHODS = [
+            :active_voice_imperative_mood_future_tense,
+            :active_voice_imperative_mood_present_tense,
+            :active_voice_indicative_mood_future_tense,
+            :active_voice_indicative_mood_futureperfect_tense,
+            :active_voice_indicative_mood_imperfect_tense,
+            :active_voice_indicative_mood_pastperfect_tense,
+            :active_voice_indicative_mood_perfect_tense,
+            :active_voice_indicative_mood_present_tense,
+            :active_voice_subjunctive_mood_imperfect_tense,
+            :active_voice_subjunctive_mood_pastperfect_tense,
+            :active_voice_subjunctive_mood_perfect_tense,
+            :active_voice_subjunctive_mood_present_tense,
+          ]
 
           extend Forwardable
           def_delegators :@verb, :stem, :imperatives, :first_person_singular, :first_person_perfect,
@@ -42,20 +42,20 @@ module Linguistics
           end
 
           def passive_tense_methods
-	    PASSIVE_TENSE_METHODS
+            PASSIVE_TENSE_METHODS
           end
 
           def active_tense_methods
-	    ACTIVE_TENSE_METHODS
+            ACTIVE_TENSE_METHODS
           end
 
-	  def self.tense_block_methods
-	    ACTIVE_TENSE_METHODS + PASSIVE_TENSE_METHODS
-	  end
+          def self.tense_block_methods
+            ACTIVE_TENSE_METHODS + PASSIVE_TENSE_METHODS
+          end
 
-	  def tense_block_methods
-	    self.class.tense_block_methods
-	  end
+          def tense_block_methods
+            self.class.tense_block_methods
+          end
 
           def defined_tense_methods
              tense_block_methods + Array(@added_vectorized_method)

@@ -12,16 +12,13 @@ module Linguistics
             def initialize(lookup_string, passive_perfect_participle)
               @lookup_string = lookup_string
               @passive_perfect_participle = passive_perfect_participle
-              build_querent!
-            end
-
-            def build_querent!
               @querent = LatinVerb::IrregularQuerent.new
               @structure = JsonDeserializer.new(@lookup_string).revivified_data_structure
               build_tense_blocks!
             end
 
             def build_tense_blocks!
+              byebug
               @structure['tense_blocks'].each_pair do |tense_block_name, serialized_tense_block|
                 @querent.singleton_class.class_eval do
                   define_method tense_block_name.to_sym do
