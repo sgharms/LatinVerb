@@ -4,7 +4,9 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        class IrregularQuerent < Querent
+        class ImpersonalQuerent < Querent
+          include ImpersonalVerbMixin
+
           def initialize(*args)
             @verb = args[0] if !args.empty?
             @added_vectorized_method = []
