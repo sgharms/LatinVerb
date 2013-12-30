@@ -25,6 +25,8 @@ module Linguistics
               Linguistics::Latin::Verb::VerbTypes::Fourth
             elsif (present_active_infinitive =~ /ī$/  and first_person_singular =~ /r$/)
               LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string).verb_type
+            # Sometimes something is not classified as irregular but has
+            # aberrations e.g. pluit.  Try to pull it from storage.
             else
               Linguistics::Latin::Verb::VerbTypes::Irregular
             end
