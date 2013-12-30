@@ -7,7 +7,6 @@ module Linguistics
           def_delegators :@verb, :original_string, :passive_perfect_participle
 
           def initialize(verb)
-            byebug #2
             @verb = verb
             @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
           end

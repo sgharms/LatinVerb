@@ -12,7 +12,7 @@ module Linguistics
 
               def initialize(verb)
                 @verb = verb
-                @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
+                @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle, @verb.original_string)
                 @querent = calculate_querent!
               end
 

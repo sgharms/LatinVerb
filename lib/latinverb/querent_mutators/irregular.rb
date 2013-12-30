@@ -9,23 +9,10 @@ module Linguistics
           class Irregular
             attr_reader :querent
 
-            def initialize(lookup_string, passive_perfect_participle)
-              @lookup_string = lookup_string
-              @passive_perfect_participle = passive_perfect_participle
-              @querent = LatinVerb::IrregularQuerent.new
-              @structure = JsonDeserializer.new(@lookup_string).revivified_data_structure
-              build_tense_blocks!
-            end
-
-            def build_tense_blocks!
-              byebug
-              @structure['tense_blocks'].each_pair do |tense_block_name, serialized_tense_block|
-                @querent.singleton_class.class_eval do
-                  define_method tense_block_name.to_sym do
-                    TenseBlock.new serialized_tense_block["data"], { :meaning => MEANINGS[tense_block_name.to_sym] }
-                  end
-                end
-              end
+            def initialize(lookup_string, passive_perfect_participle, *args)
+              @structure = JsonDeserializer.new(lookup_string).revivified_data_structure
+              @original_string = Array(args).first
+              @querent = LatinVerb::IrregularQuerent.new(@structure)
             end
 
             def imperative_handler
