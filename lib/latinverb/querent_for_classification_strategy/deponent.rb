@@ -10,16 +10,16 @@ module Linguistics
 
               def initialize(verb)
                 super
-		prepare_deponent_proxy!
+                prepare_deponent_proxy!
                 reroute_active_calls_to_proxys_passives!
               end
 
-	      private
+              private
 
-	      def prepare_deponent_proxy!
-		@querent.extend Forwardable
-		@querent.instance_variable_set(:@deponentProxy, LatinVerb.new(proxy_string))
-	      end
+              def prepare_deponent_proxy!
+                @querent.extend Forwardable
+                @querent.instance_variable_set(:@deponentProxy, LatinVerb.new(proxy_string))
+              end
 
               def reroute_active_calls_to_proxys_passives!
                 passive_and_active_pairs do |passive_method_name, active_method_name|
