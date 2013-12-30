@@ -4,15 +4,20 @@ module Linguistics
       class LatinVerb
         class QuerentForClassificationBuilder
           module QuerentForClassificationStrategy
-	    module NullActiveIndicativePresent
-	      def active_voice_indicative_mood_present_tense
-		return NullTenseBlock.new
-	      end
-	    end
-
             class Impersonal < Regular
+              def initialize(verb)
+                @verb = verb
+              end
+
+              def querent
+                @querent ||= QuerentTenseMethodsVectorizer.new(unvectorized_querent).add_vector_methods!
+                @querent.extend(ImpersonalVerbMixin)
+              end
+
               private
-              def post_initialize
+
+              def unvectorized_querent
+                IrregularQuerent.new(@verb)
               end
             end
           end
