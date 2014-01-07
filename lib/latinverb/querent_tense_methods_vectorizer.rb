@@ -1,11 +1,11 @@
 class QuerentTenseMethodsVectorizer
   FINAL_VECTORS = {
-    0 => [ :first_person_singular_number, :singular_number_first_person ],
+    0 => [ :first_person_singular_number,  :singular_number_first_person ],
     1 => [ :second_person_singular_number, :singular_number_second_person ],
-    2 => [ :third_person_singular_number, :singular_number_third_person ],
-    3 => [ :first_person_plural_number, :plural_number_first_person ],
-    4 => [ :second_person_plural_number, :plural_number_second_person ],
-    5 => [ :third_person_plural_number, :plural_number_third_person ]
+    2 => [ :third_person_singular_number,  :singular_number_third_person ],
+    3 => [ :first_person_plural_number,    :plural_number_first_person ],
+    4 => [ :second_person_plural_number,   :plural_number_second_person ],
+    5 => [ :third_person_plural_number,    :plural_number_third_person ]
   }
 
   def initialize(tense_block_bearer)
