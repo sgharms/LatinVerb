@@ -1,3 +1,4 @@
+* remove the infinite regress FUD
 * take out that duplicate declaration that i put in at the airport....two claseses one file.  Querent something mumbledy
 * applicator/querent_mutators/irregular/present_only_irregular_mask.rb 
 * rm const_get
