@@ -1,13 +1,42 @@
 #encoding: UTF-8
 
-require_relative './querent_tense_methods_mixin'
+require_relative './active_voice_imperative_mood_future_tense_methods'
+require_relative './active_voice_imperative_mood_present_tense_methods'
+require_relative './active_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './active_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './active_voice_indicative_mood_perfect_tense_methods'
+require_relative './active_voice_subjunctive_mood_imperfect_tense_methods'
+require_relative './active_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './active_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './active_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './passive_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './passive_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './passive_voice_indicative_mood_perfect_tense_methods'
+require_relative './passive_voice_indicative_mood_imperfect_tense_methods'
+require_relative './passive_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './passive_voice_subjunctive_mood_perfect_tense_methods'
+
 
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
         class Querent
-          include QuerentTenseMethodsMixin
+          include ActiveVoiceImperativeMoodFutureTenseMethods
+          include ActiveVoiceImperativeMoodPresentTenseMethods
+          include ActiveVoiceIndicativeMoodFutureperfectTenseMethods
+          include ActiveVoiceIndicativeMoodPastperfectTenseMethods
+          include ActiveVoiceIndicativeMoodPerfectTenseMethods
+          include ActiveVoiceSubjunctiveMoodImperfectTenseMethods
+          include ActiveVoiceSubjunctiveMoodPastPerfectTenseMethods
+          include ActiveVoiceSubjunctiveMoodPerfectTenseMethods
+          include PassiveVoiceIndicativeMoodFutureperfectTenseMethods
+          include PassiveVoiceIndicativeMoodPastperfectTenseMethods
+          include PassiveVoiceIndicativeMoodPerfectTMethods
+          include PassiveVoiceSubjunctiveMoodImperfectTenseMethods
+          include PassiveVoiceSubjunctiveMoodPastperfectTenseMethods
+          include PassiveVoiceSubjunctiveMoodPerfectTenseMethods
+
           PASSIVE_TENSE_METHODS = [
             :passive_voice_indicative_mood_futureperfect_tense,
             :passive_voice_indicative_mood_future_tense,
