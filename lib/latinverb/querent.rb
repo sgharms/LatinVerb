@@ -1,21 +1,20 @@
 #encoding: UTF-8
 
-require_relative './active_voice_imperative_mood_future_tense_methods'
-require_relative './active_voice_imperative_mood_present_tense_methods'
-require_relative './active_voice_indicative_mood_futureperfect_tense_methods'
-require_relative './active_voice_indicative_mood_pastperfect_tense_methods'
-require_relative './active_voice_indicative_mood_perfect_tense_methods'
-require_relative './active_voice_subjunctive_mood_imperfect_tense_methods'
-require_relative './active_voice_subjunctive_mood_pastperfect_tense_methods'
-require_relative './active_voice_subjunctive_mood_perfect_tense_methods'
-require_relative './active_voice_subjunctive_mood_perfect_tense_methods'
-require_relative './passive_voice_indicative_mood_futureperfect_tense_methods'
-require_relative './passive_voice_indicative_mood_pastperfect_tense_methods'
-require_relative './passive_voice_indicative_mood_perfect_tense_methods'
-require_relative './passive_voice_indicative_mood_imperfect_tense_methods'
-require_relative './passive_voice_subjunctive_mood_pastperfect_tense_methods'
-require_relative './passive_voice_subjunctive_mood_perfect_tense_methods'
-
+require_relative './tense_method_definitions/active_voice_imperative_mood_future_tense_methods'
+require_relative './tense_method_definitions/active_voice_imperative_mood_present_tense_methods'
+require_relative './tense_method_definitions/active_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_indicative_mood_perfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_subjunctive_mood_imperfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './tense_method_definitions/active_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_indicative_mood_perfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_indicative_mood_imperfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './tense_method_definitions/passive_voice_subjunctive_mood_perfect_tense_methods'
 
 module Linguistics
   module Latin
@@ -96,34 +95,6 @@ module Linguistics
 
           def add_method(method_symbol)
             @added_vectorized_method << method_symbol
-          end
-
-          def active_voice_indicative_mood_imperfect_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def active_voice_indicative_mood_present_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def active_voice_subjunctive_mood_present_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def passive_voice_indicative_mood_future_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def passive_voice_indicative_mood_imperfect_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def passive_voice_indicative_mood_present_tense
-            raise "Should be overridden in subclass of Querent"
-          end
-
-          def passive_voice_subjunctive_mood_present_tense
-            raise "Should be overridden in subclass of Querent"
           end
         end
       end
