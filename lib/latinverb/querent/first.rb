@@ -14,14 +14,20 @@ module Linguistics
     module Verb
       class LatinVerb
         class FirstQuerent < Querent
-          include First::ActiveVoiceIndicativeMoodFutureTenseMethods
-          include First::ActiveVoiceIndicativeMoodImperfectTenseMethods
-          include First::ActiveVoiceIndicativeMoodPresentTenseMethods
-          include First::ActiveVoiceSubjunctiveMoodPresentTenseMethods
-          include First::PassiveVoiceIndicativeMoodFutureTenseMethods
-          include First::PassivevoiceIndicativeMoodImperfectTenseMethods
-          include First::PassiveVoiceIndicativeMoodPresentTenseMethods
-          include First::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          TENSE_METHOD_DEFINITIONS = [
+            First::ActiveVoiceIndicativeMoodFutureTenseMethods,
+            First::ActiveVoiceIndicativeMoodImperfectTenseMethods,
+            First::ActiveVoiceIndicativeMoodPresentTenseMethods,
+            First::ActiveVoiceSubjunctiveMoodPresentTenseMethods,
+            First::PassiveVoiceIndicativeMoodFutureTenseMethods,
+            First::PassivevoiceIndicativeMoodImperfectTenseMethods,
+            First::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            First::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          ]
+
+          def tense_definitions_template
+            TENSE_METHOD_DEFINITIONS
+          end
         end
       end
     end

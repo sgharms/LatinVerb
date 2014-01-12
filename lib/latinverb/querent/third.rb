@@ -14,14 +14,20 @@ module Linguistics
     module Verb
       class LatinVerb
         class ThirdQuerent < Querent
-          include Third::ActiveVoiceIndicativeMoodFutureTenseMethods
-          include Third::ActiveVoiceIndicativeMoodImperfectTenseMethods
-          include Third::ActiveVoiceIndicativeMoodPresentTenseMethods
-          include Third::ActiveVoiceSubjunctiveMoodPresentTenseMethods
-          include Third::PassiveVoiceIndicativeMoodFutureTenseMethods
-          include Third::PassivevoiceIndicativeMoodImperfectTenseMethods
-          include Third::PassiveVoiceIndicativeMoodPresentTenseMethods
-          include Third::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          TENSE_METHOD_DEFINITIONS = [
+            Third::ActiveVoiceIndicativeMoodFutureTenseMethods,
+            Third::ActiveVoiceIndicativeMoodImperfectTenseMethods,
+            Third::ActiveVoiceIndicativeMoodPresentTenseMethods,
+            Third::ActiveVoiceSubjunctiveMoodPresentTenseMethods,
+            Third::PassiveVoiceIndicativeMoodFutureTenseMethods,
+            Third::PassivevoiceIndicativeMoodImperfectTenseMethods,
+            Third::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            Third::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          ]
+
+          def tense_definitions_template
+            TENSE_METHOD_DEFINITIONS
+          end
         end
       end
     end
