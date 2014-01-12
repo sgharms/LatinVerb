@@ -14,14 +14,20 @@ module Linguistics
     module Verb
       class LatinVerb
         class FourthQuerent < Querent
-          include Fourth::ActiveVoiceIndicativeMoodFutureTenseMethods
-          include Fourth::ActiveVoiceIndicativeMoodImperfectTenseMethods
-          include Fourth::ActiveVoiceIndicativeMoodPresentTenseMethods
-          include Fourth::ActiveVoiceSubjunctiveMoodPresentTenseMethods
-          include Fourth::PassiveVoiceIndicativeMoodFutureTenseMethods
-          include Fourth::PassivevoiceIndicativeMoodImperfectTenseMethods
-          include Fourth::PassiveVoiceIndicativeMoodPresentTenseMethods
-          include Fourth::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          TENSE_METHOD_DEFINITIONS = [
+            Fourth::ActiveVoiceIndicativeMoodFutureTenseMethods,
+            Fourth::ActiveVoiceIndicativeMoodImperfectTenseMethods,
+            Fourth::ActiveVoiceIndicativeMoodPresentTenseMethods,
+            Fourth::ActiveVoiceSubjunctiveMoodPresentTenseMethods,
+            Fourth::PassiveVoiceIndicativeMoodFutureTenseMethods,
+            Fourth::PassivevoiceIndicativeMoodImperfectTenseMethods,
+            Fourth::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            Fourth::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          ]
+
+          def tense_definitions_template
+            TENSE_METHOD_DEFINITIONS
+          end
         end
       end
     end

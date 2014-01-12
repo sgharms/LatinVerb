@@ -14,14 +14,20 @@ module Linguistics
     module Verb
       class LatinVerb
         class SecondQuerent < Querent
-          include Second::ActiveVoiceIndicativeMoodFutureTenseMethods
-          include Second::ActiveVoiceIndicativeMoodImperfectTenseMethods
-          include Second::ActiveVoiceIndicativeMoodPresentTenseMethods
-          include Second::ActiveVoiceSubjunctiveMoodPresentTenseMethods
-          include Second::PassiveVoiceIndicativeMoodFutureTenseMethods
-          include Second::PassivevoiceIndicativeMoodImperfectTenseMethods
-          include Second::PassiveVoiceIndicativeMoodPresentTenseMethods
-          include Second::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          TENSE_METHOD_DEFINITIONS = [
+            Second::ActiveVoiceIndicativeMoodFutureTenseMethods,
+            Second::ActiveVoiceIndicativeMoodImperfectTenseMethods,
+            Second::ActiveVoiceIndicativeMoodPresentTenseMethods,
+            Second::ActiveVoiceSubjunctiveMoodPresentTenseMethods,
+            Second::PassiveVoiceIndicativeMoodFutureTenseMethods,
+            Second::PassivevoiceIndicativeMoodImperfectTenseMethods,
+            Second::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            Second::PassiveVoiceSubjunctiveMoodPresentTenseMethods
+          ]
+
+          def tense_definitions_template
+            TENSE_METHOD_DEFINITIONS
+          end
         end
       end
     end

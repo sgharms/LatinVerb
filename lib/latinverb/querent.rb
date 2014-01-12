@@ -21,20 +21,22 @@ module Linguistics
     module Verb
       class LatinVerb
         class Querent
-          include ActiveVoiceImperativeMoodFutureTenseMethods
-          include ActiveVoiceImperativeMoodPresentTenseMethods
-          include ActiveVoiceIndicativeMoodFutureperfectTenseMethods
-          include ActiveVoiceIndicativeMoodPastperfectTenseMethods
-          include ActiveVoiceIndicativeMoodPerfectTenseMethods
-          include ActiveVoiceSubjunctiveMoodImperfectTenseMethods
-          include ActiveVoiceSubjunctiveMoodPastPerfectTenseMethods
-          include ActiveVoiceSubjunctiveMoodPerfectTenseMethods
-          include PassiveVoiceIndicativeMoodFutureperfectTenseMethods
-          include PassiveVoiceIndicativeMoodPastperfectTenseMethods
-          include PassiveVoiceIndicativeMoodPerfectTMethods
-          include PassiveVoiceSubjunctiveMoodImperfectTenseMethods
-          include PassiveVoiceSubjunctiveMoodPastperfectTenseMethods
-          include PassiveVoiceSubjunctiveMoodPerfectTenseMethods
+          TENSE_METHOD_DEFINITIONS = [
+            Querent::ActiveVoiceImperativeMoodFutureTenseMethods,
+            Querent::ActiveVoiceImperativeMoodPresentTenseMethods,
+            Querent::ActiveVoiceIndicativeMoodFutureperfectTenseMethods,
+            Querent::ActiveVoiceIndicativeMoodPastperfectTenseMethods,
+            Querent::ActiveVoiceIndicativeMoodPerfectTenseMethods,
+            Querent::ActiveVoiceSubjunctiveMoodImperfectTenseMethods,
+            Querent::ActiveVoiceSubjunctiveMoodPastPerfectTenseMethods,
+            Querent::ActiveVoiceSubjunctiveMoodPerfectTenseMethods,
+            Querent::PassiveVoiceIndicativeMoodFutureperfectTenseMethods,
+            Querent::PassiveVoiceIndicativeMoodPastperfectTenseMethods,
+            Querent::PassiveVoiceIndicativeMoodPerfectTMethods,
+            Querent::PassiveVoiceSubjunctiveMoodImperfectTenseMethods,
+            Querent::PassiveVoiceSubjunctiveMoodPastperfectTenseMethods,
+            Querent::PassiveVoiceSubjunctiveMoodPerfectTenseMethods
+          ]
 
           PASSIVE_TENSE_METHODS = [
             :passive_voice_indicative_mood_futureperfect_tense,
@@ -71,6 +73,18 @@ module Linguistics
           def initialize(verb)
             @verb = verb
             @added_vectorized_method = []
+
+            add_tense_methods!
+          end
+
+          def add_tense_methods!
+            collection = TENSE_METHOD_DEFINITIONS + tense_definitions_template
+            extend_with_tense_method_definitions!(collection)
+            register_methods!(collection)
+          end
+
+          def tense_definitions_template
+            []
           end
 
           def passive_tense_methods
@@ -95,6 +109,16 @@ module Linguistics
 
           def add_method(method_symbol)
             @added_vectorized_method << method_symbol
+          end
+
+          protected
+
+          def extend_with_tense_method_definitions!(tense_method_definitions)
+            tense_method_definitions.each{ |definition| self.extend(definition) }
+          end
+
+          def register_methods!(tense_method_definitions)
+            tense_method_definitions.each{ |definition| @added_vectorized_method += definition.instance_methods }
           end
         end
       end
