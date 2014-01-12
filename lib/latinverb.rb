@@ -100,12 +100,12 @@ module Linguistics
           end
         end
 
-	def handle_bug_in_vectorization!(vector_name)
-	  vector_name.to_s.gsub(/\s+/, '')
-	end
+        def handle_bug_in_vectorization!(vector_name)
+          vector_name.to_s.gsub(/\s+/, '')
+        end
       end
     end
   end
 end
 
-#require 'latinverb/paradigmatic_verbs'
+#require 'latinverb/paradigmatic_verbs' TODO:  uncomment me
