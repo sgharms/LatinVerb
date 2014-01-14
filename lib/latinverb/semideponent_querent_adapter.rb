@@ -9,12 +9,14 @@ require_relative 'semideponent_querent_adapter/active_voice_subjunctive_mood_imp
 require_relative 'semideponent_querent_adapter/active_voice_subjunctive_mood_perfect_tense_methods'
 require_relative 'semideponent_querent_adapter/active_voice_subjunctive_mood_pastperfect_tense_methods'
 require_relative 'semideponent_querent_adapter/active_voice_subjunctive_mood_present_tense_methods'
+require 'latinverb/querent/querent_interface'
 
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
         class SemideponentQuerentAdapter
+          include Querent::QuerentInterface
           TENSE_METHOD_DEFINITIONS = [
             SemideponentQuerentAdapter::ActiveVoiceIndicativeMoodPresentTenseMethods,
             SemideponentQuerentAdapter::ActiveVoiceIndicativeMoodImperfectTenseMethods,
@@ -29,36 +31,7 @@ module Linguistics
             SemideponentQuerentAdapter::ActiveVoiceSubjunctiveMoodImperfectTenseMethods
           ]
 
-          PASSIVE_TENSE_METHODS = [
-            :passive_voice_indicative_mood_futureperfect_tense,
-            :passive_voice_indicative_mood_future_tense,
-            :passive_voice_indicative_mood_imperfect_tense,
-            :passive_voice_indicative_mood_pastperfect_tense,
-            :passive_voice_indicative_mood_perfect_tense,
-            :passive_voice_indicative_mood_present_tense,
-            :passive_voice_subjunctive_mood_imperfect_tense,
-            :passive_voice_subjunctive_mood_pastperfect_tense,
-            :passive_voice_subjunctive_mood_perfect_tense,
-            :passive_voice_subjunctive_mood_present_tense
-          ]
-
-          ACTIVE_TENSE_METHODS = [
-            :active_voice_imperative_mood_future_tense,
-            :active_voice_imperative_mood_present_tense,
-            :active_voice_indicative_mood_future_tense,
-            :active_voice_indicative_mood_futureperfect_tense,
-            :active_voice_indicative_mood_imperfect_tense,
-            :active_voice_indicative_mood_pastperfect_tense,
-            :active_voice_indicative_mood_perfect_tense,
-            :active_voice_indicative_mood_present_tense,
-            :active_voice_subjunctive_mood_imperfect_tense,
-            :active_voice_subjunctive_mood_pastperfect_tense,
-            :active_voice_subjunctive_mood_perfect_tense,
-            :active_voice_subjunctive_mood_present_tense,
-          ]
           extend Forwardable
-          #def_delegators :@wrapped_querent,  :active_voice_subjunctive_mood_perfect_tense, :active_voice_subjunctive_mood_pastperfect_tense, :defined_tense_methods
-
           def_delegators :@verb, :original_string
 
           def initialize(verb, wrapped_querent)
@@ -77,26 +50,6 @@ module Linguistics
             register_methods!(collection)
           end
 
-          def querent
-            self
-          end
-
-          def defined_tense_methods
-            tense_block_methods + Array(@added_vectorized_method)
-          end
-
-          def self.tense_block_methods
-            ACTIVE_TENSE_METHODS + PASSIVE_TENSE_METHODS
-          end
-
-          def tense_block_methods
-            self.class.tense_block_methods
-          end
-
-          def tense_definitions_template
-            []
-          end
-
           private
 
           def hide_unused_passive_tenses!
@@ -105,16 +58,6 @@ module Linguistics
 
           def proxy_string
             DeponentStringDeriver.new(original_string).proxy_string
-          end
-
-          protected
-
-          def extend_with_tense_method_definitions!(tense_method_definitions)
-            tense_method_definitions.each{ |definition| self.extend(definition) }
-          end
-
-          def register_methods!(tense_method_definitions)
-            tense_method_definitions.each{ |definition| @added_vectorized_method += definition.instance_methods }
           end
         end
       end

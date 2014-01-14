@@ -22,7 +22,7 @@ class QuerentTenseMethodsVectorizer
 
   def add_by_person_and_number_methods!
     locally_bound_tense_block_bearer = @tense_block_bearer
-    verb_tense_methods.each do | tense_block_method |
+    Linguistics::Latin::Verb::LatinVerb::TENSE_BLOCK_NAMES.each do | tense_block_method |
       FINAL_VECTORS.each_pair do | tense_block_location, accessors |
         accessors.each do | accessor |
           new_method = [tense_block_method, accessor].map(&:to_s).join('_').to_sym
@@ -37,7 +37,7 @@ class QuerentTenseMethodsVectorizer
   end
 
   def add_methods_for_aggregation_when_person_or_number_is_missing!
-    verb_tense_methods.each do | tense_block_method |
+    Linguistics::Latin::Verb::LatinVerb::TENSE_BLOCK_NAMES.each do | tense_block_method |
       @tense_block_bearer.singleton_class.class_eval do
         define_method("#{tense_block_method}_first_person", Proc.new do
           [ self.send(tense_block_method)[0],
@@ -75,12 +75,6 @@ class QuerentTenseMethodsVectorizer
         "#{tense_block_method}_plural_number"
       ].each{|m| @tense_block_bearer.add_method(m.to_sym)} if !(type =~ /(Adapt|Irreg)/)
     end
-  end
-
-  private
-
-  def verb_tense_methods
-    @tense_block_bearer.tense_block_methods
   end
 end
 

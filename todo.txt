@@ -1,10 +1,4 @@
 In Play:
-* extract common interface among the various querents
-  * standard querent
-  * semideponent should be able to share
-  * (can irregular? / impersonal) ==> YES, they subclass Querent, so there's no
-  * reason that shouldn't just be able to be factored out
-
 * I do not think we should take the last class_eval out, it's a good means for
 * turning statically stored arrays and truning them into bajillions of methods.
 * We SHOULD, however rename the class.

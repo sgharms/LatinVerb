@@ -6,7 +6,7 @@ module Linguistics
           module QuerentForClassificationStrategy
             class Regular
               extend Forwardable
-              def_delegators :@querent, :defined_tense_methods, :add_method
+              def_delegators :@querent, :defined_tense_methods
 
               attr_reader :querent
 

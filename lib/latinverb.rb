@@ -29,6 +29,7 @@ require 'latinverb/components_factory'
 require 'latinverb/semideponent_querent_adapter'
 require 'latinverb/past_and_perfect_tense_block_eclipser'
 require 'latinverb/querent/impersonal_verb_mixin'
+require 'latinverb/tenses'
 
 
 

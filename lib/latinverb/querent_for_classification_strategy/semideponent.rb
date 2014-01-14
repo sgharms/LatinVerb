@@ -13,7 +13,7 @@ module Linguistics
               private
 
               def override_default_querent!
-                @querent = SemideponentQuerentAdapter.new(@verb, @querent).querent
+                @querent = SemideponentQuerentAdapter.new(@verb, @querent)
               end
             end
           end
