@@ -8,6 +8,10 @@ module Linguistics
             @added_vectorized_method = []
           end
 
+          def add_method(method_name)
+            @added_vectorized_method << method_name.to_sym
+          end
+
           def imperatives
             OpenStruct.new( :future => Proc.new{}, :present => Proc.new{} )
           end
