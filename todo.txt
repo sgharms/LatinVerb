@@ -1,20 +1,9 @@
-In Play:
-* I do not think we should take the last class_eval out, it's a good means for
-* turning statically stored arrays and truning them into bajillions of methods.
-* We SHOULD, however rename the class.
-* rm const_get
-* rm define_method
-* class_eval
-
-=====
-
 * remove the infinite regress FUD
 * take out that duplicate declaration that i put in at the airport....two claseses one file.  Querent something mumbledy
 * generally remove weird names, look at the tree and get everything sensible!
 
 * applicator/querent_mutators/irregular/present_only_irregular_mask.rb 
 lib/latinverb.rb:7:require 'latinverb/components' # TODO:  components and components again later, need differentiating names
-lib/latinverb.rb:82:	  #TODO:  install commenter as part of default vim!
 lib/latinverb.rb:103:	# TODO:  Fix Latinverb library definition for eo and queo so that it
 lib/latinverb/querent.rb:61:             tense_block_methods + Array(@added_vectorized_method) # TODO:  shouldn't this be plural?
 lib/latinverb/querent/irregular.rb:6:          def initialize(*args) # TODO:  This is FUDness,as is the call from two sources
@@ -24,4 +13,3 @@ lib/latinverb/semideponent_querent_adapter.rb:24:	    Querent.tense_block_method
 lib/latinverb/components_factory.rb:22:          def components_for_irregular # TODO use strategy or mapping
 lib/latinverb/querent_mutators/irregular.rb:36:              # Bug in data source: TODO
 lib/latinverb/querent_mutators/irregular.rb:50:            def add_supine(hash) # TODO:  Fudness for sure
-lib/latinverb/querent_mutators/deponent/tense_block_mutator.rb:1:#TODO:  remove class_evals
