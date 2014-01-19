@@ -22,6 +22,12 @@ require 'latinverb/querent_factory'
 require 'latinverb/querent_mutators/irregular'
 require 'latinverb/querent_mutators/semideponent'
 require 'latinverb/tense_block/null_tense_block'
+require 'latinverb/querent_for_classification_strategy/irregular'
+require 'latinverb/querent_for_classification_strategy/regular'
+require 'latinverb/querent_for_classification_strategy/present_only'
+require 'latinverb/querent_for_classification_strategy/deponent'
+require 'latinverb/querent_for_classification_strategy/semideponent'
+require 'latinverb/querent_for_classification_strategy/impersonal'
 require 'latinverb/querent_for_classification_builder'
 require 'latinverb/irregular_components_builder'
 require 'latinverb/components_factory'
@@ -104,4 +110,4 @@ module Linguistics
   end
 end
 
-#require 'latinverb/paradigmatic_verbs' TODO:  uncomment me
+require 'latinverb/paradigmatic_verbs'
