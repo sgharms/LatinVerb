@@ -4,13 +4,13 @@ module Linguistics
       class LatinVerb
         class Querent
           module ActiveVoiceIndicativeMoodPerfectTenseMethods
-          def active_voice_indicative_mood_perfect_tense
-            substem = first_person_perfect[0..-2]
-            elements = APERF_ENDINGS.flat_map{|x| substem + x.to_s}
-            elements.unshift first_person_perfect
-            meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_perfect_tense] }
-            TenseBlock.new(elements, meaning)
-          end
+            def active_voice_indicative_mood_perfect_tense
+              substem = first_person_perfect[0..-2]
+              elements = APERF_ENDINGS.flat_map{|x| substem + x.to_s}
+              elements.unshift first_person_perfect
+              meaning = { :meaning => MEANINGS[:active_voice_indicative_mood_perfect_tense] }
+              TenseBlock.new(elements, meaning)
+            end
 
             def active_voice_indicative_mood_perfect_tense_first_person_singular_number
               active_voice_indicative_mood_perfect_tense.first_person_singular_number
