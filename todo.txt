@@ -11,5 +11,3 @@ lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # T
 lib/latinverb/semideponent_querent_adapter.rb:5:        class SemideponentQuerentAdapter # TODO:  fix horrible name
 lib/latinverb/semideponent_querent_adapter.rb:24:	    Querent.tense_block_methods # TODO:  extract to a mixin or something that querents and this guy can both share
 lib/latinverb/components_factory.rb:22:          def components_for_irregular # TODO use strategy or mapping
-lib/latinverb/querent_mutators/irregular.rb:36:              # Bug in data source: TODO
-lib/latinverb/querent_mutators/irregular.rb:50:            def add_supine(hash) # TODO:  Fudness for sure

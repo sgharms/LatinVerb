@@ -1,5 +1,6 @@
 #encoding: UTF-8
 require_relative 'irregular/json_deserializer'
+require_relative 'irregular/supine_inferrer'
 
 module Linguistics
   module Latin
@@ -27,17 +28,9 @@ module Linguistics
             end
 
             def participler
-              OpenStruct.new(add_supine(@structure['participles']['data']))
-            end
-
-            def add_supine(hash)
-              accusative_supine =  hash["perfect_passive_participle"].split(/\s+/).first
-              return hash unless accusative_supine
-              accusative_supine.sub!(/s\z/,'m')
-              ablative_supine = accusative_supine.sub( /^(.*)u(m)$/, "\\1" )
-              ablative_supine += "ū"
-              hash[:supine] = {:ablative => ablative_supine, :accusative => accusative_supine}
-              return hash
+              participles_data = @structure['participles']['data']
+              supine_data = SupineInferrer.new(participles_data["perfect_passive_participle"]).supine
+              OpenStruct.new(participles_data.merge({:supine => supine_data}))
             end
           end
         end
