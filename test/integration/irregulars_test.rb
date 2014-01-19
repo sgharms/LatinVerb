@@ -1,6 +1,5 @@
 #encoding:  UTF-8
 
-require 'minitest/autorun'
 require 'json'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
