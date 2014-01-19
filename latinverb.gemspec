@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   # Latinverb requirements
   s.add_runtime_dependency("macronconversions")
-  s.add_runtime_dependency("linguistics_latin")
+  s.add_runtime_dependency("linguistics_latin", "~>0.0.2")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")

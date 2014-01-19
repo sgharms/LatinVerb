@@ -23,16 +23,7 @@ GEM
     linguistics_latin (0.0.1)
     macronconversions (0.0.1)
     method_source (0.8.2)
-<<<<<<< HEAD
     minitest (4.7.5)
-||||||| parent of 0a26d36... Removing Metaprogramming: rm const_get, activesupport
-    minitest (4.7.5)
-    mocha (0.14.0)
-      metaclass (~> 0.0.1)
-=======
-    mocha (0.14.0)
-      metaclass (~> 0.0.1)
->>>>>>> 0a26d36... Removing Metaprogramming: rm const_get, activesupport
     multi_json (1.8.2)
     pry (0.9.12.4)
       coderay (~> 1.0)
