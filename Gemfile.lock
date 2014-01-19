@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     latinverb (0.9.5)
-      linguistics_latin
+      linguistics_latin (~> 0.0.2)
       macronconversions
       multi_json (~> 1.8)
       rake
@@ -20,13 +20,13 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     interception (0.3)
-    linguistics_latin (0.0.1)
+    linguistics_latin (0.0.2)
     macronconversions (0.0.1)
-    metaclass (0.0.1)
+    metaclass (0.0.2)
     method_source (0.8.2)
-    mocha (0.14.0)
+    mocha (1.0.0)
       metaclass (~> 0.0.1)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -37,7 +37,7 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rake (10.1.0)
+    rake (10.1.1)
     slop (3.4.7)
 
 PLATFORMS
