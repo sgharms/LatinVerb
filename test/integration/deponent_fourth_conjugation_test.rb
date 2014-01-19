@@ -1,7 +1,5 @@
 # encoding:  UTF-8
 
-require "minitest/autorun"
-
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 require 'linguistics_latin'
