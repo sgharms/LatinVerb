@@ -5,7 +5,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class LatinVerbTest < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbTest < Minitest::Test # :nodoc:
 
   def setup
     _create_paradigmatic_examples

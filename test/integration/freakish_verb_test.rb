@@ -7,7 +7,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class FreakishVerbsTest < MiniTest::Unit::TestCase # :nodoc:
+class FreakishVerbsTest < Minitest::Test # :nodoc:
   def test_present_only?
     v =  Linguistics::Latin::Verb::LatinVerb.new 'maerō maēre maīvī maestum'
     assert v.present_only?, "Must be present_only: was #{v.classification}"

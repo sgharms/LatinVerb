@@ -6,7 +6,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class DeponentFourthConjugationTest < MiniTest::Unit::TestCase # :nodoc:
+class DeponentFourthConjugationTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'partior partīrī partītum'
   end
