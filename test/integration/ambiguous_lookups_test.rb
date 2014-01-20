@@ -4,7 +4,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class AmbiguousLookupsTest < MiniTest::Unit::TestCase # :nodoc:
+class AmbiguousLookupsTest < Minitest::Test # :nodoc:
   def setup
      @aFourth = Linguistics::Latin::Verb::LatinVerb.new 'audiō audīre audīvī auditum'
   end

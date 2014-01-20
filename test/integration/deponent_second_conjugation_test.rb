@@ -6,7 +6,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class DeponentSecondConjugationTest < MiniTest::Unit::TestCase # :nodoc:
+class DeponentSecondConjugationTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'vereor verērī veritum'
   end

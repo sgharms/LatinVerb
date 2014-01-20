@@ -5,7 +5,7 @@ require 'latinverb'
 
 # Internal dependencies
 
-class MacronRulesTest < MiniTest::Unit::TestCase # :nodoc:
+class MacronRulesTest < Minitest::Test # :nodoc:
   def test_basic
     aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
 
