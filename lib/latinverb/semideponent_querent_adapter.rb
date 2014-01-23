@@ -38,7 +38,7 @@ module Linguistics
             @verb = verb
             @wrapped_querent = wrapped_querent
             @proxyVerb = LatinVerb.new(proxy_string, :proxy_verb => true)
-            @added_vectorized_method = []
+            @added_vectorized_methods = []
 
             add_tense_methods!
             hide_unused_passive_tenses!

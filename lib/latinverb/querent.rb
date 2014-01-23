@@ -46,7 +46,7 @@ module Linguistics
 
           def initialize(verb)
             @verb = verb
-            @added_vectorized_method = []
+            @added_vectorized_methods = []
 
             add_tense_methods!
           end
