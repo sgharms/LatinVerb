@@ -54,7 +54,7 @@ module Linguistics
 
           def initialize(deserialized_structure)
             @structure = OpenStruct.new(deserialized_structure)
-            @added_vectorized_method = []
+            @added_vectorized_methods = []
 
             add_tense_methods!
           end
@@ -70,7 +70,7 @@ module Linguistics
           def tense_blocks
             @tense_blocks ||= OpenStruct.new(@structure["tense_blocks"])
           end
-            
+
           def deserialized_tense_block_accessor(block_name)
             serialized_tense_block = tense_blocks.send(block_name)["data"]
             opts = {:meaning => MEANINGS[block_name.to_sym]}

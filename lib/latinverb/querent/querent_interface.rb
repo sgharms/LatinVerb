@@ -50,7 +50,7 @@ module Linguistics
 
             def defined_tense_methods
               Linguistics::Latin::Verb::LatinVerb::TENSE_BLOCK_NAMES +
-                Array(@added_vectorized_method)
+                Array(@added_vectorized_methods)
             end
 
             protected
@@ -60,7 +60,7 @@ module Linguistics
             end
 
             def register_methods!(tense_method_definitions)
-              tense_method_definitions.each{ |definition| @added_vectorized_method += definition.instance_methods }
+              tense_method_definitions.each{ |definition| @added_vectorized_methods += definition.instance_methods }
             end
           end
         end

@@ -7,8 +7,6 @@ lib/latinverb.rb:103:	# TODO:  Fix Latinverb library definition for eo and queo 
   # to handle their fudness  Changes are local, change gemfile to use them and
   # then push and update the gem
 
-lib/latinverb/querent.rb:61:             tense_block_methods + Array(@added_vectorized_method) # TODO:  shouldn't this be plural?
-
 lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # TODO: bad name, not right....
   # The names aren't quite right here...this should be something like regular
   # verbs querent factory
