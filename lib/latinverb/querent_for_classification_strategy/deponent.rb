@@ -18,7 +18,7 @@ module Linguistics
 
               def prepare_deponent_proxy!
                 @querent.extend Forwardable
-                @querent.instance_variable_set(:@deponentProxy, LatinVerb.new(proxy_string))
+                @querent.instance_variable_set(:@deponentProxy, LatinVerb.new(proxy_string, :proxy_verb => true))
               end
 
               def reroute_active_calls_to_proxys_passives!

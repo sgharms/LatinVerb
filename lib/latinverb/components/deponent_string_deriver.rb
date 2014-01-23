@@ -69,9 +69,6 @@ module Linguistics
             parts[3] ||= ""
             parts[3].sub!( /us$/, 'um' )
 
-            # This value shouldn't be used
-            parts[2] = "PreventDeponentInfiniteRegress"
-
             parts.join(' ')
           end
         end

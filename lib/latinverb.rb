@@ -45,7 +45,7 @@ module Linguistics
         extend Forwardable
 
         def_delegators :@validator, :valid?
-        def_delegators :@classifier, :classification, :irregular?, :present_only?, :regular?, :set_as_defective, :short_class, :deponent?, :semideponent?
+        def_delegators :@classifier, :classification, :irregular?, :present_only?, :regular?, :set_as_defective, :short_class, :deponent?, :semideponent?, :proxy_verb?
         def_delegators :@prin_parts_extractor, :first_person_perfect, :first_person_perfect, :first_person_singular, :passive_perfect_participle, :present_active_infinitive, :present_active_infinitive, :principal_parts
         def_delegators :@participler, :supine, :future_active_participle, :future_passive_participle, :gerund, :gerundive, :perfect_passive_participle, :present_active_participle, :perfect_active_participle, :participle_methods
         def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive, :infinitive_methods
@@ -58,9 +58,10 @@ module Linguistics
         def_delegator :@classifier, :dup, :classified_as
         def_delegator :@type_evaluator, :type, :verb_type
 
-        attr_reader :original_string, :verb_methods, :classifier, :querent
+        attr_reader :original_string, :verb_methods, :classifier, :querent, :options
 
-        def initialize(data)
+        def initialize(data, options={})
+          @options = options
           classify(data)
           build_lookup_components!
           build_validator!
@@ -79,7 +80,7 @@ module Linguistics
 
         def classify(data)
           @original_string = (data['original_string'] || data)
-          @classifier = LatinVerbClassifier.new(@original_string)
+          @classifier = LatinVerbClassifier.new(self)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
           @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)

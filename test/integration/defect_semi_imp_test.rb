@@ -11,7 +11,7 @@ class DefectSemiImpTest < Minitest::Test # :nodoc:
       Linguistics::Latin::Verb::LatinVerb.new("audeō audēre ausus sum").classification
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
-      Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gavisus sum ").classification
+      Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gavisus sum").classification
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("soleō solēre solitus sum").classification
