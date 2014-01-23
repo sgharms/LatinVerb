@@ -13,10 +13,14 @@ module Linguistics
     module Verb
       class LatinVerb
         class LatinVerbClassifier
-          attr_reader :classification, :input
+          extend Forwardable
 
-          def initialize(input, opts={})
-            @input = input
+          attr_reader :classification, :input
+          def_delegators :@verb, :is_proxy_verb?
+
+          def initialize(verb, opts={})
+            @verb = verb
+            @input = verb.original_string
             @strategies = opts[:strategies] || default_strategies
           end
 
@@ -25,6 +29,10 @@ module Linguistics
               strategy.new(self).applicable?
             end
             applicable_strategy.classification
+          end
+
+          def proxy_verb?
+            !!@verb.options[:proxy_verb]
           end
 
           def present_only?

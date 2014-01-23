@@ -9,7 +9,7 @@ module Linguistics
 
           def initialize(verb)
             super
-            @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string)
+            @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string, :proxy_verb => true)
           end
 
           def imperatives

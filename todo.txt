@@ -1,6 +1,3 @@
-* remove the infinite regress FUD
-  #  Use some sort of logic or polymorphism here please!
-
 lib/latinverb.rb:7:require 'latinverb/components' # TODO:  components and components again later, need differentiating names
   # components is really overloaded in this app.  it's not clear what is a
   # component and what isn't.  rename to clarify

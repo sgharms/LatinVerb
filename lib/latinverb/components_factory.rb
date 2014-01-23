@@ -24,7 +24,7 @@ module Linguistics
           end
 
           def deponent_components
-            @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string)
+            @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string, :proxy_verb => true)
             [ DeponentInfinitivizer.new(@verb), DeponentImperativesHandler.new(@verb), DeponentParticipler.new(@verb) ]
           end
 

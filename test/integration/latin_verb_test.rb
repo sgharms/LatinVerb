@@ -124,7 +124,8 @@ class LatinVerbTest < Minitest::Test # :nodoc:
   # Test the classifications
   def test_classifications
     @verb_hash_utf8_style.each_pair do |k,v|
-      c  = Linguistics::Latin::Verb::LatinVerb::LatinVerbClassifier.new(v)
+      verb_stub = OpenStruct.new(:original_string => v)
+      c  = Linguistics::Latin::Verb::LatinVerb::LatinVerbClassifier.new(verb_stub)
       cf = c.classification
       assert_equal cf, @verb_hash_classifications[k]
     end

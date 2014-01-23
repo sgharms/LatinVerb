@@ -37,7 +37,7 @@ module Linguistics
           def initialize(verb, wrapped_querent)
             @verb = verb
             @wrapped_querent = wrapped_querent
-            @proxyVerb = LatinVerb.new(proxy_string)
+            @proxyVerb = LatinVerb.new(proxy_string, :proxy_verb => true)
             @added_vectorized_method = []
 
             add_tense_methods!
