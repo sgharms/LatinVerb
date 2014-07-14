@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("macronconversions")
   s.add_runtime_dependency("linguistics_latin", "~>0.0.2")
   s.add_runtime_dependency("latinverb_classifier", "1.0.0.pre.1")
+  s.add_runtime_dependency("latinverb_principal_parts_extractor")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")

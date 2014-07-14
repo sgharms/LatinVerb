@@ -3,6 +3,7 @@ PATH
   specs:
     latinverb (0.9.5)
       latinverb_classifier (= 1.0.0.pre.1)
+      latinverb_principal_parts_extractor
       linguistics_latin (~> 0.0.2)
       macronconversions
       multi_json (~> 1.8)
@@ -23,6 +24,7 @@ GEM
     interception (0.5)
     latinverb_classifier (1.0.0.pre.1)
       linguistics_latin (~> 0.0.2)
+    latinverb_principal_parts_extractor (0.0.1)
     linguistics_latin (0.0.2)
     macronconversions (0.0.1)
     method_source (0.8.2)
