@@ -24,7 +24,7 @@ module Linguistics
 
           def present_only?
             classification == Linguistics::Latin::Verb::Classification::PresentOnly ||
-              (classification == Linguistics::Latin::Verb::Classification::Irregular && VeryIrregularVerbClassificationStrategy.new(self).applicable?)
+              extremely_irregular?
           end
 
           def deponent?
@@ -64,6 +64,11 @@ module Linguistics
               DeponentVerbClassificationStrategy,
               RegularVerbClassificationStrategy
             ]
+          end
+
+          def extremely_irregular?
+            classification == Linguistics::Latin::Verb::Classification::Irregular &&
+              VeryIrregularVerbClassificationStrategy.new(self).applicable?
           end
         end
       end
