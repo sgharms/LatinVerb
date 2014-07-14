@@ -41,7 +41,7 @@ module Linguistics
         def classify(data)
           @original_string = (data['original_string'] || data)
           @classifier = Classifier.new(self)
-          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
+          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string)
           @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
         end

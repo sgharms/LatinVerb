@@ -3,9 +3,8 @@ module Linguistics
     module Verb
       class LatinVerb
         class LatinVerbPrincipalPartsExtractor
-          def initialize(input_string, classification)
+          def initialize(input_string)
             @data_string = input_string
-            @classification = classification
           end
 
           def principal_parts
