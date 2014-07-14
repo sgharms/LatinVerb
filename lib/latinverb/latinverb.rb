@@ -27,8 +27,8 @@ module Linguistics
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
           @stem_deriver = StemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
+          @validator = Validator.new(self)
           build_lookup_components!
-          build_validator!
           apply_chart_capabilities!
         end
 
@@ -50,10 +50,6 @@ module Linguistics
 
         def apply_chart_capabilities!
           @chart_presenter = ChartPresenter.new(self)
-        end
-
-        def build_validator!
-          @validator = Validator.new(self)
         end
 
         def delegate_verb_method_calls_to_delegate!
