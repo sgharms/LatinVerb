@@ -4,8 +4,6 @@ module Linguistics
       class LatinVerb
         class LatinVerbClassifier
           extend Forwardable
-          def_delegators :@verb, :is_proxy_verb?
-
           def initialize(verb, opts={})
             @verb, @opts = verb, opts
           end
