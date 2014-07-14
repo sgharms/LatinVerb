@@ -22,8 +22,7 @@ module Linguistics
           end
 
           def has_stem?
-            return true if @verb.irregular?
-            !@verb.stem.nil?
+            @verb.irregular? || !@verb.stem.nil?
           end
         end
       end
