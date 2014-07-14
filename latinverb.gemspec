@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("latinverb_principal_parts_extractor")
   s.add_runtime_dependency("latinverb_deponent_string_deriver")
   s.add_runtime_dependency("latinverb_stem_deriver")
+  s.add_runtime_dependency("latinverb_type_evaluator")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")

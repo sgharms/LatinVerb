@@ -25,7 +25,7 @@ module Linguistics
           @classifier = Classifier.new(self)
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
           @stem_deriver = StemDeriver.new(self)
-          @type_evaluator = LatinVerbTypeEvaluator.new(self)
+          @type_evaluator = TypeEvaluator.new(self)
           @validator = Validator.new(self)
           build_lookup_components!
         end

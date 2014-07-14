@@ -7,6 +7,7 @@ require 'linguistics_latin'
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
+require 'latinverb_type_evaluator'
 
 require 'latinverb/latinverb'
 require 'latinverb/errors'
