@@ -10,7 +10,6 @@ require 'latinverb_stem_deriver'
 
 require 'latinverb/latinverb'
 require 'latinverb/errors'
-require 'latinverb/components/chart_presenter'
 require 'latinverb/components/deponent_string_deriver'
 require 'latinverb/components/infinitivizer'
 require 'latinverb/components/deponent_infinitivizer'

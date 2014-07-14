@@ -366,11 +366,6 @@ class LatinVerbFirstConjTest < Minitest::Test # :nodoc:
     assert @aFirst.active_voice_indicative_mood_present_tense.meaning
   end
 
-  def test_chart
-    assert @aFirst.respond_to? :chart, "Should respond to chart method"
-    assert @aFirst.respond_to? :c, "Should respond to c alias to chart method"
-  end
-
   def test_chart_infinitives
     #assert_equal @aFirst.c, nil
   end
