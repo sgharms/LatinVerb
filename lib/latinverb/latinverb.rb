@@ -22,8 +22,8 @@ module Linguistics
         def initialize(data, options={})
           @options = options
           @original_string = (data['original_string'] || data)
-          @classifier = Classifier.new(self)
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
+          @classifier = Classifier.new(self)
           @stem_deriver = StemDeriver.new(self)
           @type_evaluator = TypeEvaluator.new(self)
           @validator = Validator.new(self)
