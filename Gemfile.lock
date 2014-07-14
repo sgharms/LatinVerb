@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     latinverb (0.9.5)
-      linguistics_latin
+      latinverb_classifier (= 1.0.0.pre.1)
+      linguistics_latin (~> 0.0.2)
       macronconversions
       multi_json (~> 1.8)
       rake
@@ -12,31 +13,32 @@ GEM
   specs:
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    byebug (2.5.0)
-      columnize (~> 0.3.6)
-      debugger-linecache (~> 1.2.0)
+    byebug (3.1.2)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
     coderay (1.1.0)
-    columnize (0.3.6)
+    columnize (0.8.9)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    interception (0.3)
-    linguistics_latin (0.0.1)
+    interception (0.5)
+    latinverb_classifier (1.0.0.pre.1)
+      linguistics_latin (~> 0.0.2)
+    linguistics_latin (0.0.2)
     macronconversions (0.0.1)
     method_source (0.8.2)
-    minitest (4.7.5)
-    multi_json (1.8.2)
-    pry (0.9.12.4)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
+    multi_json (1.10.1)
+    pry (0.10.0)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rescue (1.2.0)
-      interception (>= 0.3)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
       pry
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rake (10.1.0)
-    slop (3.4.7)
+    rake (10.3.2)
+    slop (3.5.0)
 
 PLATFORMS
   ruby
