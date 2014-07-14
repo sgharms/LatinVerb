@@ -1,10 +1,5 @@
 # encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-# Internal dependencies
-
 class DataStructuresTest < Minitest::Test # :nodoc:
   def setup
     @aFirstDS = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'

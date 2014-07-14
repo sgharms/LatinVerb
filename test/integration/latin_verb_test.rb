@@ -1,9 +1,4 @@
 # encoding: UTF-8
-require 'macronconversions'
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
 
 class LatinVerbTest < Minitest::Test # :nodoc:
 

@@ -1,11 +1,5 @@
 # encoding:  UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
-
 class DeponentSecondConjugationTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'vereor verērī veritum'

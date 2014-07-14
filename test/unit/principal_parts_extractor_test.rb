@@ -1,5 +1,4 @@
 #encoding: UTF-8
-require 'latinverb'
 
 class PrincipalPartsExtractorTest < Minitest::Test
   def setup

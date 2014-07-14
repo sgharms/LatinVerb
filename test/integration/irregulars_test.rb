@@ -1,13 +1,5 @@
 #encoding:  UTF-8
 
-require 'json'
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
-
 class IrregularsTest< Minitest::Test # :nodoc:
   def test_to_give
     v =  Linguistics::Latin::Verb::LatinVerb.new 'dō dāre dedī datum'

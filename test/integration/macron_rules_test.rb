@@ -1,10 +1,5 @@
 # encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-# Internal dependencies
-
 class MacronRulesTest < Minitest::Test # :nodoc:
   def test_basic
     aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
