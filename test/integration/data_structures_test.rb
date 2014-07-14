@@ -20,6 +20,6 @@ class DataStructuresTest < Minitest::Test # :nodoc:
   end
 
   def test_json
-    assert @aFirstDS.pretty_generate
+    assert_respond_to(@aFirstDS, :to_json)
   end
 end

@@ -29,10 +29,6 @@ module Linguistics
             return json_hash.to_json(*a)
           end
         end
-
-        def pretty_generate
-          JSON.pretty_generate(self.to_h)
-        end
       end
     end
   end
