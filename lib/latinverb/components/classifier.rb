@@ -48,7 +48,7 @@ module Linguistics
           end
 
           def short_class
-            classification.to_s.gsub(/.*::(\w+)$/,"\\1")
+            classification.to_s.split('::').last
           end
 
           private
