@@ -4,18 +4,18 @@ module Linguistics
       class LatinVerb
         class LatinVerbClassifier
           extend Forwardable
-
-          attr_reader :classification, :input
           def_delegators :@verb, :is_proxy_verb?
 
           def initialize(verb, opts={})
-            @verb = verb
-            @input = verb.original_string
-            @strategies = opts[:strategies] || default_strategies
+            @verb, @opts = verb, opts
           end
 
           def classification
-            @strategies.detect { |s| s.new(self).applicable? }.classification
+            @c ||= strategies.detect { |s| s.new(self).applicable? }.classification
+          end
+
+          def input
+            @input ||= @verb.original_string
           end
 
           def proxy_verb?
@@ -52,6 +52,10 @@ module Linguistics
           end
 
           private
+
+          def strategies
+            @strategies ||= (@opts[:strategies] || default_strategies)
+          end
 
           def default_strategies
             [
