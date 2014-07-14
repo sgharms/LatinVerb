@@ -15,3 +15,7 @@ lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # T
   # Is this just a semideponent querent?
 
 * generally remove weird names, look at the tree and get everything sensible!
+
+
+* The macronconversion tests inside latinverb should be split out into a
+  separate gem
