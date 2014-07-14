@@ -11,7 +11,6 @@ require 'latinverb_type_evaluator'
 
 require 'latinverb/latinverb'
 require 'latinverb/errors'
-require 'latinverb/components/deponent_string_deriver'
 require 'latinverb/components/infinitivizer'
 require 'latinverb/components/deponent_infinitivizer'
 require 'latinverb/components/type_evaluator'
