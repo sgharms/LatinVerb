@@ -1,5 +1,3 @@
-require_relative './passive_infinitive_factory'
-
 module Linguistics
   module Latin
     module Verb

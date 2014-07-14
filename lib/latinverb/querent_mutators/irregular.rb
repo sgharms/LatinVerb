@@ -1,6 +1,4 @@
 #encoding: UTF-8
-require_relative 'irregular/json_deserializer'
-require_relative 'irregular/supine_inferrer'
 
 module Linguistics
   module Latin

@@ -1,5 +1,3 @@
-require 'latinverb/components/present_only_checker'
-
 module Linguistics
   module Latin
     module Verb

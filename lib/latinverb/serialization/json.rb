@@ -1,5 +1,3 @@
-require 'json'
-
 module Linguistics
   module Latin
     module Verb

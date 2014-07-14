@@ -1,5 +1,3 @@
-require 'latinverb/irregular_verb_serialization_retriever'
-
 module Linguistics
   module Latin
     module Verb

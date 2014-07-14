@@ -1,6 +1,3 @@
-require_relative './tense_block/vector_resolution_delegate'
-require_relative './tense_block/null_tense_block'
-
 module Linguistics
   module Latin
     module Verb

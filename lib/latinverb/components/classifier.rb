@@ -1,13 +1,3 @@
-require_relative 'classifier/strategies/verb_classification_strategy'
-require_relative 'classifier/strategies/defective_verb_classification_strategy'
-require_relative 'classifier/strategies/irregular_verb_classification_strategy'
-require_relative 'classifier/strategies/semideponent_verb_classification_strategy'
-require_relative 'classifier/strategies/impersonal_verb_classification_strategy'
-require_relative 'classifier/strategies/very_irregular_verb_classification_strategy'
-require_relative 'classifier/strategies/deponent_verb_classification_strategy'
-require_relative 'classifier/strategies/present_only_verb_classification_strategy'
-require_relative 'classifier/strategies/regular_verb_classification_strategy'
-
 module Linguistics
   module Latin
     module Verb
