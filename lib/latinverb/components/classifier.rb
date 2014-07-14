@@ -15,10 +15,7 @@ module Linguistics
           end
 
           def classification
-            applicable_strategy = @strategies.detect do |strategy|
-              strategy.new(self).applicable?
-            end
-            applicable_strategy.classification
+            @strategies.detect { |s| s.new(self).applicable? }.classification
           end
 
           def proxy_verb?
