@@ -26,7 +26,7 @@ module Linguistics
           @classifier = Classifier.new(self)
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
           @stem_deriver = StemDeriver.new(self)
-          classify(data)
+          @type_evaluator = LatinVerbTypeEvaluator.new(self)
           build_lookup_components!
           build_validator!
           apply_chart_capabilities!
@@ -41,10 +41,6 @@ module Linguistics
         end
 
         private
-
-        def classify(data)
-          @type_evaluator = LatinVerbTypeEvaluator.new(self)
-        end
 
         def build_lookup_components!
           @querent = QuerentForClassificationBuilder.new(self).querent
