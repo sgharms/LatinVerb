@@ -51,27 +51,27 @@ module Linguistics
 
           private
 
-          def strategies
-            @strategies ||= (@opts[:strategies] || default_strategies)
-          end
+            def strategies
+              @strategies ||= (@opts[:strategies] || default_strategies)
+            end
 
-          def default_strategies
-            [
-              DefectiveVerbClassificationStrategy,
-              IrregularVerbClassificationStrategy,
-              SemideponentVerbClassificationStrategy,
-              ImpersonalVerbClassificationStrategy,
-              VeryIrregularVerbClassificationStrategy,
-              PresentonlyVerbClassificationStrategy,
-              DeponentVerbClassificationStrategy,
-              RegularVerbClassificationStrategy
-            ]
-          end
+            def default_strategies
+              [
+                DefectiveVerbClassificationStrategy,
+                IrregularVerbClassificationStrategy,
+                SemideponentVerbClassificationStrategy,
+                ImpersonalVerbClassificationStrategy,
+                VeryIrregularVerbClassificationStrategy,
+                PresentonlyVerbClassificationStrategy,
+                DeponentVerbClassificationStrategy,
+                RegularVerbClassificationStrategy
+              ]
+            end
 
-          def extremely_irregular?
-            classification == Linguistics::Latin::Verb::Classification::Irregular &&
-              VeryIrregularVerbClassificationStrategy.new(self).applicable?
-          end
+            def extremely_irregular?
+              classification == Linguistics::Latin::Verb::Classification::Irregular &&
+                VeryIrregularVerbClassificationStrategy.new(self).applicable?
+            end
         end
       end
     end
