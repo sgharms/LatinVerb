@@ -25,6 +25,7 @@ module Linguistics
           @original_string = (data['original_string'] || data)
           @classifier = Classifier.new(self)
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
+          @stem_deriver = StemDeriver.new(self)
           classify(data)
           build_lookup_components!
           build_validator!
@@ -42,7 +43,6 @@ module Linguistics
         private
 
         def classify(data)
-          @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
         end
 

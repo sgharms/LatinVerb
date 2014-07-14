@@ -23,7 +23,7 @@ class PrincipalPartsExtractorTest < Minitest::Test
       a = v.split( /\s+/ )
       stub_classifier = OpenStruct.new( deponent?: false, semideponent?: false, impersonal?: false, regular?: true)
       stub_verb = OpenStruct.new( classifier: stub_classifier, present_active_infinitive: a[1], first_person_singular: a[0] )
-      result = Linguistics::Latin::Verb::LatinVerb::LatinverbStemDeriver.new(stub_verb).participial_stem
+      result = Linguistics::Latin::Verb::LatinVerb::StemDeriver.new(stub_verb).participial_stem
       assert_equal(@verb_hash_participial_stems[k], result, "Should have extracted #{@verb_hash_participial_stems[k]} for #{v}")
     end
   end

@@ -3,8 +3,10 @@ require 'json'
 require 'yaml'
 
 require 'linguistics_latin'
+
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
+require 'latinverb_stem_deriver'
 
 require 'latinverb/latinverb'
 require 'latinverb/errors'
@@ -18,7 +20,6 @@ require 'latinverb/components/deponent_participler'
 require 'latinverb/components/validator'
 require 'latinverb/components/imperatives_handler'
 require 'latinverb/components/deponent_imperatives_handler'
-require 'latinverb/components/stem_deriver'
 require 'latinverb/components/present_only_checker'
 require 'latinverb/components/passive_infinitive_factory'
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
