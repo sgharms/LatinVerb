@@ -20,7 +20,8 @@ module Linguistics
           end
 
           def components_for_irregular
-            IrregularComponentsBuilder.new(@verb).components
+            builder = QuerentMutators::Irregular.new(@verb.original_string, @verb.passive_perfect_participle)
+            [ builder.infinitivizer, builder.imperative_handler, builder.participler ]
           end
 
           def deponent_components
