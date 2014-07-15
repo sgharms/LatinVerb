@@ -10,15 +10,14 @@ module Linguistics
             @verb = verb
           end
 
-
-            def component
-              return irregular if irregular?
-              if deponent? || semideponent?
-                deponent
-              else
-                standard
-              end
+          def component
+            return irregular if irregular?
+            if deponent? || semideponent?
+              deponent
+            else
+              standard
             end
+          end
 
           alias :infinitives :component
           alias :imperatives :component
