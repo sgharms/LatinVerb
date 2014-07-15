@@ -29,7 +29,7 @@ require 'latinverb/components/participler'
 require 'latinverb/components/deponent_participler'
 require 'latinverb/components/imperatives_handler'
 require 'latinverb/components/deponent_imperatives_handler'
-require 'latinverb/components/present_only_checker'
+
 require 'latinverb/components/passive_infinitive_factory'
 ## /WIP
 
