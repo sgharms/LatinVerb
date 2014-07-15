@@ -19,7 +19,7 @@ module Linguistics
 
         attr_reader :original_string, :verb_methods, :classifier, :querent, :options
 
-        def initialize(data, options={})
+        def initialize(data, options = {})
           @options = options
           @original_string = (data['original_string'] || data)
           @prin_parts_extractor = PrincipalPartsExtractor.new(@original_string)
