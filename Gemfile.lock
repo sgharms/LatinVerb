@@ -4,6 +4,7 @@ PATH
     latinverb (0.9.5)
       latinverb_classifier (= 1.0.0.pre.1)
       latinverb_deponent_string_deriver
+      latinverb_imperative_block
       latinverb_principal_parts_extractor
       latinverb_stem_deriver
       latinverb_type_evaluator
@@ -28,6 +29,8 @@ GEM
     latinverb_classifier (1.0.0.pre.1)
       linguistics_latin (~> 0.0.2)
     latinverb_deponent_string_deriver (1.0.0.pre.1)
+    latinverb_imperative_block (0.0.1)
+      linguistics_latin (~> 0.0.2)
     latinverb_principal_parts_extractor (0.0.1)
     latinverb_stem_deriver (0.0.1)
       latinverb_deponent_string_deriver
