@@ -27,16 +27,15 @@ module Linguistics
           @stem_deriver = StemDeriver.new(self)
           @type_evaluator = TypeEvaluator.new(self)
           @validator = Validator.new(self)
-          build_lookup_components!
+          @querent = QuerentForClassificationBuilder.new(self).querent
+          @infinitivizer = InfinitivesFactory.new(self).component
+          @imperative_handler = ImperativesFactory.new(self).component
+          @participler = ParticiplesFactory.new(self).component
+
+          delegate_verb_method_calls_to_delegate!
         end
 
         private
-
-        def build_lookup_components!
-          @querent = QuerentForClassificationBuilder.new(self).querent
-          @infinitivizer, @imperative_handler, @participler = InfinitivesImperativesParticiplesCalculator.new(self).components
-          delegate_verb_method_calls_to_delegate!
-        end
 
         def delegate_verb_method_calls_to_delegate!
           self.extend Forwardable

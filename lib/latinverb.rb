@@ -13,7 +13,6 @@ require 'latinverb/version'
 require 'latinverb/latinverb'
 require 'latinverb/errors'
 
-require 'latinverb/infinitives_imperatives_participles_calculator'
 require 'latinverb/components/infinitivizer'
 require 'latinverb/components/deponent_infinitivizer'
 require 'latinverb/components/type_evaluator'
@@ -24,6 +23,13 @@ require 'latinverb/components/imperatives_handler'
 require 'latinverb/components/deponent_imperatives_handler'
 require 'latinverb/components/present_only_checker'
 require 'latinverb/components/passive_infinitive_factory'
+
+require 'latinverb/abstract_cluster_factory'
+require 'latinverb/imperatives_factory'
+require 'latinverb/infinitves_factory'
+require 'latinverb/participles_factory'
+
+
 
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
