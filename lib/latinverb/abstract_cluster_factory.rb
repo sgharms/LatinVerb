@@ -19,6 +19,10 @@ module Linguistics
                 standard
               end
             end
+
+          alias :infinitives :component
+          alias :imperatives :component
+          alias :participles :component
         end
       end
     end

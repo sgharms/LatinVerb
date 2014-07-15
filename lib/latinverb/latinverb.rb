@@ -15,9 +15,9 @@ module Linguistics
           @type_evaluator = TypeEvaluator.new(self)
           @validator = Validator.new(self)
           @querent = QuerentForClassificationBuilder.new(self).querent
-          @infinitivizer = InfinitivesFactory.new(self).component
-          @imperative_handler = ImperativesFactory.new(self).component
-          @participler = ParticiplesFactory.new(self).component
+          @infinitivizer = InfinitivesFactory.new(self).infinitives
+          @imperative_handler = ImperativesFactory.new(self).imperatives
+          @participler = ParticiplesFactory.new(self).participles
 
           delegate_verb_method_calls_to_delegate!
         end
