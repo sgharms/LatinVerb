@@ -11,7 +11,7 @@ module Linguistics
           end
 
           def components
-            return components_for_irregular if irregular?
+            return irregular_components if irregular?
             if deponent? || semideponent?
               deponent_components
             else
@@ -19,7 +19,7 @@ module Linguistics
             end
           end
 
-          def components_for_irregular
+          def irregular_components
             builder = QuerentMutators::Irregular.new(@verb.original_string, @verb.passive_perfect_participle)
             [ builder.infinitivizer, builder.imperative_handler, builder.participler ]
           end
