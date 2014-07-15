@@ -34,7 +34,7 @@ module Linguistics
 
         def build_lookup_components!
           @querent = QuerentForClassificationBuilder.new(self).querent
-          @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
+          @infinitivizer, @imperative_handler, @participler = InfinitivesImperativesParticiplesCalculator.new(self).components
           delegate_verb_method_calls_to_delegate!
         end
 

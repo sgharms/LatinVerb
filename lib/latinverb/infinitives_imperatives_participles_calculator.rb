@@ -2,7 +2,7 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        class ComponentsFactory
+        class InfinitivesImperativesParticiplesCalculator
           extend Forwardable
           def_delegators :@verb, :irregular?, :deponent?, :semideponent?, :original_string
 
