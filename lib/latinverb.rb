@@ -24,6 +24,7 @@ require 'latinverb/abstract_cluster_factory'
 
 require 'latinverb/imperatives_factory'
 require 'latinverb/components/imperatives_handler'
+require 'latinverb/components/irregular_imperatives_handler'
 require 'latinverb/components/deponent_imperatives_handler'
 require 'latinverb/imperative_block'
 

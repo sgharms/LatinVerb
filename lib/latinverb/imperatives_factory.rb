@@ -5,7 +5,7 @@ module Linguistics
         class ImperativesFactory < AbstractClusterFactory
 
           def irregular
-            QuerentMutators::Irregular.new(@verb.original_string, @verb.passive_perfect_participle).imperative_handler
+            IrregularImperativesHandler.new(@verb)
           end
 
           def deponent
