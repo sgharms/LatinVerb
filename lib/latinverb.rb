@@ -3,6 +3,7 @@ require 'json'
 require 'yaml'
 
 require 'linguistics_latin'
+require 'linguistics_latin_tense_block'
 
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
@@ -36,7 +37,6 @@ require 'latinverb/components/passive_infinitive_factory'
 
 
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
-require 'latinverb/tense_block'
 require 'latinverb/imperative_block'
 require 'latinverb/querent/first/tense_method_definitions/active_voice_indicative_mood_future_tense_methods'
 require 'latinverb/querent/first/tense_method_definitions/active_voice_indicative_mood_imperfect_tense_methods'
@@ -127,7 +127,6 @@ require 'latinverb/querent/impersonal'
 require 'latinverb/querent_factory'
 require 'latinverb/querent_mutators/irregular'
 require 'latinverb/querent_mutators/semideponent'
-require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/querent_for_classification_strategy/irregular'
 require 'latinverb/querent_for_classification_strategy/regular'
 require 'latinverb/querent_for_classification_strategy/present_only'
@@ -154,9 +153,6 @@ require 'latinverb/irregular_verb_serialization_retriever'
 require 'latinverb/querent_mutators/irregular/json_deserializer'
 require 'latinverb/querent_mutators/irregular/supine_inferrer.rb'
 require 'latinverb/querent/querent_interface'
-require 'latinverb/tense_block/vector_resolution_delegate'
-require 'latinverb/tense_block/null_tense_block'
-require 'latinverb/paradigmatic_verbs'
 
 module Linguistics
   module Latin
