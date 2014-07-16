@@ -36,6 +36,7 @@ require 'latinverb/components/passive_infinitive_factory'
 
 require 'latinverb/participles_factory'
 require 'latinverb/components/participler'
+require 'latinverb/components/irregular_participles_handler'
 require 'latinverb/components/deponent_participler'
 
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
