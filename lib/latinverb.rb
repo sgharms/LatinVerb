@@ -30,6 +30,7 @@ require 'latinverb/imperative_block'
 
 require 'latinverb/infinitves_factory'
 require 'latinverb/components/infinitivizer'
+require 'latinverb/components/irregular_infinitives_handler'
 require 'latinverb/components/deponent_infinitivizer'
 require 'latinverb/components/passive_infinitive_factory'
 

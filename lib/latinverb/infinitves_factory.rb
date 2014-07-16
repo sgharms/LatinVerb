@@ -3,9 +3,8 @@ module Linguistics
     module Verb
       class LatinVerb
         class InfinitivesFactory < AbstractClusterFactory
-
           def irregular
-            QuerentMutators::Irregular.new(@verb.original_string, @verb.passive_perfect_participle).infinitivizer
+            IrregularInfinitivesHandler.new(@verb)
           end
 
           def deponent
