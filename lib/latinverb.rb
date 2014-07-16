@@ -154,11 +154,5 @@ require 'latinverb/querent_mutators/irregular/json_deserializer'
 require 'latinverb/querent_mutators/irregular/supine_inferrer.rb'
 require 'latinverb/querent/querent_interface'
 
-module Linguistics
-  module Latin
-    module Verb
-      class LatinVerb
-      end
-    end
-  end
-end
+# Require me last
+require 'latinverb/paradigmatic_verbs'
