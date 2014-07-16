@@ -20,5 +20,3 @@ module Linguistics
     end
   end
 end
-
-
