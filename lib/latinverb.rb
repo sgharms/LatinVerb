@@ -19,7 +19,6 @@ require 'latinverb/components/validator'
 
 require 'latinverb/latinverb'
 
-## WIP
 require 'latinverb/abstract_cluster_factory'
 require 'latinverb/imperatives_factory'
 require 'latinverb/infinitves_factory'
@@ -33,7 +32,6 @@ require 'latinverb/components/imperatives_handler'
 require 'latinverb/components/deponent_imperatives_handler'
 
 require 'latinverb/components/passive_infinitive_factory'
-## /WIP
 
 
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
