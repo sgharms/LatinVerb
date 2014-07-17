@@ -77,7 +77,7 @@ module Linguistics
         end
 
         def apply_tenses!
-          TenseMethodApplicator.new(self)
+          @tense_method_applicator = TenseMethodApplicator.new(self)
         end
       end
     end
