@@ -1,5 +1,3 @@
-require_relative './impersonal_verb_mixin'
-
 module Linguistics
   module Latin
     module Verb
