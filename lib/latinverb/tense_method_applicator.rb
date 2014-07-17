@@ -19,14 +19,26 @@ module Linguistics
             add_methods!
           end
 
+          def querent
+            @querent ||= load_query_object!
+          end
+
           private
 
           def add_methods!
             load_tense_methods_unvarying_with_verb_type!
             load_tense_methods_based_on_verb_type!
+
+            load_query_object!
+
             include_classification_specific_mixins!
             mutate_defectives!
             add_number_and_person_methods_to_tense_block!
+          end
+
+
+          def load_query_object!
+            QuerentFactory.new(@verb).querent
           end
 
           def load_tense_methods_unvarying_with_verb_type!
