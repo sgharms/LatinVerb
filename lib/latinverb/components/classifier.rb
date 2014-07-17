@@ -28,7 +28,8 @@ module Linguistics
           end
 
           def present_only?
-            classification == Linguistics::Latin::Verb::Classification::PresentOnly
+            classification == Linguistics::Latin::Verb::Classification::PresentOnly ||
+              (classification == Linguistics::Latin::Verb::Classification::Irregular && VeryIrregularVerbClassificationStrategy.new(self).applicable?)
           end
 
           def deponent?
