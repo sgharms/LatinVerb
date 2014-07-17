@@ -10,7 +10,6 @@ require 'latinverb/imperative_block'
 require 'latinverb/serialization'
 require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
-require 'latinverb/tense_method_applicator'
 require 'latinverb/querent'
 require 'latinverb/querent/first'
 require 'latinverb/querent/second'
@@ -19,6 +18,14 @@ require 'latinverb/querent/third_io'
 require 'latinverb/querent/fourth'
 require 'latinverb/querent/irregular'
 require 'latinverb/querent_factory'
+require 'latinverb/querent_mutators/deponent'
+require 'latinverb/querent_mutators/invariant'
+require 'latinverb/querent_mutators/irregular'
+require 'latinverb/querent_mutators/semideponent'
+require 'latinverb/querent_tense_methods_vectorizer'
+require 'latinverb/mutator_for_classification_factory_for_querent'
+require 'latinverb/tense_block/null_tense_block'
+require 'latinverb/perfect_tense_remover'
 
 
 module Linguistics
@@ -74,12 +81,26 @@ module Linguistics
             QuerentTenseMethodsVectorizer.new(self).add_vector_methods!
           else
             @querent = QuerentFactory.new(self).querent
-            @tense_method_applicator = TenseMethodApplicator.new(self)
+            mutate_defectives_on_querent!
+            add_classification_specific_behavior_to_querent!
+            add_number_and_person_methods_to_tense_block_on_querent!
             delegate_verb_method_calls_to_delegate!
             @infinitivizer = Infinitivizer.new(self)
             @imperative_handler = ImperativesHandler.new(self)
           end
           @participler = Participler.new(self)
+        end
+
+        def add_classification_specific_behavior_to_querent!
+          MutatorForClassificationFactoryForQuerent.new(self, @querent).mutator.mutate!
+        end
+
+        def mutate_defectives_on_querent!
+          QuerentPerfectTenseRemover.new(@querent).remove! if DefectiveChecker.new(self).defective?
+        end
+
+        def add_number_and_person_methods_to_tense_block_on_querent!
+          QuerentTenseMethodsVectorizer.new(@querent).add_vector_methods!
         end
 
         def apply_chart_capabilities!
