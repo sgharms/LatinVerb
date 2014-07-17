@@ -11,6 +11,8 @@ require 'latinverb/serialization'
 require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
 require 'latinverb/tense_method_applicator'
+require 'latinverb/querent'
+
 
 module Linguistics
   module Latin
