@@ -4,7 +4,12 @@ module Linguistics
       class LatinVerb
         class IrregularInfinitivesHandler
           def self.new(verb)
-            QuerentMutators::Irregular.new(verb.original_string, verb.passive_perfect_participle).infinitivizer
+            structure =
+              JSON.parse(Linguistics::Latin::Verb::LatinVerb::IrregularVerbSerializationRetriever.new(verb.original_string).serialized_verb)
+            raw = structure["tense_blocks"]
+            source = raw["active_voice_imperative_mood_present_tense"] || raw["active voice_imperative_mood_present_tense"]
+            raw = source["data"]
+            OpenStruct.new(structure['infinitives']['data'].merge(:participle_methods => structure['participles']['data'].keys))
           end
         end
       end

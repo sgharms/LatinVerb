@@ -17,6 +17,7 @@ require 'latinverb_querent_for_classification_builder'
 
 # LatinVerb collaborator classes
 require 'latinverb/version'
+require 'latinverb/supine_inferrer'
 require 'latinverb/serialization/json'
 require 'latinverb/serialization/yaml'
 require 'latinverb/serialization/hash'
