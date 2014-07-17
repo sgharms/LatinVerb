@@ -369,7 +369,7 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "amatus, amata, amatum esse", a.perfect_passive_infinitive
   end
 
-  def test_meaning # :nodoc:
+  def test_meaning
     assert @aFirst.active_voice_indicative_mood_present_tense.meaning
   end
 
