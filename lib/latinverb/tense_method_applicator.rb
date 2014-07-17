@@ -5,7 +5,6 @@ require_relative './tense_method_applicator/deponent_string_deriver'
 require_relative './tense_method_applicator/perfect_tense_remover'
 require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_classification_factory_for_querent'
-require_relative './tense_method_applicator/mutator_for_verb_type'
 require_relative './tense_method_applicator/tense_methods_vectorizer'
 require_relative './tense_method_applicator/querent_tense_methods_vectorizer'
 
