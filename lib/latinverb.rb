@@ -23,14 +23,16 @@ require 'latinverb/errors'
 require 'latinverb/components/validator'
 require 'latinverb/tenses'
 
+# Extract me
+require 'latinverb/imperative_block'
+
 # LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
 
 require 'latinverb/imperatives_factory'
-require 'latinverb/components/imperatives_handler'
-require 'latinverb/components/irregular_imperatives_handler'
-require 'latinverb/components/deponent_imperatives_handler'
-require 'latinverb/imperative_block'
+require 'latinverb/imperatives_factory/imperatives_handler'
+require 'latinverb/imperatives_factory/irregular_imperatives_handler'
+require 'latinverb/imperatives_factory/deponent_imperatives_handler'
 
 require 'latinverb/infinitves_factory'
 require 'latinverb/components/infinitivizer'
