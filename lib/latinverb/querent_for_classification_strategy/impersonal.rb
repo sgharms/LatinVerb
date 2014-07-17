@@ -17,7 +17,7 @@ module Linguistics
               private
 
               def unvectorized_querent
-                IrregularQuerent.new(@verb)
+                ImpersonalQuerent.new(@verb)
               end
             end
           end
