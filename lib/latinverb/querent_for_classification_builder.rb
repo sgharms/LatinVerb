@@ -10,7 +10,7 @@ module Linguistics
       class LatinVerb
         class QuerentForClassificationBuilder
           extend Forwardable
-          def_delegators :@verb, :short_class, :irregular?, :deponent?, :regular?, :original_string, :passive_perfect_participle
+          def_delegators :@verb, :short_class
 
           MAPPING = {
             Regular: QuerentForClassificationStrategy::Regular,
