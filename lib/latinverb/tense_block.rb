@@ -8,7 +8,7 @@ module Linguistics
         include Linguistics::Latin::Phonographia
 
         extend Forwardable
-        def_delegators :@results, :[], :empty?, :length, :to_a
+        def_delegators :@results, :[], :empty?, :length, :to_a, :each
         def_delegators :@resolver, :first_person_singular_number,
           :singular_number_first_person, :second_person_singular_number,
           :singular_number_second_person, :third_person_singular_number,

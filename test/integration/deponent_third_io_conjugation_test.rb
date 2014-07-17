@@ -60,5 +60,10 @@ class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc:
     assert_equal 'passū',  @aDep.supine[:ablative]
   end
 
+  def test_querent
+    assert @aDep.querent, "Should find to a querent object"
+    assert_equal 6,  @aDep.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "patior", @aDep.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
 
 end

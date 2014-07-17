@@ -33,7 +33,7 @@ module Linguistics
           end
 
           def present_passive_infinitive
-            PassiveInfinitiveVactory.new(@verb).passive_infinitive
+            PassiveInfinitiveFactory.new(@verb).passive_infinitive
           end
 
           def perfect_passive_infinitive

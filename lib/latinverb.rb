@@ -5,12 +5,30 @@ require 'linguistics_latin'
 
 require 'latinverb/errors'
 require 'latinverb/components'
+require 'latinverb/defective_checker'
+require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
 require 'latinverb/imperative_block'
 require 'latinverb/serialization'
 require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
-require 'latinverb/tense_method_applicator'
+require 'latinverb/querent'
+require 'latinverb/querent/first'
+require 'latinverb/querent/second'
+require 'latinverb/querent/third'
+require 'latinverb/querent/third_io'
+require 'latinverb/querent/fourth'
+require 'latinverb/querent/irregular'
+require 'latinverb/querent_factory'
+require 'latinverb/querent_mutators/deponent'
+require 'latinverb/querent_mutators/irregular'
+require 'latinverb/querent_mutators/semideponent'
+require 'latinverb/querent_tense_methods_vectorizer'
+require 'latinverb/tense_block/null_tense_block'
+require 'latinverb/perfect_tense_remover'
+require 'latinverb/querent_for_classification_builder'
+require 'latinverb/irregular_components_builder'
+
 
 module Linguistics
   module Latin
@@ -32,13 +50,12 @@ module Linguistics
         def_delegator :@classifier, :dup, :classified_as
         def_delegator :@type_evaluator, :type, :verb_type
 
-        attr_reader :original_string, :verb_methods, :classifier
+        attr_reader :original_string, :verb_methods, :classifier, :querent
 
         def initialize(data)
           classify(data)
-          build_validator
-          apply_parts_of_speech!
-          apply_tenses!
+          build_lookup_components!
+          build_validator!
           apply_chart_capabilities!
         end
 
@@ -56,26 +73,29 @@ module Linguistics
           @original_string = (data['original_string'] || data)
           @classifier = LatinVerbClassifier.new(@original_string)
           @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-        end
-
-        def build_validator
-          @validator = Validator.new(self)
-        end
-
-        def apply_parts_of_speech!
           @stem_deriver = LatinverbStemDeriver.new(self)
           @type_evaluator = LatinVerbTypeEvaluator.new(self)
-          @participler = Participler.new(self)
-          @infinitivizer = Infinitivizer.new(self)
-          @imperative_handler = ImperativesHandler.new(self)
+        end
+
+        def build_lookup_components!
+          @querent = QuerentForClassificationBuilder.new(self).querent
+          @infinitivizer, @imperative_handler, @participler = irregular? ? components_for_irregular : components
         end
 
         def apply_chart_capabilities!
           @chart_presenter = ChartPresenter.new(self)
         end
 
-        def apply_tenses!
-          TenseMethodApplicator.new(self)
+        def build_validator!
+          @validator = Validator.new(self)
+        end
+
+        def components_for_irregular
+          IrregularComponentsBuilder.new(self).components
+        end
+
+        def components
+          [ Infinitivizer.new(self), ImperativesHandler.new(self), Participler.new(self) ]
         end
       end
     end

@@ -3,7 +3,7 @@ module Linguistics
     module Verb
       class LatinVerb
         class Infinitivizer
-          class PassiveInfinitiveVactory
+          class PassiveInfinitiveFactory
             extend Forwardable
             def_delegators :@verb, :present_active_infinitive, :verb_type
 
