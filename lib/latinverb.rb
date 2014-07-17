@@ -4,7 +4,7 @@ require 'forwardable'
 require 'linguistics_latin'
 
 require 'latinverb/errors'
-require 'latinverb/components'
+require 'latinverb/components' # TODO:  components and components again later, need differentiating names
 require 'latinverb/defective_checker'
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 require 'latinverb/tense_block'
