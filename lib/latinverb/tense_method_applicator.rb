@@ -1,3 +1,5 @@
+require_relative './tense_method_applicator/querent'
+require_relative './tense_method_applicator/querent_factory'
 require_relative './tense_method_applicator/defective_checker'
 require_relative './tense_method_applicator/deponent_string_deriver'
 require_relative './tense_method_applicator/perfect_tense_remover'
@@ -5,6 +7,7 @@ require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_verb_type'
 require_relative './tense_method_applicator/tense_methods_vectorizer'
+require_relative './tense_method_applicator/querent_tense_methods_vectorizer'
 
 module Linguistics
   module Latin
@@ -19,14 +22,28 @@ module Linguistics
             add_methods!
           end
 
+          def querent
+            @querent ||= load_query_object!
+          end
+
           private
 
           def add_methods!
             load_tense_methods_unvarying_with_verb_type!
             load_tense_methods_based_on_verb_type!
+
+            load_query_object!
+
             include_classification_specific_mixins!
             mutate_defectives!
             add_number_and_person_methods_to_tense_block!
+            add_number_and_person_methods_to_tense_block_on_querent!# TODO on querent
+
+          end
+
+
+          def load_query_object!
+            QuerentFactory.new(@verb).querent
           end
 
           def load_tense_methods_unvarying_with_verb_type!
@@ -47,6 +64,10 @@ module Linguistics
 
           def add_number_and_person_methods_to_tense_block!
             TenseMethodsVectorizer.new(@verb).add_vector_methods!
+          end
+
+          def add_number_and_person_methods_to_tense_block_on_querent!
+            QuerentTenseMethodsVectorizer.new(querent).add_vector_methods!
           end
         end
       end
