@@ -8,7 +8,8 @@ module Linguistics
               extend Forwardable
               def initialize(verb)
                 super
-                return QuerentMutators::Deponent.new(@verb, @querent).mutate!
+                @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string)
+                QuerentMutators::Deponent.new(@verb, @querent).mutate!
               end
             end
           end
