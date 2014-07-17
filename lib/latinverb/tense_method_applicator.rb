@@ -1,4 +1,3 @@
-require_relative './tense_method_applicator/querent'
 require_relative './tense_method_applicator/querent_factory'
 require_relative './tense_method_applicator/defective_checker'
 require_relative './tense_method_applicator/deponent_string_deriver'
