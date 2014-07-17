@@ -20,7 +20,7 @@ module Linguistics
 
               def build_tense_blocks!
                 @structure['tense_blocks'].each_pair do |tense_block_name, serialized_tense_block|
-                  @verb.querent.singleton_class.class_eval do
+                  @verb.singleton_class.class_eval do
                     define_method tense_block_name.to_sym do
                       TenseBlock.new serialized_tense_block["data"], { :meaning => MEANINGS[tense_block_name.to_sym] }
                     end

@@ -69,11 +69,17 @@ module Linguistics
         end
 
         def build_lookup_delegates!
-          @querent = QuerentFactory.new(self).querent
-          @tense_method_applicator = TenseMethodApplicator.new(self)
+          if irregular?
+            Mutators::Irregular.new(self).mutate!
+            QuerentTenseMethodsVectorizer.new(self).add_vector_methods!
+          else
+            @querent = QuerentFactory.new(self).querent
+            @tense_method_applicator = TenseMethodApplicator.new(self)
+            delegate_verb_method_calls_to_delegate!
+            @infinitivizer = Infinitivizer.new(self)
+            @imperative_handler = ImperativesHandler.new(self)
+          end
           @participler = Participler.new(self)
-          @infinitivizer = Infinitivizer.new(self)
-          @imperative_handler = ImperativesHandler.new(self)
         end
 
         def apply_chart_capabilities!
@@ -83,6 +89,15 @@ module Linguistics
         def build_validator!
           @validator = Validator.new(self)
         end
+
+
+        def delegate_verb_method_calls_to_delegate!
+          self.extend Forwardable
+          @querent.methods.grep(/\w+voice\w+mood\w+tense/).each do | sym |  # TODO goes on querent...
+            self.def_delegator "@querent", sym.to_s
+          end
+        end
+
       end
     end
   end

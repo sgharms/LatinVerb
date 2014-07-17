@@ -24,8 +24,8 @@ module Linguistics
               json_hash[k] = self.send k.to_sym
             end
             json_hash['tense_list' ]  = {}
-            methods.grep(/tense\z/).each do |t|
-              json_hash['tense_list'][t.to_s] = self.send t.to_sym
+            querent.methods.grep(/tense\z/).each do |t|
+              json_hash['tense_list'][t.to_s] = self.querent.send t.to_sym
             end
             json_hash['irregular']    = irregular?
             return json_hash.to_json(*a)
