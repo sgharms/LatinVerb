@@ -12,7 +12,6 @@ require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
 require 'latinverb_type_evaluator'
-#require 'latinverb_imperative_block'
 require 'latinverb_querent_for_classification_builder'
 
 # LatinVerb collaborator classes
