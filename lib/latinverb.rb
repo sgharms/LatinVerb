@@ -27,6 +27,7 @@ require 'latinverb/querent_tense_methods_vectorizer'
 require 'latinverb/mutator_for_classification_factory_for_querent'
 require 'latinverb/tense_block/null_tense_block'
 require 'latinverb/perfect_tense_remover'
+require 'latinverb/querent_builder'
 
 
 module Linguistics
