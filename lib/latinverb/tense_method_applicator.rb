@@ -20,6 +20,7 @@ module Linguistics
           def initialize(verb)
             @verb = verb
             add_methods!
+            frobnicate_the_querent!
           end
 
           def querent
@@ -35,16 +36,17 @@ module Linguistics
             load_query_object!
 
             include_classification_specific_mixins!
-            add_classification_specific_behavior_to_querent! # TODO:  Probably should go on querent
 
             mutate_defectives!
-            mutate_defectives_on_querent! # TODO on querent
 
             add_number_and_person_methods_to_tense_block!
-            add_number_and_person_methods_to_tense_block_on_querent!# TODO on querent
-
           end
 
+          def frobnicate_the_querent!
+            add_classification_specific_behavior_to_querent! # TODO:  Probably should go on querent
+            mutate_defectives_on_querent! # TODO on querent
+            add_number_and_person_methods_to_tense_block_on_querent!# TODO on querent
+          end
 
           def load_query_object!
             QuerentFactory.new(@verb).querent
