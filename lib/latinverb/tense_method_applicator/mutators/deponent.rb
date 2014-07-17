@@ -1,21 +1,10 @@
 module Linguistics
+
   module Latin
     module Verb
       class LatinVerb
         module Mutators
           class Deponent
-          # In a bit of cleverness, if the verb is deponent, we have built out
-          # this verb as if it were regular, but we have also created a
-          # @proxyVerb which is the active 'pseudo verb' corresponding to this
-          # verb.  We should be able to take this verb's active formulations
-          # and set their results to the @proxyVerb's passive formulations
-          #
-          # Ergo:  miror/mirari/miratus =~
-          # miro/mirare/PreventDeponentInfiniteRegress/miratus Therefore make a
-          # LatinVerb.new(miro/mirare/PreventDeponentInfiniteRegress/miratus).
-          # Take its passives and set them to this verb's actives.  This is
-          # actually what students do heuristically in Latin classes.
-
           include Linguistics::Latin::Phonographia
 
             def initialize(verb, opts={})
