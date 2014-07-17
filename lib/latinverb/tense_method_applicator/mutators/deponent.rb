@@ -1,8 +1,3 @@
-require_relative './deponent/tense_block_mutator'
-require_relative './deponent/imperative_mutator'
-require_relative './deponent/participle_mutator'
-require_relative './deponent/infinitive_mutator'
-
 module Linguistics
   module Latin
     module Verb
