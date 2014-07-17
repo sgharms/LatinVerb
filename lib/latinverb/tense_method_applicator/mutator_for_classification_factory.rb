@@ -1,10 +1,6 @@
-require_relative './mutator_for_verb_type'
 require_relative './mutators/deponent'
-require_relative './mutators/impersonal'
 require_relative './mutators/invariant'
 require_relative './mutators/irregular'
-require_relative './mutators/present_only'
-require_relative './mutators/regular'
 require_relative './mutators/semideponent'
 
 module Linguistics
@@ -13,13 +9,13 @@ module Linguistics
       class LatinVerb
         class TenseMethodApplicator
           class MutatorForClassificationFactory
+            extend Forwardable
+            def_delegators :@classification, :short_name_key
+
             MAPPING = {
-              Impersonal: Mutators::Impersonal,
-              PresentOnly: Mutators::PresentOnly,
               Irregular: Mutators::Irregular,
               Deponent: Mutators::Deponent,
               Semideponent: Mutators::Semideponent,
-              Regular: Mutators::Regular
             }
 
             def initialize(verb)
@@ -28,7 +24,8 @@ module Linguistics
             end
 
             def mutator
-              MAPPING[@classification.short_name_key].new(@verb)
+              return MAPPING[short_name_key].new(@verb) if MAPPING.has_key?(short_name_key)
+              OpenStruct.new( mutate!: -> {} )
             end
           end
         end

@@ -32,9 +32,7 @@ module Linguistics
         def_delegator :@classifier, :dup, :classified_as
         def_delegator :@type_evaluator, :type, :verb_type
 
-        def_delegators :@tense_method_applicator, :querent
-
-        attr_reader :original_string, :verb_methods, :classifier
+        attr_reader :original_string, :verb_methods, :classifier, :querent
 
         def initialize(data)
           classify(data)
