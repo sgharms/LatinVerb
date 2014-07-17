@@ -95,25 +95,19 @@ module Linguistics
 
         def delegate_verb_method_calls_to_delegate!
           self.extend Forwardable
-          # TODO: I'd like to take this grep thing away...we should get rid of greps...
-          type =  @querent.class.to_s.split('::').last
-          if type =~ /(Irreg)/
-            @querent.defined_tense_methods.each do |sym|
-            begin
-              self.def_delegator "@querent", sym.to_s
-            rescue NoMethodError => e
-              puts e.class
-            end
-            end
-          else
-            @querent.defined_tense_methods.each do |sym|
-              self.def_delegator "@querent", sym.to_s
-            end
+          @querent.defined_tense_methods.each do |sym|
+	    self.def_delegator "@querent", handle_bug_in_vectorization!(sym)
           end
         end
+
+	# TODO:  Fix Latinverb library definition for eo and queo so that it
+	# doesn't pass these vectors with spaces
+	def handle_bug_in_vectorization!(vector_name)
+	  vector_name.to_s.gsub(/\s+/, '')
+	end
       end
     end
   end
 end
 
-#require 'latinverb/paradigmatic_verbs'
+require 'latinverb/paradigmatic_verbs'
