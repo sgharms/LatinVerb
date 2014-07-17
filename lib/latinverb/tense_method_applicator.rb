@@ -1,4 +1,3 @@
-require_relative './tense_method_applicator/querent_factory'
 require_relative './tense_method_applicator/defective_checker'
 require_relative './tense_method_applicator/deponent_string_deriver'
 require_relative './tense_method_applicator/perfect_tense_remover'
@@ -13,16 +12,11 @@ module Linguistics
       class LatinVerb
         class TenseMethodApplicator
           extend Forwardable
-          def_delegators :@verb, :classified_as
+          def_delegators :@verb, :classified_as, :querent
 
           def initialize(verb)
             @verb = verb
-            load_query_object!
             frobnicate_the_querent!
-          end
-
-          def querent
-            @querent ||= load_query_object!
           end
 
           private
@@ -30,11 +24,9 @@ module Linguistics
           def frobnicate_the_querent!
             # TODO:  These probably should go on querent
             mutate_defectives_on_querent!
-            @verb.instance_variable_set :@querent, querent
             @verb.extend Forwardable
-            include_classification_specific_mixins!
+            irregular_frobnicate! if @verb.irregular?
             add_classification_specific_behavior_to_querent!
-            mutate_defectives!
             add_number_and_person_methods_to_tense_block_on_querent!
             delegate_verb_method_calls_to_delegate!
           end
@@ -44,11 +36,6 @@ module Linguistics
               @verb.def_delegator "@querent", sym.to_s
             end
           end
-
-          def load_query_object!
-            QuerentFactory.new(@verb).querent
-          end
-
           def load_tense_methods_unvarying_with_verb_type!
             Mutators::Invariant.new(@verb)
           end
@@ -57,18 +44,12 @@ module Linguistics
             MutatorForVerbType.new(@verb).mutate!
           end
 
-          def include_classification_specific_mixins! # TODO:  keep along these lines, classification-based alterations
-            MutatorForClassificationFactory.new(@verb).mutator.mutate!
+          def irregular_frobnicate!
+             Mutators::Irregular.new(@verb).mutate!
           end
 
-          def add_classification_specific_behavior_to_querent! #TODO:  make this for boltin functions onto the querent
-            # but wait, shouldn't those be the same, isn't the goal to put all this work on the querent?
-            # why do we have two of these.  shouldn't we be mutating a querent and not the verb......
+          def add_classification_specific_behavior_to_querent!
             MutatorForClassificationFactoryForQuerent.new(@verb, querent).mutator.mutate!
-          end
-
-          def mutate_defectives!
-            PerfectTenseRemover.new(@verb).remove! if DefectiveChecker.new(@verb).defective?
           end
 
           def mutate_defectives_on_querent!
