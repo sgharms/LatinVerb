@@ -6,6 +6,15 @@ require_relative './tense_method_applicator/mutator_for_classification_factory_f
 require_relative './tense_method_applicator/tense_methods_vectorizer'
 require_relative './tense_method_applicator/querent_tense_methods_vectorizer'
 
+require_relative './tense_method_applicator/mutators/irregular'
+require_relative './tense_method_applicator/mutators/irregular/json_deserializer'
+require_relative './tense_method_applicator/mutators/irregular/infinitives_builder'
+require_relative './tense_method_applicator/mutators/irregular/participles_builder'
+require_relative './tense_method_applicator/mutators/irregular/present_only_irregular_mask'
+require_relative './tense_method_applicator/mutators/irregular/infinitives_builder'
+require_relative './tense_method_applicator/mutators/irregular/participles_builder'
+
+
 module Linguistics
   module Latin
     module Verb
