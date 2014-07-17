@@ -7,6 +7,7 @@ require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_verb_type'
 require_relative './tense_method_applicator/tense_methods_vectorizer'
+require_relative './tense_method_applicator/querent_tense_methods_vectorizer'
 
 module Linguistics
   module Latin
@@ -36,6 +37,8 @@ module Linguistics
             include_classification_specific_mixins!
             mutate_defectives!
             add_number_and_person_methods_to_tense_block!
+            add_number_and_person_methods_to_tense_block_on_querent!# TODO on querent
+
           end
 
 
@@ -61,6 +64,10 @@ module Linguistics
 
           def add_number_and_person_methods_to_tense_block!
             TenseMethodsVectorizer.new(@verb).add_vector_methods!
+          end
+
+          def add_number_and_person_methods_to_tense_block_on_querent!
+            QuerentTenseMethodsVectorizer.new(querent).add_vector_methods!
           end
         end
       end
