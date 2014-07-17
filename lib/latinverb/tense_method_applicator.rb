@@ -38,6 +38,8 @@ module Linguistics
             add_classification_specific_behavior_to_querent! # TODO:  Probably should go on querent
 
             mutate_defectives!
+            mutate_defectives_on_querent! # TODO on querent
+
             add_number_and_person_methods_to_tense_block!
             add_number_and_person_methods_to_tense_block_on_querent!# TODO on querent
 
@@ -65,7 +67,11 @@ module Linguistics
           end
 
           def mutate_defectives!
-           PerfectTenseRemover.new(@verb).remove! if DefectiveChecker.new(@verb).defective?
+            PerfectTenseRemover.new(@verb).remove! if DefectiveChecker.new(@verb).defective?
+          end
+
+          def mutate_defectives_on_querent!
+            QuerentPerfectTenseRemover.new(querent).remove! if DefectiveChecker.new(@verb).defective?
           end
 
           def add_number_and_person_methods_to_tense_block!
