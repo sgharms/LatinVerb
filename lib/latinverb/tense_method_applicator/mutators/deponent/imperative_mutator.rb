@@ -6,7 +6,7 @@ module Linguistics
           class Deponent
             class ImperativeMutator
               def initialize(verb, proxyVerb)
-                @verb =verb
+                @verb = verb
                 @proxyVerb = proxyVerb
                 mutate!
               end
