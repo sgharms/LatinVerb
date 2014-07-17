@@ -1,14 +1,10 @@
-require_relative './impersonal_verb_mixin'
-
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
         class ImpersonalQuerent < Querent
-          include ImpersonalVerbMixin
-
-          def initialize(*args)
-            @verb = args[0] if !args.empty?
+          def initialize(verb)
+            @verb = verb
             @added_vectorized_method = []
           end
 
