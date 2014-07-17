@@ -48,7 +48,6 @@ module Linguistics
 
         def_delegator :@classifier, :to_s, :conjugation
         def_delegator :@classifier, :dup, :classified_as
-        def_delegator :@classifier, :dup, :classified_as
         def_delegator :@type_evaluator, :type, :verb_type
 
         attr_reader :original_string, :verb_methods, :classifier, :querent
