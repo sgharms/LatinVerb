@@ -1,5 +1,3 @@
-require 'json'
-
 module Linguistics
   module Latin
     module Verb
@@ -30,10 +28,6 @@ module Linguistics
             json_hash['irregular']    = irregular?
             return json_hash.to_json(*a)
           end
-        end
-
-        def pretty_generate
-          JSON.pretty_generate(self.to_h)
         end
       end
     end

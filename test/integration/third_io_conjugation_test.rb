@@ -1,8 +1,5 @@
 # encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
 class LatinVerbThirdIOConjTest < Minitest::Test # :nodoc:
   def setup
     @aThirdIO = Linguistics::Latin::Verb::LatinVerb.new 'capiō capere cēpī captum'

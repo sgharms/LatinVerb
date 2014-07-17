@@ -1,17 +1,16 @@
-lib/latinverb.rb:7:require 'latinverb/components' # TODO:  components and components again later, need differentiating names
-  # components is really overloaded in this app.  it's not clear what is a
-  # component and what isn't.  rename to clarify
+* Remove 'wip' and other garbage from 5e28949 8d51a7e
+* Remove querentmutator::irregular -- Better name or factor out!
+* Rename the email addresses in the commits
 
-lib/latinverb.rb:103:	# TODO:  Fix Latinverb library definition for eo and queo so that it
+* lib/latinverb.rb:103:	# TODO:  Fix Latinverb library definition for eo and queo so that it
   # These were fixed, but we need to verify that they work without any guarding
   # to handle their fudness  Changes are local, change gemfile to use them and
   # then push and update the gem
+  ==> SEE 6955a9e245458b68f7b4ea8621077f121907a71f
 
-lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # TODO: bad name, not right....
+* lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # TODO: bad name, not right....
   # The names aren't quite right here...this should be something like regular
   # verbs querent factory
 
-*lib/latinverb/semideponent_querent_adapter.rb:5:        class SemideponentQuerentAdapter # TODO:  fix horrible name
+* lib/latinverb/semideponent_querent_adapter.rb:5:        class SemideponentQuerentAdapter # TODO:  fix horrible name
   # Is this just a semideponent querent?
-
-* generally remove weird names, look at the tree and get everything sensible!

@@ -1,9 +1,5 @@
 # encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-
 class DefectSemiImpTest < Minitest::Test # :nodoc:
   def test_semideponents
 

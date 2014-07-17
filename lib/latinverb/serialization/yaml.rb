@@ -1,5 +1,3 @@
-require 'yaml'
-
 module Linguistics
   module Latin
     module Verb

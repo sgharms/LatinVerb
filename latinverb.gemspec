@@ -23,6 +23,14 @@ Gem::Specification.new do |s|
   # Latinverb requirements
   s.add_runtime_dependency("macronconversions")
   s.add_runtime_dependency("linguistics_latin", "~>0.0.2")
+  s.add_runtime_dependency("linguistics_latin_tense_block")
+  s.add_runtime_dependency("latinverb_classifier", "1.0.0.pre.1")
+  s.add_runtime_dependency("latinverb_principal_parts_extractor")
+  s.add_runtime_dependency("latinverb_deponent_string_deriver")
+  s.add_runtime_dependency("latinverb_stem_deriver")
+  s.add_runtime_dependency("latinverb_type_evaluator")
+  s.add_runtime_dependency("latinverb_imperative_block")
+  s.add_runtime_dependency("latinverb_querent_for_classification_builder")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")

@@ -1,11 +1,4 @@
 #encoding:  UTF-8
-require 'json'
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
 
 class IrregularSumTest < Minitest::Test # :nodoc:
   def setup

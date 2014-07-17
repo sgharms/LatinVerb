@@ -1,10 +1,5 @@
 # encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-# Internal dependencies
-
 class LatinVerbFirstConjTest < Minitest::Test # :nodoc:
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
@@ -369,11 +364,6 @@ class LatinVerbFirstConjTest < Minitest::Test # :nodoc:
 
   def test_meaning
     assert @aFirst.active_voice_indicative_mood_present_tense.meaning
-  end
-
-  def test_chart
-    assert @aFirst.respond_to? :chart, "Should respond to chart method"
-    assert @aFirst.respond_to? :c, "Should respond to c alias to chart method"
   end
 
   def test_chart_infinitives

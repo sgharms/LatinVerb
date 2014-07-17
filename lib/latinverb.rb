@@ -1,113 +1,50 @@
 require 'forwardable'
+require 'json'
+require 'yaml'
 
+# Linguistic basics
 require 'linguistics_latin'
+require 'linguistics_latin_tense_block'
+require 'linguistics_latin_imperative_block'
 
-require 'latinverb/errors'
-require 'latinverb/components'
-require 'latinverb/formatters/triplicate_and_pluralize_formatters'
-require 'latinverb/tense_block'
-require 'latinverb/imperative_block'
-require 'latinverb/serialization'
+# LatinVerb assisting gems
+require 'latinverb_classifier'
+require 'latinverb_principal_parts_extractor'
+require 'latinverb_stem_deriver'
+require 'latinverb_type_evaluator'
+#require 'latinverb_imperative_block'
+require 'latinverb_querent_for_classification_builder'
+
+# LatinVerb collaborator classes
 require 'latinverb/version'
-require 'latinverb/querent'
-require 'latinverb/querent/first'
-require 'latinverb/querent/second'
-require 'latinverb/querent/third'
-require 'latinverb/querent/third_io'
-require 'latinverb/querent/fourth'
-require 'latinverb/querent/irregular'
-require 'latinverb/querent/impersonal'
-require 'latinverb/querent_factory'
-require 'latinverb/querent_mutators/irregular'
-require 'latinverb/querent_mutators/semideponent'
-require 'latinverb/tense_block/null_tense_block'
-require 'latinverb/querent_for_classification_strategy/irregular'
-require 'latinverb/querent_for_classification_strategy/regular'
-require 'latinverb/querent_for_classification_strategy/present_only'
-require 'latinverb/querent_for_classification_strategy/deponent'
-require 'latinverb/querent_for_classification_strategy/semideponent'
-require 'latinverb/querent_for_classification_strategy/impersonal'
-require 'latinverb/querent_for_classification_builder'
-require 'latinverb/irregular_components_builder'
-require 'latinverb/components_factory'
-require 'latinverb/semideponent_querent_adapter'
-require 'latinverb/past_and_perfect_tense_block_eclipser'
-require 'latinverb/querent/impersonal_verb_mixin'
+require 'latinverb/serialization/json'
+require 'latinverb/serialization/yaml'
+require 'latinverb/serialization/hash'
+require 'latinverb/errors'
+require 'latinverb/validator'
 require 'latinverb/tenses'
 
+# LatinVerb verbal noun, verbal adjectives, infinitives
+require 'latinverb/abstract_cluster_factory'
 
+require 'latinverb/imperatives_factory'
+require 'latinverb/imperatives_factory/imperatives_handler'
+require 'latinverb/imperatives_factory/irregular_imperatives_handler'
+require 'latinverb/imperatives_factory/deponent_imperatives_handler'
 
-module Linguistics
-  module Latin
-    module Verb
-      class LatinVerb
-        extend Forwardable
+require 'latinverb/infinitves_factory'
+require 'latinverb/infinitives_factory/infinitivizer'
+require 'latinverb/infinitives_factory/irregular_infinitives_handler'
+require 'latinverb/infinitives_factory/deponent_infinitivizer'
+require 'latinverb/infinitives_factory/passive_infinitive_factory'
 
-        def_delegators :@validator, :valid?
-        def_delegators :@classifier, :classification, :irregular?, :present_only?, :regular?, :set_as_defective, :short_class, :deponent?, :semideponent?, :proxy_verb?
-        def_delegators :@prin_parts_extractor, :first_person_perfect, :first_person_perfect, :first_person_singular, :passive_perfect_participle, :present_active_infinitive, :present_active_infinitive, :principal_parts
-        def_delegators :@participler, :supine, :future_active_participle, :future_passive_participle, :gerund, :gerundive, :perfect_passive_participle, :present_active_participle, :perfect_active_participle, :participle_methods
-        def_delegators :@infinitivizer, :future_active_infinitive, :future_passive_infinitive, :infinitives, :perfect_active_infinitive, :perfect_passive_infinitive, :present_passive_infinitive, :infinitive_methods
-        def_delegators :@stem_deriver, :stem, :participial_stem
-        def_delegators :@chart_presenter, :chart, :c
-        def_delegators :@type_evaluator, :short_type
-        def_delegator  :@imperative_handler, :imperatives
+require 'latinverb/participles_factory'
+require 'latinverb/participles_factory/participler'
+require 'latinverb/participles_factory/irregular_participles_handler'
+require 'latinverb/participles_factory/deponent_participler'
 
-        def_delegator :@classifier, :to_s, :conjugation
-        def_delegator :@classifier, :dup, :classified_as
-        def_delegator :@type_evaluator, :type, :verb_type
+# Main library
+require 'latinverb/latinverb'
 
-        attr_reader :original_string, :verb_methods, :classifier, :querent, :options
-
-        def initialize(data, options={})
-          @options = options
-          classify(data)
-          build_lookup_components!
-          build_validator!
-          apply_chart_capabilities!
-        end
-
-        def to_s
-          sprintf("%s [%s]", short_class, original_string)
-        end
-
-        def display
-          pretty_generate
-        end
-
-        private
-
-        def classify(data)
-          @original_string = (data['original_string'] || data)
-          @classifier = LatinVerbClassifier.new(self)
-          @prin_parts_extractor = LatinVerbPrincipalPartsExtractor.new(@original_string, @classifier)
-          @stem_deriver = LatinverbStemDeriver.new(self)
-          @type_evaluator = LatinVerbTypeEvaluator.new(self)
-        end
-
-        def build_lookup_components!
-          @querent = QuerentForClassificationBuilder.new(self).querent
-          @infinitivizer, @imperative_handler, @participler = ComponentsFactory.new(self).components
-          delegate_verb_method_calls_to_delegate!
-        end
-
-        def apply_chart_capabilities!
-          @chart_presenter = ChartPresenter.new(self)
-        end
-
-        def build_validator!
-          @validator = Validator.new(self)
-        end
-
-        def delegate_verb_method_calls_to_delegate!
-          self.extend Forwardable
-          @querent.defined_tense_methods.each do |sym|
-            self.def_delegator "@querent", sym
-          end
-        end
-      end
-    end
-  end
-end
-
+# Some handy constants for getting paradigmatic verbs
 require 'latinverb/paradigmatic_verbs'
