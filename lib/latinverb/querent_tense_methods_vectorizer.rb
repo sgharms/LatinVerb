@@ -8,8 +8,8 @@ class QuerentTenseMethodsVectorizer
     5 => [ :third_person_plural_number, :plural_number_third_person ]
   }
 
-  def initialize(querent)
-    @querent = querent
+  def initialize(tense_block_bearer)
+    @tense_block_bearer = tense_block_bearer
   end
 
   def add_vector_methods!
@@ -19,13 +19,13 @@ class QuerentTenseMethodsVectorizer
 
   private
   def add_by_person_and_number_methods!
-    locally_bound_querent = @querent
+    locally_bound_tense_block_bearer = @tense_block_bearer
     verb_tense_methods.each do | tense_block_method |
       FINAL_VECTORS.each_pair do | tense_block_location, accessors |
         accessors.each do | accessor |
           new_method = [tense_block_method, accessor].map(&:to_s).join('_').to_sym
-          @querent.singleton_class.instance_eval do
-            define_method new_method, Proc.new{ locally_bound_querent.send(tense_block_method)[tense_block_location] }
+          @tense_block_bearer.singleton_class.instance_eval do
+            define_method new_method, Proc.new{ locally_bound_tense_block_bearer.send(tense_block_method)[tense_block_location] }
           end
         end
       end
@@ -34,7 +34,7 @@ class QuerentTenseMethodsVectorizer
 
   def add_methods_for_aggregation_when_person_or_number_is_missing!
     verb_tense_methods.each do | tense_block_method |
-      @querent.singleton_class.class_eval do
+      @tense_block_bearer.singleton_class.class_eval do
         define_method("#{tense_block_method}_first_person", Proc.new do
           [ self.send(tense_block_method)[0],
             self.send(tense_block_method)[3] ]
@@ -68,7 +68,7 @@ class QuerentTenseMethodsVectorizer
   private
 
   def verb_tense_methods
-    @querent.methods.grep(/tense\z/)
+    @tense_block_bearer.methods.grep(/tense\z/)
   end
 end
 
