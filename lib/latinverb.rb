@@ -12,6 +12,12 @@ require 'latinverb/version'
 require 'latinverb/dynamic_method_resolver'
 require 'latinverb/tense_method_applicator'
 require 'latinverb/querent'
+require 'latinverb/querent/first'
+require 'latinverb/querent/second'
+require 'latinverb/querent/third'
+require 'latinverb/querent/third_io'
+require 'latinverb/querent/fourth'
+require 'latinverb/querent/irregular'
 require 'latinverb/querent_factory'
 
 
