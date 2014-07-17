@@ -5,6 +5,8 @@ require_relative './tense_method_applicator/mutator_for_classification_factory'
 require_relative './tense_method_applicator/mutator_for_classification_factory_for_querent'
 require_relative './tense_method_applicator/tense_methods_vectorizer'
 require_relative './tense_method_applicator/querent_tense_methods_vectorizer'
+require_relative './tense_method_applicator/mutators/deponent'
+
 
 require_relative './tense_method_applicator/mutators/irregular'
 require_relative './tense_method_applicator/mutators/irregular/json_deserializer'
