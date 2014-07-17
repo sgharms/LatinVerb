@@ -3,17 +3,8 @@ module Linguistics
     module Verb
       class LatinVerb
         class ImpersonalQuerent < Querent
-          def initialize(verb)
-            @verb = verb
-            @added_vectorized_method = []
-          end
-
-          def add_method(method_name)
-            @added_vectorized_method << method_name.to_sym
-          end
-
-          def imperatives
-            OpenStruct.new( :future => Proc.new{}, :present => Proc.new{} )
+          def tense_definitions_template
+            [IrregularQuerent::ActiveVoiceIndicativeMoodPresentTenseMethods]
           end
         end
       end

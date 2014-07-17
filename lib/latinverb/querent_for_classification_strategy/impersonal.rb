@@ -10,14 +10,7 @@ module Linguistics
               end
 
               def querent
-                @querent ||= QuerentTenseMethodsVectorizer.new(unvectorized_querent).add_vector_methods!
-                @querent.extend(ImpersonalVerbMixin)
-              end
-
-              private
-
-              def unvectorized_querent
-                ImpersonalQuerent.new(@verb)
+                ImpersonalQuerent.new(@verb).extend(ImpersonalVerbMixin)
               end
             end
           end
