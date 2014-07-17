@@ -36,7 +36,7 @@ module Linguistics
               # Bug in data source: TODO
               source = raw["active_voice_imperative_mood_present_tense"] || raw["active voice_imperative_mood_present_tense"]
               raw = source["data"]
-              OpenStruct.new( :imperatives => [raw[1], raw[4]] )
+              OpenStruct.new( :imperatives => [String(raw[1]).gsub(/\s+/,''), String(raw[4]).gsub(/\s+/,'')] )
             end
 
             def infinitivizer
