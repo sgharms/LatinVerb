@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
@@ -23,10 +24,16 @@ module Linguistics
             elsif present_active_infinitive =~ /.+īre$/
               Linguistics::Latin::Verb::VerbTypes::Fourth
             elsif (present_active_infinitive =~ /ī$/  and first_person_singular =~ /r$/)
-              LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string).verb_type
+              LatinVerb.new(DeponentStringDeriver.new(@verb.original_string).proxy_string, :proxy_verb => true).verb_type
+            # Sometimes something is not classified as irregular but has
+            # aberrations e.g. pluit.  Try to pull it from storage.
             else
               Linguistics::Latin::Verb::VerbTypes::Irregular
             end
+          end
+
+          def short_type
+            type.to_s.split('::').last.to_sym
           end
         end
       end

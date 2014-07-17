@@ -1,19 +1,17 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
+class DefectSemiImpTest < Minitest::Test # :nodoc:
   def test_semideponents
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("audeō audēre ausus sum").classification
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
-      Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gavisus sum ").classification
+      Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gavisus sum").classification
 
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent,
       Linguistics::Latin::Verb::LatinVerb.new("soleō solēre solitus sum").classification
@@ -26,8 +24,8 @@ class TestDefectSemiImp < MiniTest::Unit::TestCase # :nodoc:
       Linguistics::Latin::Verb::LatinVerb.new("confidō confidere confīsus sum").classification
   end
 
-  def test_semideponent_exhaustively #:nodoc:
-    f = Linguistics::Latin::Verb::LatinVerb.new "gaudeō gaudēre gāvīsus"
+  def test_semideponent_exhaustively
+    f = Linguistics::Latin::Verb::LatinVerb.new("gaudeō gaudēre gāvīsus")
     assert_equal Linguistics::Latin::Verb::Classification::Semideponent, f.classification
 
     assert_equal "gaudeō",       f.active_voice_indicative_mood_present_tense_first_person_singular_number

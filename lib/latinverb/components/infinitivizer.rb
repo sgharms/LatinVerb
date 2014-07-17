@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require_relative './passive_infinitive_factory'
 
 module Linguistics
@@ -23,6 +24,10 @@ module Linguistics
               :future_passive_infinitive  => future_passive_infinitive
             }
           end
+
+	  def infinitive_methods
+	    inivitives.keys
+	  end
 
           def perfect_active_infinitive
             first_person_perfect + "sse"

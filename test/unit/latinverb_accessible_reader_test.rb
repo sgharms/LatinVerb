@@ -1,10 +1,9 @@
-require "minitest/autorun"
-require "minitest/pride"
+#encoding: UTF-8
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
-class LatinVerbAccessibleReaderTest < MiniTest::Unit::TestCase
+class LatinVerbAccessibleReaderTest < Minitest::Test
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end

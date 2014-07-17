@@ -12,14 +12,8 @@ module Linguistics
 
               def initialize(verb)
                 @verb = verb
-                @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle)
-                @querent = calculate_querent!
-              end
-
-              def calculate_querent!
-                unvectorized_querent = @builder.querent
-                QuerentTenseMethodsVectorizer.new(unvectorized_querent).add_vector_methods!
-                unvectorized_querent
+                @builder = QuerentMutators::Irregular.new(original_string, passive_perfect_participle, @verb.original_string)
+                @querent = @builder.querent
               end
             end
           end

@@ -47,12 +47,12 @@ module Linguistics
                                            ], %w/Present Imperfect Perfect Past-Perfect/,f_subjunctive
             puts "\n"
             puts "Participles"
-            @verb.methods.grep(/_participle$/).each do |p|
+            @verb.participle_methods.each do |p|
               printf "%42s %42s\n", p.to_s.gsub('_', ' ').gsub(/\b\w/){$&.upcase}, @verb.send(p)
             end
             puts "\n"
             puts "Infinitives"
-            @verb.methods.grep(/infinitive$/).each do |p|
+            @verb.infinitive_methods.each do |p|
               printf "%42s %42s\n", (p.to_s.gsub('_', ' ').gsub(/\b\w/){$&.upcase}), @verb.send(p)
             end
             return nil

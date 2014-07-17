@@ -1,8 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+#encoding: UTF-8
 require 'latinverb'
 
-class PrincipalPartsExtractorTest < Minitest::Unit::TestCase
+class PrincipalPartsExtractorTest < Minitest::Test
   def setup
     @verb_hash_utf8_style = {
       :@aFirstString   => 'amō amāre amāvī amatum',

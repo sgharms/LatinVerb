@@ -6,7 +6,7 @@ module Linguistics
           module QuerentForClassificationStrategy
             class Regular
               extend Forwardable
-              def_delegators :@verb, :original_string, :passive_perfect_participle
+              def_delegators :@querent, :defined_tense_methods
 
               attr_reader :querent
 
@@ -15,14 +15,9 @@ module Linguistics
                 @querent = QuerentFactory.new(@verb).querent
 
                 post_initialize
-                add_number_and_person_methods_to_tense_block_on_querent!
               end
 
               private
-
-              def add_number_and_person_methods_to_tense_block_on_querent!
-                QuerentTenseMethodsVectorizer.new(@querent).add_vector_methods!
-              end
 
               def post_initialize
               end

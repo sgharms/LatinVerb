@@ -1,2 +1,17 @@
-* take out that duplicate declaration that i put in at the airport....two claseses one file.  Querent something mumbledy
-* applicator/querent_mutators/irregular/present_only_irregular_mask.rb 
+lib/latinverb.rb:7:require 'latinverb/components' # TODO:  components and components again later, need differentiating names
+  # components is really overloaded in this app.  it's not clear what is a
+  # component and what isn't.  rename to clarify
+
+lib/latinverb.rb:103:	# TODO:  Fix Latinverb library definition for eo and queo so that it
+  # These were fixed, but we need to verify that they work without any guarding
+  # to handle their fudness  Changes are local, change gemfile to use them and
+  # then push and update the gem
+
+lib/latinverb/querent_factory.rb:16:            Irregular: IrregularQuerent, # TODO: bad name, not right....
+  # The names aren't quite right here...this should be something like regular
+  # verbs querent factory
+
+*lib/latinverb/semideponent_querent_adapter.rb:5:        class SemideponentQuerentAdapter # TODO:  fix horrible name
+  # Is this just a semideponent querent?
+
+* generally remove weird names, look at the tree and get everything sensible!

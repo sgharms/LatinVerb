@@ -1,6 +1,4 @@
 #encoding:  UTF-8
-
-require 'minitest/autorun'
 require 'json'
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
@@ -9,7 +7,7 @@ require 'linguistics_latin'
 
 # Internal dependencies
 
-class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
+class FreakishVerbsTest < Minitest::Test # :nodoc:
   def test_present_only?
     v =  Linguistics::Latin::Verb::LatinVerb.new 'maerō maēre maīvī maestum'
     assert v.present_only?, "Must be present_only: was #{v.classification}"
@@ -38,7 +36,7 @@ class TestFreakishVerbs < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_impersonal
-    v =  Linguistics::Latin::Verb::LatinVerb.new 'pluit'
+    v = Linguistics::Latin::Verb::LatinVerb.new('pluit')
     assert_equal Linguistics::Latin::Verb::Classification::Impersonal, v.classification
     assert_equal 'pluit', v.active_voice_indicative_mood_present_tense_third_person_singular_number, "Impersonal verb must return third_person_singular_number"
   end

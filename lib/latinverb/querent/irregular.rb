@@ -1,18 +1,80 @@
+require_relative './irregular/tense_method_definitions/active_voice_imperative_mood_future_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_imperative_mood_present_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_future_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_imperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_perfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_indicative_mood_present_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_subjunctive_mood_imperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './irregular/tense_method_definitions/active_voice_subjunctive_mood_present_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_future_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_futureperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_imperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_pastperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_perfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_indicative_mood_present_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_subjunctive_mood_imperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_subjunctive_mood_pastperfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_subjunctive_mood_perfect_tense_methods'
+require_relative './irregular/tense_method_definitions/passive_voice_subjunctive_mood_present_tense_methods'
+
 module Linguistics
   module Latin
     module Verb
       class LatinVerb
         class IrregularQuerent < Querent
-          def initialize(*args) # TODO:  This is FUDness,as is the call from two sources
-            @verb = args[0] if !args.empty?
+          TENSE_METHOD_DEFINITIONS = [
+            IrregularQuerent::ActiveVoiceImperativeMoodFutureTenseMethods,
+            IrregularQuerent::ActiveVoiceImperativeMoodPresentTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodFutureTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodFutureperfectTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodImperfectTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodPastperfectTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodPerfectTenseMethods,
+            IrregularQuerent::ActiveVoiceIndicativeMoodPresentTenseMethods,
+            IrregularQuerent::ActiveVoiceSubjunctiveMoodImperfectTenseMethods,
+            IrregularQuerent::ActiveVoiceSubjunctiveMoodPastperfectTenseMethods,
+            IrregularQuerent::ActiveVoiceSubjunctiveMoodPerfectTenseMethods,
+            IrregularQuerent::ActiveVoiceSubjunctiveMoodPresentTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodFutureTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodFutureperfectTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodImperfectTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodPastperfectTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodPerfectTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            IrregularQuerent::PassiveVoiceIndicativeMoodPresentTenseMethods,
+            IrregularQuerent::PassiveVoiceSubjunctiveMoodImperfectTenseMethods,
+            IrregularQuerent::PassiveVoiceSubjunctiveMoodPastperfectTenseMethods,
+            IrregularQuerent::PassiveVoiceSubjunctiveMoodPerfectTenseMethods,
+            IrregularQuerent::PassiveVoiceSubjunctiveMoodPresentTenseMethods,
+          ]
+
+          def initialize(deserialized_structure)
+            @structure = OpenStruct.new(deserialized_structure)
+            @added_vectorized_methods = []
+
+            add_tense_methods!
           end
 
-          def active_voice_indicative_mood_present_tense
-            TenseBlock.new ["", "", @verb.original_string, "", "", ""]
+          def add_tense_methods!
+            collection = TENSE_METHOD_DEFINITIONS + tense_definitions_template
+            extend_with_tense_method_definitions!(collection)
+            register_methods!(collection)
           end
 
-          def active_voice_indicative_mood_present_tense_third_person_singular_number
-            return @verb.querent.active_voice_indicative_mood_present_tense[2]
+          private
+
+          def tense_blocks
+            @tense_blocks ||= OpenStruct.new(@structure["tense_blocks"])
+          end
+
+          def deserialized_tense_block_accessor(block_name)
+            serialized_tense_block = tense_blocks.send(block_name)["data"]
+            opts = {:meaning => MEANINGS[block_name.to_sym]}
+            TenseBlock.new(serialized_tense_block, opts)
           end
         end
       end

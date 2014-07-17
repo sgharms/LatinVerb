@@ -4,7 +4,7 @@ module Linguistics
       class LatinVerb
         class QuerentFactory
           extend Forwardable
-          def_delegators :@verb, :verb_type
+          def_delegators :@verb, :short_type
 
 
           MAPPING = {
@@ -12,8 +12,7 @@ module Linguistics
             Second: SecondQuerent,
             Third: ThirdQuerent,
             ThirdIO: ThirdIOQuerent,
-            Fourth: FourthQuerent,
-            Irregular: IrregularQuerent, # TODO: bad name, not right....
+            Fourth: FourthQuerent
           }
 
           def initialize(verb)
@@ -21,13 +20,7 @@ module Linguistics
           end
 
           def querent
-            MAPPING[short_verb_type].new(@verb) if MAPPING.has_key?(short_verb_type)
-          end
-
-          private
-
-          def short_verb_type
-            verb_type.to_s.split('::').last.to_sym
+            MAPPING[short_type].new(@verb)
           end
         end
       end

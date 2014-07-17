@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
@@ -67,9 +68,6 @@ module Linguistics
             # Another modification for third conjugation deponents
             parts[3] ||= ""
             parts[3].sub!( /us$/, 'um' )
-
-            # This value shouldn't be used
-            parts[2] = "PreventDeponentInfiniteRegress"
 
             parts.join(' ')
           end

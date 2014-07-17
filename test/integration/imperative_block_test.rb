@@ -1,13 +1,11 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 # Internal dependencies
 
-class TestImperfectBlock < MiniTest::Unit::TestCase # :nodoc:
+class ImperfectBlockTest < Minitest::Test # :nodoc:
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end

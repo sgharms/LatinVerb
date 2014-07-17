@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module Linguistics
   module Latin
     module Verb
@@ -11,6 +12,16 @@ module Linguistics
           def initialize(verb)
             @verb = verb
           end
+
+	  def participle_methods
+	    [
+	      :participle_methods,
+	      :present_active_participle,
+	      :future_active_participle,
+	      :perfect_passive_participle,
+	      :future_passive_participle
+	    ]
+	  end
 
           def present_active_participle
             raise "Participial stem was nil" if  participial_stem.nil?

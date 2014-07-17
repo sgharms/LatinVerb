@@ -1,14 +1,12 @@
 # encoding:  UTF-8
 
-require "minitest/autorun"
-
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 require 'linguistics_latin'
 
 # Internal dependencies
 
-class TestDeponent < MiniTest::Unit::TestCase # :nodoc:
+class DeponentTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'mīror mīrārī mīrātum'
   end

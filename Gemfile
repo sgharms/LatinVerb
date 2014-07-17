@@ -4,6 +4,8 @@ source "http://rubygems.org"
 gemspec
 
 group :development do
-  gem 'autotest-standalone'
+  gem 'pry'
+  gem 'pry-stack_explorer'
+  gem 'pry-rescue'
   gem 'byebug'
 end

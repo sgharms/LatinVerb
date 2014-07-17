@@ -1,12 +1,11 @@
 # encoding: UTF-8
 require 'macronconversions'
-require "minitest/autorun"
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'latinverb'
 
 
-class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbTest < Minitest::Test # :nodoc:
 
   def setup
     _create_paradigmatic_examples
@@ -125,7 +124,8 @@ class TestLatinVerb < MiniTest::Unit::TestCase # :nodoc:
   # Test the classifications
   def test_classifications
     @verb_hash_utf8_style.each_pair do |k,v|
-      c  = Linguistics::Latin::Verb::LatinVerb::LatinVerbClassifier.new(v)
+      verb_stub = OpenStruct.new(:original_string => v)
+      c  = Linguistics::Latin::Verb::LatinVerb::LatinVerbClassifier.new(verb_stub)
       cf = c.classification
       assert_equal cf, @verb_hash_classifications[k]
     end
