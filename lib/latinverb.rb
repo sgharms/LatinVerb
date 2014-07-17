@@ -43,9 +43,6 @@ require 'latinverb/components/participler'
 require 'latinverb/components/irregular_participles_handler'
 require 'latinverb/components/deponent_participler'
 
-# Utility class
-require 'latinverb/formatters/triplicate_and_pluralize_formatters'
-
 # Main library
 require 'latinverb/latinverb'
 
