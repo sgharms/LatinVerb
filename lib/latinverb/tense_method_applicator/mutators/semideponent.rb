@@ -13,7 +13,7 @@ module Linguistics
 
             def mutate!
               p = @proxyVerb
-              @verb.instance_eval do
+              @verb.querent.instance_eval do
                 @proxyVerb = p
                 def active_voice_indicative_mood_present_tense
                   return @proxyVerb.send :active_voice_indicative_mood_present_tense

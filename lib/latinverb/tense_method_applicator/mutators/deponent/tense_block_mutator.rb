@@ -33,7 +33,7 @@ module Linguistics
 
                   # In verb, find the passive and save its resultant object into a
                   # hash for future use.
-                  @verb.instance_eval do
+                  @verb.querent.instance_eval do
                     storage[active_corr.to_sym] = pV.send(pass)
                   end
                 end
@@ -41,7 +41,7 @@ module Linguistics
                 # Take the stored hashes and define instance methods on verb such
                 # that we intercept the mixed-in methods ( C-c-c-combo breaker! ).
                 storage.each_pair do |k,v|
-                  @verb.singleton_class.class_eval do
+                  @verb.querent.singleton_class.class_eval do
                     define_method k, Proc.new { return v }
                   end
                 end
