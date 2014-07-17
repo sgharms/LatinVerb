@@ -12,10 +12,6 @@ module Linguistics
               def apply!
                 return unless irregular_and_present_only?
                 @verb.instance_eval do
-                  def classification
-                    Classification::PresentOnly
-                  end
-
                   def present_only?
                     true
                   end
