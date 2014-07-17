@@ -97,12 +97,8 @@ module Linguistics
         def delegate_verb_method_calls_to_delegate!
           self.extend Forwardable
           @querent.defined_tense_methods.each do |sym|
-            self.def_delegator "@querent", handle_bug_in_vectorization!(sym)
+            self.def_delegator "@querent", sym
           end
-        end
-
-        def handle_bug_in_vectorization!(vector_name)
-          vector_name.to_s.gsub(/\s+/, '')
         end
       end
     end
