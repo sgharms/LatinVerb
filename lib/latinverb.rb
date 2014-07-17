@@ -5,13 +5,14 @@ require 'yaml'
 # Linguistic basics
 require 'linguistics_latin'
 require 'linguistics_latin_tense_block'
+require 'linguistics_latin_imperative_block'
 
 # LatinVerb assisting gems
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
 require 'latinverb_type_evaluator'
-require 'latinverb_imperative_block'
+#require 'latinverb_imperative_block'
 require 'latinverb_querent_for_classification_builder'
 
 # LatinVerb collaborator classes
@@ -22,9 +23,6 @@ require 'latinverb/serialization/hash'
 require 'latinverb/errors'
 require 'latinverb/components/validator'
 require 'latinverb/tenses'
-
-# Extract me
-require 'latinverb/imperative_block'
 
 # LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
