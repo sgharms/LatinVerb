@@ -89,14 +89,6 @@ module Linguistics
         def build_validator!
           @validator = Validator.new(self)
         end
-
-        def components_for_irregular
-          IrregularComponentsBuilder.new(self).components
-        end
-
-        def components
-          [ Infinitivizer.new(self), ImperativesHandler.new(self), Participler.new(self) ]
-        end
       end
     end
   end
