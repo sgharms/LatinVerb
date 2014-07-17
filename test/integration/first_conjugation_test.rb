@@ -381,4 +381,10 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
   def test_chart_infinitives
     #assert_equal @aFirst.c, nil
   end
+
+  def test_querent
+    assert @aFirst.querent, "Should find to a querent object"
+    assert_equal 6,  @aFirst.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "amō", @aFirst.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
 end

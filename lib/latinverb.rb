@@ -82,4 +82,4 @@ module Linguistics
   end
 end
 
-require 'latinverb/paradigmatic_verbs'
+#require 'latinverb/paradigmatic_verbs'
