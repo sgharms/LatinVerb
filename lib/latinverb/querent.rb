@@ -137,8 +137,8 @@ module Linguistics
             elements = PASS_PLUPERF_PAST_ENDINGS.map do |ending|
               count += 1
               (count <= 2 ?
-               "[ #{Mutators::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
-               "[ #{Mutators::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
+               "[ #{Formatters::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
+               "[ #{Formatters::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
             end
             meaning = { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_pastperfect_tense] }
             TenseBlock.new(elements, meaning)
@@ -149,8 +149,8 @@ module Linguistics
             elements = PASS_PERF_SUBJUNCTIVE_ENDINGS.map do |ending|
               counter += 1
               (counter <= 2 ?
-               "[ #{Mutators::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
-               "[ #{Mutators::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
+               "[ #{Formatters::TriplicateAndPluralizeFormatters.triplicate_and_genderize(passive_perfect_participle)} ]" :
+               "[ #{Formatters::TriplicateAndPluralizeFormatters.pluralize_participial_listing(passive_perfect_participle)} ]" )+ " " + ending
             end
             meaning = { :meaning => Linguistics::Latin::Verb::MEANINGS[:passive_voice_subjunctive_mood_perfect_tense] }
             TenseBlock.new(elements, meaning)
