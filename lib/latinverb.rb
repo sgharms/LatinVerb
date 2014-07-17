@@ -2,9 +2,11 @@ require 'forwardable'
 require 'json'
 require 'yaml'
 
+# Linguistic basics
 require 'linguistics_latin'
 require 'linguistics_latin_tense_block'
 
+# LatinVerb assisting gems
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
@@ -12,6 +14,7 @@ require 'latinverb_type_evaluator'
 require 'latinverb_imperative_block'
 require 'latinverb_querent_for_classification_builder'
 
+# LatinVerb collaborator classes
 require 'latinverb/version'
 require 'latinverb/serialization/json'
 require 'latinverb/serialization/yaml'
@@ -20,6 +23,7 @@ require 'latinverb/errors'
 require 'latinverb/components/validator'
 require 'latinverb/tenses'
 
+# LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
 
 require 'latinverb/imperatives_factory'
@@ -39,8 +43,11 @@ require 'latinverb/components/participler'
 require 'latinverb/components/irregular_participles_handler'
 require 'latinverb/components/deponent_participler'
 
+# Utility class
 require 'latinverb/formatters/triplicate_and_pluralize_formatters'
 
+# Main library
 require 'latinverb/latinverb'
 
+# Some handy constants for getting paradigmatic verbs
 require 'latinverb/paradigmatic_verbs'
