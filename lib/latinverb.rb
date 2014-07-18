@@ -24,6 +24,10 @@ require 'latinverb/errors'
 require 'latinverb/validator'
 require 'latinverb/tenses'
 
+require "latinverb_irregular_infinitives_retriever"
+require "latinverb_irregular_imperatives_retriever"
+require "latinverb_irregular_participles_retriever"
+
 # LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
 
