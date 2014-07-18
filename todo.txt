@@ -1,5 +1,0 @@
-* QuerentMutators::Irregular
-* IrregularQuerent
-
-* lib/latinverb/semideponent_querent_adapter.rb:5:        class SemideponentQuerentAdapter # TODO:  fix horrible name
-  # Is this just a semideponent querent?
