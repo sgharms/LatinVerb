@@ -3,6 +3,13 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
+        PARTICIPLE_METHODS = [
+          :present_active_participle,
+          :future_active_participle,
+          :perfect_passive_participle,
+          :future_passive_participle
+        ]
+
         class Participler
           include Linguistics::Latin::Phonographia
           extend Forwardable
