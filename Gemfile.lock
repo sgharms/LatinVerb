@@ -6,6 +6,7 @@ PATH
       latinverb_deponent_string_deriver
       latinverb_imperative_block
       latinverb_imperatives
+      latinverb_infinitives
       latinverb_irregular_imperatives_retriever
       latinverb_irregular_infinitives_retriever
       latinverb_irregular_participles_retriever
@@ -40,6 +41,7 @@ GEM
       linguistics_latin (~> 0.0.2)
     latinverb_imperatives (0.0.1)
       latinverb_irregular_infinitives_retriever
+    latinverb_infinitives (0.0.1)
     latinverb_irregular_imperatives_retriever (0.0.1)
     latinverb_irregular_infinitives_retriever (0.0.1)
       latinverb_irregular_verb_definition_consumer
