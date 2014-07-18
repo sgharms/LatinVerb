@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("latinverb_imperatives")
   s.add_runtime_dependency("latinverb_infinitives")
   s.add_runtime_dependency("latinverb_participles")
+  s.add_runtime_dependency("latinverb_serialization")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")
