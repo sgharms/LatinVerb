@@ -1,5 +1,4 @@
-require_relative './imperative_block/imperative_rule_factory'
-
+#encoding: UTF-8
 module Linguistics
   module Latin
     module Verb

@@ -1,16 +1,12 @@
 # encoding:  UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
-
-class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc:
+class DeponentSecondConjugationTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'vereor verērī veritum'
+  end
+
+  def test_fu
+    assert_equal 'verēris',   @aDep.active_voice_indicative_mood_present_tense_second_person_singular_number
   end
 
   def test_depo
@@ -37,8 +33,8 @@ class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc:
 
     # Imperatives
     assert_equal 'verēre',   @aDep.active_voice_imperative_mood_present_tense_second_person_singular_number
-    assert_equal 'verēminī',   @aDep.active_voice_imperative_mood_present_tense_second_person_plural_number
-    assert_equal 'verētor',   @aDep.active_voice_imperative_mood_future_tense_second_person_singular_number
+    assert_equal 'verēminī', @aDep.active_voice_imperative_mood_present_tense_second_person_plural_number
+    assert_equal 'verētor',  @aDep.active_voice_imperative_mood_future_tense_second_person_singular_number
 
     # Infinitives
 
@@ -60,5 +56,10 @@ class TestDeponentSecondConjugation < MiniTest::Unit::TestCase # :nodoc:
     assert_equal 'veritū',  @aDep.supine[:ablative]
   end
 
+  def test_querent
+    assert @aDep.querent, "Should find to a querent object"
+    assert_equal 6,  @aDep.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "vereor", @aDep.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
 
 end

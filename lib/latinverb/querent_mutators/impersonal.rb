@@ -2,8 +2,11 @@ module Linguistics
   module Latin
     module Verb
       class LatinVerb
-        module Mutators
-          class PresentOnly
+        module QuerentMutators
+          class Impersonal
+            extend Forwardable
+            def_delegators :@verb, :original_string, :querent
+
             def initialize(verb)
               @verb = verb
             end

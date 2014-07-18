@@ -1,14 +1,6 @@
 # encoding:  UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
-
-class TestDeponentThirdConjugation < MiniTest::Unit::TestCase # :nodoc:
+class DeponentThirdConjugationTest < Minitest::Test # :nodoc:
   def setup
     @aDep = Linguistics::Latin::Verb::LatinVerb.new 'sequor sequī secūtum'
   end

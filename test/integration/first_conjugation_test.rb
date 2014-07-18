@@ -1,13 +1,6 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-# Internal dependencies
-
-class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbFirstConjTest < Minitest::Test # :nodoc:
   def setup
     @aFirst = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
@@ -369,16 +362,17 @@ class TestLatinVerbFirstConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "amatus, amata, amatum esse", a.perfect_passive_infinitive
   end
 
-  def test_meaning # :nodoc:
+  def test_meaning
     assert @aFirst.active_voice_indicative_mood_present_tense.meaning
-  end
-
-  def test_chart
-    assert @aFirst.respond_to? :chart, "Should respond to chart method"
-    assert @aFirst.respond_to? :c, "Should respond to c alias to chart method"
   end
 
   def test_chart_infinitives
     #assert_equal @aFirst.c, nil
+  end
+
+  def test_querent
+    assert @aFirst.querent, "Should find to a querent object"
+    assert_equal 6,  @aFirst.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "amō", @aFirst.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
   end
 end

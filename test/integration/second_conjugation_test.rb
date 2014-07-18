@@ -1,12 +1,6 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-
-class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbSecondConjTest < Minitest::Test # :nodoc:
   def setup
     @aSecond = Linguistics::Latin::Verb::LatinVerb.new 'moneō monēre monuī monitum'
   end
@@ -185,5 +179,11 @@ class TestLatinVerbSecondConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "monērī",                        @aSecond.present_passive_infinitive
     assert_equal "monitus, monita, monitum esse", @aSecond.perfect_passive_infinitive
     assert_equal "monitum īrī",                   @aSecond.future_passive_infinitive
-   end
+  end
+
+  def test_querent
+    assert @aSecond.querent, "Should find to a querent object"
+    assert_equal 6,  @aSecond.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "moneō", @aSecond.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
+  end
 end

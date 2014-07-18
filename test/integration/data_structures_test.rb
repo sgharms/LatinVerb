@@ -1,13 +1,6 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-# Internal dependencies
-
-class TestDataStructures < MiniTest::Unit::TestCase # :nodoc:
+class DataStructuresTest < Minitest::Test # :nodoc:
   def setup
     @aFirstDS = Linguistics::Latin::Verb::LatinVerb.new 'amō amāre amāvī amatum'
   end
@@ -27,6 +20,6 @@ class TestDataStructures < MiniTest::Unit::TestCase # :nodoc:
   end
 
   def test_json
-    assert @aFirstDS.pretty_generate
+    assert_respond_to(@aFirstDS, :to_json)
   end
 end

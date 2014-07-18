@@ -1,12 +1,6 @@
 # encoding: UTF-8
 
-require "minitest/autorun"
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-
-
-class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbFourthConjTest < Minitest::Test # :nodoc:
   def setup
      @aFourth = Linguistics::Latin::Verb::LatinVerb.new 'audiō audīre audīvī auditum'
   end
@@ -185,6 +179,12 @@ class TestLatinVerbFourthConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "audīrī",                         @aFourth.present_passive_infinitive
     assert_equal "auditus, audita, auditum esse",  @aFourth.perfect_passive_infinitive
     assert_equal "auditum īrī",                    @aFourth.future_passive_infinitive
+  end
+
+  def test_querent
+    assert @aFourth.querent, "Should find to a querent object"
+    assert_equal 6,  @aFourth.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "audiō", @aFourth.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
   end
 
 end

@@ -1,15 +1,6 @@
 #encoding:  UTF-8
 
-require 'minitest/autorun'
-require 'json'
-
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'latinverb'
-require 'linguistics_latin'
-
-# Internal dependencies
-
-class TestIrregularSum < MiniTest::Unit::TestCase # :nodoc:
+class IrregularSumTest < Minitest::Test # :nodoc:
   def setup
     @toBe = Linguistics::Latin::Verb::LatinVerb.new 'sum esse fuī futūrus'
   end

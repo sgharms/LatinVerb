@@ -1,10 +1,6 @@
-require "minitest/autorun"
+#encoding: UTF-8
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. .. lib])
-require 'latinverb'
-
-
-class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
+class LatinVerbThirdConjTest < Minitest::Test # :nodoc:
   def setup
     @aThird = Linguistics::Latin::Verb::LatinVerb.new 'agō agere ēgī actum'
   end
@@ -183,6 +179,12 @@ class TestLatinVerbThirdConj < MiniTest::Unit::TestCase # :nodoc:
     assert_equal "agī",                     @aThird.present_passive_infinitive
     assert_equal "actus, acta, actum esse", @aThird.perfect_passive_infinitive
     assert_equal "actum īrī",               @aThird.future_passive_infinitive
+  end
+
+  def test_querent
+    assert @aThird.querent, "Should find to a querent object"
+    assert_equal 6,  @aThird.querent.active_voice_indicative_mood_present_tense.length
+    assert_equal "agō", @aThird.querent.active_voice_indicative_mood_present_tense_first_person_singular_number
   end
 
 end
