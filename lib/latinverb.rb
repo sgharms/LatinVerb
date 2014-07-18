@@ -25,7 +25,6 @@ require 'latinverb/version'
 require 'latinverb/serialization/json'
 require 'latinverb/serialization/yaml'
 require 'latinverb/serialization/hash'
-require 'latinverb/errors'
 require 'latinverb/validator'
 require 'latinverb/tenses'
 
