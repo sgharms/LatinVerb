@@ -23,8 +23,7 @@ require 'latinverb/version'
 require 'latinverb/validator'
 require 'latinverb/tense_block_names'
 
-# Main library
 require 'latinverb/latinverb'
 
-# Some handy constants for getting paradigmatic verbs
+# Some handy constants for paradigmatic verbs
 require 'latinverb/paradigmatic_verbs'
