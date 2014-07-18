@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("latinverb_querent_for_classification_builder")
   s.add_runtime_dependency("latinverb_irregular_verb_definition_consumer")
   s.add_runtime_dependency("latinverb_irregular_infinitives_retriever")
+  s.add_runtime_dependency("latinverb_irregular_imperatives_retriever")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")
