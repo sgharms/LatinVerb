@@ -1,7 +1,7 @@
 module Linguistics
   module Latin
     module Verb
-      VERSION = "0.9.5"
+      VERSION = "1.0.0.pre"
       class LatinVerb
       end
     end
