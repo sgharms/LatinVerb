@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["steven.harms@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/latinverb"
   s.summary     = %q{Gem designed to fully conjugate Latin verbs}
-  s.description = %q{This gem takes the four principal parts of a standard Latin verb and then fully conjugates that verb based on the heristics of the Latin language.}
+  s.description = %q{This gem takes the four principal parts of a standard Latin verb and then fully conjugates that verb based on the heuristics of the Latin language.}
   s.licenses = ["MIT"]
 
 
