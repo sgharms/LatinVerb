@@ -4,7 +4,7 @@ module Linguistics
       class LatinVerb
         class InfinitivesFactory < AbstractClusterFactory
           def irregular
-            IrregularInfinitivesHandler.new(@verb)
+            Linguistics::Latin::Verb::LatinVerb::IrregularInfinitivesRetriever.new(@verb.original_string).retrieve
           end
 
           def deponent

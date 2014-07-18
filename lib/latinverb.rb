@@ -13,6 +13,9 @@ require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
 require 'latinverb_type_evaluator'
 require 'latinverb_querent_for_classification_builder'
+require "latinverb_irregular_infinitives_retriever"
+require "latinverb_irregular_imperatives_retriever"
+require "latinverb_irregular_participles_retriever"
 
 # LatinVerb collaborator classes
 require 'latinverb/version'
@@ -24,27 +27,20 @@ require 'latinverb/errors'
 require 'latinverb/validator'
 require 'latinverb/tenses'
 
-require "latinverb_irregular_infinitives_retriever"
-require "latinverb_irregular_imperatives_retriever"
-require "latinverb_irregular_participles_retriever"
-
 # LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
 
 require 'latinverb/imperatives_factory'
 require 'latinverb/imperatives_factory/imperatives_handler'
-require 'latinverb/imperatives_factory/irregular_imperatives_handler'
 require 'latinverb/imperatives_factory/deponent_imperatives_handler'
 
 require 'latinverb/infinitves_factory'
 require 'latinverb/infinitives_factory/infinitivizer'
-require 'latinverb/infinitives_factory/irregular_infinitives_handler'
 require 'latinverb/infinitives_factory/deponent_infinitivizer'
 require 'latinverb/infinitives_factory/passive_infinitive_factory'
 
 require 'latinverb/participles_factory'
 require 'latinverb/participles_factory/participler'
-require 'latinverb/participles_factory/irregular_participles_handler'
 require 'latinverb/participles_factory/deponent_participler'
 
 # Main library

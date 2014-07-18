@@ -5,7 +5,7 @@ module Linguistics
         class ParticiplesFactory < AbstractClusterFactory
 
           def irregular
-            IrregularParticiplesHandler.new(@verb)
+            Linguistics::Latin::Verb::LatinVerb::IrregularParticiplesRetriever.new(@verb.original_string).retrieve
           end
 
           def deponent

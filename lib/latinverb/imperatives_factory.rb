@@ -5,7 +5,7 @@ module Linguistics
         class ImperativesFactory < AbstractClusterFactory
 
           def irregular
-            IrregularImperativesHandler.new(@verb)
+            Linguistics::Latin::Verb::LatinVerb::IrregularImperativesRetriever.new(@verb.original_string).retrieve
           end
 
           def deponent
