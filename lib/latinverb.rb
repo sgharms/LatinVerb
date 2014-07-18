@@ -13,9 +13,9 @@ require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
 require 'latinverb_type_evaluator'
 require 'latinverb_querent_for_classification_builder'
-require "latinverb_irregular_infinitives_retriever"
-require "latinverb_irregular_imperatives_retriever"
-require "latinverb_irregular_participles_retriever"
+require 'latinverb_irregular_infinitives_retriever'
+require 'latinverb_irregular_imperatives_retriever'
+require 'latinverb_irregular_participles_retriever'
 
 # LatinVerb collaborator classes
 require 'latinverb/version'
