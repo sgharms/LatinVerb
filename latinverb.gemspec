@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("latinverb_deponent_string_deriver")
   s.add_runtime_dependency("latinverb_stem_deriver")
   s.add_runtime_dependency("latinverb_type_evaluator")
-  s.add_runtime_dependency("latinverb_imperative_block")
   s.add_runtime_dependency("latinverb_querent_for_classification_builder")
   s.add_runtime_dependency("latinverb_irregular_verb_definition_consumer")
   s.add_runtime_dependency("latinverb_irregular_imperatives_retriever")
