@@ -29,9 +29,6 @@ require 'latinverb/errors'
 require 'latinverb/validator'
 require 'latinverb/tenses'
 
-# LatinVerb verbal noun, verbal adjectives, infinitives
-require 'latinverb/abstract_cluster_factory'
-
 # Main library
 require 'latinverb/latinverb'
 
