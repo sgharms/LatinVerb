@@ -16,6 +16,7 @@ require 'latinverb_querent_for_classification_builder'
 require 'latinverb_irregular_infinitives_retriever'
 require 'latinverb_irregular_imperatives_retriever'
 require 'latinverb_irregular_participles_retriever'
+require 'latinverb_imperatives'
 
 # LatinVerb collaborator classes
 require 'latinverb/version'
@@ -28,10 +29,6 @@ require 'latinverb/tenses'
 
 # LatinVerb verbal noun, verbal adjectives, infinitives
 require 'latinverb/abstract_cluster_factory'
-
-require 'latinverb/imperatives_factory'
-require 'latinverb/imperatives_factory/imperatives_handler'
-require 'latinverb/imperatives_factory/deponent_imperatives_handler'
 
 require 'latinverb/infinitves_factory'
 require 'latinverb/infinitives_factory/infinitivizer'
