@@ -19,7 +19,6 @@ require 'latinverb_irregular_participles_retriever'
 
 # LatinVerb collaborator classes
 require 'latinverb/version'
-require 'latinverb/supine_inferrer'
 require 'latinverb/serialization/json'
 require 'latinverb/serialization/yaml'
 require 'latinverb/serialization/hash'
