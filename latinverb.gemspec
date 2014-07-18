@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("latinverb_irregular_participles_retriever")
   s.add_runtime_dependency("latinverb_imperatives")
   s.add_runtime_dependency("latinverb_infinitives")
+  s.add_runtime_dependency("latinverb_participles")
 
   # Environmental requirements
   s.add_runtime_dependency("rake")

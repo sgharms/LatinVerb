@@ -11,6 +11,7 @@ PATH
       latinverb_irregular_infinitives_retriever
       latinverb_irregular_participles_retriever
       latinverb_irregular_verb_definition_consumer
+      latinverb_participles
       latinverb_principal_parts_extractor
       latinverb_querent_for_classification_builder
       latinverb_stem_deriver
@@ -49,6 +50,7 @@ GEM
     latinverb_irregular_participles_retriever (0.0.1)
     latinverb_irregular_verb_definition_consumer (0.0.1)
       linguistics_latin
+    latinverb_participles (0.0.1)
     latinverb_principal_parts_extractor (0.0.1)
     latinverb_querent_for_classification_builder (0.0.1)
       latinverb_irregular_infinitives_retriever
