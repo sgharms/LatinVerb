@@ -21,8 +21,7 @@ require 'latinverb_serialization'
 
 require 'latinverb/version'
 require 'latinverb/validator'
-#rename
-require 'latinverb/tenses'
+require 'latinverb/tense_block_names'
 
 # Main library
 require 'latinverb/latinverb'
