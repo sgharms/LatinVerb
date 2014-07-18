@@ -1,12 +1,10 @@
 require 'forwardable'
-require 'json'
-require 'yaml'
 
 # Linguistic basics
 require 'linguistics_latin'
 require 'linguistics_latin_tense_block'
 
-# LatinVerb assisting gems
+# LatinVerb-assisting gems
 require 'latinverb_classifier'
 require 'latinverb_principal_parts_extractor'
 require 'latinverb_stem_deriver'
@@ -19,13 +17,11 @@ require 'latinverb_irregular_participles_retriever'
 require 'latinverb_imperatives'
 require 'latinverb_infinitives'
 require 'latinverb_participles'
+require 'latinverb_serialization'
 
-# LatinVerb collaborator classes
 require 'latinverb/version'
-require 'latinverb/serialization/json'
-require 'latinverb/serialization/yaml'
-require 'latinverb/serialization/hash'
 require 'latinverb/validator'
+#rename
 require 'latinverb/tenses'
 
 # Main library
