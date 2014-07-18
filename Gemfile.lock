@@ -14,6 +14,7 @@ PATH
       latinverb_stem_deriver
       latinverb_type_evaluator
       linguistics_latin (~> 0.0.2)
+      linguistics_latin_imperative_block
       linguistics_latin_tense_block
       macronconversions
       multi_json (~> 1.8)
@@ -55,6 +56,7 @@ GEM
       latinverb_deponent_string_deriver
       linguistics_latin (~> 0.0.2)
     linguistics_latin (0.0.2)
+    linguistics_latin_imperative_block (0.0.1)
     linguistics_latin_tense_block (0.0.1)
       linguistics_latin
     macronconversions (0.0.1)
