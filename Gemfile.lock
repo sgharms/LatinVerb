@@ -1,9 +1,10 @@
 PATH
   remote: .
   specs:
-    latinverb (1.0.0.pre.1)
+    latinverb (1.0.0.pre.2)
       latinverb_classifier (= 1.0.0.pre.1)
       latinverb_deponent_string_deriver
+      latinverb_imperative_block (= 1.0.0.pre.1)
       latinverb_imperatives
       latinverb_infinitives
       latinverb_irregular_imperatives_retriever
@@ -17,7 +18,6 @@ PATH
       latinverb_stem_deriver
       latinverb_type_evaluator
       linguistics_latin (~> 0.0.2)
-      linguistics_latin_imperative_block
       linguistics_latin_tense_block
       macronconversions
       multi_json (~> 1.8)
@@ -38,12 +38,15 @@ GEM
     interception (0.5)
     latinverb_classifier (1.0.0.pre.1)
       linguistics_latin (~> 0.0.2)
-    latinverb_deponent_string_deriver (1.0.0.pre.1)
+    latinverb_deponent_string_deriver (1.0.0.pre.2)
+    latinverb_imperative_block (1.0.0.pre.1)
+      linguistics_latin (~> 0.0.2)
     latinverb_imperatives (0.0.1)
       latinverb_irregular_infinitives_retriever
     latinverb_infinitives (0.0.1)
     latinverb_irregular_imperatives_retriever (0.0.1)
     latinverb_irregular_infinitives_retriever (0.0.1)
+      latinverb_irregular_verb_definition_consumer
       linguistics_latin
     latinverb_irregular_participles_retriever (0.0.1)
     latinverb_irregular_verb_definition_consumer (0.0.1)
@@ -56,11 +59,11 @@ GEM
       linguistics_latin_tense_block
     latinverb_serialization (0.0.1)
     latinverb_stem_deriver (0.0.1)
+      latinverb_deponent_string_deriver
     latinverb_type_evaluator (0.0.1)
       latinverb_deponent_string_deriver
       linguistics_latin (~> 0.0.2)
     linguistics_latin (0.0.2)
-    linguistics_latin_imperative_block (0.0.1)
     linguistics_latin_tense_block (1.0.0)
       linguistics_latin
     macronconversions (0.0.1)
