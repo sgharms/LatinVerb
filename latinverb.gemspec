@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("linguistics_latin" "~> 1.0.1")
   s.add_runtime_dependency("linguistics_latin_tense_block", "~> 1.0")
   s.add_runtime_dependency("latinverb_imperative_block" "~> 1.0")
-  s.add_runtime_dependency("latinverb_classifier" "~> 1.0")
+  s.add_runtime_dependency("latinverb_classifier", "~> 1.0")
   s.add_runtime_dependency("latinverb_principal_parts_extractor", "~> 1.0")
   s.add_runtime_dependency("latinverb_deponent_string_deriver", "~> 1.0")
   s.add_runtime_dependency("latinverb_stem_deriver", "~> 1.0")
