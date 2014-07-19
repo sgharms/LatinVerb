@@ -24,12 +24,12 @@ module Linguistics
 
         private
 
-        def delegate_verb_method_calls_to_delegate!
-          self.extend Forwardable
-          @querent.defined_tense_methods.each do |sym|
-            self.def_delegator "@querent", sym
+          def delegate_verb_method_calls_to_delegate!
+            self.extend Forwardable
+            @querent.defined_tense_methods.each do |sym|
+              self.def_delegator "@querent", sym
+            end
           end
-        end
 
         public
 
