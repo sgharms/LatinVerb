@@ -33,7 +33,7 @@ module Linguistics
         end
 
         def wordless?
-          !@results.find{ |r| r =~ /\w/ }
+          @results.none?{ |r| r =~ /\w/ }
         end
 
         def to_json(*a)
@@ -50,4 +50,3 @@ module Linguistics
     end
   end
 end
-

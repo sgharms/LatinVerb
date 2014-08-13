@@ -15,6 +15,7 @@ module Linguistics
 
               def mutate!
               end
+
             end
           end
         end
