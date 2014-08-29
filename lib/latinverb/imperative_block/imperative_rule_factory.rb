@@ -17,7 +17,9 @@ module Linguistics
           end
 
           def present_tense_rule
-            MAPPING[type_key] || raise("Could not find mapping for #{type_key}")
+            MAPPING.fetch(type_key) do
+              raise("Could not find mapping for #{type_key}")
+            end
           end
 
           private

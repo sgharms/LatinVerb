@@ -12,7 +12,9 @@ module Linguistics
               @querent = querent
               @proxyVerb = LatinVerb.new(DeponentStringDeriver.new(original_string).proxy_string, :proxy_verb => true)
             end
-            def mutate!;end
+
+            def mutate!
+            end
 
           end
         end
