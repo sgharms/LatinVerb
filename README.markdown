@@ -60,4 +60,4 @@ modularized.
 
 ## AUTHOR
 
-Steven G. Harms (github@sgharms.oib.com)
+Steven G. Harms (steven &#46; harms AT gmail)
