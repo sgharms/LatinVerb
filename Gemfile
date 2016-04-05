@@ -4,7 +4,7 @@ group :development, :test do
   gem 'rake'
 end
 
-group :development do
+group :test do
   gem 'pry'
   gem 'pry-stack_explorer'
   gem 'pry-rescue'
