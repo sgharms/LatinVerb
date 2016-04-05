@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in latinverb.gemspec
-gemspec
+group :development, :test do
+  gem 'rake'
+end
 
 group :development do
   gem 'pry'
