@@ -5,11 +5,11 @@ module Linguistics
       class ImperativeBlock
         class ImperativeRuleFactory
           MAPPING = {
-            First: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
-            Second: ->(stem, plural_present_imperative){ [stem, stem+"te"] },
+            First:   ->(stem, plural_present_imperative){ [stem, stem+"te"] },
+            Second:  ->(stem, plural_present_imperative){ [stem, stem+"te"] },
             ThirdIO: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
-            Third: ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
-            Fourth: ->(stem, plural_present_imperative){ [stem+"ī", stem+"īte"] }
+            Third:   ->(stem, plural_present_imperative){ [stem+"e", stem+"ite"] },
+            Fourth:  ->(stem, plural_present_imperative){ [stem+"ī", stem+"īte"] }
           }
 
           def initialize(verb)
