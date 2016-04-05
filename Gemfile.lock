@@ -1,84 +1,32 @@
-PATH
-  remote: .
-  specs:
-    latinverb (1.0.0.pre.2)
-      latinverb_deponent_string_deriver (~> 1.0)
-      latinverb_imperatives (~> 1.0)
-      latinverb_infinitives (~> 1.0)
-      latinverb_irregular_imperatives_retriever (~> 1.0)
-      latinverb_irregular_infinitives_retriever (~> 1.0)
-      latinverb_irregular_participles_retriever (~> 1.0)
-      latinverb_irregular_verb_definition_consumer (~> 1.0)
-      latinverb_participles (~> 1.0)
-      latinverb_principal_parts_extractor (~> 1.0)
-      latinverb_querent_for_classification_builder (~> 1.0)
-      latinverb_serialization (~> 1.0)
-      latinverb_stem_deriver (~> 1.0)
-      latinverb_type_evaluator (~> 1.0)
-      linguistics_latin_tense_block (~> 1.0)
-      multi_json (~> 1.8)
-      rake
-
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    byebug (3.1.2)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-    coderay (1.1.0)
-    columnize (0.8.9)
+    byebug (8.2.2)
+    coderay (1.1.1)
     debug_inspector (0.0.2)
-    debugger-linecache (1.2.0)
     interception (0.5)
-    latinverb_deponent_string_deriver (1.0.0)
-    latinverb_imperatives (1.0.0)
-      latinverb_irregular_infinitives_retriever
-    latinverb_infinitives (1.0.0)
-    latinverb_irregular_imperatives_retriever (1.0.0)
-    latinverb_irregular_infinitives_retriever (1.0.0)
-      latinverb_irregular_verb_definition_consumer
-      linguistics_latin
-    latinverb_irregular_participles_retriever (1.0.0)
-    latinverb_irregular_verb_definition_consumer (1.0.0)
-      linguistics_latin
-    latinverb_participles (1.0.0)
-    latinverb_principal_parts_extractor (1.0.0)
-    latinverb_querent_for_classification_builder (1.0.0)
-      latinverb_irregular_infinitives_retriever
-      linguistics_latin (~> 0.0.2)
-      linguistics_latin_tense_block
-    latinverb_serialization (1.0.0)
-    latinverb_stem_deriver (1.0.0)
-      latinverb_deponent_string_deriver
-    latinverb_type_evaluator (1.0.0)
-      latinverb_deponent_string_deriver
-      linguistics_latin (~> 0.0.2)
-    linguistics_latin (0.0.2)
-    linguistics_latin_tense_block (1.0.0)
-      linguistics_latin
     method_source (0.8.2)
-    multi_json (1.10.1)
-    pry (0.10.0)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rescue (1.4.1)
+    pry-rescue (1.4.2)
       interception (>= 0.5)
       pry
-    pry-stack_explorer (0.4.9.1)
+    pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rake (10.3.2)
-    slop (3.5.0)
+    rake (10.4.2)
+    slop (3.6.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   byebug
-  latinverb!
   pry
   pry-rescue
   pry-stack_explorer
+  rake
